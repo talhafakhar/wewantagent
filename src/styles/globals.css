@@ -1,10 +1,8 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 @import url('https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 html {
     scroll-behavior: smooth;
 }
@@ -14,33 +12,3 @@ body {
 .swiper-3d{
     padding: 10px 0 !important;
 }
-=======
-@import url('https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&display=swap');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-html {
-    scroll-behavior: smooth;
-}
-* {
-    scroll-behavior: smooth;
-    font-family: "Alan Sans", sans-serif;
-    font-optical-sizing: auto;
-}
->>>>>>> 70a25946396756ff9f33423c65e1b48df9f82b63
-=======
-@import url('https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&display=swap');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-html {
-    scroll-behavior: smooth;
-}
-* {
-    scroll-behavior: smooth;
-    font-family: "Alan Sans", sans-serif;
-    font-optical-sizing: auto;
-}
->>>>>>> 70a25946396756ff9f33423c65e1b48df9f82b63
