@@ -1,0 +1,15 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /sitemap-0.xml
+Disallow: /sales-consulting/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Host
+Host: https://tfbusinesssolutions.com
+
+# Sitemaps
+Sitemap: https://tfbusinesssolutions.com/sitemap.xml
+Sitemap: https://tfbusinesssolutions.com/server-sitemap.xml
