@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f36c49d3-23cd-44f2-8d3e-bd7e2e00bc13" name="Changes" comment="update dependencies and add new sections to About Us page">
-      <change afterPath="$PROJECT_DIR$/src/components/Contact/ContactUsSection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/contact/index.tsx" afterDir="false" />
+    <list default="true" id="f36c49d3-23cd-44f2-8d3e-bd7e2e00bc13" name="Changes" comment="add Contact Us section and update Navbar with services dropdown">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Navbar.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760011944513</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add Contact Us section and update Navbar with services dropdown">
+      <option name="closed" value="true" />
+      <created>1760019774719</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1760019774719</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,7 +216,8 @@
     <MESSAGE value="initialize Next.js project with Tailwind CSS, GSAP, and essential components" />
     <MESSAGE value="new" />
     <MESSAGE value="update dependencies and add new sections to About Us page" />
-    <option name="LAST_COMMIT_MESSAGE" value="update dependencies and add new sections to About Us page" />
+    <MESSAGE value="add Contact Us section and update Navbar with services dropdown" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Contact Us section and update Navbar with services dropdown" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
 </project>
