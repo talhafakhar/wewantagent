@@ -6,7 +6,7 @@ import { Facebook, Linkedin, Instagram } from "lucide-react";
 
 export default function FooterSection() {
     return (
-        <footer className="text-gray-300 relative">
+        <footer className="text-white relative">
                 <div className="relative py-20  rounded max-w-5xl mx-auto shadow-xl text-center overflow-hidden"
                     style={{
                         backgroundImage: "url('/assets/home/banner-bg.webp')",
@@ -32,7 +32,7 @@ export default function FooterSection() {
 
 
 
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-24 md:pt-32 pb-12">
+            <div className="max-w-7xl  mx-auto px-6 lg:px-8 pt-24 md:pt-32 pb-12">
                 <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
                     <div className="col-span-2 md:col-span-2">
                         <div className="flex flex-col space-y-4">
@@ -109,7 +109,7 @@ export default function FooterSection() {
                 </div>
             </div>
 
-            <div className="border-t border-gray-800 mt-8 md:mt-12 py-6">
+            <div className="border-t  border-gray-800 mt-8 md:mt-12 py-6">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500">
                     <div className="flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-1 mb-3 sm:mb-0">
                         {["Privacy Policy", "Terms of Use", "Cookies Policy"].map((link, idx) => (
