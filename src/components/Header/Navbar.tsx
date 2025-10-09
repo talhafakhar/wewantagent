@@ -14,7 +14,7 @@ const Navbar = () => {
                     <div className="flex items-center justify-between h-16">
                         <Link href="#" className="flex items-center text-white font-bold text-2xl">
                             <Image
-                                src="/assets/svg/home/logo.png" alt="Logo" width={150} height={150}
+                                src="/assets/home/logo white.png" alt="Logo" width={150} height={150}
                             />
                         </Link>
 
@@ -23,11 +23,11 @@ const Navbar = () => {
                                 <Link href="#" className="text-white">
                                     Services
                                 </Link>
-                                <Link href="#" className="text-white">
-                                    Pricing
+                                <Link href="/about-us" className="text-white">
+                                    About
                                 </Link>
                                 <Link href="#" className="text-white">
-                                    About
+                                    Contact
                                 </Link>
                             </div>
                             <Link

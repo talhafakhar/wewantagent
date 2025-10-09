@@ -79,28 +79,34 @@ const HeroSection = () => {
                     </motion.h1>
 
                     <motion.div  variants={item} className="max-w-3xl text-start p-3 backdrop-blur-xl bg-white/10  transition-all  duration-300 hover:bg-white/20 rounded mt-8">
-                        <h3 className="font-semibold tracking-widest text-purple-300  uppercase mb-1">
-                            We Want Agent
-                        </h3>
+                        <span
+                            className="bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] uppercase bg-clip-text text-transparent font-semibold  mb-1"
+                        >
+We want agent
+                        </span>
                         <p className="text-white">
                             Hey there 👋 We are Fantasive A digital creative agency focused on branding, UX/UI, web design and development.How can we help you?
                         </p>
                     </motion.div>
                     <div className="flex  flex-col sm:flex-row items-center max-w-3xl mx-auto justify-center gap-4 mt-5">
                         <motion.div variants={item} className="bg-white/10 hover:bg-white/20 backdrop-blur-xl px-6 py-4 rounded text-start shadow-md w-64 transition-all cursor-pointer duration-300">
-                            <p className="text-purple-300 ">Seeing is believing</p>
+                            <span
+                                className="bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] bg-clip-text text-transparent font-semibold"
+                            >
+                                Seeing is believing
+                            </span>
                             <button className="flex items-center justify-center gap-2 text-white font-semibold">
                                 Show me your work <ArrowRight size={18} />
                             </button>
                         </motion.div>
                         <motion.div variants={item} className="bg-white/10 hover:bg-white/20 backdrop-blur-xl px-6 py-4 rounded text-start shadow-md w-64 transition-all cursor-pointer duration-300">
-                            <p className=" text-purple-300">Are we the right match?</p>
+                            <span className=" bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] bg-clip-text text-transparent">Are we the right match?</span>
                             <button className="flex items-center justify-center gap-2 text-white font-semibold">
                                 Tell me <ArrowRight size={18} />
                             </button>
                         </motion.div>
                         <motion.div variants={item} className="bg-white/10 hover:bg-white/20 backdrop-blur-xl px-6 py-4 rounded text-start shadow-md w-64 transition-all duration-300 cursor-pointer">
-                            <p className="text-purple-300">I have a project</p>
+                            <span className="bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] bg-clip-text text-transparent">I have a project</span>
                             <button className="flex items-center justify-center gap-2 text-white font-semibold">
                                 Let&#39;s get started <ArrowRight size={18} />
                             </button>

@@ -131,7 +131,7 @@ const  PricingSection = ()=> {
                         >
                             <div>
                                 <div className="flex flex-col gap-3">
-                                    <p className="text-xl font-semibold">{plan.title}</p>
+                                    <span className="text-xl font-semibold bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] bg-clip-text text-transparent">{plan.title}</span>
                                     <p>
                                         <span className="text-3xl font-bold tracking-tight">
                                             {annual ? plan.annual : plan.monthly}
@@ -194,22 +194,30 @@ const  PricingSection = ()=> {
                     className="mt-16 flex justify-center"
                 >
                     <motion.button
-                        whileHover={{
-                            scale: 1.05,
-                            rotate: [0, 1, -1, 0],
-                            transition: { duration: 0.3 },
+                        variants={{
+                            hover: {
+                                scale: 1.05,
+                                rotate: [0, 1, -1, 0],
+                                transition: { duration: 0.3 },
+                            },
+                            tap: {
+                                scale: 0.95,
+                            },
                         }}
-                        whileTap={{ scale: 0.95 }}
-                        className="relative h-12 w-60 overflow-hidden border text-white shadow-xl transition-all duration-300
-                     before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto
-                     before:h-0 before:w-0 hover:text-black before:rounded-sm before:bg-white before:duration-300
-                     before:ease-out hover:before:h-40 hover:before:w-60"
+                        whileHover="hover"
+                        whileTap="tap"
+                        className="relative h-12 w-60 overflow-hidden  text-white shadow-2xl transition-all duration-200
+    before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto
+    before:h-0 before:w-0 before:rounded-sm before:bg-white before:duration-300
+    before:ease-out hover:before:h-40 hover:before:w-60
+    border-transparent bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] p-[2px]"
                     >
-                        <span className="relative z-10 font-medium">
-                            Book a free consultation
-                        </span>
+  <span className="relative z-10 flex h-full w-full items-center justify-center text-nowrap bg-black rounded-sm">
+  Book a free consultation
+  </span>
                     </motion.button>
                 </motion.div>
+
             </div>
         </section>
     );

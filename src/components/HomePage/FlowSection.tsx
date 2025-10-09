@@ -88,17 +88,17 @@ const OrbitAnimation: React.FC = () => {
                             alt="AI Chatbot"
                             width={500}
                             height={500}
-                            className="border border-gray-600 rounded-xl mx-auto md:mx-0 shadow-lg"
+                            className="border border-gray-600 rounded-xl mb-5 mx-auto md:mx-0 shadow-lg"
                         />
-                        <motion.h3
+                        <motion.span
                             initial={{opacity: 0, y: 20}}
                             whileInView={{opacity: 1, y: 0}}
                             transition={{duration: 0.8, delay: 0.3}}
                             viewport={{once: true}}
-                            className="text-xl md:text-2xl pt-6 text-white font-semibold"
+                            className="text-xl md:text-2xl  bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] bg-clip-text text-transparent font-semibold"
                         >
                             Real-time AI Collaboration
-                        </motion.h3>
+                        </motion.span>
                         <motion.p
                             initial={{opacity: 0, y: 20}}
                             whileInView={{opacity: 1, y: 0}}
@@ -208,7 +208,7 @@ const OrbitAnimation: React.FC = () => {
                                     {feature.icon}
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-semibold mb-1">{feature.title}</h3>
+                                    <h3 className="text-lg   font-semibold mb-1">{feature.title}</h3>
                                     <p className="text-gray-400 text-sm leading-relaxed">
                                         {feature.description}
                                     </p>
@@ -223,7 +223,7 @@ const OrbitAnimation: React.FC = () => {
                             hover: {
                                 scale: 1.05,
                                 rotate: [0, 1, -1, 0],
-                                transition: {duration: 0.3},
+                                transition: { duration: 0.3 },
                             },
                             tap: {
                                 scale: 0.95,
@@ -231,13 +231,17 @@ const OrbitAnimation: React.FC = () => {
                         }}
                         whileHover="hover"
                         whileTap="tap"
-                        className="relative h-12 w-40 overflow-hidden border text-white shadow-2xl transition-all duration-200
-                     before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto
-                     before:h-0 before:w-0 hover:text-black before:rounded-sm before:bg-white before:duration-300
-                     before:ease-out hover:before:h-40 hover:before:w-40"
+                        className="relative h-12 w-40 overflow-hidden  text-white shadow-2xl transition-all duration-200
+    before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto
+    before:h-0 before:w-0 before:rounded-sm before:bg-white before:duration-300
+    before:ease-out hover:before:h-40 hover:before:w-40
+    border-transparent bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] p-[2px]"
                     >
-                        <span className="relative z-10">Get Started Free</span>
+  <span className="relative z-10 flex h-full w-full items-center justify-center bg-black rounded-sm">
+    Get Started Free
+  </span>
                     </motion.button>
+
                 </div>
             </div>
 

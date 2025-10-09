@@ -67,7 +67,6 @@ const BenefitSection = () => {
         <section ref={ref} className="min-h-screen">
             <div className="max-w-7xl mx-auto px-4 py-20">
                 <div className="flex justify-between items-center flex-col md:flex-row">
-                    {/* Left content */}
                     <div className="w-full md:w-1/2 space-y-6">
                         <motion.h2
                             className="text-4xl md:text-6xl text-white mb-6 tracking-tight"
@@ -131,7 +130,6 @@ const BenefitSection = () => {
                     </div>
                 </div>
 
-                {/* Swiper Section */}
                 <div className="mt-20">
                     <Swiper
                         effect={"coverflow"}
@@ -166,12 +164,12 @@ const BenefitSection = () => {
                                     </div>
 
                                     <div className="relative z-10 mb-6">
-                                        <div
-                                            className="text-8xl font-bold text-white/5 leading-none group-hover:text-white/10 transition-colors duration-500"
+                                        <span
+                                            className="text-8xl font-bold bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] bg-clip-text text-transparent transition-colors duration-500"
                                             style={{ fontFamily: "Arial Black, sans-serif" }}
                                         >
                                             {service.number}
-                                        </div>
+                                        </span>
                                     </div>
 
                                     <div className="relative z-10">
@@ -187,9 +185,7 @@ const BenefitSection = () => {
                         ))}
                     </Swiper>
                 </div>
-
-                {/* Button */}
-                <div className="mt-10 flex justify-center">
+                <div className="mt-10  flex justify-center ">
                     <motion.button
                         variants={{
                             hover: {
@@ -197,18 +193,25 @@ const BenefitSection = () => {
                                 rotate: [0, 1, -1, 0],
                                 transition: { duration: 0.3 },
                             },
-                            tap: { scale: 0.95 },
+                            tap: {
+                                scale: 0.95,
+                            },
                         }}
                         whileHover="hover"
                         whileTap="tap"
-                        className="relative h-12 w-40 overflow-hidden border text-white shadow-2xl transition-all duration-200
-                            before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto
-                            before:h-0 before:w-0 hover:text-black before:rounded-sm before:bg-white before:duration-300
-                            before:ease-out hover:before:h-40 hover:before:w-40"
+                        className="relative h-12 w-40 overflow-hidden  text-white shadow-2xl transition-all duration-200
+    before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto
+    before:h-0 before:w-0 before:rounded-sm before:bg-white before:duration-300
+    before:ease-out hover:before:h-40 hover:before:w-40
+    border-transparent bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] p-[2px]"
                     >
-                        <span className="relative z-10">Get Started Free</span>
+  <span className="relative z-10 flex h-full w-full items-center justify-center bg-black rounded-sm">
+    Get Started Free
+  </span>
                     </motion.button>
+
                 </div>
+
             </div>
         </section>
     );

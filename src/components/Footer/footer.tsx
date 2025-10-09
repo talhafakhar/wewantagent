@@ -19,9 +19,14 @@ export default function FooterSection() {
                         <h2 className="text-2xl md:text-4xl font-semibold max-w-3xl mx-auto text-white mb-6">
                             Get to know the world-class board of directors governing our organization.
                         </h2>
-                        <button className="border border-white text-white font-medium py-2 px-8 rounded shadow-md">
-                            Meet our Board
+                        <button className="relative inline-block rounded bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] p-[2px]">
+  <span className="block rounded bg-transparent text-white font-medium py-2 px-8">
+    Meet our Board
+  </span>
                         </button>
+
+
+
                     </div>
                 </div>
 

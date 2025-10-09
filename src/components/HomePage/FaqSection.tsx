@@ -62,7 +62,7 @@ export default function FaqSection() {
                                     viewport={{ once: true }}
                                     className="py-6 first:pt-0 last:pb-0"
                                 >
-                                    <dt className="text-xl font-semibold text-white">
+                                    <dt className="text-xl font-semibold bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] bg-clip-text text-transparent">
                                         {faq.question}
                                     </dt>
                                     <dd className="mt-3 text-base leading-7 text-gray-400">

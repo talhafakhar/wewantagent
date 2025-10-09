@@ -33,9 +33,9 @@ export default function TestimonialsSection() {
             <div className="mx-auto max-w-7xl px-4">
                 <div className="flex justify-center items-center gap-y-8 lg:gap-y-0 flex-wrap md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between lg:gap-x-8 max-w-sm sm:max-w-2xl lg:max-w-full mx-auto">
                     <div className="w-full lg:w-2/5">
-                        <span className="text-sm text-gray-400 font-medium mb-4 block">Testimonial</span>
+                        <span className=" text-gray-400 font-medium mb-4 block">Testimonial</span>
                         <h2 className="text-4xl  text-white leading-[3.25rem] mb-8">
-                            23k+ Customers gave their Feedback
+                            <span className="bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] bg-clip-text text-transparent font-bold">500+</span> Customers gave their Feedback
                         </h2>
 
                     </div>
