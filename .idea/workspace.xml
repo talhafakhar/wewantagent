@@ -4,21 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f36c49d3-23cd-44f2-8d3e-bd7e2e00bc13" name="Changes" comment="new build create for deploy on vercel">
-      <change afterPath="$PROJECT_DIR$/public/assets/about/about-bg.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/home/logo white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/About/HeroSection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/about-us/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomePage/BenefitSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/BenefitSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomePage/FaqSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/FaqSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomePage/FlowSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/FlowSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomePage/GlobeSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/GlobeSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomePage/HeroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/HeroSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomePage/PricingTableSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/PricingTableSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomePage/TestimonialSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/TestimonialSection.tsx" afterDir="false" />
+    <list default="true" id="f36c49d3-23cd-44f2-8d3e-bd7e2e00bc13" name="Changes" comment="text color change">
+      <change beforePath="$PROJECT_DIR$/src/components/About/HeroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/HeroSection.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +28,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -123,7 +110,7 @@
       <updated>1759846211046</updated>
       <workItem from="1759846212542" duration="754000" />
       <workItem from="1759847021098" duration="372000" />
-      <workItem from="1759847465944" duration="10817000" />
+      <workItem from="1759847465944" duration="11126000" />
     </task>
     <task id="LOCAL-00001" summary="initialize Next.js project with Tailwind CSS, GSAP, and essential components">
       <option name="closed" value="true" />
@@ -165,7 +152,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759994052748</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="text color change">
+      <option name="closed" value="true" />
+      <created>1759999298686</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1759999298686</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,7 +183,8 @@
     <MESSAGE value="initialize Next.js project with Tailwind CSS, GSAP, and essential components" />
     <MESSAGE value="new" />
     <MESSAGE value="new build create for deploy on vercel" />
-    <option name="LAST_COMMIT_MESSAGE" value="new build create for deploy on vercel" />
+    <MESSAGE value="text color change" />
+    <option name="LAST_COMMIT_MESSAGE" value="text color change" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
 </project>

@@ -70,6 +70,13 @@ const HeroSection = () => {
                        >
                            Where Human Vision Meets Artificial Intelligence
                        </motion.h1>
+                          <motion.p
+                            variants={item}
+                            className="mt-6 text-lg md:text-xl text-white max-w-3xl"
+                        >
+                            At Mesha, we harness the power of AI to transform your ideas into stunning visual realities.
+                        </motion.p>
+
                    </motion.div>
                </div>
         </section>
