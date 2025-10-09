@@ -1,24 +1,10 @@
 
 "use client";
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {easeInOut, easeOut, motion} from "framer-motion";
-import Image from "next/image";
-import Navbar from "@/components/Header/Navbar";
-import {ArrowRight} from "lucide-react";
+import Navbar from "@/components/Header/Navbar"
 
-const logos = [
-    {src: "/assets/svg/home/mesha.svg"},
-    {src: "/assets/home/serve_co_logo.webp"},
-    {src: "/assets/home/pandora.webp"},
-];
 const HeroSection = () => {
-    const [index, setIndex] = useState(0);
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setIndex((prev) => (prev + 1) % logos.length);
-        }, 2000);
-        return () => clearInterval(interval);
-    }, []);
     const container = {
         hidden: {opacity: 0},
         show: {
