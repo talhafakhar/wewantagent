@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { CheckCircle, XCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
-export default function PricingSection() {
+const  PricingSection = ()=> {
     const [annual, setAnnual] = useState(false);
 
     const plans = [
@@ -214,3 +214,4 @@ export default function PricingSection() {
         </section>
     );
 }
+export default PricingSection;

@@ -4,6 +4,7 @@ import React, {useEffect, useState} from "react";
 import {easeInOut, easeOut, motion} from "framer-motion";
 import Image from "next/image";
 import Navbar from "@/components/Header/Navbar";
+import {ArrowRight} from "lucide-react";
 
 const logos = [
     {src: "/assets/svg/home/mesha.svg"},
@@ -47,16 +48,7 @@ const HeroSection = () => {
             },
         },
     };
-    const buttonHover = {
-        hover: {
-            scale: 1.05,
-            rotate: [0, 1, -1, 0],
-            transition: {duration: 0.3},
-        },
-        tap: {
-            scale: 0.95,
-        },
-    };
+
     return (
         <section className="relative min-h-screen bg-black">
             <video
@@ -76,7 +68,7 @@ const HeroSection = () => {
                     variants={container}
                     initial="hidden"
                     animate="show"
-                    className="relative z-10 h-screen flex flex-col justify-center items-center text-center px-4"
+                    className="relative z-10   h-screen flex flex-col justify-center items-center text-center px-4"
                 >
                     <motion.h1
                         variants={item}
@@ -86,26 +78,34 @@ const HeroSection = () => {
                         Meet Your New Digital Team Member
                     </motion.h1>
 
-                    <motion.p
-                        variants={item}
-                        className="mt-6 text-lg text-white max-w-2xl mx-auto"
-                    >
-                        AI agents that handle the work — so you can focus on what matters most.
-                    </motion.p>
-
-                    <motion.div variants={item} className="mt-10">
-                        <motion.button
-                            variants={buttonHover}
-                            whileHover="hover"
-                            whileTap="tap"
-                            className="relative h-12 w-40 overflow-hidden border text-white shadow-2xl transition-all duration-200
-                     before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto
-                     before:h-0 before:w-0 hover:text-black before:rounded-sm before:bg-white before:duration-300
-                     before:ease-out hover:before:h-40 hover:before:w-40"
-                        >
-                            <span className="relative z-10">Get Started Free</span>
-                        </motion.button>
+                    <motion.div  variants={item} className="max-w-3xl text-start p-3 backdrop-blur-xl bg-white/10  transition-all  duration-300 hover:bg-white/20 rounded mt-8">
+                        <h3 className="font-semibold tracking-widest text-purple-300  uppercase mb-1">
+                            We Want Agent
+                        </h3>
+                        <p className="text-white">
+                            Hey there 👋 We are Fantasive A digital creative agency focused on branding, UX/UI, web design and development.How can we help you?
+                        </p>
                     </motion.div>
+                    <div className="flex  flex-col sm:flex-row items-center max-w-3xl mx-auto justify-center gap-4 mt-5">
+                        <motion.div variants={item} className="bg-white/10 hover:bg-white/20 backdrop-blur-xl px-6 py-4 rounded text-start shadow-md w-64 transition-all cursor-pointer duration-300">
+                            <p className="text-purple-300 ">Seeing is believing</p>
+                            <button className="flex items-center justify-center gap-2 text-white font-semibold">
+                                Show me your work <ArrowRight size={18} />
+                            </button>
+                        </motion.div>
+                        <motion.div variants={item} className="bg-white/10 hover:bg-white/20 backdrop-blur-xl px-6 py-4 rounded text-start shadow-md w-64 transition-all cursor-pointer duration-300">
+                            <p className=" text-purple-300">Are we the right match?</p>
+                            <button className="flex items-center justify-center gap-2 text-white font-semibold">
+                                Tell me <ArrowRight size={18} />
+                            </button>
+                        </motion.div>
+                        <motion.div variants={item} className="bg-white/10 hover:bg-white/20 backdrop-blur-xl px-6 py-4 rounded text-start shadow-md w-64 transition-all duration-300 cursor-pointer">
+                            <p className="text-purple-300">I have a project</p>
+                            <button className="flex items-center justify-center gap-2 text-white font-semibold">
+                                Let&#39;s get started <ArrowRight size={18} />
+                            </button>
+                        </motion.div>
+                    </div>
                     <div className="absolute bottom-0 right-10 p-2">
                         <div className="relative w-32 h-48 ">
                             {logos.map((logo, i) => (
@@ -125,7 +125,6 @@ const HeroSection = () => {
                         </div>
                     </div>
                 </motion.div>
-
             </div>
 
         </section>
