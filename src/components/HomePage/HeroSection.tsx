@@ -50,7 +50,11 @@ const HeroSection = () => {
     };
 
     return (
-        <section className="relative min-h-screen bg-black">
+        <motion.section
+            initial={{ scale: 1.05, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 2, ease: "easeOut" }}
+            className="relative min-h-screen ">
             <video
                 className="absolute inset-0 w-full h-full object-cover"
                 src="/assets/home/hero-bg.mp4"
@@ -133,7 +137,7 @@ We want agent
                 </motion.div>
             </div>
 
-        </section>
+        </motion.section>
     );
 };
 
