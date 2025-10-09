@@ -1,11 +1,32 @@
 "use client";
 import helpAnimation from "@/assets/lottie/contact.json";
 import Lottie from 'lottie-react';
+import {easeOut, motion} from "framer-motion";
 
 export default function ContactSection() {
+    const fadeUp = {
+        hidden: { opacity: 0, y: 40 },
+        show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: easeOut } },
+    };
     return (
         <section className=" max-w-7xl mx-auto  px-6  py-20">
-           <div className="flex flex-col md:flex-row items-center gap-10">
+            <motion.div
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                variants={fadeUp}
+            >
+                <h2 className="text-4xl md:text-5xl text-white text-center font-semibold leading-tight">
+                  Feel Free to
+                    <span className="bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] bg-clip-text text-transparent">
+              Contact Us
+            </span>
+                </h2>
+                <p className="mt-6 text-gray-300 text-center">
+                    We're here to help and answer any questions you might have. We look forward to hearing from you!
+                </p>
+            </motion.div>
+           <div className="flex flex-col md:flex-row items-center mt-20 gap-10">
                <div className="w-full md:w-1/2 flex ">
                    <Lottie
                        animationData={helpAnimation}

@@ -4,20 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f36c49d3-23cd-44f2-8d3e-bd7e2e00bc13" name="Changes" comment="new">
-      <change afterPath="$PROJECT_DIR$/public/assets/svg/about/birthofai.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/lottie/contact.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/About/ContactSection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/About/MeetOurTeam.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/About/MissionSection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/About/OriginStorySection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/About/SolutionsSection.tsx" afterDir="false" />
+    <list default="true" id="f36c49d3-23cd-44f2-8d3e-bd7e2e00bc13" name="Changes" comment="update dependencies and add new sections to About Us page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/About/HeroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/HeroSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomePage/HeroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/HeroSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/about-us/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/about-us/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/About/ContactSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/ContactSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/About/MeetOurTeam.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/MeetOurTeam.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/About/MissionSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/MissionSection.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +172,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759849046252</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="update dependencies and add new sections to About Us page">
+      <option name="closed" value="true" />
+      <created>1760011574022</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1760011574022</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,7 +202,8 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="initialize Next.js project with Tailwind CSS, GSAP, and essential components" />
     <MESSAGE value="new" />
-    <option name="LAST_COMMIT_MESSAGE" value="new" />
+    <MESSAGE value="update dependencies and add new sections to About Us page" />
+    <option name="LAST_COMMIT_MESSAGE" value="update dependencies and add new sections to About Us page" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
 </project>

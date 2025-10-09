@@ -39,7 +39,7 @@ export default function MeetOurTeam() {
                     viewport={{ once: true }}
                     variants={fadeUp}
                 >
-                    <p className="text-[#00D1B2] font-medium text-sm tracking-wide mb-2">
+                    <p className=" font-medium  tracking-wide mb-2">
                         03 — Our Team
                     </p>
                     <h2 className="text-4xl md:text-5xl font-semibold leading-tight">
