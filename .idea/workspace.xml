@@ -4,8 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f36c49d3-23cd-44f2-8d3e-bd7e2e00bc13" name="Changes" comment="add Contact Us section and update Navbar with services dropdown">
+    <list default="true" id="f36c49d3-23cd-44f2-8d3e-bd7e2e00bc13" name="Changes" comment="add favicon">
+      <change afterPath="$PROJECT_DIR$/public/assets/services/Dall-e.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/services/LLAMA.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/services/PaLM2.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/services/aiDevelopment.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/services/claude.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/services/hero -bg-services.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/services/openAI.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/svg/services/robotFly.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/lottie/aiDevelopment.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/services/AiDevelopment/BusinessSolutionsSection.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/services/AiDevelopment/FlowSection.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/services/AiDevelopment/HeroSection.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/services/AiDevelopment/IndustrySolutionSection.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/services/AiDevelopment/ModalSection.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/services/AiDevelopment/ServicesSection.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/services/AiDevelopment/StatsSection.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/services/AiDevelopment/TimeLineItemSection.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/services/ai-development/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/About/ContactSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/ContactSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/FlowSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/FlowSection.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +97,7 @@
     "git-widget-placeholder": "master",
     "js.debugger.nextJs.config.created.client": "true",
     "js.debugger.nextJs.config.created.server": "true",
-    "last_opened_file_path": "C:/repo",
+    "last_opened_file_path": "C:/Users/Developer/Desktop/WeWantAgent/public/assets/svg/services",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -99,7 +120,14 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\svg\services" />
+      <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\services" />
+      <recent name="C:\Users\Developer\Desktop\WeWantAgent\src\assets\lottie" />
+      <recent name="C:\Users\Developer\Desktop\WeWantAgent\public" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\services" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\src\assets" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\about" />
     </key>
@@ -193,7 +221,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760019774719</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add favicon">
+      <option name="closed" value="true" />
+      <created>1760020845174</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1760020845174</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,7 +253,8 @@
     <MESSAGE value="new" />
     <MESSAGE value="update dependencies and add new sections to About Us page" />
     <MESSAGE value="add Contact Us section and update Navbar with services dropdown" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Contact Us section and update Navbar with services dropdown" />
+    <MESSAGE value="add favicon" />
+    <option name="LAST_COMMIT_MESSAGE" value="add favicon" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
 </project>

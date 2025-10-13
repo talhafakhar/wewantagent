@@ -208,7 +208,7 @@ const OrbitAnimation: React.FC = () => {
                                     {feature.icon}
                                 </div>
                                 <div>
-                                    <h3 className="text-lg   font-semibold mb-1">{feature.title}</h3>
+                                    <span className="text-lg  bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] bg-clip-text text-transparent font-semibold mb-1">{feature.title}</span>
                                     <p className="text-gray-400 text-sm leading-relaxed">
                                         {feature.description}
                                     </p>
@@ -216,32 +216,6 @@ const OrbitAnimation: React.FC = () => {
                             </motion.div>
                         );
                     })}
-                </div>
-                <div className="mt-10  flex justify-center ">
-                    <motion.button
-                        variants={{
-                            hover: {
-                                scale: 1.05,
-                                rotate: [0, 1, -1, 0],
-                                transition: { duration: 0.3 },
-                            },
-                            tap: {
-                                scale: 0.95,
-                            },
-                        }}
-                        whileHover="hover"
-                        whileTap="tap"
-                        className="relative h-12 w-40 overflow-hidden  text-white shadow-2xl transition-all duration-200
-    before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto
-    before:h-0 before:w-0 before:rounded-sm before:bg-white before:duration-300
-    before:ease-out hover:before:h-40 hover:before:w-40
-    border-transparent bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] p-[2px]"
-                    >
-  <span className="relative z-10 flex h-full w-full items-center justify-center bg-black rounded-sm">
-    Get Started Free
-  </span>
-                    </motion.button>
-
                 </div>
             </div>
 

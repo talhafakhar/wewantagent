@@ -62,7 +62,7 @@ const Navbar = () => {
                                                 </Link>
 
                                                 <Link
-                                                    href="/services/ui-design"
+                                                    href="/services/ai-development"
                                                     className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/10 transition-colors"
                                                 >
                                                     <Cpu className="text-white w-5 h-5 mt-1" />

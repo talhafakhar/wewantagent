@@ -1,0 +1,74 @@
+import React from "react";
+import { motion } from "framer-motion";
+
+const steps = [
+    {
+        number: 1,
+        title: "Discovery",
+        description:
+            "We analyse your business goals and translate everything into technical documents.",
+    },
+    {
+        number: 2,
+        title: "Kick-off",
+        description:
+            "We gather a fitting team for your project, and the designer creates the first prototype of your chatbot.",
+    },
+    {
+        number: 3,
+        title: "Development",
+        description:
+            "The developers build your chatbot as you review results every two weeks. Your chatbot is deployed.",
+    },
+    {
+        number: 4,
+        title: "Support",
+        description:
+            "After deployment, we assign QA experts to fix bugs and provide general customer support.",
+    },
+];
+
+const ProcessTimeline = () => {
+    return (
+        <section className="bg-black text-white py-20 px-4 md:px-12">
+            <div className="max-w-6xl mx-auto">
+                <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+                    Our Development Process
+                </h2>
+
+                <div className="relative border-l-2 border-gray-700 ml-6">
+                    {steps.map((step, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 40 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: index * 0.1 }}
+                            viewport={{ once: true }}
+                            className="relative mb-12 last:mb-0"
+                        >
+                            <div className="absolute -left-[22px] top-0 flex items-center justify-center">
+                                <div className="p-[2px] rounded-full bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C]">
+                                    <div className="w-10 h-10 flex items-center justify-center rounded-full bg-black text-white font-bold">
+                                        {step.number}
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div className="ml-8 bg-white/10 border border-white/20 rounded p-6 shadow-md hover:shadow-[#00D1B2]/20 transition">
+                                <h3 className="text-xl font-bold text-white mb-2 uppercase tracking-wide">
+                                    {step.title}
+                                </h3>
+                                <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+                                    {step.description}
+                                </p>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default ProcessTimeline;

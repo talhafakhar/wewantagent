@@ -23,11 +23,11 @@ export default function ContactSection() {
             </span>
                 </h2>
                 <p className="mt-6 text-gray-300 text-center">
-                    We're here to help and answer any questions you might have. We look forward to hearing from you!
+                    We&#39;re here to help and answer any questions you might have. We look forward to hearing from you!
                 </p>
             </motion.div>
            <div className="flex flex-col md:flex-row items-center mt-20 gap-10">
-               <div className="w-full md:w-1/2 flex ">
+               <div className="w-full md:w-1/2  ">
                    <Lottie
                        animationData={helpAnimation}
                        loop={true}
