@@ -2,7 +2,6 @@
 import helpAnimation from "@/assets/lottie/contact.json";
 import Lottie from 'lottie-react';
 import {easeOut, motion} from "framer-motion";
-
 export default function ContactSection() {
     const fadeUp = {
         hidden: { opacity: 0, y: 40 },
@@ -80,7 +79,7 @@ export default function ContactSection() {
 
                            <button
                                type="submit"
-                               className="w-full py-3   rounded-md  border-black border"
+                               className="w-full py-3 rounded-md  border-black border"
                            >
                                Send Message
                            </button>
