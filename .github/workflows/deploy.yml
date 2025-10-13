@@ -21,24 +21,90 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           port: 22
           script: |
-            export PATH="/home/wewantagent/.nvm/versions/node/v22.20.0/bin/node:$PATH"
-            
-            echo "🚀 Deploying WWA tag ${{ github.event.inputs.tag }} to /home/tfbusinesssolutions-stagging/htdocs/stagging.tfbusinesssolutions.com"
-            
-            # Move to WWA project directory
+            set -euo pipefail
+
+            echo "🚀 Deploying WWA tag ${{ github.event.inputs.tag }}"
+
+            # --- Resolve Node/NPM/PM2 paths at runtime ---
+            # Try to source NVM if available to expose shims
+            if [ -s "$HOME/.nvm/nvm.sh" ]; then
+              # shellcheck disable=SC1090
+              . "$HOME/.nvm/nvm.sh"
+              # Use default if set; ignore errors if not
+              nvm use default >/dev/null 2>&1 || true
+            fi
+
+            # Discover binaries, fallback to known locations if not in PATH
+            NODE_BIN="$(command -v node || true)"
+            NPM_BIN="$(command -v npm || true)"
+            PM2_BIN="$(command -v pm2 || true)"
+
+            # If node not found, fallback to a common NVM path
+            if [ -z "${NODE_BIN}" ] && [ -x "$HOME/.nvm/versions/node/v22.20.0/bin/node" ]; then
+              NODE_BIN="$HOME/.nvm/versions/node/v22.20.0/bin/node"
+            fi
+
+            # If npm not found, try alongside node
+            if [ -z "${NPM_BIN}" ] && [ -n "${NODE_BIN}" ]; then
+              NPM_CANDIDATE="$(dirname "$NODE_BIN")/npm"
+              if [ -x "$NPM_CANDIDATE" ]; then
+                NPM_BIN="$NPM_CANDIDATE"
+              fi
+            fi
+
+            # If pm2 not found, try alongside node
+            if [ -z "${PM2_BIN}" ] && [ -n "${NODE_BIN}" ]; then
+              PM2_CANDIDATE="$(dirname "$NODE_BIN")/pm2"
+              if [ -x "$PM2_CANDIDATE" ]; then
+                PM2_BIN="$PM2_CANDIDATE"
+              fi
+            fi
+
+            # Final sanity checks
+            if [ -z "${NODE_BIN}" ] || [ -z "${NPM_BIN}" ]; then
+              echo "❌ node or npm not found in PATH or common NVM locations."
+              exit 1
+            fi
+            if [ -z "${PM2_BIN}" ]; then
+              echo "❌ pm2 not found. Installing locally with npm..."
+              "${NPM_BIN}" i -g pm2
+              PM2_BIN="$(command -v pm2)"
+            fi
+
+            echo "✅ Using:"
+            echo "   node -> ${NODE_BIN} ($("${NODE_BIN}" -v))"
+            echo "   npm  -> ${NPM_BIN} ($("${NPM_BIN}" -v))"
+            echo "   pm2  -> ${PM2_BIN} ($("${PM2_BIN}" -v))"
+
+            echo "📂 cd to project: /home/wewantagent/htdocs/wewantagent.com"
             cd /home/wewantagent/htdocs/wewantagent.com
-            
-            echo "🔄 Fetching tag and resetting code"
+
+            echo "🔄 Fetching tag and resetting code to ${{ github.event.inputs.tag }}"
             git fetch --all --tags
             git reset --hard ${{ github.event.inputs.tag }}
-            
-            echo "📦 Installing dependencies"
-            /home/wewantagent/.nvm/versions/node/v22.20.0/bin/npm install --production
-            
+
+            echo "📦 Installing dependencies (production)"
+            if [ -f package-lock.json ]; then
+              "${NPM_BIN}" ci --omit=dev
+            else
+              "${NPM_BIN}" install --production
+            fi
+
             echo "⚡ Building WWA"
-            /home/wewantagent/.nvm/versions/node/v22.20.0/bin/npm run build
-            
-            echo "🚀 Restarting PM2 process"
-            /home/wewantagent/.nvm/versions/node/v22.20.0/bin/pm2restart wewantagent || /home/wewantagent/.nvm/versions/node/v22.20.0/bin/pm2 start npm --name wewantagent -- start
-            
-            /home/wewantagent/.nvm/versions/node/v22.20.0/bin/pm2 save
+            "${NPM_BIN}" run build
+
+            # Ensure the app port is set for this session (PM2 will persist env on first start)
+            export PORT=3010
+
+            echo "🚀 Restarting/Starting PM2 process: wewantagent"
+            if "${PM2_BIN}" list | grep -qE 'wewantagent\s'; then
+              # Use update-env so the new PORT is applied
+              "${PM2_BIN}" restart wewantagent --update-env
+            else
+              # Start via npm runner with the resolved npm binary
+              "${PM2_BIN}" start "${NPM_BIN}" --name wewantagent -- run start
+            fi
+
+            "${PM2_BIN}" save
+
+            echo "✅ Deployment complete."
