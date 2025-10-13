@@ -1,0 +1,44 @@
+name: 🚀 Deploy WWA to VPS (Manual Tag Deploy)
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Git tag to deploy (e.g., v1.0.0-staging)'
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🛠 SSH and deploy WWA
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_STAGGING_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 22
+          script: |
+            export PATH="/home/wewantagent/.nvm/versions/node/v22.20.0/bin/node:$PATH"
+            
+            echo "🚀 Deploying WWA tag ${{ github.event.inputs.tag }} to /home/tfbusinesssolutions-stagging/htdocs/stagging.tfbusinesssolutions.com"
+            
+            # Move to WWA project directory
+            cd /home/wewantagent/htdocs/wewantagent.com
+            
+            echo "🔄 Fetching tag and resetting code"
+            git fetch --all --tags
+            git reset --hard ${{ github.event.inputs.tag }}
+            
+            echo "📦 Installing dependencies"
+            /home/wewantagent/.nvm/versions/node/v22.20.0/bin/npm install --production
+            
+            echo "⚡ Building WWA"
+            /home/wewantagent/.nvm/versions/node/v22.20.0/bin/npm run build
+            
+            echo "🚀 Restarting PM2 process"
+            /home/wewantagent/.nvm/versions/node/v22.20.0/bin/pm2restart wewantagent || /home/wewantagent/.nvm/versions/node/v22.20.0/bin/pm2 start npm --name wewantagent -- start
+            
+            /home/wewantagent/.nvm/versions/node/v22.20.0/bin/pm2 save
