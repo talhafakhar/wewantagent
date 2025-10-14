@@ -10,10 +10,10 @@ const Navbar = () => {
     const [isServicesOpen, setIsServicesOpen] = useState(false);
 
     return (
-        <nav className={`fixed top-4 left-0 w-full z-50 transition-all duration-300 py-2`}>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav className="pt-4 px-4 sm:px-6 lg:px-8 relative z-10 transition-all duration-300">
+            <div className="max-w-7xl mx-auto ">
                 <div className={`bg-white/10 border border-white rounded-full px-4 sm:px-6 shadow-lg transition-all duration-300`}>
-                    <div className="flex items-center justify-between h-16">
+                    <div className="flex items-center justify-between py-2">
                         <Link href="/" className="flex items-center text-white font-bold text-2xl">
                             <Image
                                 src="/assets/home/logo white.png"
@@ -23,8 +23,6 @@ const Navbar = () => {
                                 height={150}
                             />
                         </Link>
-
-                        {/* Desktop Navigation */}
                         <div className="hidden lg:flex gap-4 items-center relative">
                             <div className="flex space-x-6 bg-white/20 px-8 py-2.5 rounded-full">
                                 {/* Services dropdown trigger */}
@@ -109,8 +107,6 @@ const Navbar = () => {
                                 Let&#39;s Collaborate
                             </Link>
                         </div>
-
-                        {/* Mobile Menu Button */}
                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             className="lg:hidden text-white focus:outline-none"
@@ -142,8 +138,6 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-
-            {/* Mobile Dropdown */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div

@@ -5,7 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f36c49d3-23cd-44f2-8d3e-bd7e2e00bc13" name="Changes" comment="fix styling in ContactSection button and clean up workspace.xml">
+      <change afterPath="$PROJECT_DIR$/public/assets/svg/home/AssemblyAI.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/svg/home/ElevenLabs.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/svg/home/Gmail.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/svg/home/GoogleDrive.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/svg/home/Grafana.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/svg/home/LangChain.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/svg/home/Outlook.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/svg/home/PostgreSQL.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/svg/home/Python.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/svg/home/Sentry.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/svg/home/Twilio.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/svg/home/aws.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/svg/home/clickup.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/svg/home/discord.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/svg/home/googlDocs.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/svg/home/google-sheet.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/svg/home/make.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/svg/home/mongodb.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/svg/home/slack.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/svg/home/titan.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/svg/home/trello.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/svg/home/websocket.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/svg/home/women.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/HomePage/BannerSection.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/home/user.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/home/user.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/svg/home/vercel.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/BenefitSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/BenefitSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/FaqSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/FaqSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/FlowSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/FlowSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/GlobeSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/GlobeSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/HeroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/HeroSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/PricingTableSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/PricingTableSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/TestimonialSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/TestimonialSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +120,7 @@
     "git-widget-placeholder": "master",
     "js.debugger.nextJs.config.created.client": "true",
     "js.debugger.nextJs.config.created.server": "true",
-    "last_opened_file_path": "C:/Users/Developer/Desktop/WeWantAgent/public/assets/svg/services",
+    "last_opened_file_path": "C:/Users/Developer/Desktop/WeWantAgent/public/assets/svg/home",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -107,12 +144,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\svg\home" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\svg\services" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\services" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\src\assets\lottie" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\home" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\services" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\src\assets" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\about" />
@@ -150,7 +189,8 @@
       <workItem from="1759846212542" duration="754000" />
       <workItem from="1759847021098" duration="372000" />
       <workItem from="1759847465944" duration="5458000" />
-      <workItem from="1760357983008" duration="800000" />
+      <workItem from="1760357983008" duration="1063000" />
+      <workItem from="1760422751025" duration="14315000" />
     </task>
     <task id="LOCAL-00001" summary="initialize Next.js project with Tailwind CSS, GSAP, and essential components">
       <option name="closed" value="true" />
@@ -240,7 +280,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760358072553</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix styling in ContactSection button and clean up workspace.xml">
+      <option name="closed" value="true" />
+      <created>1760358854437</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1760358854437</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

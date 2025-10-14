@@ -3,37 +3,11 @@
 import React from "react";
 import Image from "next/image";
 import { Facebook, Linkedin, Instagram } from "lucide-react";
-
 export default function FooterSection() {
     return (
-        <footer className="text-white relative">
-                <div className="relative py-20  rounded max-w-5xl mx-auto shadow-xl text-center overflow-hidden"
-                    style={{
-                        backgroundImage: "url('/assets/home/banner-bg.webp')",
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                    }}
-                >
-                    <div className="absolute inset-0 bg-black/40 "></div>
-                    <div className="relative z-10">
-                        <h2 className="text-2xl md:text-4xl font-semibold max-w-3xl mx-auto text-white mb-6">
-                            Get to know the world-class board of directors governing our organization.
-                        </h2>
-                        <button className="relative inline-block rounded bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] p-[2px]">
-  <span className="block rounded bg-transparent text-white font-medium py-2 px-8">
-    Meet our Board
-  </span>
-                        </button>
-
-
-
-                    </div>
-                </div>
-
-
-
-            <div className="max-w-7xl  mx-auto px-6 lg:px-8 pt-24 md:pt-32 pb-12">
-                <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
+        <footer className="text-white relative ">
+            <div className="max-w-7xl  mx-auto px-6 lg:px-8 pt-10 border-t ">
+                <div className="grid pb-12 grid-cols-1 md:grid-cols-6 gap-8">
                     <div className="col-span-2 md:col-span-2">
                         <div className="flex flex-col space-y-4">
                             <div className="flex items-center space-x-2">
@@ -65,10 +39,10 @@ export default function FooterSection() {
 
                     <div>
                         <p className="text-xs uppercase font-semibold text-gray-400 mb-3 tracking-wider">
-                            Start Learning
+                            Services
                         </p>
                         <div className="flex flex-col space-y-2">
-                            {["UX/UI Design", "Software Development", "Workplace Skills", "Job Search", "Digital Freelancing"].map(
+                            {["AI Agent for Real Estate", "AI Agent for Healthcare", 'Accounting and Bookkeeping Agent'].map(
                                 (item, idx) => (
                                     <a
                                         key={idx}
@@ -84,12 +58,15 @@ export default function FooterSection() {
 
                     <div>
                         <p className="text-xs uppercase font-semibold text-gray-400 mb-3 tracking-wider">
-                            Other Resources
+                            Quick Links
                         </p>
                         <div className="flex flex-col space-y-2">
                             <a href="#" className="text-sm hover:text-white transition duration-150">
-                                Events
+                                About Us
                             </a>
+                             <a href="#" className="text-sm hover:text-white transition duration-150">
+                                 Contact Us
+                        </a>
                         </div>
                     </div>
 
@@ -107,19 +84,18 @@ export default function FooterSection() {
                         </button>
                     </div>
                 </div>
-            </div>
-
-            <div className="border-t  border-gray-800 mt-8 md:mt-12 py-6">
-                <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500">
-                    <div className="flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-1 mb-3 sm:mb-0">
-                        {["Privacy Policy", "Terms of Use", "Cookies Policy"].map((link, idx) => (
-                            <a key={idx} href="#" className="hover:text-gray-300 transition">
-                                {link}
-                            </a>
-                        ))}
-                    </div>
-                    <div className="flex items-center gap-2 text-center sm:text-right">
-                        <span>Copyright 2025 © All rights reserved.</span>
+                <div className="border-t  border-gray-800 mt-8 md:mt-12 py-6">
+                    <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500">
+                        <div className="flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-1 mb-3 sm:mb-0">
+                            {["Privacy Policy", "Terms of Use", "Cookies Policy"].map((link, idx) => (
+                                <a key={idx} href="#" className="hover:text-gray-300 transition">
+                                    {link}
+                                </a>
+                            ))}
+                        </div>
+                        <div className="flex items-center gap-2 text-center sm:text-right">
+                            <span>Copyright 2025 © All rights reserved.</span>
+                        </div>
                     </div>
                 </div>
             </div>

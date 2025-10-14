@@ -31,7 +31,7 @@ export default function GlobeSection() {
                     transition={{ duration: 1, ease: "easeOut" }}
                     className="text-4xl md:text-7xl text-white font-bold tracking-tight mb-4"
                 >
-                    Connecting the <span className="bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] bg-clip-text text-transparent font-bold">World</span>
+                    Transparent From Day  <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent font-bold">One</span>
                 </motion.h2>
 
                 <motion.p
@@ -40,9 +40,7 @@ export default function GlobeSection() {
                     transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
                     className="text-base md:text-lg text-gray-300 max-w-2xl mx-auto"
                 >
-                    Our network spans across continents, empowering businesses
-                    and people with cutting-edge digital solutions. Experience
-                    innovation without borders.
+                    Wondering how much AI costs? We break down every dollar before you commit. No hidden fees, no surprise charges, no vague estimates that double later
                 </motion.p>
 
                 <motion.div
@@ -78,7 +76,7 @@ export default function GlobeSection() {
     border-transparent bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] p-[2px]"
                     >
   <span className="relative z-10 flex h-full w-full items-center justify-center bg-black rounded-sm">
-    Get Started Free
+    See Our Pricing
   </span>
                     </motion.button>
 

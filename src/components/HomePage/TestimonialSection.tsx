@@ -15,27 +15,28 @@ export default function TestimonialsSection() {
             text: "The user interface of this platform is so intuitive, I was able to start using it without any guidance.",
         },
         {
+            name: "Ava C.",
+            role: "Marketing Manager",
+            image: "/assets/svg/home/women.svg",
+            text: "Excellent service, quick responses, and a product that truly delivers. Highly recommend to others!",
+        },
+        {
             name: "Harsh P.",
             role: "Product Designer",
             image: "/assets/home/user.jpg",
             text: "I used to dread doing my taxes every year, but this platform has made the process so much simpler and stress-free.",
         },
-        {
-            name: "Ava C.",
-            role: "Marketing Manager",
-            image: "/assets/home/user.jpg",
-            text: "Excellent service, quick responses, and a product that truly delivers. Highly recommend to others!",
-        },
+
     ];
 
     return (
-        <section className="py-16 bg-black">
+        <section className="py-16">
             <div className="mx-auto max-w-7xl px-4">
                 <div className="flex justify-center items-center gap-y-8 lg:gap-y-0 flex-wrap md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between lg:gap-x-8 max-w-sm sm:max-w-2xl lg:max-w-full mx-auto">
                     <div className="w-full lg:w-2/5">
-                        <span className=" text-gray-400 font-medium mb-4 block">Testimonial</span>
-                        <h2 className="text-4xl  text-white leading-[3.25rem] mb-8">
-                            <span className="bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] bg-clip-text text-transparent font-bold">500+</span> Customers gave their Feedback
+                        <span className=" text-gray-300 font-medium mb-4 block">What Clients Say</span>
+                            <h2 className="text-4xl  text-white leading-[3.25rem] mb-8">
+                            <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent font-bold">500+</span> Customers gave their Feedback
                         </h2>
 
                     </div>

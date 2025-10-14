@@ -9,7 +9,11 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {},
-            colors: {},
+            colors: {
+                primary:"#00D1B2",
+                secondary:"#FF416C",
+                accent:"#FFB347",
+            },
             keyframes: {
                 spin: {
                     from: { transform: "rotate(0deg)" },
