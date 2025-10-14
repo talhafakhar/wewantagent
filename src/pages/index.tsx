@@ -118,7 +118,11 @@ export default function Home() {
                 <GlobeSection/>
                 <TestimonialsSection/>
                 <PricingSection/>
-                <BannerSection/>
+                <BannerSection
+                text="Wasting hours on repetitive tasks let AI handle the work while you focus on growth Get your"
+                subtext="Free automation roadmap"
+                lastText="today"
+                />
                 <FaqSection/>
                 <FooterSection/>
             </div>

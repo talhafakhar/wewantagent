@@ -1,8 +1,12 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-
-export default function BannerSection() {
+interface  BannerSectionProps {
+    text?: string;
+    subtext?: string;
+    lastText?: string;
+}
+export default function BannerSection({text, subtext, lastText}: BannerSectionProps) {
     return (
         <section className="relative text-white px-4">
             <div className="relative py-6 md:py-14 rounded max-w-7xl mx-auto px-2 text-center  flex flex-col items-center justify-center"
@@ -29,9 +33,7 @@ export default function BannerSection() {
                         viewport={{ once: true }}
                         className="text-3xl font-semibold leading-snug "
                     >
-                         Wasting hours on repetitive tasks let AI handle the work while you focus on growth.
-
-                        Get your <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-secondary font-bold">Free automation roadmap</span> today.
+                        {text} <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-secondary font-bold">{subtext}</span> {lastText}
                     </motion.h2>
 
                     <motion.div

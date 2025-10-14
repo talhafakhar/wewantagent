@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Facebook, Linkedin, Instagram } from "lucide-react";
 export default function FooterSection() {
     return (
-        <footer className="text-white relative ">
+        <footer className="text-white relative mt-10">
             <div className="max-w-7xl  mx-auto px-6 lg:px-8 pt-10 border-t ">
                 <div className="grid pb-12 grid-cols-1 md:grid-cols-6 gap-8">
                     <div className="col-span-2 md:col-span-2">

@@ -1,6 +1,5 @@
 "use client";
 import {easeOut, motion, useAnimation} from "framer-motion";
-import CountUp from "react-countup";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 export default function SolutionsSection() {
@@ -27,17 +26,15 @@ export default function SolutionsSection() {
                 >
                     <div className="flex items-center gap-3 mb-4">
                         <span className="font-medium tracking-wide">02 —</span>
-                        <span className="font-medium">Our Reputation</span>
+                        <span className="font-medium">What Drives Us</span>
                     </div>
 
                   <div className="flex items-center gap-4 mb-4">
-                      <h2 className="text-4xl md:text-5xl font-semibold leading-tight w-full md:w-1/2">
-                          <span className="bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] bg-clip-text text-transparent">Solutions</span> That Drive Results
+                      <h2 className="text-4xl md:text-5xl font-semibold w-full md:w-1/2">
+                          <span className="bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] bg-clip-text text-transparent">Custom Built</span>  Never Template Based
                       </h2>
                       <p className="text-gray-300 border-l-2 px-2  w-full md:w-1/2">
-                          Since 2013, we want agent has evolved from a small team into a global leader in digital innovation.
-                          Specializing in website design, custom software, and web + mobile app development, we’ve partnered
-                          with industry leaders to deliver extraordinary results.
+                          Every business operates differently. Your CRM setup, communication style, and workflow quirks matter. We don&#39;t sell pre-packaged solutions that force you to adapt. Our automation expert team builds from scratch, integrating with your existing tools and matching your team&#39;s actual process. Real customization means your AI works like a trained employee who knows exactly how you operate, not a rigid system demanding you change everything
                       </p>
                   </div>
                 </motion.div>
@@ -50,13 +47,11 @@ export default function SolutionsSection() {
                         whileInView="show"
                         ref={ref}
                         viewport={{ once: true }}
-                        className="relative border border-[#00D1B2]/40 rounded-tr-[6rem] p-10 group transition-all duration-500 hover:border-[#00D1B2]"
+                        className="relative border border-primary rounded-tr-[6rem] p-10 group transition-all duration-500"
                     >
-                        <div className="text-6xl font-bold"> {inView && <CountUp start={0} end={700} duration={2.5} />}+</div>
+                        <div className="text-5xl font-bold"> Honest Timelines Always </div>
                         <p className="mt-4 text-gray-300 leading-relaxed">
-                            With over <span className="font-semibold text-white">700</span> software products delivered and{" "}
-                            <span className="font-semibold text-white">$300 million</span> raised in funding for our clients through
-                            our expertise, we are committed to pushing boundaries and achieving remarkable outcomes.
+                            We tell you exactly how long development takes and never overpromise speed. Rush jobs create buggy automation. We&#39;d rather deliver working solutions on realistic schedules than fast failures that waste your investment and break trust completely
                         </p>
 
                         <div className="absolute inset-0 rounded-[2rem] opacity-0 group-hover:opacity-100 transition duration-700 bg-[#00D1B2]/10 blur-2xl" />
@@ -67,16 +62,13 @@ export default function SolutionsSection() {
                         initial="hidden"
                         whileInView="show"
                         viewport={{ once: true }}
-                        className="relative border border-[#00D1B2]/40 rounded-tr-[6rem] p-10 group transition-all duration-500 hover:border-[#00D1B2]"
+                        className="relative border border-primary rounded-tr-[6rem] p-10 group transition-all duration-500"
                     >
-                        <div className="text-6xl font-bold "> {inView && <CountUp start={0} end={200} duration={2} />}+</div>
+                        <div className="text-5xl font-bold "> Transparent Pricing Upfront</div>
                         <p className="mt-4 text-gray-300 leading-relaxed">
-                            Our team of <span className="font-semibold text-white">200+</span> experts and flexible collaboration
-                            models ensure tailored solutions that turn challenges into opportunities, providing the utmost
-                            convenience and impact for our clients.
+                            You know every cost before we start. No surprise fees, no scope creep charges, no hidden maintenance bills. Our automation expert team breaks down exactly what you&#39;re paying for and why. Budget clarity matters as much as technical clarity always
                         </p>
 
-                        {/* Glow effect */}
                         <div className="absolute inset-0 rounded-[2rem] opacity-0 group-hover:opacity-100 transition duration-700 bg-[#00D1B2]/10 blur-2xl" />
                     </motion.div>
                 </div>

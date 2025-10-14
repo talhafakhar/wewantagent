@@ -92,7 +92,7 @@ const Navbar = () => {
                                     </AnimatePresence>
                                 </div>
 
-                                <Link href="/about-us" className="text-white hover:text-gray-200">
+                                <Link href="/automationexpert" className="text-white hover:text-gray-200">
                                     About
                                 </Link>
                                 <Link href="/contact" className="text-white hover:text-gray-200">

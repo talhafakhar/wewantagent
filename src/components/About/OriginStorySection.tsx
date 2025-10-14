@@ -13,30 +13,23 @@ export default function OriginStory() {
                     className="space-y-6"
                 >
                     <p className="font-medium text-sm tracking-wide">
-                        01 — Origin Story
+                        01 — Our Mission
                     </p>
 
                     <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
-                        Birth of a{" "}
+                        Building AI {" "}
                         <span className="bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] bg-clip-text text-transparent">
-                            We Want Agent
+                            That Actually Works
                         </span>
                     </h2>
 
                     <p className="text-gray-300 leading-relaxed">
-                        In 2013, the world was on the edge of a tech revolution—AI was getting
-                        smarter, virtual reality was reshaping experiences, and global
-                        connectivity was shrinking distances. Amid this change, three
-                        classmates saw an opportunity to empower businesses with innovative
-                        tech solutions.
+                        Most automation fails because companies force generic solutions onto unique problems. We do the opposite. Every AI agent we build starts with understanding your specific workflow, your team&#39;s pain points, and your industry&#39;s challenges. We&#39;re automation experts who&#39;ve seen what works and what wastes money
                     </p>
 
                     <p className="text-gray-300 leading-relaxed">
-                        They noticed outdated systems holding companies back and realized
-                        custom software was no longer a luxury but a necessity. Their vision
-                        was to create technology that adapts, evolves, and drives growth—
-                        solutions so seamless that they feel like an extension of the user,
-                        pushing the boundaries of what’s possible.
+                        Real estate agents are drowning in follow-ups. Healthcare practices are buried in scheduling chaos. Accounting firms are losing hours to data entry. We&#39;ve automated all of it. Our mission is simple: stop businesses from doing work machines should handle. Give teams their time back for strategy, relationships, and growth. No fluff, no overpromises, just intelligent automation that fits your reality and delivers measurable results from day one.
+
                     </p>
                 </motion.div>
 
@@ -49,10 +42,10 @@ export default function OriginStory() {
                 >
                     <div className="w-full max-w-md">
                         <Image
-                            src="/assets/svg/about/birthofai.svg"
+                            src="/assets/svg/about/makeai.png"
                             alt="Origin Story"
-                            width={300}
-                            height={400}
+                            width={500}
+                            height={500}
                             className="transition-transform duration-700 hover:scale-105"
                         />
                     </div>

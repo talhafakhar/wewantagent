@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Image from "next/image";
-import {Facebook, Instagram, Linkedin, Menu, X} from "lucide-react";
+import {ChevronDown, Code2, Cpu, Facebook, Instagram, Linkedin, Menu, Phone, X,Clock, PhoneCall, Map} from "lucide-react";
+
+
 import Link from "next/link";
 import {AnimatePresence, motion} from "framer-motion";
 
@@ -9,9 +11,12 @@ const ContactForm = () => {
         firstName: '',
         lastName: '',
         email: '',
-        message: ''
+        phone: '',
+        companyName: '',
+        industry: '',
+        companySize: '',
+        message: '',
     });
-
     const handleChange = (e:any) => {
         setFormData({
             ...formData,
@@ -24,6 +29,7 @@ const ContactForm = () => {
         console.log('Form submitted:', formData);
     };
     const [isOpen, setIsOpen] = useState(false);
+    const [isServicesOpen, setIsServicesOpen] = useState(false);
 
     return (
        <div>
@@ -31,25 +37,93 @@ const ContactForm = () => {
                <nav className={`fixed top-4 left-0 w-full z-50 transition-all duration-300 py-2`}>
                    <div className="max-w-7xl mx-auto px-4">
                        <div className={`bg-black  border border-white rounded-full px-4 sm:px-6 shadow-lg transition-all duration-300`}>
-                           <div className="flex items-center justify-between h-16">
+                           <div className="flex items-center justify-between py-2">
                                <Link href="/" className="flex items-center text-white font-bold text-2xl">
                                    <Image
-                                       src="/assets/home/logo white.png" alt="Logo" priority  width={150} height={150}
+                                       src="/assets/home/logo white.png"
+                                       alt="Logo"
+                                       priority
+                                       width={150}
+                                       height={150}
                                    />
                                </Link>
+                               <div className="hidden lg:flex gap-4 items-center relative">
+                                   <div className="flex space-x-6 bg-white/20 px-8 py-2.5 rounded-full">
+                                       {/* Services dropdown trigger */}
+                                       <div
+                                           className="relative"
+                                           onMouseEnter={() => setIsServicesOpen(true)}
+                                           onMouseLeave={() => setIsServicesOpen(false)}
+                                       >
+                                           <button className="text-white group-hover:text-gray-200 transition-colors flex items-center">
+                                               Services <ChevronDown size={20}/>
+                                           </button>
 
-                               <div className="hidden lg:flex gap-4 items-center">
-                                   <div className="flex space-x-6 bg-white/20  px-8 py-2.5 rounded-full">
-                                       <Link href="#" className="text-white">
-                                           Services
-                                       </Link>
-                                       <Link href="/about-us" className="text-white">
+                                           <AnimatePresence>
+                                               {isServicesOpen && (
+                                                   <motion.div
+                                                       initial={{ opacity: 0, y: -10 }}
+                                                       animate={{ opacity: 1, y: 0 }}
+                                                       exit={{ opacity: 0, y: -10 }}
+                                                       transition={{ duration: 0.25, ease: "easeOut" }}
+                                                       className="absolute top-full left-0 mt-3 bg-black  border  rounded-2xl shadow-lg p-2 w-64"
+                                                   >
+                                                       <Link
+                                                           href="/services/web-development"
+                                                           className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/10 transition-colors"
+                                                       >
+                                                           <Code2 className="text-white w-5 h-5 mt-1" />
+                                                           <div>
+                                                               <p className="text-white font-semibold text-sm">
+                                                                   Custom AI Development
+                                                               </p>
+                                                               <p className="text-white/70 text-xs">
+                                                                   Tailored AI solutions to fit your business needs.
+                                                               </p>
+                                                           </div>
+                                                       </Link>
+
+                                                       <Link
+                                                           href="/services/ai-development"
+                                                           className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/10 transition-colors"
+                                                       >
+                                                           <Cpu className="text-white w-5 h-5 mt-1" />
+                                                           <div>
+                                                               <p className="text-white font-semibold text-sm">
+                                                                   AI Development
+                                                               </p>
+                                                               <p className="text-white/70 text-xs">
+                                                                   Create stunning and user-friendly interfaces.
+                                                               </p>
+                                                           </div>
+                                                       </Link>
+                                                       <Link
+                                                           href="/services/ui-design"
+                                                           className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/10 transition-colors"
+                                                       >
+                                                           <Phone className="text-white w-5 h-5 mt-1" />
+                                                           <div>
+                                                               <p className="text-white font-semibold text-sm">
+                                                                   Voice Calling AI Agent
+                                                               </p>
+                                                               <p className="text-white/70 text-xs">
+                                                                   AI-powered voice agents for seamless customer interactions.
+                                                               </p>
+                                                           </div>
+                                                       </Link>
+                                                   </motion.div>
+                                               )}
+                                           </AnimatePresence>
+                                       </div>
+
+                                       <Link href="/automationexpert" className="text-white hover:text-gray-200">
                                            About
                                        </Link>
-                                       <Link href="/contact" className="text-white">
+                                       <Link href="/contact" className="text-white hover:text-gray-200">
                                            Contact
                                        </Link>
                                    </div>
+
                                    <Link
                                        href="#"
                                        className="px-6 py-2.5 bg-white text-gray-900 rounded-full font-semibold hover:bg-gray-100 transition-all hover:scale-105"
@@ -57,7 +131,6 @@ const ContactForm = () => {
                                        Let&#39;s Collaborate
                                    </Link>
                                </div>
-
                                <button
                                    onClick={() => setIsOpen(!isOpen)}
                                    className="lg:hidden text-white focus:outline-none"
@@ -128,27 +201,36 @@ const ContactForm = () => {
                        <div className="flex flex-col justify-between">
                            <div>
                                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                                   Get in —<br />touch with us
+                                   Let&#39;s Build Your AI Agent
                                </h1>
                                <p className="text-gray-600 text-base md:text-lg mb-12 leading-relaxed">
-                                   We&#39;re here to help! Whether you have a question about our services, need assistance with your account, or want to provide feedback, our team is ready to assist you.
+                                   Share your automation challenge with us. We&#39;ll map out exactly how AI agents can transform your workflow, eliminate repetitive tasks, and give you time back.
                                </p>
 
-                               <div className="space-y-6 mb-12">
-                                   <div>
-                                       <p className="text-gray-900 font-medium text-sm mb-2">Email:</p>
-                                       <p className="text-gray-900 text-lg font-semibold">hello@finpro.com</p>
-                                   </div>
+                               <ul className="space-y-4 mb-12">
+                                   <li className="flex items-start gap-3">
+                                       <Clock className="w-5 h-5 text-gray-900 mt-1" />
+                                       <span className="text-gray-900 text-lg font-semibold">
+      We review your automation needs within 24 hours
+    </span>
+                                   </li>
+                                   <li className="flex items-start gap-3">
+                                       <PhoneCall className="w-5 h-5 text-gray-900 mt-1" />
+                                       <span className="text-gray-900 text-lg font-semibold">
+      Schedule a free 30-minute strategy call
+    </span>
+                                   </li>
+                                   <li className="flex items-start gap-3">
+                                       <Map className="w-5 h-5 text-gray-900 mt-1" />
+                                       <span className="text-gray-900 text-lg font-semibold">
+      Receive a custom automation roadmap for your business
+    </span>
+                                   </li>
+                               </ul>
 
-                                   <div>
-                                       <p className="text-gray-900 font-medium text-sm mb-2">Phone:</p>
-                                       <p className="text-gray-900 text-lg font-semibold">+1 234 567 78</p>
-                                       <p className="text-gray-500 text-sm mt-1">Available Monday to Friday, 9 AM - 6 PM GMT</p>
-                                   </div>
-                               </div>
 
                                <button className="bg-black text-white px-6 py-2 rounded-full font-medium text-base flex items-center gap-4 hover:bg-gray-800 transition-colors">
-                                   Live Chat
+                                      Schedule a Call
                                 <div className="bg-white p-2 rounded-full">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M4.16669 10H15.8334M15.8334 10L10 4.16669M15.8334 10L10 15.8334" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -160,10 +242,11 @@ const ContactForm = () => {
 
                        <div className="bg-gray-100 rounded-2xl border p-8 md:p-10">
                            <form onSubmit={handleSubmit} className="space-y-6">
+                               {/* First Row: First & Last Name */}
                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                    <div>
                                        <label className="block text-gray-900 text-sm font-medium mb-3">
-                                           Firs Name
+                                           First Name
                                        </label>
                                        <input
                                            type="text"
@@ -172,6 +255,7 @@ const ContactForm = () => {
                                            onChange={handleChange}
                                            placeholder="Enter your first name..."
                                            className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent text-sm"
+                                           required
                                        />
                                    </div>
 
@@ -186,54 +270,150 @@ const ContactForm = () => {
                                            onChange={handleChange}
                                            placeholder="Enter your last name..."
                                            className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent text-sm"
+                                           required
                                        />
                                    </div>
                                </div>
 
-                               <div>
-                                   <label className="block text-gray-900 text-sm font-medium mb-3">
-                                       Email
-                                   </label>
-                                   <input
-                                       type="email"
-                                       name="email"
-                                       value={formData.email}
-                                       onChange={handleChange}
-                                       placeholder="Enter your email address..."
-                                       className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent text-sm"
-                                   />
+                               {/* Second Row: Email & Phone */}
+                               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                   <div>
+                                       <label className="block text-gray-900 text-sm font-medium mb-3">
+                                           Email Address
+                                       </label>
+                                       <input
+                                           type="email"
+                                           name="email"
+                                           value={formData.email}
+                                           onChange={handleChange}
+                                           placeholder="Enter your email address..."
+                                           className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent text-sm"
+                                           required
+                                       />
+                                   </div>
+
+                                   <div>
+                                       <label className="block text-gray-900 text-sm font-medium mb-3">
+                                           Phone Number
+                                       </label>
+                                       <input
+                                           type="tel"
+                                           name="phone"
+                                           value={formData.phone}
+                                           onChange={handleChange}
+                                           placeholder="Enter your phone number..."
+                                           className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent text-sm"
+                                           required
+                                       />
+                                   </div>
                                </div>
 
+                               {/* Third Row: Company Name & Industry */}
+                               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                   <div>
+                                       <label className="block text-gray-900 text-sm font-medium mb-3">
+                                           Company Name
+                                       </label>
+                                       <input
+                                           type="text"
+                                           name="companyName"
+                                           value={formData.companyName}
+                                           onChange={handleChange}
+                                           placeholder="Enter your company name..."
+                                           className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent text-sm"
+                                           required
+                                       />
+                                   </div>
+
+                                   <div>
+                                       <label className="block text-gray-900 text-sm font-medium mb-3">
+                                           Industry
+                                       </label>
+                                       <select
+                                           name="industry"
+                                           value={formData.industry}
+                                           onChange={handleChange}
+                                           className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent text-sm"
+                                           required
+                                       >
+                                           <option value="">Select your industry...</option>
+                                           <option value="real-estate">Real Estate</option>
+                                           <option value="healthcare">Healthcare</option>
+                                           <option value="accounting">Accounting & Bookkeeping</option>
+                                           <option value="other">Other</option>
+                                       </select>
+                                   </div>
+                               </div>
+
+                               {/* Company Size */}
                                <div>
                                    <label className="block text-gray-900 text-sm font-medium mb-3">
-                                       How can we help you?
+                                       Company Size
+                                   </label>
+                                   <select
+                                       name="companySize"
+                                       value={formData.companySize}
+                                       onChange={handleChange}
+                                       className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent text-sm"
+                                       required
+                                   >
+                                       <option value="">Select company size...</option>
+                                       <option value="solo">Solo</option>
+                                       <option value="2-10">2–10</option>
+                                       <option value="11-50">11–50</option>
+                                       <option value="51-200">51–200</option>
+                                       <option value="200+">200+</option>
+                                   </select>
+                               </div>
+
+                               {/* Message */}
+                               <div>
+                                   <label className="block text-gray-900 text-sm font-medium mb-3">
+                                       What do you want to automate?
                                    </label>
                                    <textarea
                                        name="message"
                                        value={formData.message}
                                        onChange={handleChange}
-                                       placeholder="Enter your message..."
+                                       placeholder="Describe what you’d like to automate..."
                                        className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent resize-none text-sm"
+                                       rows={5}
+                                       required
                                    />
                                </div>
 
-                             <div className="flex justify-end">
-                                 <button
-                                     type="submit"
-                                     className=" bg-gray-900 text-white px-6 py-2 rounded-full font-medium text-base flex items-center justify-between gap-3 hover:bg-gray-800 transition-colors"
-                                 >
-                                     Send Message
-                                     <div className="bg-white p-2 rounded-full">
-                                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                             <path d="M4.16669 10H15.8334M15.8334 10L10 4.16669M15.8334 10L10 15.8334" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                         </svg>
-                                     </div>
-                                 </button>
-                             </div>
+                               {/* Submit Button */}
+                               <div className="flex justify-end">
+                                   <button
+                                       type="submit"
+                                       className="bg-gray-900 text-white px-6 py-2 rounded-full font-medium text-base flex items-center justify-between gap-3 hover:bg-gray-800 transition-colors"
+                                   >
+                                       Send Message
+                                       <div className="bg-white p-2 rounded-full">
+                                           <svg
+                                               width="20"
+                                               height="20"
+                                               viewBox="0 0 20 20"
+                                               fill="none"
+                                               xmlns="http://www.w3.org/2000/svg"
+                                           >
+                                               <path
+                                                   d="M4.16669 10H15.8334M15.8334 10L10 4.16669M15.8334 10L10 15.8334"
+                                                   stroke="black"
+                                                   strokeWidth="2"
+                                                   strokeLinecap="round"
+                                                   strokeLinejoin="round"
+                                               />
+                                           </svg>
+                                       </div>
+                                   </button>
+                               </div>
                            </form>
+
                        </div>
                    </div>
                </div>
+               
            </div>
            <footer className="text-white bg-black relative">
                <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">

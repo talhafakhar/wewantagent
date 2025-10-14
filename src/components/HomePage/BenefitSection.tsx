@@ -11,21 +11,21 @@ import { useInView } from "react-intersection-observer";
 
 const services = [
     {
-        title: "AI Sales Agents",
+        title: "Share Your Biggest Problem Now",
         description:
-            "Your 24/7 sales rep that never sleeps. AI handles lead qualification, follow-ups, and pipeline updates — keeping your CRM alive while your human team focuses on closing deals, not chasing them.",
+            "Tell us what's killing productivity. Data entry, client follow-ups, or document processing? We listen first. No cookie-cutter solutions here, just honest conversation about where artificial intelligence automation transforms your workflow and eliminates bottlenecks completely",
         number: "1",
     },
     {
-        title: "AI Customer Support",
+        title: "We Build Your Automation Map",
         description:
-            "Respond to customers in seconds, not hours. Our AI agents understand tone, context, and intent — resolving issues instantly or routing only what truly needs a human touch.",
+            "Our automation expert analyzes operations and designs a custom AI agent strategy. You'll see how the AI automation service works for your industry, what gets automated first, and the timeline. No tech jargon, just clear plans that make sense always",
         number: "2",
     },
     {
-        title: "AI Operations Automation",
+        title: "Watch Your Business Transform",
         description:
-            "Repetitive admin work? Gone. From data entry to internal updates, AI automates your workflows end-to-end so your team can focus on creative and strategic growth.",
+            " Your AI assistants go live, handling tasks while you focus on growth. We monitor, optimize, and scale automation. You'll wonder how you operated without intelligent agents managing mundane tasks so you can do meaningful work every single day",
         number: "3",
     },
     {
