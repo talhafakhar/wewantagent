@@ -20,8 +20,7 @@ export default function FooterSection() {
                                 />
                             </div>
                             <p className="text-sm text-gray-400 leading-relaxed">
-                                Empowering learners and innovators worldwide through
-                                accessible, high-quality education and training programs.
+                                We Want Agent builds custom AI automation solutions for real estate, healthcare, and accounting industries. From voice AI agents to workflow automation, we help businesses eliminate repetitive tasks and focus on growth
                             </p>
                             <div className="flex space-x-4 pt-4">
                                 <a href="#" className="text-gray-400 hover:text-white">

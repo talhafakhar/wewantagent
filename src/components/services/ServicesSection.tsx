@@ -48,7 +48,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({
                         viewport={{ once: true }}
                         className="mb-12 text-center"
                     >
-                        <h2 className="text-4xl md:text-5xl font-semibold leading-tight">
+                        <h2 className="text-4xl md:text-5xl font-semibold leading-tight max-w-4xl mx-auto">
                             {heading}
                         </h2>
                         {description && (
@@ -65,9 +65,9 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({
                                     return (
                                         <motion.div
                                             key={i}
-                                            initial={{ opacity: 0, y: 30 }}
+                                            initial={{ opacity: 0, y: 40 }}
                                             whileInView={{ opacity: 1, y: 0 }}
-                                            transition={{ duration: 0.5, delay: i * 0.2 }}
+                                            transition={{ duration: 0.6, delay: i * 0.1 }}
                                             viewport={{ once: true }}
                                             className={`relative overflow-hidden border border-white/10 
                         bg-gradient-to-br from-white/10 via-white/5 to-transparent 

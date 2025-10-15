@@ -9,12 +9,14 @@ interface HeroSectionProps {
     description: string;
     buttonText: string;
     imageSrc: string;
+width?: number;
 }
 const HeroSection: React.FC<HeroSectionProps> = ({
                                                      title,
                                                      description,
                                                      buttonText,
                                                      imageSrc,
+                                                     width
                                                  }) => {
     const container = {
         hidden: { opacity: 0 },
@@ -95,7 +97,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                             <Image
                                 src={imageSrc}
                                 alt={title}
-                                width={500}
+                                width={width ? width : 500}
                                 height={500}
                                 priority
                                 loading="eager"

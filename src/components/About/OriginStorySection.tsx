@@ -42,7 +42,7 @@ export default function OriginStory() {
                 >
                     <div className="w-full max-w-md">
                         <Image
-                            src="/assets/svg/about/makeai.png"
+                            src="/assets/about/make-ai.webp"
                             alt="Origin Story"
                             width={500}
                             height={500}

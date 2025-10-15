@@ -68,9 +68,9 @@ const IndustrySolutionsSection: React.FC<IndustrySolutionsSectionProps> = ({
                             return (
                                 <SwiperSlide key={idx} >
                                     <motion.div
-                                        initial={{ opacity: 0, y: 30 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.6, delay: idx * 0.1 }}
+                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        transition={{ type: "spring", stiffness: 130, damping: 18, delay: idx * 0.15 }}
                                         viewport={{ once: true }}
                                         className="h-full min-h-[320px] flex flex-col justify-between bg-white/10 backdrop-blur-lg rounded-xl p-8 text-left shadow-md border border-[#262626] hover:shadow-xl hover:scale-[1.03] transition-all duration-300 hover:border-[#00D1B2]"
                                     >

@@ -2,20 +2,17 @@
 import React from "react";
 import { motion, easeOut } from "framer-motion";
 import { LucideIcon } from "lucide-react";
-
 interface StatItem {
     icon: LucideIcon;
     title: string;
     description: string;
 }
-
 interface StatsSectionProps {
     heading: string;
     stats: StatItem[];
     buttonText?: string;
 }
-
-const StatsSection: React.FC<StatsSectionProps> = ({
+const WhatWeDo: React.FC<StatsSectionProps> = ({
                                                        heading,
                                                        stats,
                                                        buttonText,
@@ -25,7 +22,6 @@ const StatsSection: React.FC<StatsSectionProps> = ({
         hidden: { opacity: 0, y: 40 },
         show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: easeOut } },
     };
-
     return (
         <section className="py-24 text-white">
             <div className="max-w-7xl mx-auto px-4">
@@ -47,9 +43,9 @@ const StatsSection: React.FC<StatsSectionProps> = ({
                         return (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: index * 0.2 }}
+                                initial={{ opacity: 0, x: -100, rotate: -10 }}
+                                whileInView={{ opacity: 1, x: 0, rotate: 0 }}
+                                transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.2 }}
                                 viewport={{ once: true }}
                                 className="p-6 border border-white/10 rounded-xl bg-black/20 backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
                             >
@@ -93,4 +89,4 @@ const StatsSection: React.FC<StatsSectionProps> = ({
     );
 };
 
-export default StatsSection;
+export default WhatWeDo;

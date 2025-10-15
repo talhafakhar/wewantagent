@@ -4,27 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f36c49d3-23cd-44f2-8d3e-bd7e2e00bc13" name="Changes" comment="update footer spacing, enhance BannerSection with dynamic text, and improve industry-specific messaging in MeetOurTeam section">
-      <change afterPath="$PROJECT_DIR$/public/assets/services/hero-bg.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/services/realEstate.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/services/ContactFormSection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/services/HeroSection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/services/RealEstateCaseStudy.tsx" afterDir="false" />
+    <list default="true" id="f36c49d3-23cd-44f2-8d3e-bd7e2e00bc13" name="Changes" comment="refactor HeroSection and ServicesSection, enhance industry solutions with swiper, and add contact form section">
+      <change afterPath="$PROJECT_DIR$/public/assets/about/make-ai.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/services/bookkeepingAgent.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/services/bookkeepingRotot.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/services/healthCare.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/services/robotDr.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/lottie/bookkeeping.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/lottie/healthcare.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/services/bookkeepingai/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/services/healthcareautomation/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/services/hero -bg-services.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/About/HeroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/HeroSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/services/AiDevelopment/BusinessSolutionsSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/BusinessSolutionsSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/services/AiDevelopment/FlowSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/FlowSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/services/AiDevelopment/HeroSection.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/services/AiDevelopment/IndustrySolutionSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/IndustrySolutionSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/services/AiDevelopment/ModalSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/ModalSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/services/AiDevelopment/ServicesSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/ServicesSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/services/AiDevelopment/StatsSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/StatsSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/services/AiDevelopment/TimeLineItemSection.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/automationexpert/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/automationexpert/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/contact/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/contact/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/services/ai-development/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/services/realestateaiagent/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/svg/about/makeai.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/About/OriginStorySection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/OriginStorySection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/services/HeroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/HeroSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/services/IndustrySolutionSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/IndustrySolutionSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/services/RealEstateCaseStudy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/RealEstateCaseStudy.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/services/ServicesSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/ServicesSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/services/StatsSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/StatsSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/services/realestateaiagent/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/services/realestateaiagent/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,11 +135,11 @@
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\src\assets\lottie" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\about" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\services" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\src\components\services" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\home" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\src\assets" />
-      <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\about" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Next.js: server-side">
@@ -176,7 +175,7 @@
       <workItem from="1759847021098" duration="372000" />
       <workItem from="1759847465944" duration="5458000" />
       <workItem from="1760357983008" duration="1063000" />
-      <workItem from="1760422751025" duration="34786000" />
+      <workItem from="1760422751025" duration="44009000" />
     </task>
     <task id="LOCAL-00001" summary="initialize Next.js project with Tailwind CSS, GSAP, and essential components">
       <option name="closed" value="true" />
@@ -290,7 +289,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760452830615</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="refactor HeroSection and ServicesSection, enhance industry solutions with swiper, and add contact form section">
+      <option name="closed" value="true" />
+      <created>1760526062554</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1760526062554</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,7 +327,8 @@
     <MESSAGE value="fix styling in ContactSection button and clean up workspace.xml" />
     <MESSAGE value="add new SVG icons, update Tailwind colors, and enhance GlobeSection and FaqSection content" />
     <MESSAGE value="update footer spacing, enhance BannerSection with dynamic text, and improve industry-specific messaging in MeetOurTeam section" />
-    <option name="LAST_COMMIT_MESSAGE" value="update footer spacing, enhance BannerSection with dynamic text, and improve industry-specific messaging in MeetOurTeam section" />
+    <MESSAGE value="refactor HeroSection and ServicesSection, enhance industry solutions with swiper, and add contact form section" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor HeroSection and ServicesSection, enhance industry solutions with swiper, and add contact form section" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
 </project>

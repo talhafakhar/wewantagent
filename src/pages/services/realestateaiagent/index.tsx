@@ -26,7 +26,7 @@ import {
 import ContactSection from "@/components/services/ContactFormSection";
 import BannerSection from "@/components/HomePage/BannerSection";
 
-export default function AiDevelopment() {
+export default function RealEstateAiAgent() {
     const stats = [
         {
             icon: MessageCircle,
