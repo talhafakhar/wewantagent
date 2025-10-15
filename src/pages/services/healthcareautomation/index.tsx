@@ -213,7 +213,7 @@ export default function HealthcareAutomation() {
                     title="Health Care Automation"
                     description="Stop administrative chaos. Healthcare agents handle scheduling, insurance, intake, communication, and follow-ups automatically for your practice"
                     buttonText="Get Your AI Agent"
-                    imageSrc="/assets/services/healthcare.webp"
+                    imageSrc="/assets/services/healthCare.webp"
                 />
                 <BusinessSolutionsSection
                     heading="AI Agents Built For Healthcare Providers"
