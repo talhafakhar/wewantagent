@@ -11,7 +11,6 @@ const HeroSection = () => {
             transition: { staggerChildren: 0.3 },
         },
     };
-
     const item = {
         hidden: { opacity: 0, x: -40, scale: 0.98, filter: "blur(4px)" },
         show: {

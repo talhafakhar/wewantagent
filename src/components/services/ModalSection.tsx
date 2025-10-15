@@ -22,7 +22,7 @@ const AIModulesSection = () => {
                     viewport={{ once: true }}
                     className="text-4xl md:text-5xl font-bold mb-6"
                 >
-                    Cutting-edge AI Models We Work With
+                    Powerful Tools Behind Your AI Agents
                 </motion.h2>
                 <motion.p
                     initial={{ opacity: 0 }}
@@ -30,7 +30,7 @@ const AIModulesSection = () => {
                     transition={{ delay: 0.2, duration: 0.8 }}
                     className="text-gray-300 text-lg mb-14"
                 >
-                    Our team is proficient in the latest AI models, including.
+                    We build using advanced language models and n8n automation workflows
                 </motion.p>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 justify-center items-center">
@@ -54,6 +54,7 @@ const AIModulesSection = () => {
                         </motion.div>
                     ))}
                 </div>
+
             </div>
         </section>
     );

@@ -5,7 +5,7 @@ import SolutionsSection from "@/components/About/SolutionsSection";
 import MeetOurTeam from "@/components/About/MeetOurTeam";
 import ContactSection from "@/components/About/ContactSection";
 import FooterSection from "@/components/Footer/footer";
-import {NextSeo, OrganizationJsonLd, WebPageJsonLd} from "next-seo";
+import {NextSeo ,WebPageJsonLd} from "next-seo";
 import BannerSection from "@/components/HomePage/BannerSection";
 
 export default function AboutUsPage() {
@@ -48,34 +48,6 @@ export default function AboutUsPage() {
                     handle: '@wewantagent',
                     site: '@wewantagent',
                     cardType: 'summary_large_image',
-                }}
-            />
-
-            <OrganizationJsonLd
-                type="Organization"
-                id="https://wewantagent.com/automationexpert#organization"
-                name="We Want Agent"
-                url="https://wewantagent.com/"
-                logo="https://wewantagent.com/assets/logo.png"
-                sameAs={[
-                    'https://www.facebook.com/wewantagent',
-                    'https://twitter.com/wewantagent',
-                    'https://www.linkedin.com/company/wewantagent/',
-                ]}
-                contactPoints={[
-                    {
-                        telephone: '+1-234-567-890',
-                        contactType: 'Customer Service',
-                        areaServed: 'US',
-                        availableLanguage: ['English'],
-                    },
-                ]}
-                address={{
-                    streetAddress: '456 Strategy Avenue',
-                    addressLocality: 'New York',
-                    addressRegion: 'NY',
-                    postalCode: '10001',
-                    addressCountry: 'US',
                 }}
             />
 

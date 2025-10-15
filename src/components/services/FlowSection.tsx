@@ -1,39 +1,24 @@
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
 
-const steps = [
-    {
-        number: 1,
-        title: "Discovery",
-        description:
-            "We analyse your business goals and translate everything into technical documents.",
-    },
-    {
-        number: 2,
-        title: "Kick-off",
-        description:
-            "We gather a fitting team for your project, and the designer creates the first prototype of your chatbot.",
-    },
-    {
-        number: 3,
-        title: "Development",
-        description:
-            "The developers build your chatbot as you review results every two weeks. Your chatbot is deployed.",
-    },
-    {
-        number: 4,
-        title: "Support",
-        description:
-            "After deployment, we assign QA experts to fix bugs and provide general customer support.",
-    },
-];
+interface Step {
+    number: number;
+    title: string;
+    description: string;
+}
 
-const ProcessTimeline = () => {
+interface ProcessTimelineProps {
+    heading: string;
+    steps: Step[];
+}
+
+const ProcessTimeline: React.FC<ProcessTimelineProps> = ({ heading, steps }) => {
     return (
         <section className="bg-black text-white py-20 px-4 md:px-12">
             <div className="max-w-6xl mx-auto">
                 <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-                    Our Development Process
+                    {heading}
                 </h2>
 
                 <div className="relative border-l-2 border-gray-700 ml-6">
@@ -53,7 +38,6 @@ const ProcessTimeline = () => {
                                     </div>
                                 </div>
                             </div>
-
 
                             <div className="ml-8 bg-white/10 border border-white/20 rounded p-6 shadow-md hover:shadow-[#00D1B2]/20 transition">
                                 <h3 className="text-xl font-bold text-white mb-2 uppercase tracking-wide">

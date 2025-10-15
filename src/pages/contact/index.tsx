@@ -1,6 +1,6 @@
 import React from "react";
 import ContactForm from "@/components/Contact/ContactUsSection";
-import {NextSeo, OrganizationJsonLd, WebPageJsonLd} from "next-seo";
+import {NextSeo, WebPageJsonLd} from "next-seo";
 
 export default function AboutUsPage() {
     return (
@@ -42,34 +42,6 @@ export default function AboutUsPage() {
                     handle: '@wewantagent',
                     site: '@wewantagent',
                     cardType: 'summary_large_image',
-                }}
-            />
-
-            <OrganizationJsonLd
-                type="Organization"
-                id="https://wewantagent.com/contact#organization"
-                name="We Want Agent"
-                url="https://wewantagent.com/"
-                logo="https://wewantagent.com/assets/logo.png"
-                sameAs={[
-                    'https://www.facebook.com/wewantagent',
-                    'https://twitter.com/wewantagent',
-                    'https://www.linkedin.com/company/wewantagent/',
-                ]}
-                contactPoints={[
-                    {
-                        telephone: '+1-234-567-890',
-                        contactType: 'Customer Service',
-                        areaServed: 'US',
-                        availableLanguage: ['English'],
-                    },
-                ]}
-                address={{
-                    streetAddress: '456 Strategy Avenue',
-                    addressLocality: 'New York',
-                    addressRegion: 'NY',
-                    postalCode: '10001',
-                    addressCountry: 'US',
                 }}
             />
 

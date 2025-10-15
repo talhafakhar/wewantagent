@@ -4,24 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f36c49d3-23cd-44f2-8d3e-bd7e2e00bc13" name="Changes" comment="add new SVG icons, update Tailwind colors, and enhance GlobeSection and FaqSection content">
-      <change afterPath="$PROJECT_DIR$/public/assets/svg/about/makeai.png" afterDir="false" />
+    <list default="true" id="f36c49d3-23cd-44f2-8d3e-bd7e2e00bc13" name="Changes" comment="update footer spacing, enhance BannerSection with dynamic text, and improve industry-specific messaging in MeetOurTeam section">
+      <change afterPath="$PROJECT_DIR$/public/assets/services/hero-bg.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/services/realEstate.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/services/ContactFormSection.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/services/HeroSection.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/services/RealEstateCaseStudy.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/svg/about/birthofai.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/About/ContactSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/ContactSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/services/hero -bg-services.webp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/About/HeroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/HeroSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/About/MeetOurTeam.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/MeetOurTeam.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/About/MissionSection.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/About/OriginStorySection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/OriginStorySection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/About/SolutionsSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/SolutionsSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Contact/ContactUsSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Contact/ContactUsSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/footer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomePage/BannerSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/BannerSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomePage/BenefitSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/BenefitSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/about-us/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/automationexpert/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/services/AiDevelopment/BusinessSolutionsSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/BusinessSolutionsSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/services/AiDevelopment/FlowSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/FlowSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/services/AiDevelopment/HeroSection.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/services/AiDevelopment/IndustrySolutionSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/IndustrySolutionSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/services/AiDevelopment/ModalSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/ModalSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/services/AiDevelopment/ServicesSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/ServicesSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/services/AiDevelopment/StatsSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/StatsSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/services/AiDevelopment/TimeLineItemSection.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/automationexpert/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/automationexpert/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/contact/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/contact/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/services/ai-development/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/services/realestateaiagent/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +82,9 @@
     &quot;accountId&quot;: &quot;b6f6c9ad-11de-4aeb-9de9-463590c22c33&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="autoscrollToSource" value="true" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -99,7 +105,7 @@
     "git-widget-placeholder": "master",
     "js.debugger.nextJs.config.created.client": "true",
     "js.debugger.nextJs.config.created.server": "true",
-    "last_opened_file_path": "C:/Users/Developer/Desktop/WeWantAgent/public/assets/svg/about",
+    "last_opened_file_path": "C:/Users/Developer/Desktop/WeWantAgent/public/assets/services",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -123,15 +129,16 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\services" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\svg\about" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\svg\home" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\svg\services" />
-      <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\services" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\src\assets\lottie" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\home" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\services" />
+      <recent name="C:\Users\Developer\Desktop\WeWantAgent\src\components\services" />
+      <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\home" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\src\assets" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\about" />
     </key>
@@ -169,7 +176,7 @@
       <workItem from="1759847021098" duration="372000" />
       <workItem from="1759847465944" duration="5458000" />
       <workItem from="1760357983008" duration="1063000" />
-      <workItem from="1760422751025" duration="22295000" />
+      <workItem from="1760422751025" duration="34786000" />
     </task>
     <task id="LOCAL-00001" summary="initialize Next.js project with Tailwind CSS, GSAP, and essential components">
       <option name="closed" value="true" />
@@ -275,7 +282,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760441407593</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="update footer spacing, enhance BannerSection with dynamic text, and improve industry-specific messaging in MeetOurTeam section">
+      <option name="closed" value="true" />
+      <created>1760452830615</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1760452830615</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,7 +319,8 @@
     <MESSAGE value="fix animation transition easing in BusinessSolutionsSection" />
     <MESSAGE value="fix styling in ContactSection button and clean up workspace.xml" />
     <MESSAGE value="add new SVG icons, update Tailwind colors, and enhance GlobeSection and FaqSection content" />
-    <option name="LAST_COMMIT_MESSAGE" value="add new SVG icons, update Tailwind colors, and enhance GlobeSection and FaqSection content" />
+    <MESSAGE value="update footer spacing, enhance BannerSection with dynamic text, and improve industry-specific messaging in MeetOurTeam section" />
+    <option name="LAST_COMMIT_MESSAGE" value="update footer spacing, enhance BannerSection with dynamic text, and improve industry-specific messaging in MeetOurTeam section" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
 </project>

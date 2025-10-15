@@ -42,7 +42,7 @@ export default function FooterSection() {
                             Services
                         </p>
                         <div className="flex flex-col space-y-2">
-                            {["AI Agent for Real Estate", "AI Agent for Healthcare", 'Accounting and Bookkeeping Agent'].map(
+                            {["AI Agent for Real Estate", "AI Agent for Healthcare", 'Accounting AI Agent'].map(
                                 (item, idx) => (
                                     <a
                                         key={idx}
