@@ -1,42 +1,38 @@
 "use client";
 import React from "react";
-import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import {Swiper, SwiperSlide} from "swiper/react";
+import {Autoplay} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
 export default function TestimonialsSection() {
     const testimonials = [
         {
-            name: "Jane D",
-            role: "CEO",
-            image: "/assets/home/user.jpg",
-            text: "The user interface of this platform is so intuitive, I was able to start using it without any guidance.",
+            title: "Regional Brokerage Real Estate",
+            industry: "Real Estate",
+            text: "47 second average response time, 64% conversion increase, and 12 hours saved per agent weekly. The ROI was immediate.",
         },
         {
-            name: "Ava C.",
-            role: "Marketing Manager",
-            image: "/assets/svg/home/women.svg",
-            text: "Excellent service, quick responses, and a product that truly delivers. Highly recommend to others!",
+            title: "Multi-Location Clinic Healthcare",
+            industry: "Healthcare",
+            text: "No-shows dropped from 22% to 8%, saving us $12,600 monthly. The AI handles 200+ calls daily without missing one.",
         },
         {
-            name: "Harsh P.",
-            role: "Product Designer",
-            image: "/assets/home/user.jpg",
-            text: "I used to dread doing my taxes every year, but this platform has made the process so much simpler and stress-free.",
+            title: "Accounting Practice Finance",
+            industry: "Finance",
+            text: "Month-end close went from 7 days to 2 days. Client satisfaction up 40%, and we doubled capacity without new hires.",
         },
-
     ];
 
     return (
         <section className="py-16">
             <div className="mx-auto max-w-7xl px-4">
-                <div className="flex justify-center items-center gap-y-8 lg:gap-y-0 flex-wrap md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between lg:gap-x-8 max-w-sm sm:max-w-2xl lg:max-w-full mx-auto">
+                <div
+                    className="flex justify-center items-center gap-y-8 lg:gap-y-0 flex-wrap md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between lg:gap-x-8 max-w-sm sm:max-w-2xl lg:max-w-full mx-auto">
                     <div className="w-full lg:w-2/5">
-                        <span className=" text-gray-300 font-medium mb-4 block">What Clients Say</span>
-                            <h2 className="text-4xl  text-white leading-[3.25rem] mb-8">
-                            <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent font-bold">500+</span> Customers gave their Feedback
+                        <span className=" text-gray-300 font-medium mb-8 block">What Clients Say</span>
+                        <h2 className="text-4xl  text-white leading-[3rem] font-semibold ">
+                            Real Results From Beta Partners
                         </h2>
 
                     </div>
@@ -51,42 +47,32 @@ export default function TestimonialsSection() {
                             spaceBetween={30}
                             slidesPerView={1}
                             breakpoints={{
-                                768: { slidesPerView: 2 },
-                                1024: { slidesPerView: 2 },
+                                768: {slidesPerView: 2},
+                                1024: {slidesPerView: 2},
                             }}
                             className="mySwiper mt-12"
                         >
                             {testimonials.map((t, i) => (
                                 <SwiperSlide key={i}>
-                                    <div className="group  border border-gray-600 rounded max-sm:max-w-sm max-sm:mx-auto p-6 transition-all duration-500 hover:bg-white/10">
-                                        <div className="flex items-center gap-5 mb-5 sm:mb-9">
-                                            <Image
-                                                src={t.image}
-                                                alt={t.name}
-                                                width={60}
-                                                height={60}
-                                                className="rounded-full object-cover"
-                                            />
-                                            <div className="grid gap-1">
-                                                <h5 className="text-white font-medium">{t.name}</h5>
-                                                <span className="text-sm text-gray-400">{t.role}</span>
-                                            </div>
+                                    <div className="group border border-gray-600 rounded max-sm:max-w-sm max-sm:mx-auto p-6 transition-all duration-500 hover:bg-white/10">
+                                        <div>
+                                            <h3 className="text-lg font-semibold text-white mb-2">
+                                                {t.title}
+                                            </h3>
+                                            <p className="text-xs uppercase tracking-wide text-gray-400 mb-4">
+                                                {t.industry}
+                                            </p>
+                                            <p className="text-sm text-gray-400 leading-6">
+                                                {t.text}
+                                            </p>
                                         </div>
-                                        <div className="flex items-center mb-5 sm:mb-9 gap-2 text-amber-400">
-                                            {Array.from({ length: 5 }).map((_, starIdx) => (
-                                                <i key={starIdx} className="fa-solid fa-star" />
-                                            ))}
-                                        </div>
-                                        <p className="text-sm text-gray-400  leading-6 ">
-                                            {t.text}
-                                        </p>
                                     </div>
                                 </SwiperSlide>
-                            ))}
+                                ))}
                         </Swiper>
                     </div>
                 </div>
             </div>
         </section>
-    );
+);
 }

@@ -73,7 +73,7 @@ export default function GlobeSection() {
     before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto
     before:h-0 before:w-0 before:rounded-sm before:bg-white before:duration-300
     before:ease-out hover:before:h-40 hover:before:w-40
-    border-transparent bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] p-[2px]"
+    border-transparent bg-gradient-to-r from-primary via-accent to-secondary p-[2px]"
                     >
   <span className="relative z-10 flex h-full w-full items-center justify-center bg-black rounded-sm">
     See Our Pricing

@@ -81,43 +81,46 @@ const HeroSection = () => {
                         variants={item}
                         className="max-w-3xl mx-auto text-start p-3 backdrop-blur-xl bg-white/10 hover:bg-white/20 rounded mt-8 transition-all duration-300"
                     >
-            <span className="bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] uppercase bg-clip-text text-transparent font-semibold mb-1">
-              We want agent
+            <span className="bg-gradient-to-r from-primary via-accent to-secondary uppercase bg-clip-text text-transparent font-semibold mb-1">
+              What Is We Want Agent
             </span>
                         <p className="text-white">
-                            Hey there 👋 We are Fantasive A digital creative agency focused on
-                            branding, UX/UI, web design and development. How can we help you?
+                            We&#39;re an AI automation agency building custom agents for your business. No templates, just intelligent automation designed for your workflow and industry.
                         </p>
                     </motion.div>
 
                     <div className="flex flex-col sm:flex-row items-stretch justify-center gap-4 mt-6 w-full max-w-3xl mx-auto">
                         {[
                             {
-                                title: "Seeing is believing",
-                                button: "Show me your work",
+                                title: "Industries We Serve",
+                                button: "Specialize in Real Estate, Healthcare, and Accounting",
                             },
                             {
-                                title: "Right match?",
-                                button: "Tell me",
+                                title: "Portfolio & Results",
+                                button: "Book a portfolio call",
                             },
                             {
-                                title: "I have a project",
-                                button: "Let's get started",
+                                title: "Get Your AI Agent",
+                                button: "Tell us what's slowing you down",
                             },
                         ].map((card, index) => (
                             <motion.div
                                 key={index}
                                 variants={item}
                                 whileHover={{ scale: 1.04 }}
-                                className="group bg-white/10 hover:bg-white/20 backdrop-blur-xl px-6 py-2 rounded shadow-lg
-                 text-center sm:text-left flex flex-col justify-between transition-all duration-300 cursor-pointer w-full sm:w-64"
+                                className="group bg-white/10 hover:bg-white/20 backdrop-blur-xl px-6 py-1 rounded-xl shadow-lg
+                 flex flex-col justify-between text-center transition-all duration-300
+                 cursor-pointer w-full sm:w-64 min-h-[110px]"
                             >
-      <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent font-semibold text-lg">
+                                <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent font-semibold text-lg mb-1">
         {card.title}
       </span>
-                                <button className="flex items-center justify-center sm:justify-start gap-2 text-white font-semibold mt-1 group-hover:translate-x-1 transition-transform duration-300">
-                                    {card.button} <ArrowRight size={18} />
-                                </button>
+                                <div className="flex flex-col items-center justify-center flex-grow">
+                                    <button className="flex items-center justify-center gap-2 text-white font-semibold  group-hover:translate-x-1 transition-transform duration-300">
+                                        {card.button}
+                                        <ArrowRight size={16} className="shrink-0" />
+                                    </button>
+                                </div>
                             </motion.div>
                         ))}
                     </div>

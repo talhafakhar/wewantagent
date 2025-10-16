@@ -17,7 +17,7 @@ export default function ContactSection() {
             >
                 <h2 className="text-4xl md:text-5xl text-white text-center font-semibold leading-tight">
                   Feel Free to
-                    <span className="bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
               Contact Us
             </span>
                 </h2>

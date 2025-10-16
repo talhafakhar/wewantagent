@@ -31,7 +31,7 @@ export default function SolutionsSection() {
 
                   <div className="flex items-center gap-4 mb-4">
                       <h2 className="text-4xl md:text-5xl font-semibold w-full md:w-1/2">
-                          <span className="bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] bg-clip-text text-transparent">Custom Built</span>  Never Template Based
+                          <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">Custom Built</span>  Never Template Based
                       </h2>
                       <p className="text-gray-300 border-l-2 px-2  w-full md:w-1/2">
                           Every business operates differently. Your CRM setup, communication style, and workflow quirks matter. We don&#39;t sell pre-packaged solutions that force you to adapt. Our automation expert team builds from scratch, integrating with your existing tools and matching your team&#39;s actual process. Real customization means your AI works like a trained employee who knows exactly how you operate, not a rigid system demanding you change everything

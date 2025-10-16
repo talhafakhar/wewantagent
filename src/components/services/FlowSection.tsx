@@ -32,7 +32,7 @@ const ProcessTimeline: React.FC<ProcessTimelineProps> = ({ heading, steps }) => 
                             className="relative mb-12 last:mb-0"
                         >
                             <div className="absolute -left-[22px] top-0 flex items-center justify-center">
-                                <div className="p-[2px] rounded-full bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C]">
+                                <div className="p-[2px] rounded-full bg-gradient-to-r from-primary via-accent to-secondary">
                                     <div className="w-10 h-10 flex items-center justify-center rounded-full bg-black text-white font-bold">
                                         {step.number}
                                     </div>

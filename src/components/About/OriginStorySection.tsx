@@ -18,7 +18,7 @@ export default function OriginStory() {
 
                     <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
                         Building AI {" "}
-                        <span className="bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] bg-clip-text text-transparent">
+                        <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
                             That Actually Works
                         </span>
                     </h2>

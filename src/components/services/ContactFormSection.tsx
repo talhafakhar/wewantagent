@@ -16,13 +16,13 @@ export default function ContactSection() {
                 variants={fadeUp}
             >
                 <h2 className="text-4xl md:text-5xl text-white text-center font-semibold leading-tight">
-                    Feel Free to
-                    <span className="bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] bg-clip-text text-transparent">
-              Contact Us
+                    Get Your{" "}
+                    <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+             Custom AI Agent Roadmap
             </span>
                 </h2>
-                <p className="mt-6 text-gray-300 text-center">
-                    We&#39;re here to help and answer any questions you might have. We look forward to hearing from you!
+                <p className="mt-6 text-gray-300 text-center max-w-4xl mx-auto">
+                    Share your automation challenge below. We&#39;ll analyze your workflow and share a custom roadmap showing how AI agents can transform your operations
                 </p>
             </motion.div>
             <div className="flex flex-col md:flex-row items-center justify-center mt-20 gap-10">
@@ -37,9 +37,6 @@ export default function ContactSection() {
                     <div className="absolute inset-0 transform rotate-6 bg-gradient-to-r from-primary via-accent to-secondary rounded-2xl"></div>
                     <div className="relative bg-white/90 rounded-2xl p-8 z-10 shadow-lg">
                         <h2 className="text-xl font-semibold text-gray-800">
-    <span className="bg-gradient-to-r from-primary via-accent to-secondary text-transparent bg-clip-text font-bold">
-      Get Help?
-    </span>{" "}
                             Please Write Your Subject, Message & Notify Your Email.
                         </h2>
 

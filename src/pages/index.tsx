@@ -1,4 +1,3 @@
-
 import React from "react";
 import HeroSection from "@/components/HomePage/HeroSection";
 import BenefitSection from "@/components/HomePage/BenefitSection";
@@ -10,7 +9,28 @@ import FaqSection from "@/components/HomePage/FaqSection";
 import FooterSection from "@/components/Footer/footer";
 import {FAQPageJsonLd, NextSeo, OrganizationJsonLd, WebPageJsonLd} from "next-seo";
 import BannerSection from "@/components/HomePage/BannerSection";
-export default function Home() {
+import {motion} from "framer-motion";
+import BlogCard from "@/components/Blog/BlogCard";
+import {BlogResponse} from "@/types/blog";
+import {GetStaticProps} from "next";
+import {fetchBlogs} from "@/lib/strapi";
+
+type Props = {
+    initialBlogs: BlogResponse['data'];
+    pagination: BlogResponse['meta']['pagination'];
+};
+export const getStaticProps: GetStaticProps<Props> = async () => {
+    const {data, pagination} = await fetchBlogs(1, 10);
+    return {
+        props: {
+            initialBlogs: data,
+            pagination: pagination || null,
+        },
+        revalidate: 3600,
+    };
+};
+export default function Home({initialBlogs}: Props) {
+    const blogs = initialBlogs;
     return (
         <>
             <NextSeo
@@ -92,7 +112,7 @@ export default function Home() {
                     {
                         id: 1,
                         question: "How to create an AI agent for my business?",
-                        answer:"We start with a discovery call to understand your pain points. Then our automation expert maps out what tasks to automate, designs the AI agent architecture, develops it custom for your workflow, tests thoroughly, and deploys it into your systems. You're involved at every step, no surprises."
+                        answer: "We start with a discovery call to understand your pain points. Then our automation expert maps out what tasks to automate, designs the AI agent architecture, develops it custom for your workflow, tests thoroughly, and deploys it into your systems. You're involved at every step, no surprises."
                     },
                     {
                         id: 2,
@@ -119,11 +139,40 @@ export default function Home() {
                 <TestimonialsSection/>
                 <PricingSection/>
                 <BannerSection
-                text="Wasting hours on repetitive tasks let AI handle the work while you focus on growth Get your"
-                subtext="Free automation roadmap"
-                lastText="today"
+                    text="Wasting hours on repetitive tasks let AI handle the work while you focus on growth Get your"
+                    subtext="Free automation roadmap"
+                    lastText="today"
                 />
                 <FaqSection/>
+                <div>
+                    <div className="max-w-7xl mx-auto px-4 py-8">
+                        <motion.div
+                            className="text-center mb-16"
+                            initial={{opacity: 0, y: 20}}
+                            animate={{opacity: 1, y: 0}}
+                            transition={{duration: 0.6}}
+                        >
+                            <h2 className="text-3xl sm:text-5xl font-semibold mb-4 text-white leading-tight">
+                                Our Latest Insights
+                            </h2>
+                            <p className="text-gray-300  leading-relaxed">
+                                We Love Sharing Information.
+                            </p>
+                        </motion.div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {blogs && blogs.length > 0 ? (
+                                blogs.slice(0, 3).map((blog, index) => (
+                                    <BlogCard key={blog.id} blog={blog} id={index}/>
+                                ))
+                            ) : (
+                                <div className="col-span-full text-center text-gray-500">
+                                    No blogs available at the moment.
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
                 <FooterSection/>
             </div>
         </>

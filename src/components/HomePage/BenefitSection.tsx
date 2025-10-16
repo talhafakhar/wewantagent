@@ -29,21 +29,21 @@ const services = [
         number: "3",
     },
     {
-        title: "AI Marketing Assistants",
+        title: "Transparent Pricing Always Upfront",
         description:
-            "From writing posts to analyzing engagement, your AI marketing agent creates, schedules, and optimizes content — scaling your brand’s voice without extra hires.",
+            "Wondering how much does AI cost? We break down every dollar before you commit. No hidden fees, no surprise charges, no vague estimates that double later. AI automation agency services with honest pricing for honest work always",
         number: "4",
     },
     {
-        title: "AI Scheduling & Coordination",
+        title: "Learn How AI Agents Work",
         description:
-            "No more calendar chaos. Your AI assistant books meetings, follows up on no-shows, and syncs across time zones — all while sounding naturally human.",
+            "Curious about how to create an AI agent for your business? We show you the entire process from discovery to deployment. Understanding the technology helps you make better decisions about automation investments always",
         number: "5",
     },
     {
-        title: "AI Knowledge & Data Agents",
+        title: " Industry Specific Expertise Matters\n",
         description:
-            "Imagine a teammate who instantly recalls every file, document, or chat ever written in your org. AI knowledge agents surface insights and answers on command — no searching, no scrolling.",
+            "Our ai automation agency specializes in real estate, healthcare, and accounting. We speak your industry language, understand your challenges, build solutions that fit your workflow. Generic automation fails, custom agents succeed every time.",
         number: "6",
     },
 ];
@@ -155,7 +155,7 @@ const BenefitSection = () => {
                                     </div>
                                     <div className="relative z-10 mb-6">
       <span
-          className="text-8xl font-bold bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] bg-clip-text text-transparent transition-colors duration-500"
+          className="text-8xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent transition-colors duration-500"
           style={{ fontFamily: "Arial Black, sans-serif" }}
       >
         {service.number}
@@ -192,7 +192,7 @@ const BenefitSection = () => {
     before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto
     before:h-0 before:w-0 before:rounded-sm before:bg-white before:duration-300
     before:ease-out hover:before:h-40 hover:before:w-60
-    border-transparent bg-gradient-to-r from-[#00D1B2] via-[#FFB347] to-[#FF416C] p-[2px]"
+    border-transparent bg-gradient-to-r from-primary via-accent to-secondary p-[2px]"
                     >
   <span className="relative z-10 text-nowrap flex h-full w-full items-center justify-center bg-black rounded-sm">
     Book a Free Consultation
