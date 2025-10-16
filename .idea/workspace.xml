@@ -4,34 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f36c49d3-23cd-44f2-8d3e-bd7e2e00bc13" name="Changes" comment="update image path for healthcare service and clean up workspace.xml">
-      <change afterPath="$PROJECT_DIR$/.env.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Blog/BlogCard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Blog/BlogDetail.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Blog/BlogHeader.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/strapi.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/api/contact/send.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/blogs/[slug].tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/types/blog.ts" afterDir="false" />
+    <list default="true" id="f36c49d3-23cd-44f2-8d3e-bd7e2e00bc13" name="Changes" comment="add Resend package, update image gradients, and enhance blog and contact form sections">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/home/user.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/svg/home/women.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/About/ContactSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/ContactSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/About/HeroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/HeroSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/About/MeetOurTeam.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/MeetOurTeam.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/About/OriginStorySection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/OriginStorySection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/About/SolutionsSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/SolutionsSection.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Contact/ContactUsSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Contact/ContactUsSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomePage/BenefitSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/BenefitSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomePage/GlobeSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/GlobeSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomePage/HeroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/HeroSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomePage/TestimonialSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/TestimonialSection.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/services/ContactFormSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/ContactFormSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/services/FlowSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/FlowSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +161,7 @@
       <workItem from="1759847465944" duration="5458000" />
       <workItem from="1760357983008" duration="1063000" />
       <workItem from="1760422751025" duration="47737000" />
-      <workItem from="1760608311566" duration="11044000" />
+      <workItem from="1760608311566" duration="11978000" />
     </task>
     <task id="LOCAL-00001" summary="initialize Next.js project with Tailwind CSS, GSAP, and essential components">
       <option name="closed" value="true" />
@@ -322,7 +299,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760538701800</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="add Resend package, update image gradients, and enhance blog and contact form sections">
+      <option name="closed" value="true" />
+      <created>1760620308348</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1760620308348</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,7 +340,8 @@
     <MESSAGE value="refactor HeroSection and ServicesSection, enhance industry solutions with swiper, and add contact form section" />
     <MESSAGE value="refactor service pages for real estate and healthcare automation, update image paths, and enhance content for better clarity and engagement" />
     <MESSAGE value="update image path for healthcare service and clean up workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="update image path for healthcare service and clean up workspace.xml" />
+    <MESSAGE value="add Resend package, update image gradients, and enhance blog and contact form sections" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Resend package, update image gradients, and enhance blog and contact form sections" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
 </project>

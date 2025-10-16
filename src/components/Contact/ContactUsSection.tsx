@@ -21,6 +21,9 @@ import Link from "next/link";
 import {AnimatePresence, motion} from "framer-motion";
 
 const ContactForm = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [isServicesOpen, setIsServicesOpen] = useState(false);
+    const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
     const [loading, setLoading] = useState(false);
     const [modalMsg, setModalMsg] = useState<string>('');
     const [isSuccess, setIsSuccess] = useState<boolean>(false);
@@ -36,9 +39,6 @@ const ContactForm = () => {
         companySize: '',
         message: '',
     });
-    const [isOpen, setIsOpen] = useState(false);
-    const [isServicesOpen, setIsServicesOpen] = useState(false);
-    const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
     const handleChange = (e: any) => {
         setFormData({
             ...formData,
