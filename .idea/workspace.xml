@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f36c49d3-23cd-44f2-8d3e-bd7e2e00bc13" name="Changes" comment="add Resend package, update image gradients, and enhance blog and contact form sections">
+    <list default="true" id="f36c49d3-23cd-44f2-8d3e-bd7e2e00bc13" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_9_2025_3_01_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_9_2025_3_01_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/About/ContactSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/ContactSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Contact/ContactUsSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Contact/ContactUsSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/services/ContactFormSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/ContactFormSection.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +97,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Developer\\Desktop\\WeWantAgent\\node_modules\\typescript\\lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2025.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -161,7 +160,11 @@
       <workItem from="1759847465944" duration="5458000" />
       <workItem from="1760357983008" duration="1063000" />
       <workItem from="1760422751025" duration="47737000" />
-      <workItem from="1760608311566" duration="11978000" />
+      <workItem from="1760608311566" duration="12227000" />
+      <workItem from="1760623526540" duration="25000" />
+      <workItem from="1760623563935" duration="6000" />
+      <workItem from="1760624310958" duration="3000" />
+      <workItem from="1760699342440" duration="516000" />
     </task>
     <task id="LOCAL-00001" summary="initialize Next.js project with Tailwind CSS, GSAP, and essential components">
       <option name="closed" value="true" />
@@ -307,7 +310,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760620308348</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="refactor contact form components, enhance form handling with state management, and improve user feedback on submission">
+      <option name="closed" value="true" />
+      <created>1760621419703</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1760621419703</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,7 +352,8 @@
     <MESSAGE value="refactor service pages for real estate and healthcare automation, update image paths, and enhance content for better clarity and engagement" />
     <MESSAGE value="update image path for healthcare service and clean up workspace.xml" />
     <MESSAGE value="add Resend package, update image gradients, and enhance blog and contact form sections" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Resend package, update image gradients, and enhance blog and contact form sections" />
+    <MESSAGE value="refactor contact form components, enhance form handling with state management, and improve user feedback on submission" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor contact form components, enhance form handling with state management, and improve user feedback on submission" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
 </project>
