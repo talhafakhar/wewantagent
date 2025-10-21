@@ -89,7 +89,7 @@ const HeroSection = () => {
                         </p>
                     </motion.div>
 
-                    <div className="flex flex-col sm:flex-row items-stretch justify-center gap-4 mt-6 w-full max-w-3xl mx-auto">
+                    <div className="flex flex-col sm:flex-row items-stretch gap-4 mt-2 w-full max-w-3xl mx-auto">
                         {[
                             {
                                 title: "Industries We Serve",
@@ -108,16 +108,19 @@ const HeroSection = () => {
                                 key={index}
                                 variants={item}
                                 whileHover={{ scale: 1.04 }}
-                                className="group bg-white/10 hover:bg-white/20 backdrop-blur-xl px-6 py-1 rounded-xl shadow-lg
-                 flex flex-col justify-between text-center transition-all duration-300
-                 cursor-pointer w-full sm:w-64 min-h-[110px]"
+                                className="group bg-white/10 hover:bg-white/20 backdrop-blur-xl px-3 py-2 rounded-xl shadow-lg
+                 flex flex-col justify-start text-left transition-all duration-300
+                 cursor-pointer w-full sm:w-64 min-h-[120px]"
                             >
-                                <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent font-semibold text-lg mb-1">
+                                <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent font-semibold text-lg ">
         {card.title}
       </span>
-                                <div className="flex flex-col items-center justify-center flex-grow">
-                                    <button className="flex items-center justify-center gap-2 text-white font-semibold  group-hover:translate-x-1 transition-transform duration-300">
-                                        {card.button}
+
+                                <div className="flex flex-grow items-center">
+                                    <button className="flex items-center gap-2 text-white text-left group-hover:translate-x-1 transition-transform duration-300">
+                                                 <span >
+            {card.button}
+          </span>
                                         <ArrowRight size={16} className="shrink-0" />
                                     </button>
                                 </div>

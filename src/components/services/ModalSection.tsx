@@ -4,12 +4,16 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const aiModels = [
-    { name: "ChatGPT 4.0", img: "/assets/services/openAi.webp" },
+    { name: "ChatGPT 4.0", img: "/assets/services/openAI.webp" },
     { name: "Llama 2", img: "/assets/services/LLAMA.webp" },
     { name: "PaLM 2", img: "/assets/services/PaLM2.webp" },
     { name: "Claude 3", img: "/assets/services/claude.webp" },
     { name: "DALL·E", img: "/assets/services/Dall-e.webp" },
+    { name: "Keras", img: "/assets/services/keras.webp" },
+    { name: "Pytourch ", img: "/assets/services/pytourch.webp" },
+    { name: "TensorFlow", img: "/assets/services/tensorflow.webp" },
 ];
+const duplicatedModels = [...aiModels, ...aiModels, ...aiModels,...aiModels];
 
 const AIModulesSection = () => {
     return (
@@ -33,28 +37,54 @@ const AIModulesSection = () => {
                     We build using advanced language models and n8n automation workflows
                 </motion.p>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 justify-center items-center">
-                    {aiModels.map((model, idx) => (
-                        <motion.div
-                            key={idx}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: idx * 0.15, duration: 0.5 }}
-                            whileHover={{ scale: 1.05 }}
-                            className="flex flex-col items-center"
-                        >
-                            <div className="relative w-32 h-32 md:w-44 md:h-44">
-                                <Image
-                                    src={model.img}
-                                    alt={model.name}
-                                    fill
-                                    className="object-contain"
-                                />
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
+                <div className="w-full  py-12">
+                    <style jsx>{`
+                        @keyframes infiniteScroll {
+                            0% {
+                                transform: translateX(0);
+                            }
+                            100% {
+                                transform: translateX(-33.333%);
+                            }
+                        }
 
+                        .infinite-scroll {
+                            animation: infiniteScroll 30s linear infinite;
+                        }
+
+                        .infinite-scroll:hover {
+                            animation-play-state: paused;
+                        }
+
+                        div::-webkit-scrollbar {
+                            display: none;
+                        }
+                    `}</style>
+
+                    <div className="overflow-hidden">
+                        <div
+                            className="infinite-scroll flex space-x-6 px-4"
+                            style={{ scrollbarWidth: 'none' }}
+                        >
+                            {duplicatedModels.map((model, idx) => (
+                                <motion.div
+                                    key={idx}
+                                    whileHover={{ scale: 1.05 }}
+                                    className="flex flex-col items-center flex-shrink-0"
+                                >
+                                    <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36  ">
+                                        <Image
+                                            src={model.img}
+                                            alt={model.name}
+                                            fill
+                                            className="object-contain invert brightness-0"
+                                        />
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     );

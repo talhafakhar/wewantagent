@@ -4,10 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f36c49d3-23cd-44f2-8d3e-bd7e2e00bc13" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_9_2025_3_01_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_9_2025_3_01_PM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="f36c49d3-23cd-44f2-8d3e-bd7e2e00bc13" name="Changes" comment="without blog">
+      <change afterPath="$PROJECT_DIR$/public/assets/services/keras.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/services/pytourch.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/services/tensorflow.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Blog/BlogCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Blog/BlogDetail.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Blog/BlogHeader.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/strapi.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/blogs/[slug].tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/types/blog.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/HeroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/HeroSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/services/ModalSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/ModalSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +98,7 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Developer/Desktop/WeWantAgent/src/pages&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Developer/Desktop/WeWantAgent/public/assets/services&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -97,7 +107,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2025.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Developer\\Desktop\\WeWantAgent\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -112,16 +122,16 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\services" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\src\pages" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\src\components\Blog" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\src" />
-      <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\services" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\svg\about" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\services" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\about" />
-      <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\services" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\src\components\services" />
       <recent name="C:\Users\Developer\Desktop\WeWantAgent\public\assets\home" />
     </key>
@@ -165,6 +175,8 @@
       <workItem from="1760623563935" duration="6000" />
       <workItem from="1760624310958" duration="3000" />
       <workItem from="1760699342440" duration="516000" />
+      <workItem from="1760964806505" duration="4044000" />
+      <workItem from="1761028132338" duration="1837000" />
     </task>
     <task id="LOCAL-00001" summary="initialize Next.js project with Tailwind CSS, GSAP, and essential components">
       <option name="closed" value="true" />
@@ -318,7 +330,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760621419703</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="without blog">
+      <option name="closed" value="true" />
+      <created>1760964945998</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1760964945998</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,7 +373,8 @@
     <MESSAGE value="update image path for healthcare service and clean up workspace.xml" />
     <MESSAGE value="add Resend package, update image gradients, and enhance blog and contact form sections" />
     <MESSAGE value="refactor contact form components, enhance form handling with state management, and improve user feedback on submission" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor contact form components, enhance form handling with state management, and improve user feedback on submission" />
+    <MESSAGE value="without blog" />
+    <option name="LAST_COMMIT_MESSAGE" value="without blog" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
 </project>
