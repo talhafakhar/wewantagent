@@ -1,9 +1,6 @@
 import React, {useState} from 'react';
 import Image from "next/image";
 import {
-    Building2,
-    Calculator,
-    ChevronDown,
     Clock,
     Facebook,
     Instagram,
@@ -12,7 +9,6 @@ import {
     Menu,
     PhoneCall,
     Send,
-    Stethoscope,
     X
 } from "lucide-react";
 
@@ -22,8 +18,6 @@ import {AnimatePresence, motion} from "framer-motion";
 
 const ContactForm = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [isServicesOpen, setIsServicesOpen] = useState(false);
-    const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
     const [loading, setLoading] = useState(false);
     const [modalMsg, setModalMsg] = useState<string>('');
     const [isSuccess, setIsSuccess] = useState<boolean>(false);
@@ -111,72 +105,15 @@ const ContactForm = () => {
                                 </Link>
                                 <div className="hidden lg:flex gap-4 items-center relative">
                                     <div className="flex space-x-6 bg-white/20 px-8 py-2.5 rounded-full">
-                                        <div
-                                            className="relative"
-                                            onMouseEnter={() => setIsServicesOpen(true)}
-                                            onMouseLeave={() => setIsServicesOpen(false)}
-                                        >
-                                            <button
-                                                className="text-white group-hover:text-gray-200 transition-colors flex items-center">
-                                                Services <ChevronDown size={20}/>
-                                            </button>
-
-                                            <AnimatePresence>
-                                                {isServicesOpen && (
-                                                    <motion.div
-                                                        initial={{opacity: 0, y: -10}}
-                                                        animate={{opacity: 1, y: 0}}
-                                                        exit={{opacity: 0, y: -10}}
-                                                        transition={{duration: 0.25, ease: "easeOut"}}
-                                                        className="absolute top-full left-0 mt-3 bg-black  border  rounded-2xl shadow-lg p-2 w-64"
-                                                    >
-                                                        <Link
-                                                            href="/services/realestateaiagent"
-                                                            className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/10 transition-colors"
-                                                        >
-                                                            <Building2 className="text-white w-5 h-5 mt-1"/>
-                                                            <div>
-                                                                <p className="text-white font-semibold text-sm">
-                                                                    Real Estate AI Agent
-                                                                </p>
-                                                                <p className="text-white/70 text-xs">
-                                                                    AI solutions tailored for the real estate industry.
-                                                                </p>
-                                                            </div>
-                                                        </Link>
-                                                        <Link
-                                                            href="/services/healthcareautomation"
-                                                            className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/10 transition-colors"
-                                                        >
-                                                            <Stethoscope className="text-white w-5 h-5 mt-1"/>
-                                                            <div>
-                                                                <p className="text-white font-semibold text-sm">
-                                                                    Health Care AI Agent
-                                                                </p>
-                                                                <p className="text-white/70 text-xs">
-                                                                    Streamline healthcare processes with AI automation.
-                                                                </p>
-                                                            </div>
-                                                        </Link>
-                                                        <Link
-                                                            href="/services/bookkeepingai"
-                                                            className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/10 transition-colors"
-                                                        >
-                                                            <Calculator className="text-white w-5 h-5 mt-1"/>
-                                                            <div>
-                                                                <p className="text-white font-semibold text-sm">
-                                                                    Bookkeeping AI Agent
-                                                                </p>
-                                                                <p className="text-white/70 text-xs">
-                                                                    Automate your bookkeeping tasks with AI.
-                                                                </p>
-                                                            </div>
-                                                        </Link>
-                                                    </motion.div>
-                                                )}
-                                            </AnimatePresence>
-                                        </div>
-
+                                        <Link href="/services/realestateaiagent" className="text-white hover:text-gray-200">
+                                            Real Estate
+                                        </Link>
+                                        <Link href="/services/healthcareautomation" className="text-white hover:text-gray-200">
+                                            Healthcare
+                                        </Link>
+                                        <Link href="/services/bookkeepingai" className="text-white hover:text-gray-200">
+                                            Bookkeeping
+                                        </Link>
                                         <Link href="/automationexpert" className="text-white hover:text-gray-200">
                                             About
                                         </Link>
@@ -236,49 +173,19 @@ const ContactForm = () => {
                                 <div
                                     className="bg-black backdrop-blur-lg border border-white/20 rounded-3xl p-6 shadow-xl">
                                     <nav className="flex flex-col space-y-2">
-                                        <button
-                                            onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-                                            className="flex items-center justify-between text-white hover:text-purple-200 transition-colors py-2 px-4 rounded-lg hover:bg-white/10"
-                                        >
-                                            <span>Services</span>
-                                            <ChevronDown
-                                                size={18}
-                                                className={`transition-transform ${
-                                                    isMobileServicesOpen ? "rotate-180" : ""
-                                                }`}
-                                            />
-                                        </button>
 
-                                        <AnimatePresence>
-                                            {isMobileServicesOpen && (
-                                                <motion.div
-                                                    initial={{opacity: 0, height: 0}}
-                                                    animate={{opacity: 1, height: "auto"}}
-                                                    exit={{opacity: 0, height: 0}}
-                                                    transition={{duration: 0.25}}
-                                                    className="ml-4 mt-1 space-y-2"
-                                                >
-                                                    <Link
-                                                        href="/services/realestateaiagent"
-                                                        className="flex items-center gap-2 text-white/80 hover:text-white text-sm py-1.5"
-                                                    >
-                                                        <Building2 size={16}/> Real Estate AI Agent
-                                                    </Link>
-                                                    <Link
-                                                        href="/services/healthcareautomation"
-                                                        className="flex items-center gap-2 text-white/80 hover:text-white text-sm py-1.5"
-                                                    >
-                                                        <Stethoscope size={16}/> Health Care AI Agent
-                                                    </Link>
-                                                    <Link
-                                                        href="/services/bookkeepingai"
-                                                        className="flex items-center gap-2 text-white/80 hover:text-white text-sm py-1.5"
-                                                    >
-                                                        <Calculator size={16}/> Bookkeeping AI Agent
-                                                    </Link>
-                                                </motion.div>
-                                            )}
-                                        </AnimatePresence>
+                                        <Link href="/services/realestateaiagent"                                     className="text-white hover:text-purple-200 transition-colors py-2 px-4 rounded-lg hover:bg-white/10"
+                                        >
+                                            Real Estate
+                                        </Link>
+                                        <Link href="/services/healthcareautomation"                                     className="text-white hover:text-purple-200 transition-colors py-2 px-4 rounded-lg hover:bg-white/10"
+                                        >
+                                            Healthcare
+                                        </Link>
+                                        <Link href="/services/bookkeepingai"                                     className="text-white hover:text-purple-200 transition-colors py-2 px-4 rounded-lg hover:bg-white/10"
+                                        >
+                                            Bookkeeping
+                                        </Link>
 
                                         <Link
                                             href="/automationexpert"
@@ -534,9 +441,9 @@ const ContactForm = () => {
                     </div>
                 )}
             </div>
-            <footer className="text-white bg-black relative">
-                <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-                    <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
+            <footer className="text-white bg-black relative mt-10">
+                <div className="max-w-7xl  mx-auto px-6 lg:px-8 pt-10 border-t ">
+                    <div className="grid pb-12 grid-cols-1 md:grid-cols-6 gap-8">
                         <div className="col-span-2 md:col-span-2">
                             <div className="flex flex-col space-y-4">
                                 <div className="flex items-center space-x-2">
@@ -549,50 +456,55 @@ const ContactForm = () => {
                                     />
                                 </div>
                                 <p className="text-sm text-gray-400 leading-relaxed">
-                                    Empowering learners and innovators worldwide through
-                                    accessible, high-quality education and training programs.
+                                    We Want Agent builds custom AI automation solutions for real estate, healthcare, and accounting industries. From voice AI agents to workflow automation, we help businesses eliminate repetitive tasks and focus on growth
                                 </p>
                                 <div className="flex space-x-4 pt-4">
-                                    <a href="#" className="text-gray-400 hover:text-white">
-                                        <Facebook className="w-5 h-5"/>
-                                    </a>
-                                    <a href="#" className="text-gray-400 hover:text-white">
-                                        <Linkedin className="w-5 h-5"/>
-                                    </a>
-                                    <a href="#" className="text-gray-400 hover:text-white">
-                                        <Instagram className="w-5 h-5"/>
-                                    </a>
+                                    <Link href="#" className="text-gray-400 hover:text-white">
+                                        <Facebook className="w-5 h-5" />
+                                    </Link>
+                                    <Link href="#" className="text-gray-400 hover:text-white">
+                                        <Linkedin className="w-5 h-5" />
+                                    </Link>
+                                    <Link href="#" className="text-gray-400 hover:text-white">
+                                        <Instagram className="w-5 h-5" />
+                                    </Link>
                                 </div>
                             </div>
                         </div>
 
                         <div>
                             <p className="text-xs uppercase font-semibold text-gray-400 mb-3 tracking-wider">
-                                Start Learning
+                                Services
                             </p>
                             <div className="flex flex-col space-y-2">
-                                {["UX/UI Design", "Software Development", "Workplace Skills", "Job Search", "Digital Freelancing"].map(
-                                    (item, idx) => (
-                                        <a
-                                            key={idx}
-                                            href="#"
-                                            className="text-sm hover:text-white transition duration-150"
-                                        >
-                                            {item}
-                                        </a>
-                                    )
-                                )}
+                                {[
+                                    { name: "AI Agent for Real Estate", href: "/services/realestateaiagent" },
+                                    { name: "AI Agent for Healthcare", href: "/services/healthcareautomation" },
+                                    { name: "Accounting AI Agent", href: "/services/bookkeepingai" },
+                                ].map((item, idx) => (
+                                    <Link
+                                        key={idx}
+                                        href={item.href}
+                                        className="text-sm hover:text-white transition duration-150"
+                                    >
+                                        {item.name}
+                                    </Link>
+                                ))}
+
                             </div>
                         </div>
 
                         <div>
                             <p className="text-xs uppercase font-semibold text-gray-400 mb-3 tracking-wider">
-                                Other Resources
+                                Quick Links
                             </p>
                             <div className="flex flex-col space-y-2">
-                                <a href="#" className="text-sm hover:text-white transition duration-150">
-                                    Events
-                                </a>
+                                <Link href="/automationexpert" className="text-sm hover:text-white transition duration-150">
+                                    About Us
+                                </Link>
+                                <Link href="/contact" className="text-sm hover:text-white transition duration-150">
+                                    Contact Us
+                                </Link>
                             </div>
                         </div>
 
@@ -605,25 +517,23 @@ const ContactForm = () => {
                                 placeholder="Enter your email..."
                                 className="w-full bg-gray-800 border border-gray-700 rounded-full py-2 px-4 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 mb-3 appearance-none"
                             />
-                            <button
-                                className="w-full bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-full py-2 px-4 text-sm transition duration-200 mb-6">
+                            <button className="w-full bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-full py-2 px-4 text-sm transition duration-200 mb-6">
                                 Subscribe
                             </button>
                         </div>
                     </div>
-                </div>
-                <div className="border-t border-gray-800 mt-8 md:mt-12 py-6">
-                    <div
-                        className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500">
-                        <div className="flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-1 mb-3 sm:mb-0">
-                            {["Privacy Policy", "Terms of Use", "Cookies Policy"].map((link, idx) => (
-                                <a key={idx} href="#" className="hover:text-gray-300 transition">
-                                    {link}
-                                </a>
-                            ))}
-                        </div>
-                        <div className="flex items-center gap-2 text-center sm:text-right">
-                            <span>Copyright 2025 © All rights reserved.</span>
+                    <div className="border-t  border-gray-800 mt-8 md:mt-12 py-6">
+                        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500">
+                            <div className="flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-1 mb-3 sm:mb-0">
+                                {["Privacy Policy", "Terms of Use", "Cookies Policy"].map((link, idx) => (
+                                    <a key={idx} href="#" className="hover:text-gray-300 transition">
+                                        {link}
+                                    </a>
+                                ))}
+                            </div>
+                            <div className="flex items-center gap-2 text-center sm:text-right">
+                                <span>Copyright 2025 © All rights reserved.</span>
+                            </div>
                         </div>
                     </div>
                 </div>
