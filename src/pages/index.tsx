@@ -160,17 +160,17 @@ export default function Home() {
                             </p>
                         </motion.div>
 
-                        {/*<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">*/}
-                        {/*    {blogs && blogs.length > 0 ? (*/}
-                        {/*        blogs.slice(0, 3).map((blog, index) => (*/}
-                        {/*            <BlogCard key={blog.id} blog={blog} id={index}/>*/}
-                        {/*        ))*/}
-                        {/*    ) : (*/}
-                        {/*        <div className="col-span-full text-center text-gray-500">*/}
-                        {/*            No blogs available at the moment.*/}
-                        {/*        </div>*/}
-                        {/*    )}*/}
-                        {/*</div>*/}
+                {/*        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">*/}
+                {/*            {blogs && blogs.length > 0 ? (*/}
+                {/*                blogs.slice(0, 3).map((blog, index) => (*/}
+                {/*                    <BlogCard key={blog.id} blog={blog} id={index}/>*/}
+                {/*                ))*/}
+                {/*            ) : (*/}
+                {/*                <div className="col-span-full text-center text-gray-500">*/}
+                {/*                    No blogs available at the moment.*/}
+                {/*                </div>*/}
+                {/*            )}*/}
+                {/*        </div>*/}
                     </div>
                 </div>
                 <FooterSection/>

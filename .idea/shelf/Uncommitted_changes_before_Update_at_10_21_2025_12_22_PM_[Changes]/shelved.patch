@@ -1,0 +1,1033 @@
+Index: src/pages/blogs/[slug].tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/pages/blogs/[slug].tsx b/src/pages/blogs/[slug].tsx
+new file mode 100644
+--- /dev/null	(date 1760966776723)
++++ b/src/pages/blogs/[slug].tsx	(date 1760966776723)
+@@ -0,0 +1,29 @@
++import type {GetStaticPaths, GetStaticProps} from 'next';
++import {getBlogBySlug, getLatestSlugs} from '@/lib/strapi';
++import type {BlogPost} from '@/types/blog';
++import BlogDetail from '@/components/Blog/BlogDetail';
++type Props = { blog: BlogPost };
++export const getStaticPaths: GetStaticPaths = async () => {
++    try {
++        const slugs = await getLatestSlugs(50);
++        return {paths: slugs.map((slug) => ({params: {slug}})), fallback: 'blocking'};
++    } catch {
++        return {paths: [], fallback: 'blocking'};
++    }
++};
++export const getStaticProps: GetStaticProps<Props> = async ({params}) => {
++    const slug = String(params!.slug);
++    const blog = await getBlogBySlug(slug);
++    if (!blog) return {notFound: true, revalidate: 60};
++    return {props: {blog}, revalidate: 300};
++};
++
++export default function BlogPostPage({blog}: Props) {
++
++    return (
++        <>
++            <BlogDetail blog={blog}/>
++
++        </>
++    );
++}
+Index: src/components/Blog/BlogCard.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/Blog/BlogCard.tsx b/src/components/Blog/BlogCard.tsx
+new file mode 100644
+--- /dev/null	(date 1760966776504)
++++ b/src/components/Blog/BlogCard.tsx	(date 1760966776504)
+@@ -0,0 +1,122 @@
++import React from "react";
++import Link from "next/link";
++import Image from "next/image";
++import {BlogPost} from "@/types/blog";
++import {ArrowRight, Calendar} from "lucide-react";
++
++interface BlogCardProps {
++    blog: BlogPost;
++    id: number;
++}
++
++const BlogCard: React.FC<BlogCardProps> = ({blog, id}) => {
++    const imageUrl = blog.feature_image?.url
++        ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${blog.feature_image.url}`
++        : null;
++
++    const imageAlt = blog.feature_image?.alternativeText || blog.title || "Blog cover image";
++
++    const formatDate = (dateString: string) =>
++        new Date(dateString).toLocaleDateString("en-US", {
++            year: "numeric",
++            month: "long",
++            day: "numeric",
++        });
++
++    return (
++        <div
++            className="group relative bg-white/10 backdrop-blur-2xl rounded overflow-hidden border border-gray-900 transition-all duration-500 hover:-translate-y-2"
++            style={{animation: `fadeInUp 0.6s ease-out ${id * 0.1}s both`}}>
++            {imageUrl && (
++                <div className="relative  overflow-hidden border-b border-white h-64">
++                    <div
++                        className="absolute inset-0 bg-cover bg-center filter blur-[4px] scale-105"
++                        style={{backgroundImage: `url(${imageUrl})`}}
++                    />
++
++                    <div className="absolute inset-0 bg-white/10 z-10"/>
++
++                    <div className="relative overflow-hidden  h-64 ">
++                        <Image
++                            src={imageUrl}
++                            alt={imageAlt}
++                            fill
++                            className="object-contain transition-transform duration-700 group-hover:scale-105"
++                        />
++                    </div>
++                </div>
++            )}
++
++            <div className="py-6 px-4  ">
++                <div className="flex flex-wrap gap-2">
++                    {blog.tags?.map((tag, index) => (
++                        <span
++                            key={index}
++                            className="relative inline-block px-[1px] py-[1px] text-xs font-semibold text-white rounded"
++                        >
++    <span
++        className="absolute inset-0 rounded p-[1px] bg-gradient-to-r from-primary via-secondary to-accent"
++    ></span>
++    <span
++        className="relative block rounded bg-[#0b0b0b] px-3 py-0.5"
++    >
++      #{tag.trim()}
++    </span>
++  </span>
++                    ))}
++
++                </div>
++
++                <h3 className="text-xl font-bold text-white leading-tight mt-4 uppercase mb-2">
++                    {blog.title}
++                </h3>
++
++                <p className="text-gray-300 text-sm leading-relaxed line-clamp-3">
++                    {typeof blog.excerpt === "string"
++                        ? blog.excerpt
++                        : blog.excerpt
++                            ?.map((block) =>
++                                block.children?.map((child) => child.text || "").join(" ")
++                            )
++                            .join(" ")}
++                </p>
++            </div>
++
++            <div className="px-4 pb-2 flex items-center justify-between">
++                <div className="flex items-center gap-2 text-sm text-gray-300">
++                    <Calendar size={14}/>
++                    <span className="font-medium">{formatDate(blog.published)}</span>
++                </div>
++
++                <Link
++                    href={`/blogs/${blog.slug}`}
++                    className="group/btn flex items-center gap-2 text-sm font-semibold text-white "
++                >
++                    <span>Read More</span>
++                    <div
++                        className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center  transition-all duration-300 group-hover/btn:scale-110">
++                        <ArrowRight
++                            size={14}
++                            className="text-white group-hover/btn:translate-x-0.5 transition-transform duration-300"
++                        />
++                    </div>
++                </Link>
++            </div>
++
++            <style jsx>{`
++                @keyframes fadeInUp {
++                    from {
++                        opacity: 0;
++                        transform: translateY(30px);
++                    }
++                    to {
++                        opacity: 1;
++                        transform: translateY(0);
++                    }
++                }
++            `}</style>
++        </div>
++    );
++};
++
++export default BlogCard;
+Index: src/pages/index.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React from \"react\";\r\nimport HeroSection from \"@/components/HomePage/HeroSection\";\r\nimport BenefitSection from \"@/components/HomePage/BenefitSection\";\r\nimport OrbitAnimation from \"@/components/HomePage/FlowSection\";\r\nimport GlobeSection from \"@/components/HomePage/GlobeSection\";\r\nimport PricingSection from \"@/components/HomePage/PricingTableSection\";\r\nimport TestimonialsSection from \"@/components/HomePage/TestimonialSection\";\r\nimport FaqSection from \"@/components/HomePage/FaqSection\";\r\nimport FooterSection from \"@/components/Footer/footer\";\r\nimport {FAQPageJsonLd, NextSeo, OrganizationJsonLd, WebPageJsonLd} from \"next-seo\";\r\nimport BannerSection from \"@/components/HomePage/BannerSection\";\r\nimport {motion} from \"framer-motion\";\r\n// import BlogCard from \"@/components/Blog/BlogCard\";\r\n// import {BlogResponse} from \"@/types/blog\";\r\n// import {GetStaticProps} from \"next\";\r\n// import {fetchBlogs} from \"@/lib/strapi\";\r\n\r\n// type Props = {\r\n//     initialBlogs: BlogResponse['data'];\r\n//     pagination: BlogResponse['meta']['pagination'];\r\n// };\r\n// export const getStaticProps: GetStaticProps<Props> = async () => {\r\n//     const {data, pagination} = await fetchBlogs(1, 10);\r\n//     return {\r\n//         props: {\r\n//             initialBlogs: data,\r\n//             pagination: pagination || null,\r\n//         },\r\n//         revalidate: 3600,\r\n//     };\r\n// };\r\nexport default function Home() {\r\n    // const blogs = initialBlogs;\r\n    return (\r\n        <>\r\n            <NextSeo\r\n                title=\"We Want Agent | The Custom Build AI Automation Agency\"\r\n                description=\"We Want Agent is an AI automation agency building custom AI agents for real estate, healthcare, and accounting. Share your problem, get your automation roadmap\"\r\n                canonical=\"https://wewantagent.com/\"\r\n                facebook={{\r\n                    appId: '1234567890',\r\n                }}\r\n                additionalMetaTags={[\r\n                    {\r\n                        name: 'keywords',\r\n                        content: 'We Want Agent is an AI automation agency building custom AI agents for real estate, healthcare, and accounting. Share your problem, get your automation roadmap'\r\n                    },\r\n                    {property: 'dc:creator', content: 'We Want Agent'},\r\n                    {name: 'author', content: 'We Want Agent'},\r\n                    {name: 'robots', content: 'index, follow'},\r\n                ]}\r\n                openGraph={{\r\n                    type: 'website',\r\n                    url: 'https://wewantagent.com/',\r\n                    title: 'We Want Agent | The Custom Build AI Automation Agency',\r\n                    description: 'We Want Agent is an AI automation agency building custom AI agents for real estate, healthcare, and accounting. Share your problem, get your automation roadmap',\r\n                    images: [\r\n                        {\r\n                            url: 'https://wewantagent.com/images/og-image.jpg',\r\n                            width: 1200,\r\n                            height: 630,\r\n                            alt: 'We Want Agent | The Custom Build AI Automation Agency',\r\n                        },\r\n                    ],\r\n                    site_name: 'We Want Agent',\r\n                }}\r\n                twitter={{\r\n                    handle: '@wewantagent',\r\n                    site: '@wewantagent',\r\n                    cardType: 'summary_large_image',\r\n                }}\r\n            />\r\n            <OrganizationJsonLd\r\n                type=\"Organization\"\r\n                id=\"https://wewantagent.com/#organization\"\r\n                name=\"We Want Agent\"\r\n                url=\"https://wewantagent.com/\"\r\n                logo=\"https://wewantagent.com/assets/logo.png\"\r\n                sameAs={[\r\n                    'https://www.facebook.com/wewantagent',\r\n                    'https://twitter.com/wewantagent',\r\n                    'https://www.linkedin.com/company/wewantagent/',\r\n                ]}\r\n                contactPoints={[\r\n                    {\r\n                        telephone: '+1-234-567-890',\r\n                        contactType: 'Customer Service',\r\n                        areaServed: 'US',\r\n                        availableLanguage: ['English'],\r\n                    },\r\n                ]}\r\n                address={{\r\n                    streetAddress: '456 Strategy Avenue',\r\n                    addressLocality: 'New York',\r\n                    addressRegion: 'NY',\r\n                    postalCode: '10001',\r\n                    addressCountry: 'US',\r\n                }}\r\n            />\r\n            <WebPageJsonLd\r\n                id=\"https://wewantagent.com/#webpage\"\r\n                url=\"https://wewantagent.com/\"\r\n                name=\"We Want Agent | The Custom Build AI Automation Agency\"\r\n                description=\"We Want Agent is an AI automation agency building custom AI agents for real estate, healthcare, and accounting. Share your problem, get your automation roadmap.\"\r\n                potentialAction={{\r\n                    target: 'https://wewantagent.com/?q={search_term_string}',\r\n                    queryInput: 'required name=search_term_string',\r\n                }}\r\n            />\r\n            <FAQPageJsonLd\r\n                mainEntity={[\r\n                    {\r\n                        id: 1,\r\n                        question: \"How to create an AI agent for my business?\",\r\n                        answer: \"We start with a discovery call to understand your pain points. Then our automation expert maps out what tasks to automate, designs the AI agent architecture, develops it custom for your workflow, tests thoroughly, and deploys it into your systems. You're involved at every step, no surprises.\"\r\n                    },\r\n                    {\r\n                        id: 2,\r\n                        question: \"How much does AI cost for a small business?\",\r\n                        answer: \"It depends on complexity, but most AI automation agency projects start between $5,000-$15,000 for initial development. Monthly maintenance runs $500-$2,000. We provide transparent quotes upfront—no hidden fees. Think of it as hiring a full-time employee who never sleeps, never quits, and costs less annually.\"\r\n                    },\r\n                    {\r\n                        id: 3,\r\n                        question: \"Will AI assistants work with my current software?\",\r\n                        answer: \"Yes. We build AI automation service solutions that integrate with your existing CRM, scheduling tools, accounting software, and databases. No need to change what's working, we make it work smarter. If you use it daily, we can likely automate around it or enhance it.\"\r\n                    },\r\n                    {\r\n                        id: 4,\r\n                        question: \"How long does it take to build custom AI agents?\",\r\n                        answer: \"Simple artificial intelligence automation takes 2-4 weeks. Complex multi-system integrations need 6-12 weeks. Rush projects possible for urgent needs. We give you realistic timelines during consultation, never overpromise. Most clients see their first automation running within 30 days of starting\"\r\n                    },\r\n                ]}\r\n            />\r\n            <div className=\"bg-black\">\r\n                <HeroSection/>\r\n                <BenefitSection/>\r\n                <OrbitAnimation/>\r\n                <GlobeSection/>\r\n                <TestimonialsSection/>\r\n                <PricingSection/>\r\n                <BannerSection\r\n                    text=\"Wasting hours on repetitive tasks let AI handle the work while you focus on growth Get your\"\r\n                    subtext=\"Free automation roadmap\"\r\n                    lastText=\"today\"\r\n                />\r\n                <FaqSection/>\r\n                <div>\r\n                    <div className=\"max-w-7xl mx-auto px-4 py-8\">\r\n                        <motion.div\r\n                            className=\"text-center mb-16\"\r\n                            initial={{opacity: 0, y: 20}}\r\n                            animate={{opacity: 1, y: 0}}\r\n                            transition={{duration: 0.6}}\r\n                        >\r\n                            <h2 className=\"text-3xl sm:text-5xl font-semibold mb-4 text-white leading-tight\">\r\n                                Our Latest Insights\r\n                            </h2>\r\n                            <p className=\"text-gray-300  leading-relaxed\">\r\n                                We Love Sharing Information.\r\n                            </p>\r\n                        </motion.div>\r\n\r\n                        {/*<div className=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8\">*/}\r\n                        {/*    {blogs && blogs.length > 0 ? (*/}\r\n                        {/*        blogs.slice(0, 3).map((blog, index) => (*/}\r\n                        {/*            <BlogCard key={blog.id} blog={blog} id={index}/>*/}\r\n                        {/*        ))*/}\r\n                        {/*    ) : (*/}\r\n                        {/*        <div className=\"col-span-full text-center text-gray-500\">*/}\r\n                        {/*            No blogs available at the moment.*/}\r\n                        {/*        </div>*/}\r\n                        {/*    )}*/}\r\n                        {/*</div>*/}\r\n                    </div>\r\n                </div>\r\n                <FooterSection/>\r\n            </div>\r\n        </>\r\n    );\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/pages/index.tsx b/src/pages/index.tsx
+--- a/src/pages/index.tsx	(revision 56d98c711aafdc7def7a91b7ecaa5141ad18a7c4)
++++ b/src/pages/index.tsx	(date 1760970157274)
+@@ -10,27 +10,27 @@
+ import {FAQPageJsonLd, NextSeo, OrganizationJsonLd, WebPageJsonLd} from "next-seo";
+ import BannerSection from "@/components/HomePage/BannerSection";
+ import {motion} from "framer-motion";
+-// import BlogCard from "@/components/Blog/BlogCard";
+-// import {BlogResponse} from "@/types/blog";
+-// import {GetStaticProps} from "next";
+-// import {fetchBlogs} from "@/lib/strapi";
++import BlogCard from "@/components/Blog/BlogCard";
++import {BlogResponse} from "@/types/blog";
++import {GetStaticProps} from "next";
++import {fetchBlogs} from "@/lib/strapi";
+ 
+-// type Props = {
+-//     initialBlogs: BlogResponse['data'];
+-//     pagination: BlogResponse['meta']['pagination'];
+-// };
+-// export const getStaticProps: GetStaticProps<Props> = async () => {
+-//     const {data, pagination} = await fetchBlogs(1, 10);
+-//     return {
+-//         props: {
+-//             initialBlogs: data,
+-//             pagination: pagination || null,
+-//         },
+-//         revalidate: 3600,
+-//     };
+-// };
+-export default function Home() {
+-    // const blogs = initialBlogs;
++type Props = {
++    initialBlogs: BlogResponse['data'];
++    pagination: BlogResponse['meta']['pagination'];
++};
++export const getStaticProps: GetStaticProps<Props> = async () => {
++    const {data, pagination} = await fetchBlogs(1, 10);
++    return {
++        props: {
++            initialBlogs: data,
++            pagination: pagination || null,
++        },
++        revalidate: 3600,
++    };
++};
++export default function Home({initialBlogs}: Props) {
++    const blogs = initialBlogs;
+     return (
+         <>
+             <NextSeo
+@@ -160,17 +160,17 @@
+                             </p>
+                         </motion.div>
+ 
+-                        {/*<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">*/}
+-                        {/*    {blogs && blogs.length > 0 ? (*/}
+-                        {/*        blogs.slice(0, 3).map((blog, index) => (*/}
+-                        {/*            <BlogCard key={blog.id} blog={blog} id={index}/>*/}
+-                        {/*        ))*/}
+-                        {/*    ) : (*/}
+-                        {/*        <div className="col-span-full text-center text-gray-500">*/}
+-                        {/*            No blogs available at the moment.*/}
+-                        {/*        </div>*/}
+-                        {/*    )}*/}
+-                        {/*</div>*/}
++                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
++                            {blogs && blogs.length > 0 ? (
++                                blogs.slice(0, 3).map((blog, index) => (
++                                    <BlogCard key={blog.id} blog={blog} id={index}/>
++                                ))
++                            ) : (
++                                <div className="col-span-full text-center text-gray-500">
++                                    No blogs available at the moment.
++                                </div>
++                            )}
++                        </div>
+                     </div>
+                 </div>
+                 <FooterSection/>
+Index: src/components/Blog/BlogDetail.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/Blog/BlogDetail.tsx b/src/components/Blog/BlogDetail.tsx
+new file mode 100644
+--- /dev/null	(date 1760966776536)
++++ b/src/components/Blog/BlogDetail.tsx	(date 1760966776536)
+@@ -0,0 +1,306 @@
++import React from "react";
++import Link from "next/link";
++import Image from "next/image";
++import { motion } from "framer-motion";
++import { BlogPost, RichTextBlock } from "@/types/blog";
++import BlogNavbar from "@/components/Blog/BlogHeader";
++import {ArrowLeft, Facebook, Instagram, Linkedin} from "lucide-react";
++
++interface BlogDetailProps {
++    blog: BlogPost | null;
++}
++
++const BlogDetail: React.FC<BlogDetailProps> = ({ blog }) => {
++    if (!blog) {
++        return (
++            <div className="min-h-screen">
++                <BlogNavbar />
++                <motion.div
++                    className="container mx-auto px-4 py-32 text-center"
++                    initial={{ opacity: 0, scale: 0.9 }}
++                    animate={{ opacity: 1, scale: 1 }}
++                    transition={{ duration: 0.5 }}
++                >
++                    <div className="max-w-md mx-auto">
++                        <div className="w-24 h-24 mx-auto mb-8 bg-gradient-to-r from-red-400 to-pink-500 rounded-full flex items-center justify-center">
++                            <svg
++                                className="w-12 h-12 text-white"
++                                fill="none"
++                                stroke="currentColor"
++                                viewBox="0 0 24 24"
++                            >
++                                <path
++                                    strokeLinecap="round"
++                                    strokeLinejoin="round"
++                                    strokeWidth={2}
++                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
++                                />
++                            </svg>
++                        </div>
++                        <h1 className="text-4xl font-bold mb-4">Blog Not Found</h1>
++                        <p className="text-gray-600 mb-8">
++                            The blog post you&apos;re looking for doesn&apos;t exist or may have been moved.
++                        </p>
++                        <Link
++                            href="/blogs"
++                            className="group relative inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-secondary text-white font-semibold shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl focus:outline-none"
++                        >
++              <span className="mr-4 inline-flex w-8 h-8 rounded-full bg-white text-primary items-center justify-center transition-transform duration-500 group-hover:translate-x-2 group-hover:rotate-12">
++                <ArrowLeft className="w-4 h-4" />
++              </span>
++                            Back to List
++                        </Link>
++                    </div>
++                </motion.div>
++            </div>
++        );
++    }
++    const imageUrl = blog.feature_image?.url
++        ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${blog.feature_image.url}`
++        : null;
++
++    const formatDate = (iso: string) =>
++        new Date(iso).toLocaleDateString("en-US", {
++            year: "numeric",
++            month: "long",
++            day: "numeric",
++        });
++
++    const fadeInUp = {
++        initial: { opacity: 0, y: 60 },
++        animate: { opacity: 1, y: 0 },
++        transition: { duration: 0.6, ease: "easeOut" },
++    };
++
++    const staggerContainer = { animate: { transition: { staggerChildren: 0.1 } } };
++
++    const renderRichText = (blocks?: RichTextBlock[] | string) => {
++        if (!blocks) return null;
++        if (typeof blocks === "string") return <p>{blocks}</p>;
++        return (
++            <>
++                {blocks.map((block, index) => (
++                    <p key={index} className="mb-4 leading-relaxed">
++                        {block.children.map((child, i) => (
++                            <span key={i}>{child.text}</span>
++                        ))}
++                    </p>
++                ))}
++            </>
++        );
++    };
++
++    return (
++      <div>
++          <div className="relative min-h-screen">
++              <div className="relative z-10 flex flex-col min-h-screen ">
++                  <BlogNavbar />
++                  <motion.main
++                      variants={staggerContainer}
++                      initial="initial"
++                      animate="animate"
++                  >
++                      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-44" >
++                          <motion.header className="mb-12" variants={fadeInUp}>
++                              {blog.tags && (
++                                  <motion.div className="flex flex-wrap gap-3 mb-6" variants={fadeInUp}>
++                                      {blog.tags?.map((tag, index) => (
++                                          <motion.span
++                                              key={index}
++                                              whileHover={{ scale: 1.05 }}
++                                              whileTap={{ scale: 0.95 }}
++                                              className="relative inline-block px-[1px] py-[1px]  font-semibold  rounded"
++                                          >
++    <span
++        className="absolute inset-0 rounded p-[1px] bg-gradient-to-r from-primary via-secondary to-accent"
++    ></span>
++                                              <span
++                                                  className="relative block rounded bg-white px-6 py-1"
++                                              >
++      #{tag.trim()}
++    </span>
++                                          </motion.span>
++                                      ))}
++                                  </motion.div>
++                              )}
++
++                              <motion.h1
++                                  className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 uppercase"
++                                  variants={fadeInUp}
++                              >
++                                  {blog.title}
++                              </motion.h1>
++
++                              <motion.div
++                                  className="flex flex-wrap items-center gap-6 text-gray-600 mb-8"
++                                  variants={fadeInUp}
++                              >
++                                  <div className="flex items-center gap-2">
++                                      <div className="w-2 h-2 bg-green-500 rounded-full" />
++                                      <span className="text-sm font-medium">
++                  Published {formatDate(blog.published)}
++                </span>
++                                  </div>
++
++                                  {blog.updatedAt && blog.updatedAt !== blog.published && (
++                                      <div className="flex items-center gap-2">
++                                          <div className="w-2 h-2 bg-blue-500 rounded-full" />
++                                          <span className="text-sm font-medium">
++                    Updated {formatDate(blog.updatedAt)}
++                  </span>
++                                      </div>
++                                  )}
++                              </motion.div>
++
++                              {blog.excerpt && (
++                                  <motion.div
++                                      className="text-xl md:text-2xl text-gray-700 leading-relaxed font-light max-w-3xl"
++                                      variants={fadeInUp}
++                                  >
++                                      {renderRichText(blog.excerpt)}
++                                  </motion.div>
++                              )}
++                          </motion.header>
++
++                          {imageUrl && (
++                              <motion.div className="mb-16 group" variants={fadeInUp}>
++                                  <div className="relative overflow-hidden rounded-3xl shadow-2xl bg-white group h-[300px] md:h-[400px] lg:h-[500px]">
++                                      <div
++                                          className="absolute inset-0 bg-cover bg-center filter blur-[4px] scale-105"
++                                          style={{ backgroundImage: `url(${imageUrl})` }}
++                                      />
++                                      <div className="relative overflow-hidden rounded-2xl w-full h-full">
++                                          <Image
++                                              src={imageUrl}
++                                              alt={blog.title}
++                                              fill
++                                              className="object-contain transition-transform duration-700 ease-out group-hover:scale-105"
++                                              priority
++                                          />
++                                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
++                                      </div>
++                                  </div>
++                              </motion.div>
++                          )}
++
++                          <motion.article className="max-w-none mb-16" variants={fadeInUp}>
++                              <div className="prose prose-lg max-w-none text-gray-800">
++                                  {renderRichText(blog.content)}
++                              </div>
++                          </motion.article>
++
++                          <motion.footer className="py-8 border-t border-black" variants={fadeInUp}>
++                              <div className="flex items-center">
++                                  <Link
++                                      href="/blogs"
++                                      className="group relative inline-flex items-center px-6 py-3 rounded bg-gradient-to-r from-primary via-accent to-secondary text-white font-semibold shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl focus:outline-none"
++                                  >
++                <span className="mr-4 inline-flex w-8 h-8 rounded-full bg-white text-primary items-center justify-center transition-transform duration-500 group-hover:translate-x-2 group-hover:rotate-12">
++                  <ArrowLeft className="w-4 h-4" />
++                </span>
++                                      Back to List
++                                  </Link>
++                              </div>
++                          </motion.footer>
++                      </div>
++                  </motion.main>
++              </div>
++
++          </div>
++          <footer className="text-white bg-black relative">
++              <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
++                  <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
++                      <div className="col-span-2 md:col-span-2">
++                          <div className="flex flex-col space-y-4">
++                              <div className="flex items-center space-x-2">
++                                  <Image
++                                      src="/assets/svg/home/logo.png"
++                                      alt="Company Logo"
++                                      width={140}
++                                      height={50}
++                                      className="object-contain"
++                                  />
++                              </div>
++                              <p className="text-sm text-gray-400 leading-relaxed">
++                                  Empowering learners and innovators worldwide through
++                                  accessible, high-quality education and training programs.
++                              </p>
++                              <div className="flex space-x-4 pt-4">
++                                  <a href="#" className="text-gray-400 hover:text-white">
++                                      <Facebook className="w-5 h-5" />
++                                  </a>
++                                  <a href="#" className="text-gray-400 hover:text-white">
++                                      <Linkedin className="w-5 h-5" />
++                                  </a>
++                                  <a href="#" className="text-gray-400 hover:text-white">
++                                      <Instagram className="w-5 h-5" />
++                                  </a>
++                              </div>
++                          </div>
++                      </div>
++
++                      <div>
++                          <p className="text-xs uppercase font-semibold text-gray-400 mb-3 tracking-wider">
++                              Start Learning
++                          </p>
++                          <div className="flex flex-col space-y-2">
++                              {["UX/UI Design", "Software Development", "Workplace Skills", "Job Search", "Digital Freelancing"].map(
++                                  (item, idx) => (
++                                      <a
++                                          key={idx}
++                                          href="#"
++                                          className="text-sm hover:text-white transition duration-150"
++                                      >
++                                          {item}
++                                      </a>
++                                  )
++                              )}
++                          </div>
++                      </div>
++
++                      <div>
++                          <p className="text-xs uppercase font-semibold text-gray-400 mb-3 tracking-wider">
++                              Other Resources
++                          </p>
++                          <div className="flex flex-col space-y-2">
++                              <a href="#" className="text-sm hover:text-white transition duration-150">
++                                  Events
++                              </a>
++                          </div>
++                      </div>
++
++                      <div className="col-span-2">
++                          <p className="text-xs uppercase font-semibold text-gray-400 mb-3 tracking-wider">
++                              Sign up for Newsletter
++                          </p>
++                          <input
++                              type="email"
++                              placeholder="Enter your email..."
++                              className="w-full bg-gray-800 border border-gray-700 rounded-full py-2 px-4 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 mb-3 appearance-none"
++                          />
++                          <button className="w-full bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-full py-2 px-4 text-sm transition duration-200 mb-6">
++                              Subscribe
++                          </button>
++                      </div>
++                  </div>
++                  <div className="border-t border-gray-800 mt-8 md:mt-12 pt-6">
++                      <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500">
++                          <div className="flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-1 mb-3 sm:mb-0">
++                              {["Privacy Policy", "Terms of Use", "Cookies Policy"].map((link, idx) => (
++                                  <a key={idx} href="#" className="hover:text-gray-300 transition">
++                                      {link}
++                                  </a>
++                              ))}
++                          </div>
++                          <div className="flex items-center gap-2 text-center sm:text-right">
++                              <span>Copyright 2025 © All rights reserved.</span>
++                          </div>
++                      </div>
++                  </div>
++              </div>
++          </footer>
++      </div>
++    );
++};
++
++export default BlogDetail;
+Index: src/lib/strapi.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/lib/strapi.ts b/src/lib/strapi.ts
+new file mode 100644
+--- /dev/null	(date 1760966776699)
++++ b/src/lib/strapi.ts	(date 1760966776699)
+@@ -0,0 +1,60 @@
++import type { BlogPost, BlogResponse } from "@/types/blog";
++
++const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
++const API_TOKEN = process.env.STRAPI_API_TOKEN;
++
++if (!API_TOKEN) {
++    console.warn("⚠️ No STRAPI API token found!");
++}
++
++export async function sFetch<T>(endpoint: string, options?: RequestInit): Promise<T> {
++    const url = `${STRAPI_URL}${endpoint}`;
++    const res = await fetch(url, {
++        headers: {
++            "Content-Type": "application/json",
++            ...(API_TOKEN ? { Authorization: `Bearer ${API_TOKEN}` } : {}),
++        },
++        cache: "no-store",
++        ...options,
++    });
++
++    if (!res.ok) {
++        const text = await res.text();
++        throw new Error(`Failed to fetch ${endpoint}: ${res.status} — ${text}`);
++    }
++
++    return res.json();
++}
++
++export async function getBlogs(page = 1, pageSize = 10): Promise<BlogResponse> {
++    return sFetch<BlogResponse>(
++        `/api/blogs?populate=feature_image&pagination[page]=${page}&pagination[pageSize]=${pageSize}&sort=publishedAt:desc`
++    );
++}
++
++export async function getBlogBySlug(slug: string): Promise<BlogPost | null> {
++    const q = new URLSearchParams({
++        "filters[slug][$eq]": slug,
++        populate: "feature_image",
++    });
++    const data = await sFetch<BlogResponse>(`/api/blogs?${q.toString()}`);
++    return data.data?.[0] ?? null;
++}
++export async function getLatestSlugs(limit = 50): Promise<string[]> {
++    const data = await sFetch<any>(
++        `/api/blog-posts?fields[0]=slug&pagination[page]=1&pagination[pageSize]=${limit}&sort=createdAt:desc`
++    );
++
++    return (data.data ?? [])
++        .map((x: any) => x?.attributes?.slug ?? x?.slug)
++        .filter(Boolean);
++}
++export async function fetchBlogs(page = 1, pageSize = 10) {
++    try {
++        const data = await getBlogs(page, pageSize);
++        return { data: data.data ?? [], pagination: data.meta.pagination };
++    } catch (error) {
++        console.error("🚨 Error fetching blogs:", error);
++        return { data: [], pagination: { page, pageSize, pageCount: 0, total: 0 } };
++    }
++}
+Index: src/components/Blog/BlogHeader.tsx
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/Blog/BlogHeader.tsx b/src/components/Blog/BlogHeader.tsx
+new file mode 100644
+--- /dev/null	(date 1760966776666)
++++ b/src/components/Blog/BlogHeader.tsx	(date 1760966776666)
+@@ -0,0 +1,223 @@
++import React, { useState} from 'react';
++import Image from 'next/image';
++import {
++    Building2, Calculator,
++    ChevronDown, Menu, Stethoscope, X,
++} from 'lucide-react';
++import Link from 'next/link';
++import {AnimatePresence, motion} from "framer-motion";
++const BlogNavbar: React.FC = () => {
++    const [isOpen, setIsOpen] = useState(false);
++    const [isServicesOpen, setIsServicesOpen] = useState(false);
++    const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
++
++    return (
++        <nav className={`fixed top-4 left-0 w-full z-50 transition-all duration-300 py-2`}>
++            <div className="max-w-7xl mx-auto px-4">
++                <div className="bg-black border border-white rounded-full px-4 sm:px-6 shadow-lg transition-all duration-300">
++                    <div className="flex items-center justify-between py-2">
++                        <Link href="/" className="flex items-center text-white font-bold text-2xl">
++                            <Image
++                                src="/assets/home/logo white.png"
++                                alt="Logo"
++                                priority
++                                width={150}
++                                height={150}
++                            />
++                        </Link>
++                        <div className="hidden lg:flex gap-4 items-center relative">
++                            <div className="flex space-x-6 bg-white/20 px-8 py-2.5 rounded-full">
++                                <div
++                                    className="relative"
++                                    onMouseEnter={() => setIsServicesOpen(true)}
++                                    onMouseLeave={() => setIsServicesOpen(false)}
++                                >
++                                    <button className="text-white group-hover:text-gray-200 transition-colors flex items-center">
++                                        Services <ChevronDown size={20} />
++                                    </button>
++
++                                    <AnimatePresence>
++                                        {isServicesOpen && (
++                                            <motion.div
++                                                initial={{ opacity: 0, y: -10 }}
++                                                animate={{ opacity: 1, y: 0 }}
++                                                exit={{ opacity: 0, y: -10 }}
++                                                transition={{ duration: 0.25, ease: "easeOut" }}
++                                                className="absolute top-full left-0 mt-3 bg-black  border  rounded-2xl shadow-lg p-2 w-64"
++                                            >
++                                                <Link
++                                                    href="/services/realestateaiagent"
++                                                    className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/10 transition-colors"
++                                                >
++                                                    <Building2 className="text-white w-5 h-5 mt-1" />
++                                                    <div>
++                                                        <p className="text-white font-semibold text-sm">
++                                                            Real Estate AI Agent
++                                                        </p>
++                                                        <p className="text-white/70 text-xs">
++                                                            AI solutions tailored for the real estate industry.
++                                                        </p>
++                                                    </div>
++                                                </Link>
++                                                <Link
++                                                    href="/services/healthcareautomation"
++                                                    className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/10 transition-colors"
++                                                >
++                                                    <Stethoscope className="text-white w-5 h-5 mt-1" />
++                                                    <div>
++                                                        <p className="text-white font-semibold text-sm">
++                                                            Health Care AI Agent
++                                                        </p>
++                                                        <p className="text-white/70 text-xs">
++                                                            Streamline healthcare processes with AI automation.
++                                                        </p>
++                                                    </div>
++                                                </Link>
++                                                <Link
++                                                    href="/services/bookkeepingai"
++                                                    className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/10 transition-colors"
++                                                >
++                                                    <Calculator className="text-white w-5 h-5 mt-1" />
++                                                    <div>
++                                                        <p className="text-white font-semibold text-sm">
++                                                            Bookkeeping AI Agent
++                                                        </p>
++                                                        <p className="text-white/70 text-xs">
++                                                            Automate your bookkeeping tasks with AI.
++                                                        </p>
++                                                    </div>
++                                                </Link>
++                                            </motion.div>
++                                        )}
++                                    </AnimatePresence>
++                                </div>
++
++                                <Link href="/automationexpert" className="text-white hover:text-gray-200">
++                                    About
++                                </Link>
++                                <Link href="/contact" className="text-white hover:text-gray-200">
++                                    Contact
++                                </Link>
++                            </div>
++
++                            <Link
++                                href="#"
++                                className="px-6 py-2.5 bg-white text-gray-900 rounded-full font-semibold hover:bg-gray-100 transition-all hover:scale-105"
++                            >
++                                Let&#39;s Collaborate
++                            </Link>
++                        </div>
++
++                        <button
++                            onClick={() => setIsOpen(!isOpen)}
++                            className="lg:hidden text-white focus:outline-none"
++                        >
++                            <AnimatePresence mode="wait">
++                                {isOpen ? (
++                                    <motion.div
++                                        key="close"
++                                        initial={{ rotate: -90, opacity: 0 }}
++                                        animate={{ rotate: 0, opacity: 1 }}
++                                        exit={{ rotate: 90, opacity: 0 }}
++                                        transition={{ duration: 0.2 }}
++                                    >
++                                        <X className="w-6 h-6" />
++                                    </motion.div>
++                                ) : (
++                                    <motion.div
++                                        key="menu"
++                                        initial={{ rotate: 90, opacity: 0 }}
++                                        animate={{ rotate: 0, opacity: 1 }}
++                                        exit={{ rotate: -90, opacity: 0 }}
++                                        transition={{ duration: 0.2 }}
++                                    >
++                                        <Menu className="w-6 h-6" />
++                                    </motion.div>
++                                )}
++                            </AnimatePresence>
++                        </button>
++                    </div>
++                </div>
++            </div>
++
++            <AnimatePresence>
++                {isOpen && (
++                    <motion.div
++                        initial={{ opacity: 0, height: 0 }}
++                        animate={{ opacity: 1, height: "auto" }}
++                        exit={{ opacity: 0, height: 0 }}
++                        transition={{ duration: 0.3 }}
++                        className="lg:hidden mt-2 mx-4"
++                    >
++                        <div className="bg-black backdrop-blur-lg border border-white/20 rounded-3xl p-6 shadow-xl">
++                            <nav className="flex flex-col space-y-2">
++                                <button
++                                    onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
++                                    className="flex items-center justify-between text-white hover:text-purple-200 transition-colors py-2 px-4 rounded-lg hover:bg-white/10"
++                                >
++                                    <span>Services</span>
++                                    <ChevronDown
++                                        size={18}
++                                        className={`transition-transform ${
++                                            isMobileServicesOpen ? "rotate-180" : ""
++                                        }`}
++                                    />
++                                </button>
++
++                                <AnimatePresence>
++                                    {isMobileServicesOpen && (
++                                        <motion.div
++                                            initial={{ opacity: 0, height: 0 }}
++                                            animate={{ opacity: 1, height: "auto" }}
++                                            exit={{ opacity: 0, height: 0 }}
++                                            transition={{ duration: 0.25 }}
++                                            className="ml-4 mt-1 space-y-2"
++                                        >
++                                            <Link
++                                                href="/services/realestateaiagent"
++                                                className="flex items-center gap-2 text-white/80 hover:text-white text-sm py-1.5"
++                                            >
++                                                <Building2 size={16} /> Real Estate AI Agent
++                                            </Link>
++                                            <Link
++                                                href="/services/healthcareautomation"
++                                                className="flex items-center gap-2 text-white/80 hover:text-white text-sm py-1.5"
++                                            >
++                                                <Stethoscope size={16} /> Health Care AI Agent
++                                            </Link>
++                                            <Link
++                                                href="/services/bookkeepingai"
++                                                className="flex items-center gap-2 text-white/80 hover:text-white text-sm py-1.5"
++                                            >
++                                                <Calculator size={16} /> Bookkeeping AI Agent
++                                            </Link>
++                                        </motion.div>
++                                    )}
++                                </AnimatePresence>
++
++                                <Link
++                                    href="/automationexpert"
++                                    className="text-white hover:text-purple-200 transition-colors py-2 px-4 rounded-lg hover:bg-white/10"
++                                >
++                                    About
++                                </Link>
++                                <Link
++                                    href="/contact"
++                                    className="text-white hover:text-purple-200 transition-colors py-2 px-4 rounded-lg hover:bg-white/10"
++                                >
++                                    Contact
++                                </Link>
++                                <Link
++                                    href="#"
++                                    className="mt-3 px-6 py-3 bg-white text-gray-900 rounded-full font-semibold text-center hover:bg-gray-100 transition-all"
++                                >
++                                    Let&#39;s Collaborate
++                                </Link>
++                            </nav>
++                        </div>
++                    </motion.div>
++                )}
++            </AnimatePresence>
++        </nav>    );
++};
++export default BlogNavbar
+Index: src/types/blog.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/types/blog.ts b/src/types/blog.ts
+new file mode 100644
+--- /dev/null	(date 1760966776690)
++++ b/src/types/blog.ts	(date 1760966776690)
+@@ -0,0 +1,78 @@
++// ======================
++// MEDIA TYPES
++// ======================
++
++export interface MediaFormat {
++    url: string;
++    width: number;
++    height: number;
++}
++
++export interface Media {
++    id: number;
++    documentId: string;
++    name: string;
++    alternativeText: string | null;
++    caption: string | null;
++    hash: string;
++    ext: string;
++    mime: string;
++    size: number;
++    url: string;
++    width: number;
++    height: number;
++    formats?: {
++        thumbnail?: MediaFormat;
++        small?: MediaFormat;
++        medium?: MediaFormat;
++        large?: MediaFormat;
++    };
++    createdAt: string;
++    updatedAt: string;
++    publishedAt: string;
++    provider: string;
++    provider_metadata?: any;
++    previewUrl?: string | null;
++}
++
++// ======================
++// BLOG TYPES
++// ======================
++
++export interface RichTextBlock {
++    type: string;
++    children: Array<{ text: string; type?: string }>;
++}
++
++export interface BlogPost {
++    id: number;
++    documentId: string;
++    title: string;
++    slug: string;
++    content?: RichTextBlock[] | string;
++    excerpt?: RichTextBlock[] | string;
++    tags?: string[];
++    published: string;
++    createdAt: string;
++    updatedAt: string;
++    publishedAt: string;
++    feature_image?: Media | null;
++}
++
++// ======================
++// STRAPI RESPONSE TYPES
++// ======================
++
++export interface Pagination {
++    page: number;
++    pageSize: number;
++    pageCount: number;
++    total: number;
++}
++
++export interface BlogResponse {
++    data: BlogPost[];
++    meta: {
++        pagination: Pagination;
++    };
++}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"f36c49d3-23cd-44f2-8d3e-bd7e2e00bc13\" name=\"Changes\" comment=\"without blog\">\r\n      <change afterPath=\"$PROJECT_DIR$/public/assets/services/keras.webp\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/public/assets/services/pytourch.webp\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/public/assets/services/tensorflow.webp\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/components/Blog/BlogCard.tsx\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/components/Blog/BlogDetail.tsx\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/components/Blog/BlogHeader.tsx\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/lib/strapi.ts\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/pages/blogs/[slug].tsx\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/types/blog.ts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/components/HomePage/HeroSection.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/components/HomePage/HeroSection.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/components/services/ModalSection.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/components/services/ModalSection.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/pages/index.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/pages/index.tsx\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PUSH_TAGS\">\r\n      <GitPushTagMode>\r\n        <option name=\"argument\" value=\"--tags\" />\r\n        <option name=\"title\" value=\"All\" />\r\n      </GitPushTagMode>\r\n    </option>\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;billalkhanzada&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GitToolBoxStore\">\r\n    <option name=\"recentBranches\">\r\n      <RecentBranches>\r\n        <option name=\"branchesForRepo\">\r\n          <list>\r\n            <RecentBranchesForRepo>\r\n              <option name=\"branches\">\r\n                <list>\r\n                  <RecentBranch>\r\n                    <option name=\"branchName\" value=\"master\" />\r\n                    <option name=\"lastUsedInstant\" value=\"1760004092\" />\r\n                  </RecentBranch>\r\n                  <RecentBranch>\r\n                    <option name=\"branchName\" value=\"main\" />\r\n                    <option name=\"lastUsedInstant\" value=\"1760000072\" />\r\n                  </RecentBranch>\r\n                </list>\r\n              </option>\r\n              <option name=\"repositoryRootUrl\" value=\"file://$PROJECT_DIR$\" />\r\n            </RecentBranchesForRepo>\r\n          </list>\r\n        </option>\r\n      </RecentBranches>\r\n    </option>\r\n  </component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/talhafakhar/wewantagent.git&quot;,\r\n    &quot;accountId&quot;: &quot;b6f6c9ad-11de-4aeb-9de9-463590c22c33&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"autoscrollToSource\" value=\"true\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 3\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"33k1MraD4a6TARWKhkg2ZZy50wt\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n    <option name=\"showMembers\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,\r\n    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Developer/Desktop/WeWantAgent/public/assets/services&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,\r\n    &quot;ts.external.directory.path&quot;: &quot;C:\\\\Users\\\\Developer\\\\Desktop\\\\WeWantAgent\\\\node_modules\\\\typescript\\\\lib&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ReactDesignerToolWindowState\">\r\n    <option name=\"myId2Visible\">\r\n      <map>\r\n        <entry key=\"com.intellij.reactbuddy.reactComponents\" value=\"false\" />\r\n        <entry key=\"com.intellij.reactbuddy.reactInspector\" value=\"false\" />\r\n        <entry key=\"com.intellij.reactbuddy.storybook\" value=\"false\" />\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Developer\\Desktop\\WeWantAgent\\public\\assets\\services\" />\r\n      <recent name=\"C:\\Users\\Developer\\Desktop\\WeWantAgent\\src\\pages\" />\r\n      <recent name=\"C:\\Users\\Developer\\Desktop\\WeWantAgent\\src\\components\\Blog\" />\r\n      <recent name=\"C:\\Users\\Developer\\Desktop\\WeWantAgent\\src\" />\r\n      <recent name=\"C:\\Users\\Developer\\Desktop\\WeWantAgent\\public\\assets\\svg\\about\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Developer\\Desktop\\WeWantAgent\\public\\assets\\services\" />\r\n      <recent name=\"C:\\Users\\Developer\\Desktop\\WeWantAgent\" />\r\n      <recent name=\"C:\\Users\\Developer\\Desktop\\WeWantAgent\\public\\assets\\about\" />\r\n      <recent name=\"C:\\Users\\Developer\\Desktop\\WeWantAgent\\src\\components\\services\" />\r\n      <recent name=\"C:\\Users\\Developer\\Desktop\\WeWantAgent\\public\\assets\\home\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"npm.Next.js: server-side\">\r\n    <configuration name=\"Next.js: debug client-side\" type=\"JavascriptDebugType\" uri=\"http://localhost:3000/\">\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"Next.js: server-side\" type=\"js.build_tools.npm\">\r\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\r\n      <command value=\"run\" />\r\n      <scripts>\r\n        <script value=\"dev\" />\r\n      </scripts>\r\n      <node-interpreter value=\"project\" />\r\n      <envs />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-WS-252.23892.411\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"f36c49d3-23cd-44f2-8d3e-bd7e2e00bc13\" name=\"Changes\" comment=\"\" />\r\n      <created>1759846211046</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1759846211046</updated>\r\n      <workItem from=\"1759846212542\" duration=\"754000\" />\r\n      <workItem from=\"1759847021098\" duration=\"372000\" />\r\n      <workItem from=\"1759847465944\" duration=\"5458000\" />\r\n      <workItem from=\"1760357983008\" duration=\"1063000\" />\r\n      <workItem from=\"1760422751025\" duration=\"47737000\" />\r\n      <workItem from=\"1760608311566\" duration=\"12227000\" />\r\n      <workItem from=\"1760623526540\" duration=\"25000\" />\r\n      <workItem from=\"1760623563935\" duration=\"6000\" />\r\n      <workItem from=\"1760624310958\" duration=\"3000\" />\r\n      <workItem from=\"1760699342440\" duration=\"516000\" />\r\n      <workItem from=\"1760964806505\" duration=\"4044000\" />\r\n      <workItem from=\"1761028132338\" duration=\"1837000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"initialize Next.js project with Tailwind CSS, GSAP, and essential components\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759846478893</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759846478893</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"initialize Next.js project with Tailwind CSS, GSAP, and essential components\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759846591087</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759846591087</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"new\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759847100168</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759847100168</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"new\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1759849046252</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1759849046252</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"update dependencies and add new sections to About Us page\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1760011574022</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1760011574022</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"update dependencies and add new sections to About Us page\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1760011944513</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1760011944513</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"add Contact Us section and update Navbar with services dropdown\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1760019774719</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1760019774719</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"add favicon\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1760020845174</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1760020845174</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"add AI Development service pages and update Navbar links\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1760351963915</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1760351963915</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"fix animation transition easing in BusinessSolutionsSection\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1760352126773</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1760352126773</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"fix styling in ContactSection button and clean up workspace.xml\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1760358072553</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1760358072553</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"fix styling in ContactSection button and clean up workspace.xml\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1760358854437</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1760358854437</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"add new SVG icons, update Tailwind colors, and enhance GlobeSection and FaqSection content\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1760441407593</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1760441407593</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"update footer spacing, enhance BannerSection with dynamic text, and improve industry-specific messaging in MeetOurTeam section\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1760452830615</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1760452830615</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"refactor HeroSection and ServicesSection, enhance industry solutions with swiper, and add contact form section\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1760526062554</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1760526062554</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"refactor service pages for real estate and healthcare automation, update image paths, and enhance content for better clarity and engagement\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1760538344281</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1760538344281</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"update image path for healthcare service and clean up workspace.xml\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1760538701800</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1760538701800</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00018\" summary=\"add Resend package, update image gradients, and enhance blog and contact form sections\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1760620308348</created>\r\n      <option name=\"number\" value=\"00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1760620308348</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00019\" summary=\"refactor contact form components, enhance form handling with state management, and improve user feedback on submission\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1760621419703</created>\r\n      <option name=\"number\" value=\"00019\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1760621419703</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00020\" summary=\"without blog\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1760964945998</created>\r\n      <option name=\"number\" value=\"00020\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1760964945998</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"21\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT\" value=\"false\" />\r\n    <option name=\"CHECK_NEW_TODO\" value=\"false\" />\r\n    <MESSAGE value=\"initialize Next.js project with Tailwind CSS, GSAP, and essential components\" />\r\n    <MESSAGE value=\"new\" />\r\n    <MESSAGE value=\"update dependencies and add new sections to About Us page\" />\r\n    <MESSAGE value=\"add Contact Us section and update Navbar with services dropdown\" />\r\n    <MESSAGE value=\"add favicon\" />\r\n    <MESSAGE value=\"add AI Development service pages and update Navbar links\" />\r\n    <MESSAGE value=\"fix animation transition easing in BusinessSolutionsSection\" />\r\n    <MESSAGE value=\"fix styling in ContactSection button and clean up workspace.xml\" />\r\n    <MESSAGE value=\"add new SVG icons, update Tailwind colors, and enhance GlobeSection and FaqSection content\" />\r\n    <MESSAGE value=\"update footer spacing, enhance BannerSection with dynamic text, and improve industry-specific messaging in MeetOurTeam section\" />\r\n    <MESSAGE value=\"refactor HeroSection and ServicesSection, enhance industry solutions with swiper, and add contact form section\" />\r\n    <MESSAGE value=\"refactor service pages for real estate and healthcare automation, update image paths, and enhance content for better clarity and engagement\" />\r\n    <MESSAGE value=\"update image path for healthcare service and clean up workspace.xml\" />\r\n    <MESSAGE value=\"add Resend package, update image gradients, and enhance blog and contact form sections\" />\r\n    <MESSAGE value=\"refactor contact form components, enhance form handling with state management, and improve user feedback on submission\" />\r\n    <MESSAGE value=\"without blog\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"without blog\" />\r\n    <option name=\"NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS\" value=\"false\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 56d98c711aafdc7def7a91b7ecaa5141ad18a7c4)
++++ b/.idea/workspace.xml	(date 1761031320290)
+@@ -4,19 +4,13 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="f36c49d3-23cd-44f2-8d3e-bd7e2e00bc13" name="Changes" comment="without blog">
+-      <change afterPath="$PROJECT_DIR$/public/assets/services/keras.webp" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/public/assets/services/pytourch.webp" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/public/assets/services/tensorflow.webp" afterDir="false" />
++    <list default="true" id="f36c49d3-23cd-44f2-8d3e-bd7e2e00bc13" name="Changes" comment="fixes and adding">
+       <change afterPath="$PROJECT_DIR$/src/components/Blog/BlogCard.tsx" afterDir="false" />
+       <change afterPath="$PROJECT_DIR$/src/components/Blog/BlogDetail.tsx" afterDir="false" />
+       <change afterPath="$PROJECT_DIR$/src/components/Blog/BlogHeader.tsx" afterDir="false" />
+       <change afterPath="$PROJECT_DIR$/src/lib/strapi.ts" afterDir="false" />
+       <change afterPath="$PROJECT_DIR$/src/pages/blogs/[slug].tsx" afterDir="false" />
+       <change afterPath="$PROJECT_DIR$/src/types/blog.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/components/HomePage/HeroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/HeroSection.tsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/components/services/ModalSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/ModalSection.tsx" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -176,7 +170,7 @@
+       <workItem from="1760624310958" duration="3000" />
+       <workItem from="1760699342440" duration="516000" />
+       <workItem from="1760964806505" duration="4044000" />
+-      <workItem from="1761028132338" duration="1837000" />
++      <workItem from="1761028132338" duration="1936000" />
+     </task>
+     <task id="LOCAL-00001" summary="initialize Next.js project with Tailwind CSS, GSAP, and essential components">
+       <option name="closed" value="true" />
+@@ -338,7 +332,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1760964945998</updated>
+     </task>
+-    <option name="localTasksCounter" value="21" />
++    <task id="LOCAL-00021" summary="fixes and adding">
++      <option name="closed" value="true" />
++      <created>1761030111089</created>
++      <option name="number" value="00021" />
++      <option name="presentableId" value="LOCAL-00021" />
++      <option name="project" value="LOCAL" />
++      <updated>1761030111089</updated>
++    </task>
++    <option name="localTasksCounter" value="22" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -374,7 +376,8 @@
+     <MESSAGE value="add Resend package, update image gradients, and enhance blog and contact form sections" />
+     <MESSAGE value="refactor contact form components, enhance form handling with state management, and improve user feedback on submission" />
+     <MESSAGE value="without blog" />
+-    <option name="LAST_COMMIT_MESSAGE" value="without blog" />
++    <MESSAGE value="fixes and adding" />
++    <option name="LAST_COMMIT_MESSAGE" value="fixes and adding" />
+     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
+   </component>
+ </project>
+\ No newline at end of file
