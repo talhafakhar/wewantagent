@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f36c49d3-23cd-44f2-8d3e-bd7e2e00bc13" name="Changes" comment="fixes and adding">
+    <list default="true" id="f36c49d3-23cd-44f2-8d3e-bd7e2e00bc13" name="Changes" comment="pricing update">
       <change afterPath="$PROJECT_DIR$/src/components/Blog/BlogCard.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/Blog/BlogDetail.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/Blog/BlogHeader.tsx" afterDir="false" />
@@ -173,6 +173,9 @@
       <workItem from="1760964806505" duration="4044000" />
       <workItem from="1761028132338" duration="1936000" />
       <workItem from="1761031230984" duration="151000" />
+      <workItem from="1761033969395" duration="357000" />
+      <workItem from="1761049853317" duration="1179000" />
+      <workItem from="1761136996681" duration="1332000" />
     </task>
     <task id="LOCAL-00001" summary="initialize Next.js project with Tailwind CSS, GSAP, and essential components">
       <option name="closed" value="true" />
@@ -342,7 +345,23 @@
       <option name="project" value="LOCAL" />
       <updated>1761030111089</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="fixes and adding">
+      <option name="closed" value="true" />
+      <created>1761034076392</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1761034076392</updated>
+    </task>
+    <task id="LOCAL-00023" summary="pricing update">
+      <option name="closed" value="true" />
+      <created>1761050815549</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1761050815549</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,7 +398,8 @@
     <MESSAGE value="refactor contact form components, enhance form handling with state management, and improve user feedback on submission" />
     <MESSAGE value="without blog" />
     <MESSAGE value="fixes and adding" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes and adding" />
+    <MESSAGE value="pricing update" />
+    <option name="LAST_COMMIT_MESSAGE" value="pricing update" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
 </project>
