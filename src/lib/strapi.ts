@@ -1,15 +1,13 @@
 import type { BlogPost, BlogResponse } from "@/types/blog";
-
-const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "https://api.wewantagent.com";
-const API_TOKEN = process.env.STRAPI_API_TOKEN || "081c1895ad5b206f85bd087ebb8ff34d2ab9e1e8ad3dd0ff0069daf4998b9d17ce33c254bbe7858bf464e08e066b69b23f6656120d830dc89b5c35caef41fce0a131f7062c0806edf118c475e1802b6775d4f6367256058b8f0aa0c173441ca51b80e35013d5e247f4745add80cf63d655e276d18cbd7b9c9368aea5276a9062"
-
+const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL ?? "https://api.wewantagent.com";
+const API_TOKEN = process.env.STRAPI_API_TOKEN;
 if (!API_TOKEN) {
-    console.warn("⚠️ No STRAPI API token found!");
+    console.warn("⚠️ No STRAPI_API_TOKEN found in environment variables!");
 }
-
 export async function sFetch<T>(endpoint: string, options?: RequestInit): Promise<T> {
     const url = `${STRAPI_URL}${endpoint}`;
     const res = await fetch(url, {
+        method: "GET",
         headers: {
             "Content-Type": "application/json",
             ...(API_TOKEN ? { Authorization: `Bearer ${API_TOKEN}` } : {}),
@@ -20,7 +18,8 @@ export async function sFetch<T>(endpoint: string, options?: RequestInit): Promis
 
     if (!res.ok) {
         const text = await res.text();
-        throw new Error(`Failed to fetch ${endpoint}: ${res.status} — ${text}`);
+        console.error(`❌ Failed to fetch ${endpoint}:`, res.status, text);
+        throw new Error(`Failed to fetch ${endpoint}: ${res.status}`);
     }
 
     return res.json();
