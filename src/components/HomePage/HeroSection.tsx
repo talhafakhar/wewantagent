@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { easeInOut, Variants, motion } from "framer-motion";
+import {Variants, motion } from "framer-motion";
 import Image from "next/image";
 import Navbar from "@/components/Header/Navbar";
 import { ArrowRight } from "lucide-react";
