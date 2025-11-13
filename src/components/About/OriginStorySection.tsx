@@ -3,8 +3,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 export default function OriginStory() {
     return (
-        <section className="relative   text-white py-16 px-6">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <section className="relative   text-white py-16">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center px-4 sm:px-6 lg:px-8 ">
                 <motion.div
                     initial={{ opacity: 0, x: -100 }}
                     whileInView={{ opacity: 1, x: 0 }}

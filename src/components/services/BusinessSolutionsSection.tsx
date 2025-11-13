@@ -33,9 +33,9 @@ const BusinessSolutionsSection: React.FC<BusinessSolutionsSectionProps> = ({
                                                                                reverse = false,
                                                                            }) => {
     return (
-        <section className="text-white py-16 px-4 md:px-12">
+        <section className="text-white py-16">
             <div
-                className={`max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 ${
+                className={`max-w-7xl px-4 sm:px-6 lg:px-8  mx-auto flex flex-col md:flex-row items-center justify-between gap-10 ${
                     reverse ? "md:flex-row-reverse" : ""
                 }`}
             >

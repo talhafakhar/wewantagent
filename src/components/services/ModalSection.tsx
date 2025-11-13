@@ -17,8 +17,8 @@ const duplicatedModels = [...aiModels, ...aiModels, ...aiModels,...aiModels];
 
 const AIModulesSection = () => {
     return (
-        <section className=" text-white pt-20 pb-10 px-6 md:px-16">
-            <div className="max-w-7xl mx-auto text-center">
+        <section className=" text-white pt-20 pb-10">
+            <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
                 <motion.h2
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}

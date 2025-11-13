@@ -8,8 +8,8 @@ interface  BannerSectionProps {
 }
 export default function BannerSection({text, subtext, lastText}: BannerSectionProps) {
     return (
-        <section className="relative text-white px-4">
-            <div className="relative py-6 md:py-14 rounded max-w-7xl mx-auto px-2 text-center  flex flex-col items-center justify-center"
+        <section className="relative text-white  ">
+            <div className="relative py-6 md:py-14 rounded max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center  flex flex-col items-center justify-center"
                 style={{
                     backgroundImage: "url('/assets/home/banner-bg.webp')",
                     backgroundSize: "cover",

@@ -35,8 +35,8 @@ export default function AutomationExperts() {
     };
 
     return (
-        <section className="relative text-white py-24 px-6 overflow-hidden bg-black">
-            <div className="max-w-7xl mx-auto text-center">
+        <section className="relative text-white py-24  overflow-hidden bg-black">
+            <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8 ">
                 {/* Section Header */}
                 <motion.div
                     initial="hidden"

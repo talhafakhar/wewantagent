@@ -24,10 +24,10 @@ const IndustrySolutionsSection: React.FC<IndustrySolutionsSectionProps> = ({
                                                                                industries,
                                                                            }) => {
     return (
-        <section className="relative text-white pb-24 pt-16 px-6 overflow-hidden">
+        <section className="relative text-white pb-24 pt-16  overflow-hidden">
             <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-3xl z-0" />
 
-            <div className="max-w-7xl mx-auto text-center relative z-10">
+            <div className="max-w-7xl mx-auto text-center relative z-10 px-4 sm:px-6 lg:px-8">
                 <motion.h2
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}

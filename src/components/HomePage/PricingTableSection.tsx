@@ -74,8 +74,8 @@ const PricingSection = () => {
     };
 
     return (
-        <section className="relative flex flex-col items-center justify-center text-white px-6 py-20">
-            <div className="relative max-w-7xl w-full">
+        <section className="relative flex flex-col items-center justify-center text-white  py-20">
+            <div className="relative max-w-7xl w-full px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}

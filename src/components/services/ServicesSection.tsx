@@ -39,7 +39,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({
 
     return (
         <section className="py-16">
-            <div className="max-w-7xl mx-auto text-white px-4">
+            <div className="max-w-7xl mx-auto text-white px-4 sm:px-6 lg:px-8">
                 <motion.div variants={container} initial="hidden" animate="show">
                     <motion.div
                         variants={fadeUp}

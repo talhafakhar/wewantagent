@@ -61,7 +61,7 @@ const BenefitSection = () => {
 
     return (
         <section ref={ref} className="min-h-screen">
-            <div className="max-w-7xl mx-auto px-4 py-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  py-20">
                 <div className="flex justify-between items-center flex-col md:flex-row">
                     <div className="w-full md:w-1/2 space-y-6">
                         <motion.h2
@@ -98,8 +98,7 @@ const BenefitSection = () => {
                             Tired of repetitive tasks eating up your day? We&#39;re an AI automation agency building intelligent agents for your business. Share what&#39;s slowing you down in real estate, healthcare, or accounting. We&#39;ll map your automation roadmap, develop AI assistants that work, and hand you back your time so you can focus on growth.
                         </motion.p>
                     </div>
-
-                    <div className="w-full md:w-1/2 mt-10 md:mt-0 flex justify-center">
+                    <div className="w-full md:w-1/2 mt-10 md:mt-0 flex md:justify-center">
                         <motion.div
                             whileHover={{ scale: 1.05, rotate: [0, 1, -1, 0] }}
                             transition={{ duration: 0.5, ease: "easeInOut" }}

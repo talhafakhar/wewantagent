@@ -6,7 +6,7 @@ import { ArrowDown } from "lucide-react";
 
 export default function GlobeSection() {
     return (
-        <section className="px-6  relative overflow-hidden pt-32">
+        <section className="px-4 sm:px-6 lg:px-8  relative overflow-hidden pt-32">
             <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}

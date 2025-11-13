@@ -47,7 +47,7 @@ const BlogCard: React.FC<BlogCardProps> = ({blog, id}) => {
                 </div>
             )}
 
-            <div className="py-6 px-4  ">
+            <div className="py-6 px-4 sm:px-6 lg:px-8  ">
                 <div className="flex flex-wrap gap-2">
                     {blog.tags?.map((tag, index) => (
                         <span

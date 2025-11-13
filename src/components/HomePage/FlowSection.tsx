@@ -94,14 +94,14 @@ const OrbitAnimation: React.FC = () => {
 
 
     return (
-        <section ref={sectionRef} className="relative py-20 px-5 overflow-hidden">
+        <section ref={sectionRef} className="relative py-20  overflow-hidden">
             <motion.div
                 style={{y: yParallax}}
                 className="absolute inset-0 flex justify-center items-center pointer-events-none"
             >
                 <div className="w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-purple-600/20 to-blue-500/30 blur-3xl"/>
             </motion.div>
-            <div className="max-w-7xl mx-auto relative z-10">
+            <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8  ">
                 <motion.div
                     initial={{opacity: 0, y: 50}}
                     whileInView={{opacity: 1, y: 0}}
@@ -117,13 +117,13 @@ const OrbitAnimation: React.FC = () => {
                 </motion.div>
 
 
-                <div className="flex flex-col md:flex-row justify-center items-center gap-16 ">
+                <div className="flex flex-col md:flex-row justify-between items-center gap-16 ">
                     <motion.div
                         initial={{opacity: 0, x: -80}}
                         whileInView={{opacity: 1, x: 0}}
                         transition={{duration: 1.2, ease: "easeOut"}}
                         viewport={{once: true}}
-                        className="w-full md:w-1/2 text-center md:text-left"
+                        className="text-center md:text-left"
                     >
                         <Image
                             src="/assets/home/chatbot.png"

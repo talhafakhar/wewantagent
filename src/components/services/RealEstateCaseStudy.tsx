@@ -39,7 +39,7 @@ const RealEstateCaseStudy: React.FC<RealEstateCaseStudyProps> = ({
                                                                      cards,
                                                                  }) => {
     return (
-        <section className="text-white max-w-7xl mx-auto px-6 py-16">
+        <section className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                 <div className="flex flex-col justify-start sticky top-20">
                     <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">

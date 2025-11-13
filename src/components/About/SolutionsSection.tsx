@@ -14,8 +14,8 @@ export default function SolutionsSection() {
         if (inView) controls.start("show");
     }, [inView, controls]);
     return (
-        <section className="relative  text-white py-24 px-6 md:px-16 overflow-hidden">
-            <div className="max-w-7xl mx-auto">
+        <section className="relative  text-white py-24  overflow-hidden">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
                 <motion.div
                     variants={fadeUp}
                     initial="hidden"

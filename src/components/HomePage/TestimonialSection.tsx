@@ -26,7 +26,7 @@ export default function TestimonialsSection() {
 
     return (
         <section className="py-16">
-            <div className="mx-auto max-w-7xl px-4">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div
                     className="flex justify-center items-center gap-y-8 lg:gap-y-0 flex-wrap md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between lg:gap-x-8 max-w-sm sm:max-w-2xl lg:max-w-full mx-auto">
                     <div className="w-full lg:w-2/5">

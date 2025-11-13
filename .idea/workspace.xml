@@ -5,8 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c6fd9078-b96d-4568-b877-60bf54a26353" name="Changes" comment="strapi token update">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_20_2025_6_26_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_20_2025_6_26_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_21_2025_12_22_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_21_2025_12_22_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/strapi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/strapi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/About/ContactSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/ContactSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/About/HeroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/HeroSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/About/MeetOurTeam.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/MeetOurTeam.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/About/OriginStorySection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/OriginStorySection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/About/SolutionsSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/About/SolutionsSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Blog/BlogCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Blog/BlogCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Blog/BlogDetail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Blog/BlogDetail.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer/footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/BannerSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/BannerSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/BenefitSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/BenefitSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/FaqSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/FaqSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/FlowSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/FlowSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/GlobeSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/GlobeSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/HeroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/HeroSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/PricingTableSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/PricingTableSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/TestimonialSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/TestimonialSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/services/BusinessSolutionsSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/BusinessSolutionsSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/services/ContactFormSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/ContactFormSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/services/FlowSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/FlowSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/services/HeroSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/HeroSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/services/IndustrySolutionSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/IndustrySolutionSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/services/ModalSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/ModalSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/services/RealEstateCaseStudy.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/RealEstateCaseStudy.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/services/ServicesSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/ServicesSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/services/StatsSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/services/StatsSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,24 +74,24 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "js.debugger.nextJs.config.created.client": "true",
-    "js.debugger.nextJs.config.created.server": "true",
-    "last_opened_file_path": "C:/repo",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Users\\Developer\\PhpstormProjects\\wewantagent\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
+    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/repo&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Developer\\PhpstormProjects\\wewantagent\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -101,7 +132,12 @@
       <updated>1761146525459</updated>
       <workItem from="1761146526814" duration="90000" />
       <workItem from="1761146619864" duration="176000" />
-      <workItem from="1761201492535" duration="4354000" />
+      <workItem from="1761201492535" duration="6317000" />
+      <workItem from="1761213326570" duration="2293000" />
+      <workItem from="1761225685976" duration="238000" />
+      <workItem from="1761310913562" duration="1938000" />
+      <workItem from="1761655599673" duration="51000" />
+      <workItem from="1763021910142" duration="3990000" />
     </task>
     <task id="LOCAL-00001" summary="blog">
       <option name="closed" value="true" />
@@ -119,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761204215696</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="strapi token update">
+      <option name="closed" value="true" />
+      <created>1761206221698</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1761206221698</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

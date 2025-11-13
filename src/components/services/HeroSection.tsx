@@ -52,7 +52,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                     variants={container}
                     initial="hidden"
                     animate="show"
-                    className="flex-1 flex flex-col justify-center items-start max-w-7xl w-full mx-auto px-4"
+                    className="flex-1 flex flex-col justify-center items-start max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8"
                 >
                     <div className="flex md:flex-row flex-col gap-5 items-center justify-center md:justify-between">
                         <div className="w-full md:w-1/2">
