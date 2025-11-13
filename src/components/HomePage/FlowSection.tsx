@@ -171,7 +171,7 @@ const OrbitAnimation: React.FC = () => {
                                 "trello",
                                 "google-sheet",
                                 "googlDocs",
-                                "googleDrive",
+                                "GoogleDrive",
                                 "Gmail",
                                 "Outlook",
                                 "clickup",

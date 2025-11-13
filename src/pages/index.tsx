@@ -58,6 +58,35 @@ export default function Home({ initialBlogs, pagination }: Props) {
                 title="We Want Agent | The Custom Build AI Automation Agency"
                 description="We Want Agent is an AI automation agency building custom AI agents for real estate, healthcare, and accounting."
                 canonical="https://wewantagent.com/"
+                facebook={{
+                    appId: '1234567890',
+                }}
+                additionalMetaTags={[
+                    {name: 'keywords', content: ''},
+                    {property: 'dc:creator', content: 'wewantagent'},
+                    {name: 'author', content: 'wewantagent'},
+                    {name: 'robots', content: 'index, follow'},
+                ]}
+                openGraph={{
+                    type: 'website',
+                    url: 'https://wewantagent.com/',
+                    title: 'We Want Agent | The Custom Build AI Automation Agency',
+                    description: 'We Want Agent is an AI automation agency building custom AI agents for real estate, healthcare, and accounting.',
+                    images: [
+                        {
+                            url: 'https://wewantagent.com/assets/home/logo white.png',
+                            width: 1200,
+                            height: 630,
+                            alt: 'We Want Agent | The Custom Build AI Automation Agency',
+                        },
+                    ],
+                    site_name: 'https://wewantagent.com/',
+                }}
+                twitter={{
+                    handle: '@wewantagent',
+                    site: '@wewantagent',
+                    cardType: 'summary_large_image',
+                }}
             />
             <OrganizationJsonLd
                 type="Organization"
