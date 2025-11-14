@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6fd9078-b96d-4568-b877-60bf54a26353" name="Changes" comment="utm added">
-      <change afterPath="$PROJECT_DIR$/src/components/Common/CookieConsent.tsx" afterDir="false" />
+    <list default="true" id="c6fd9078-b96d-4568-b877-60bf54a26353" name="Changes" comment="gtm added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_document.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +111,7 @@
       <workItem from="1761310913562" duration="1938000" />
       <workItem from="1761655599673" duration="51000" />
       <workItem from="1763021910142" duration="6620000" />
-      <workItem from="1763045249493" duration="7499000" />
+      <workItem from="1763045249493" duration="8266000" />
     </task>
     <task id="LOCAL-00001" summary="blog">
       <option name="closed" value="true" />
@@ -168,7 +161,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763045493802</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="gtm added">
+      <option name="closed" value="true" />
+      <created>1763116326177</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1763116326177</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,7 +192,8 @@
     <MESSAGE value="blog" />
     <MESSAGE value="strapi token update" />
     <MESSAGE value="utm added" />
-    <option name="LAST_COMMIT_MESSAGE" value="utm added" />
+    <MESSAGE value="gtm added" />
+    <option name="LAST_COMMIT_MESSAGE" value="gtm added" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
 </project>

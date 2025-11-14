@@ -25,26 +25,26 @@ jobs:
 
             echo "🚀 Deploying WWA tag ${{ github.event.inputs.tag }}"
 
+            # --- DNS Workaround: Add GitHub to hosts file if DNS is broken ---
+            if ! nslookup github.com >/dev/null 2>&1; then
+              echo "⚠️  DNS resolution failed, adding GitHub to /etc/hosts"
+              sudo sh -c 'grep -q "github.com" /etc/hosts || echo "140.82.121.4 github.com" >> /etc/hosts'
+            fi
+
             # --- Resolve Node/NPM/PM2 paths at runtime ---
-            # Try to source NVM if available to expose shims
             if [ -s "$HOME/.nvm/nvm.sh" ]; then
-              # shellcheck disable=SC1090
               . "$HOME/.nvm/nvm.sh"
-              # Use default if set; ignore errors if not
               nvm use default >/dev/null 2>&1 || true
             fi
 
-            # Discover binaries, fallback to known locations if not in PATH
             NODE_BIN="$(command -v node || true)"
             NPM_BIN="$(command -v npm || true)"
             PM2_BIN="$(command -v pm2 || true)"
 
-            # If node not found, fallback to a common NVM path
             if [ -z "${NODE_BIN}" ] && [ -x "$HOME/.nvm/versions/node/v22.20.0/bin/node" ]; then
               NODE_BIN="$HOME/.nvm/versions/node/v22.20.0/bin/node"
             fi
 
-            # If npm not found, try alongside node
             if [ -z "${NPM_BIN}" ] && [ -n "${NODE_BIN}" ]; then
               NPM_CANDIDATE="$(dirname "$NODE_BIN")/npm"
               if [ -x "$NPM_CANDIDATE" ]; then
@@ -52,7 +52,6 @@ jobs:
               fi
             fi
 
-            # If pm2 not found, try alongside node
             if [ -z "${PM2_BIN}" ] && [ -n "${NODE_BIN}" ]; then
               PM2_CANDIDATE="$(dirname "$NODE_BIN")/pm2"
               if [ -x "$PM2_CANDIDATE" ]; then
@@ -60,7 +59,6 @@ jobs:
               fi
             fi
 
-            # Final sanity checks
             if [ -z "${NODE_BIN}" ] || [ -z "${NPM_BIN}" ]; then
               echo "❌ node or npm not found in PATH or common NVM locations."
               exit 1
@@ -93,15 +91,12 @@ jobs:
             echo "⚡ Building WWA"
             "${NPM_BIN}" run build
 
-            # Ensure the app port is set for this session (PM2 will persist env on first start)
             export PORT=3010
 
             echo "🚀 Restarting/Starting PM2 process: wewantagent"
             if "${PM2_BIN}" list | grep -qE 'wewantagent\s'; then
-              # Use update-env so the new PORT is applied
               "${PM2_BIN}" restart wewantagent --update-env
             else
-              # Start via npm runner with the resolved npm binary
               "${PM2_BIN}" start "${NPM_BIN}" --name wewantagent -- run start
             fi
 
