@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6fd9078-b96d-4568-b877-60bf54a26353" name="Changes" comment="gtm added">
+    <list default="true" id="c6fd9078-b96d-4568-b877-60bf54a26353" name="Changes" comment="build setup">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/strapi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/strapi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/blogs/[slug].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blogs/[slug].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomePage/BannerSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage/BannerSection.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +112,7 @@
       <workItem from="1761310913562" duration="1938000" />
       <workItem from="1761655599673" duration="51000" />
       <workItem from="1763021910142" duration="6620000" />
-      <workItem from="1763045249493" duration="11159000" />
+      <workItem from="1763045249493" duration="12290000" />
     </task>
     <task id="LOCAL-00001" summary="blog">
       <option name="closed" value="true" />
@@ -179,7 +178,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763116938099</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="build setup">
+      <option name="closed" value="true" />
+      <created>1763120245447</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1763120245447</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,7 +210,8 @@
     <MESSAGE value="strapi token update" />
     <MESSAGE value="utm added" />
     <MESSAGE value="gtm added" />
-    <option name="LAST_COMMIT_MESSAGE" value="gtm added" />
+    <MESSAGE value="build setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="build setup" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
 </project>

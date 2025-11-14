@@ -33,7 +33,7 @@ export default function BannerSection({text, subtext, lastText}: BannerSectionPr
                         viewport={{ once: true }}
                         className="text-3xl font-semibold leading-snug "
                     >
-                        {text} <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-secondary font-bold">{subtext}</span> {lastText}
+                        {text}  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-secondary font-bold">{subtext}</span> {lastText}
                     </motion.h2>
 
                     <motion.div
