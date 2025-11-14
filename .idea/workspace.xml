@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6fd9078-b96d-4568-b877-60bf54a26353" name="Changes" comment="banner text fix">
+    <list default="true" id="c6fd9078-b96d-4568-b877-60bf54a26353" name="Changes" comment="fix svg issue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -13,6 +13,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -105,7 +111,7 @@
       <workItem from="1761310913562" duration="1938000" />
       <workItem from="1761655599673" duration="51000" />
       <workItem from="1763021910142" duration="6620000" />
-      <workItem from="1763045249493" duration="13896000" />
+      <workItem from="1763045249493" duration="14886000" />
     </task>
     <task id="LOCAL-00001" summary="blog">
       <option name="closed" value="true" />
@@ -187,7 +193,23 @@
       <option name="project" value="LOCAL" />
       <updated>1763121551592</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fix svg issue">
+      <option name="closed" value="true" />
+      <created>1763123141657</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1763123141657</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix svg issue">
+      <option name="closed" value="true" />
+      <created>1763123292284</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1763123292284</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,7 +235,8 @@
     <MESSAGE value="gtm added" />
     <MESSAGE value="build setup" />
     <MESSAGE value="banner text fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="banner text fix" />
+    <MESSAGE value="fix svg issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix svg issue" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
 </project>
