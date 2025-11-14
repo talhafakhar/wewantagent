@@ -1,15 +1,27 @@
-# *
+# ==========================================================
+# Legal / Content-Signal Notice (commented to avoid errors)
+# ==========================================================
+# As a condition of accessing this website, you agree to abide by
+# the following content signals:
+# (a) If a content-signal = yes, you may collect content for the use.
+# (b) If a content-signal = no, you may not collect content.
+# (c) If a content-signal is not included, no permission is granted or restricted.
+#
+# Content-signal: search=yes, ai-train=no
+# ANY RESTRICTIONS EXPRESSED VIA CONTENT SIGNALS ARE EXPRESS
+# RESERVATIONS OF RIGHTS UNDER EU DIRECTIVE 2019/790.
+#
+# BEGIN Cloudflare Managed Content
+# (Cloudflare rules are retained but commented to avoid Google syntax errors)
+# User-Agent: *
+# Content-signal: search=yes,ai-train=no
+# END Cloudflare Managed Content
+# ==========================================================
 User-agent: *
 Allow: /
-Disallow: /sitemap-0.xml
-Disallow: /sales-consulting/
 Disallow: /api/
 Disallow: /_next/
 Disallow: /admin/
-
 # Host
-Host: https://tfbusinesssolutions.com
+Host: https://wewantagent.com
 
-# Sitemaps
-Sitemap: https://tfbusinesssolutions.com/sitemap.xml
-Sitemap: https://tfbusinesssolutions.com/server-sitemap.xml

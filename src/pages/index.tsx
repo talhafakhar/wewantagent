@@ -23,12 +23,10 @@ import {
     OrganizationJsonLd,
     WebPageJsonLd,
 } from "next-seo";
-
 type Props = {
     initialBlogs: BlogResponse["data"];
     pagination: BlogResponse["meta"]["pagination"];
 };
-
 export const getStaticProps: GetStaticProps<Props> = async () => {
     const { data, pagination } = await fetchBlogs(1, 3);
     return {
@@ -36,13 +34,11 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
         revalidate: 3600,
     };
 };
-
 export default function Home({ initialBlogs, pagination }: Props) {
     const [blogs, setBlogs] = useState(initialBlogs || []);
     const [page, setPage] = useState(1);
     const [pageCount, setPageCount] = useState(pagination?.pageCount || 1);
     const [loading, setLoading] = useState(false);
-
     const loadNext = async (nextPage: number) => {
         setLoading(true);
         const { data, pagination } = await fetchBlogs(nextPage, 3);
@@ -51,7 +47,6 @@ export default function Home({ initialBlogs, pagination }: Props) {
         setPageCount(pagination.pageCount);
         setLoading(false);
     };
-
     return (
         <>
             <NextSeo
@@ -115,7 +110,6 @@ export default function Home({ initialBlogs, pagination }: Props) {
                     },
                 ]}
             />
-
             <div className="bg-black">
                 <HeroSection />
                 <BenefitSection />

@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { useEffect } from "react";
 import useGsapSmoothScroll from "@/hooks/useGsapSmoothScroll";
+import ConsentBanner from "@/components/Common/CookieConsent";
 import CustomCursor from "@/components/CustomCursor";
 export default function App({ Component, pageProps }: AppProps) {
     useGsapSmoothScroll();
@@ -22,15 +23,17 @@ export default function App({ Component, pageProps }: AppProps) {
         if (utmSource && utmMedium) {
             localStorage.setItem("utm_source", utmSource);
             localStorage.setItem("utm_medium", utmMedium);
-
         }
     }, []);
     return (
-        <div id="smooth-wrapper">
-            <div id="smooth-content">
-                <CustomCursor />
-                <Component {...pageProps} />
+        <>
+            <div id="smooth-wrapper">
+                <div id="smooth-content">
+                    <CustomCursor />
+                    <Component {...pageProps} />
+                </div>
             </div>
-        </div>
+            <ConsentBanner />
+        </>
     );
 }
