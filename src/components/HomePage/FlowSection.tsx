@@ -61,6 +61,39 @@ const OrbitAnimation: React.FC = () => {
         target: sectionRef,
         offset: ["start end", "end start"],
     });
+    const imageExt: Record<string, string> = {
+        AssemblyAI: "svg",
+        aws: "jpeg",
+        claude: "svg",
+        clickup: "svg",
+        deepseek: "svg",
+        discord: "svg",
+        ElevenLabs: "jpeg",
+        fallback: "svg",
+        flask: "svg",
+        gemini: "svg",
+        Gmail: "jpeg",
+        googlDocs: "svg",
+        "google-sheet": "svg",
+        GoogleDrive: "svg",
+        gpt: "svg",
+        Grafana: "jpeg",
+        LangChain: "jpeg",
+        logo: "svg",
+        make: "svg",
+        mesha: "svg",
+        mongodb: "svg",
+        n8n: "svg",
+        Outlook: "svg",
+        PostgreSQL: "svg",
+        Python: "svg",
+        Sentry: "jpeg",
+        slack: "svg",
+        trello: "svg",
+        titan: "jpeg",
+        Twilio: "jpeg",
+        websocket: "svg",
+    };
 
     const yParallax = useTransform(scrollYProgress, [0, 1], ["-70%", "40%"]);
     const SmartImage = ({
@@ -72,12 +105,8 @@ const OrbitAnimation: React.FC = () => {
         width: number;
         height: number;
     }) => {
-        const [src, setSrc] = useState(`/assets/svg/home/${name}.svg`);
-
-        const handleError = () => {
-            if (src.endsWith(".svg")) setSrc(`/assets/svg/home/${name}.jpeg`);
-            else setSrc(`/assets/svg/home/fallback.svg`);
-        };
+        const ext = imageExt[name] || "svg";
+        const src = `/assets/svg/home/${name}.${ext}`;
 
         return (
             <Image
@@ -85,12 +114,12 @@ const OrbitAnimation: React.FC = () => {
                 alt={name}
                 width={width}
                 height={height}
-                onError={handleError}
                 unoptimized
                 className="rounded-full"
             />
         );
     };
+
 
 
     return (
