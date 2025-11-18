@@ -38,7 +38,6 @@ export async function getBlogs(page = 1, pageSize = 10): Promise<BlogResponse> {
 }
 
 export async function getBlogBySlug(slug: string): Promise<BlogPost | null> {
-    // Don't specify `.url` in populate; Strapi will return full image object
     const q = new URLSearchParams({
         "filters[slug][$eq]": slug,
         populate: "feature_image",
