@@ -38,10 +38,24 @@ export interface Media {
 // ======================
 // BLOG TYPES
 // ======================
-
 export interface RichTextBlock {
     type: string;
-    children: Array<{ text: string; type?: string }>;
+    level?: number;
+    format?: 'ordered' | 'unordered';
+    children: Array<RichTextChild>;
+}
+export interface RichTextChild {
+    text: string;
+    type?: string;
+    bold?: boolean;
+    italic?: boolean;
+    underline?: boolean;
+    strikethrough?: boolean;
+    code?: boolean;
+    color?: string;
+    backgroundColor?: string;
+    url?: string;
+    children?: Array<RichTextChild>;
 }
 
 export interface BlogPost {

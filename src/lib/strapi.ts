@@ -1,8 +1,7 @@
 import type { BlogPost, BlogResponse } from "@/types/blog";
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "https://api.wewantagent.com";
-const STRAPI_API_TOKEN =
-    process.env.STRAPI_API_TOKEN
+const STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN
 
 export async function sFetch<T>(endpoint: string, options?: RequestInit): Promise<T> {
     const url = `${STRAPI_URL}${endpoint}`;

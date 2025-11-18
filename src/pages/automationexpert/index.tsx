@@ -8,7 +8,7 @@ import FooterSection from "@/components/Footer/footer";
 import {NextSeo ,WebPageJsonLd} from "next-seo";
 import BannerSection from "@/components/HomePage/BannerSection";
 
-export default function AboutUsPage() {
+export default function AutomationExpert() {
     return (
         <>
             <NextSeo
