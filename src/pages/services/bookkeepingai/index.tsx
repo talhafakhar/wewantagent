@@ -172,12 +172,12 @@ export default function BookkeepingAi() {
         <>
             <NextSeo
                 title="Bookkeeping AI Agent | We Want Agent"
-                description="Bookkeeping ai agent for firms. AI agent for accounting handles invoices, reconciliation, reporting. Accounting workflow automation that eliminates manual work."
+                description="Bookkeeping AI agent for firms. AI agent for accounting handles invoices, reconciliation, reporting. Accounting workflow automation that eliminates manual work."
                 canonical="https://wewantagent.com/services/bookkeepingai"
                 openGraph={{
                     url: "https://wewantagent.com/services/bookkeepingai",
                     title: "Bookkeeping AI Agent | We Want Agent",
-                    description: "Bookkeeping ai agent for firms. AI agent for accounting handles invoices, reconciliation, reporting. Accounting workflow automation that eliminates manual work",
+                    description: "Bookkeeping AI agent for firms. AI agent for accounting handles invoices, reconciliation, reporting. Accounting workflow automation that eliminates manual work",
                     images: [
                         {
                             url: "https://wewantagent.com/images/bookkeepingai-og.jpg",
@@ -194,13 +194,13 @@ export default function BookkeepingAi() {
                     cardType: "summary_large_image",
                 }}
             />
+
             <WebPageJsonLd
                 id="https://wewantagent.com/services/bookkeepingai#webpage"
                 url="https://wewantagent.com/services/bookkeepingai"
                 name="Bookkeeping AI Agent | We Want Agent"
-                description="Bookkeeping ai agent for firms. AI agent for accounting handles invoices, reconciliation, reporting. Accounting workflow automation that eliminates manual work."
+                description="Bookkeeping AI agent for firms. AI agent for accounting handles invoices, reconciliation, reporting. Accounting workflow automation that eliminates manual work."
             />
-
             <div className="bg-black">
                 <HeroSection
                     title="Bookkeeping AI Agent"

@@ -170,19 +170,25 @@ export default function RealEstateAiAgent() {
                 "Client information is secured with encryption standards, access controls are implemented, and privacy law compliance is maintained always.",
         },
     ];
+    const title = "Real Estate AI Agent Automation Services | We Want Agent";
+    const description =
+        "Real estate ai agent automation for agents, brokers, and property managers. Voice AI, lead qualification, listing management, and marketing automation for real estate agents";
+    const url = "https://wewantagent.com/services/realestateaiagent";
+    const imageUrl = "https://wewantagent.com/images/realestate-og.jpg";
+
     return (
         <>
             <NextSeo
-                title="Real Estate AI Agent Automation Services | We Want Agent"
-                description="Real estate ai agent automation for agents, brokers, and property managers. Voice AI, lead qualification, listing management, and marketing automation for real estate agents"
-                canonical="https://wewantagent.com/services/realestateaiagent"
+                title={title}
+                description={description}
+                canonical={url}
                 openGraph={{
-                    url: "https://wewantagent.com/services/realestateaiagent",
-                    title: "Real Estate AI Agent Automation Services | We Want Agent",
-                    description: "Real estate ai agent automation for agents, brokers, and property managers. Voice AI, lead qualification, listing management, and marketing automation for real estate agents",
+                    url,
+                    title,
+                    description,
                     images: [
                         {
-                            url: "https://wewantagent.com/images/realestate-og.jpg",
+                            url: imageUrl,
                             width: 1200,
                             height: 630,
                             alt: "Real Estate AI Agent by We Want Agent",
@@ -197,12 +203,11 @@ export default function RealEstateAiAgent() {
                 }}
             />
             <WebPageJsonLd
-                id="https://wewantagent.com/services/realestateaiagent#webpage"
-                url="https://wewantagent.com/services/realestateaiagent"
-                name="Real Estate AI Agent Automation Services | We Want Agent"
-                description="Real estate ai agent automation for agents, brokers, and property managers. Voice AI, lead qualification, listing management, and marketing automation for real estate agents"
-                />
-
+                id={`${url}#webpage`}
+                url={url}
+                name={title}
+                description={description}
+            />
             <div className="bg-black">
                 <HeroSection
                     title="Real Estate AI Agent"

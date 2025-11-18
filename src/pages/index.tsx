@@ -51,36 +51,20 @@ export default function Home({ initialBlogs, pagination }: Props) {
         <>
             <NextSeo
                 title="We Want Agent | The Custom Build AI Automation Agency"
-                description="We Want Agent is an AI automation agency building custom AI agents for real estate, healthcare, and accounting."
+                description="We Want Agent is an AI automation agency building custom AI agents."
                 canonical="https://wewantagent.com/"
-                facebook={{
-                    appId: '1234567890',
-                }}
                 additionalMetaTags={[
-                    {name: 'keywords', content: ''},
-                    {property: 'dc:creator', content: 'wewantagent'},
-                    {name: 'author', content: 'wewantagent'},
-                    {name: 'robots', content: 'index, follow'},
+                    { name: 'robots', content: 'index, follow' }
                 ]}
                 openGraph={{
-                    type: 'website',
-                    url: 'https://wewantagent.com/',
-                    title: 'We Want Agent | The Custom Build AI Automation Agency',
-                    description: 'We Want Agent is an AI automation agency building custom AI agents for real estate, healthcare, and accounting.',
+                    url: "https://wewantagent.com/",
                     images: [
                         {
-                            url: 'https://wewantagent.com/assets/home/logo white.png',
+                            url: "https://wewantagent.com/assets/home/logo white.png",
                             width: 1200,
-                            height: 630,
-                            alt: 'We Want Agent | The Custom Build AI Automation Agency',
-                        },
-                    ],
-                    site_name: 'https://wewantagent.com/',
-                }}
-                twitter={{
-                    handle: '@wewantagent',
-                    site: '@wewantagent',
-                    cardType: 'summary_large_image',
+                            height: 630
+                        }
+                    ]
                 }}
             />
             <OrganizationJsonLd
@@ -90,23 +74,33 @@ export default function Home({ initialBlogs, pagination }: Props) {
                 url="https://wewantagent.com/"
                 logo="https://wewantagent.com/assets/logo.png"
             />
+
             <WebPageJsonLd
                 id="https://wewantagent.com/#webpage"
                 url="https://wewantagent.com/"
-                name="We Want Agent | The Custom Build AI Automation Agency"
-                description="We Want Agent builds custom AI agents for business automation across industries."
+                name="We Want Agent"
             />
             <FAQPageJsonLd
                 mainEntity={[
                     {
                         question: "How to create an AI agent for my business?",
                         answer:
-                            "We start with a discovery call to understand your needs, then design and deploy custom AI automation for your workflow.",
+                            "We start with a discovery call to understand your pain points. Then our automation expert maps out what tasks to automate, designs the AI agent architecture, develops it custom for your workflow, tests thoroughly, and deploys it into your systems. You're involved at every step — no surprises.",
+                    },
+                    {
+                        question: "How much does AI cost for a small business?",
+                        answer:
+                            "It depends on complexity, but most AI automation agency projects start between $5,000–$15,000 for initial development. Monthly maintenance runs $500–$2,000. We provide transparent quotes upfront — no hidden fees. Think of it as hiring a full-time employee who never sleeps, never quits, and costs less annually.",
                     },
                     {
                         question: "Will AI assistants work with my current software?",
                         answer:
-                            "Yes, we integrate with your existing CRM, scheduling, and accounting tools seamlessly.",
+                            "Yes. We build AI automation service solutions that integrate with your existing CRM, scheduling tools, accounting software, and databases. No need to change what's working — we make it work smarter. If you use it daily, we can likely automate around it or enhance it.",
+                    },
+                    {
+                        question: "How long does it take to build custom AI agents?",
+                        answer:
+                            "Simple artificial intelligence automation takes 2–4 weeks. Complex multi-system integrations need 6–12 weeks. Rush projects are possible for urgent needs. We give you realistic timelines during consultation — never overpromise. Most clients see their first automation running within 30 days of starting.",
                     },
                 ]}
             />

@@ -175,11 +175,13 @@ export default function HealthcareAutomation() {
                 "Patient consent management, data access controls, PHI protection protocols. Privacy regulations ensured thoroughly always",
         },
     ];
+    const description = "Health care automation with healthcare agents for scheduling, intake, insurance verification, and patient communication. Automation in health care that reduces admin burden";
+
     return (
         <>
             <NextSeo
                 title="Health Care Automation AI Agents Solutions | We Want Agent"
-                description="Health care automation with healthcare agents for scheduling, intake, insurance verification, and patient communication. Automation in health care that reduces admin burden"
+                description={description}
                 canonical="https://wewantagent.com/services/healthcareautomation"
                 openGraph={{
                     url: "https://wewantagent.com/services/healthcareautomation",
@@ -205,7 +207,7 @@ export default function HealthcareAutomation() {
                 id="https://wewantagent.com/services/healthcareautomation#webpage"
                 url="https://wewantagent.com/services/healthcareautomation"
                 name="Health Care Automation AI Agents Solutions | We Want Agent"
-                description="Health care automation with healthcare agents for scheduling, intake, insurance verification, and patient communication. Automation in health care that reduces admin burden"
+                description={description}
             />
 
             <div className="bg-black">
