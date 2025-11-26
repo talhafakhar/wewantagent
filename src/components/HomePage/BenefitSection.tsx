@@ -161,9 +161,9 @@ const BenefitSection = () => {
       </span>
                                     </div>
                                     <div className="relative z-10 flex-1">
-                                        <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 uppercase sm:mb-4 px-2 tracking-wide group-hover:tracking-wider transition-all duration-300">
+                                        <h4 className="text-2xl sm:text-3xl font-bold text-white mb-3 uppercase sm:mb-4 px-2 tracking-wide group-hover:tracking-wider transition-all duration-300">
                                             {service.title}
-                                        </h3>
+                                        </h4>
                                         <p className="text-sm sm:text-base text-gray-400 leading-relaxed px-2 group-hover:text-gray-300 transition-colors duration-300">
                                             {service.description}
                                         </p>

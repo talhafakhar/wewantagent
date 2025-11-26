@@ -1,0 +1,167 @@
+Index: public/sitemap-0.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/public/sitemap-0.xml b/public/sitemap-0.xml
+deleted file mode 100644
+--- a/public/sitemap-0.xml	(revision ce8a10a489e7e0c31ae8d819eb21047472cc2630)
++++ /dev/null	(revision ce8a10a489e7e0c31ae8d819eb21047472cc2630)
+@@ -1,35 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+-    <url>
+-        <loc>https://wewantagent.com/</loc>
+-        <changefreq>daily</changefreq>
+-        <priority>1.0</priority>
+-    </url>
+-    <url>
+-        <loc>https://wewantagent.com/automationexpert</loc>
+-        <changefreq>weekly</changefreq>
+-        <priority>0.8</priority>
+-    </url>
+-    <url>
+-        <loc>https://wewantagent.com/contact</loc>
+-        <changefreq>monthly</changefreq>
+-        <priority>0.7</priority>
+-    </url>
+-    <url>
+-        <loc>https://wewantagent.com/services/bookkeepingai</loc>
+-        <changefreq>monthly</changefreq>
+-        <priority>0.7</priority>
+-    </url>
+-    <url>
+-        <loc>https://wewantagent.com/services/healthcareautomation</loc>
+-        <changefreq>monthly</changefreq>
+-        <priority>0.7</priority>
+-    </url>
+-
+-    <url>
+-        <loc>https://wewantagent.com/services/realestateaiagent</loc>
+-        <changefreq>monthly</changefreq>
+-        <priority>0.7</priority>
+-    </url>
+-
+-</urlset>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"c6fd9078-b96d-4568-b877-60bf54a26353\" name=\"Changes\" comment=\"update robtot.txt\">\r\n      <change afterPath=\"$PROJECT_DIR$/next-sitemap.config.js\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/public/sitemap-0.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/public/sitemap.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/pages/server-sitemap-index.xml.ts\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/pages/server-sitemap.xml.tsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/package-lock.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/package-lock.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/package.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/package.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/public/robots.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/public/robots.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/lib/strapi.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/lib/strapi.ts\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"PUSH_TAGS\">\r\n      <GitPushTagMode>\r\n        <option name=\"argument\" value=\"--tags\" />\r\n        <option name=\"title\" value=\"All\" />\r\n      </GitPushTagMode>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;billalkhanzada&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/talhafakhar/wewantagent.git&quot;,\r\n    &quot;accountId&quot;: &quot;b6f6c9ad-11de-4aeb-9de9-463590c22c33&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 0\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"34QWxbos72D2WKFKKhTiq8oR8Z4\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n    <option name=\"showMembers\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"ModuleVcsDetector.initialDetectionPerformed\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.git.unshallow\": \"true\",\r\n    \"git-widget-placeholder\": \"master\",\r\n    \"js.debugger.nextJs.config.created.client\": \"true\",\r\n    \"js.debugger.nextJs.config.created.server\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Users/Developer/PhpstormProjects/wewantagent/public\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"ts.external.directory.path\": \"C:\\\\Users\\\\Developer\\\\PhpstormProjects\\\\wewantagent\\\\node_modules\\\\typescript\\\\lib\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"ReactDesignerToolWindowState\">\r\n    <option name=\"myId2Visible\">\r\n      <map>\r\n        <entry key=\"com.intellij.reactbuddy.reactComponents\" value=\"false\" />\r\n        <entry key=\"com.intellij.reactbuddy.reactInspector\" value=\"false\" />\r\n        <entry key=\"com.intellij.reactbuddy.storybook\" value=\"false\" />\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Developer\\PhpstormProjects\\wewantagent\\public\" />\r\n      <recent name=\"C:\\Users\\Developer\\PhpstormProjects\\wewantagent\\src\\pages\" />\r\n      <recent name=\"C:\\Users\\Developer\\PhpstormProjects\\wewantagent\" />\r\n      <recent name=\"C:\\Users\\Developer\\PhpstormProjects\\wewantagent\\src\\components\\Common\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Developer\\PhpstormProjects\\wewantagent\\src\\pages\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"npm.Next.js: server-side\">\r\n    <configuration name=\"Next.js: debug client-side\" type=\"JavascriptDebugType\" uri=\"http://localhost:3000/\">\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"Next.js: server-side\" type=\"js.build_tools.npm\">\r\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\r\n      <command value=\"run\" />\r\n      <scripts>\r\n        <script value=\"dev\" />\r\n      </scripts>\r\n      <node-interpreter value=\"project\" />\r\n      <envs />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-WS-252.23892.411\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"c6fd9078-b96d-4568-b877-60bf54a26353\" name=\"Changes\" comment=\"\" />\r\n      <created>1761146525459</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1761146525459</updated>\r\n      <workItem from=\"1761146526814\" duration=\"90000\" />\r\n      <workItem from=\"1761146619864\" duration=\"176000\" />\r\n      <workItem from=\"1761201492535\" duration=\"6317000\" />\r\n      <workItem from=\"1761213326570\" duration=\"2293000\" />\r\n      <workItem from=\"1761225685976\" duration=\"238000\" />\r\n      <workItem from=\"1761310913562\" duration=\"1938000\" />\r\n      <workItem from=\"1761655599673\" duration=\"51000\" />\r\n      <workItem from=\"1763021910142\" duration=\"6620000\" />\r\n      <workItem from=\"1763045249493\" duration=\"17420000\" />\r\n      <workItem from=\"1763192004714\" duration=\"1954000\" />\r\n      <workItem from=\"1763199504026\" duration=\"68000\" />\r\n      <workItem from=\"1763455900726\" duration=\"8121000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"blog\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1761146751579</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1761146751579</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"strapi token update\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1761204215696</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1761204215696</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"strapi token update\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1761206221698</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1761206221698</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"utm added\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1763027837674</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1763027837674</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"utm added\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1763028465561</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1763028465561</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"utm added\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1763045493802</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1763045493802</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"gtm added\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1763116326177</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1763116326177</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"gtm added\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1763116938099</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1763116938099</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"build setup\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1763120245447</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1763120245447</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"banner text fix\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1763121551592</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1763121551592</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"fix svg issue\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1763123141657</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1763123141657</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"fix svg issue\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1763123292284</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1763123292284</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"fix svg issue\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1763124352532</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1763124352532</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"fix svg issue\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1763196015409</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1763196015409</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"update robot.txt file\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1763456182508</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1763456182508</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"update robot.txt file\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1763461285807</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1763461285807</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"add .env.local for environment variables and update blog types\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1763464574670</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1763464574670</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00018\" summary=\"update robtot.txt\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1763465539479</created>\r\n      <option name=\"number\" value=\"00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1763465539479</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"19\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT\" value=\"false\" />\r\n    <option name=\"CHECK_NEW_TODO\" value=\"false\" />\r\n    <MESSAGE value=\"blog\" />\r\n    <MESSAGE value=\"strapi token update\" />\r\n    <MESSAGE value=\"utm added\" />\r\n    <MESSAGE value=\"gtm added\" />\r\n    <MESSAGE value=\"build setup\" />\r\n    <MESSAGE value=\"banner text fix\" />\r\n    <MESSAGE value=\"fix svg issue\" />\r\n    <MESSAGE value=\"update robot.txt file\" />\r\n    <MESSAGE value=\"add .env.local for environment variables and update blog types\" />\r\n    <MESSAGE value=\"update robtot.txt\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"update robtot.txt\" />\r\n    <option name=\"NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS\" value=\"false\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision ce8a10a489e7e0c31ae8d819eb21047472cc2630)
++++ b/.idea/workspace.xml	(date 1764144449414)
+@@ -4,17 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="c6fd9078-b96d-4568-b877-60bf54a26353" name="Changes" comment="update robtot.txt">
+-      <change afterPath="$PROJECT_DIR$/next-sitemap.config.js" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/public/sitemap-0.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/public/sitemap.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/pages/server-sitemap-index.xml.ts" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/pages/server-sitemap.xml.tsx" afterDir="false" />
++    <list default="true" id="c6fd9078-b96d-4568-b877-60bf54a26353" name="Changes" comment="add next-sitemap integration and update sitemap configuration">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/lib/strapi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/strapi.ts" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/public/sitemap-0.xml" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -54,24 +46,24 @@
+     <option name="showLibraryContents" value="true" />
+     <option name="showMembers" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "ModuleVcsDetector.initialDetectionPerformed": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "RunOnceActivity.git.unshallow": "true",
+-    "git-widget-placeholder": "master",
+-    "js.debugger.nextJs.config.created.client": "true",
+-    "js.debugger.nextJs.config.created.server": "true",
+-    "last_opened_file_path": "C:/Users/Developer/PhpstormProjects/wewantagent/public",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "ts.external.directory.path": "C:\\Users\\Developer\\PhpstormProjects\\wewantagent\\node_modules\\typescript\\lib",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
++    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
++    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/Developer/PhpstormProjects/wewantagent&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Developer\\PhpstormProjects\\wewantagent\\node_modules\\typescript\\lib&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="ReactDesignerToolWindowState">
+     <option name="myId2Visible">
+       <map>
+@@ -83,9 +75,9 @@
+   </component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
++      <recent name="C:\Users\Developer\PhpstormProjects\wewantagent" />
+       <recent name="C:\Users\Developer\PhpstormProjects\wewantagent\public" />
+       <recent name="C:\Users\Developer\PhpstormProjects\wewantagent\src\pages" />
+-      <recent name="C:\Users\Developer\PhpstormProjects\wewantagent" />
+       <recent name="C:\Users\Developer\PhpstormProjects\wewantagent\src\components\Common" />
+     </key>
+     <key name="MoveFile.RECENT_KEYS">
+@@ -132,7 +124,9 @@
+       <workItem from="1763045249493" duration="17420000" />
+       <workItem from="1763192004714" duration="1954000" />
+       <workItem from="1763199504026" duration="68000" />
+-      <workItem from="1763455900726" duration="8121000" />
++      <workItem from="1763455900726" duration="8678000" />
++      <workItem from="1763550791911" duration="210000" />
++      <workItem from="1763551548187" duration="84000" />
+     </task>
+     <task id="LOCAL-00001" summary="blog">
+       <option name="closed" value="true" />
+@@ -278,7 +272,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1763465539479</updated>
+     </task>
+-    <option name="localTasksCounter" value="19" />
++    <task id="LOCAL-00019" summary="add next-sitemap integration and update sitemap configuration">
++      <option name="closed" value="true" />
++      <created>1763467945329</created>
++      <option name="number" value="00019" />
++      <option name="presentableId" value="LOCAL-00019" />
++      <option name="project" value="LOCAL" />
++      <updated>1763467945329</updated>
++    </task>
++    <option name="localTasksCounter" value="20" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -308,7 +310,8 @@
+     <MESSAGE value="update robot.txt file" />
+     <MESSAGE value="add .env.local for environment variables and update blog types" />
+     <MESSAGE value="update robtot.txt" />
+-    <option name="LAST_COMMIT_MESSAGE" value="update robtot.txt" />
++    <MESSAGE value="add next-sitemap integration and update sitemap configuration" />
++    <option name="LAST_COMMIT_MESSAGE" value="add next-sitemap integration and update sitemap configuration" />
+     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
+   </component>
+ </project>
+\ No newline at end of file

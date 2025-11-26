@@ -50,9 +50,9 @@ const WhatWeDo: React.FC<StatsSectionProps> = ({
                                 className="p-6 border border-white/10 rounded-xl bg-black/20 backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
                             >
                                 <Icon className="text-white w-16 h-16 mb-4" />
-                                <h3 className="text-2xl font-bold mb-2 text-white">
+                                <h4 className="text-2xl font-bold mb-2 text-white">
                                     {stat.title}
-                                </h3>
+                                </h4>
                                 <p className="text-sm text-gray-400">{stat.description}</p>
                             </motion.div>
                         );

@@ -40,7 +40,7 @@ export default function BlogPostPage({ blog }: Props) {
         : excerpt?.map(block => block.children.map(c => c.text).join("")).join(" ") || "";
 
     const imageUrl = feature_image?.url
-        ? `https://your-strapi-domain.com${feature_image.url}`
+        ? `https://api.wewantagent.com${feature_image.url}`
         : "https://wewantagent.com/default-blog.jpg";
 
     const canonicalUrl = `https://wewantagent.com/blogs/${slug}`;
@@ -48,7 +48,7 @@ export default function BlogPostPage({ blog }: Props) {
     return (
         <>
             <NextSeo
-                title={title}
+                title={title || "We Want Agent Blog"}
                 description={description}
                 canonical={canonicalUrl}
                 openGraph={{
