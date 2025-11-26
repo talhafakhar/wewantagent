@@ -68,7 +68,12 @@ const BlogCard: React.FC<BlogCardProps> = ({blog, id}) => {
                 </div>
 
                 <h3 className="text-xl font-bold text-white leading-tight mt-4 uppercase mb-2">
-                    {blog.title}
+                    <Link
+                        href={`/blogs/${blog.slug}`}
+                        title={`Read more about ${blog.title}`}
+                    >
+                        {blog.title}
+                    </Link>
                 </h3>
 
                 <p className="text-gray-300 text-sm leading-relaxed line-clamp-3">
@@ -88,11 +93,9 @@ const BlogCard: React.FC<BlogCardProps> = ({blog, id}) => {
                     <span className="font-medium">{formatDate(blog.published)}</span>
                 </div>
 
-                <Link
-                    href={`/blogs/${blog.slug}`}
+                <div
                     className="group/btn flex items-center gap-2 text-sm font-semibold text-white "
                 >
-                    <span>Read More</span>
                     <div
                         className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center  transition-all duration-300 group-hover/btn:scale-110">
                         <ArrowRight
@@ -100,7 +103,7 @@ const BlogCard: React.FC<BlogCardProps> = ({blog, id}) => {
                             className="text-white group-hover/btn:translate-x-0.5 transition-transform duration-300"
                         />
                     </div>
-                </Link>
+                </div>
             </div>
 
             <style jsx>{`
