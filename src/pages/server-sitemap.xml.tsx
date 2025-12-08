@@ -18,7 +18,7 @@ ${blogs
 };
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     const API_TOKEN = process.env.STRAPI_API_TOKEN;
-    const STRAPI_URL = process.env.STRAPI_URL || "https://api.wewantagent.com";
+    const STRAPI_URL = process.env.STRAPI_URL || "https://api.wewantagent.com/";
     if (!API_TOKEN) {
         return {
             notFound: true,

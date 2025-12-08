@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6fd9078-b96d-4568-b877-60bf54a26353" name="Changes" comment="update seo tag  h1 h2" />
+    <list default="true" id="c6fd9078-b96d-4568-b877-60bf54a26353" name="Changes" comment="update sitempa and robot.txt">
+      <change beforePath="$PROJECT_DIR$/src/lib/strapi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/strapi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/server-sitemap.xml.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/server-sitemap.xml.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,6 +128,7 @@
       <workItem from="1763550791911" duration="210000" />
       <workItem from="1763551548187" duration="84000" />
       <workItem from="1764144391523" duration="1363000" />
+      <workItem from="1765195865823" duration="806000" />
     </task>
     <task id="LOCAL-00001" summary="blog">
       <option name="closed" value="true" />
@@ -294,7 +298,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764145544886</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="update sitempa and robot.txt">
+      <option name="closed" value="true" />
+      <created>1765196140405</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1765196140405</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,7 +338,8 @@
     <MESSAGE value="update robtot.txt" />
     <MESSAGE value="add next-sitemap integration and update sitemap configuration" />
     <MESSAGE value="update seo tag  h1 h2" />
-    <option name="LAST_COMMIT_MESSAGE" value="update seo tag  h1 h2" />
+    <MESSAGE value="update sitempa and robot.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="update sitempa and robot.txt" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
 </project>

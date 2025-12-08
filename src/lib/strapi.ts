@@ -1,6 +1,6 @@
 import type { BlogPost, BlogResponse } from "@/types/blog";
 
-const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "https://api.wewantagent.com";
+const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || "https://api.wewantagent.com/";
 const STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN
 
 export async function sFetch<T>(endpoint: string, options?: RequestInit): Promise<T> {
@@ -33,7 +33,7 @@ export async function sFetch<T>(endpoint: string, options?: RequestInit): Promis
 
 export async function getBlogs(page = 1, pageSize = 10): Promise<BlogResponse> {
     return sFetch<BlogResponse>(
-        `/api/blogs?populate=feature_image&pagination[page]=${page}&pagination[pageSize]=${pageSize}&sort=publishedAt:desc`
+        `api/blogs?populate=feature_image&pagination[page]=${page}&pagination[pageSize]=${pageSize}&sort=publishedAt:desc`
     );
 }
 
@@ -47,7 +47,7 @@ export async function getBlogBySlug(slug: string): Promise<BlogPost | null> {
 }
 export async function getLatestSlugs(limit = 10): Promise<string[]> {
     const data = await sFetch<any>(
-        `/api/blogs?fields[0]=slug&pagination[page]=1&pagination[pageSize]=${limit}&sort=createdAt:desc`
+        `api/blogs?fields[0]=slug&pagination[page]=1&pagination[pageSize]=${limit}&sort=createdAt:desc`
     );
     return (data.data ?? [])
         .map((x: any) => x?.attributes?.slug ?? x?.slug)
