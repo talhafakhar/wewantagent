@@ -83,36 +83,24 @@ export default function Home({ initialBlogs, pagination }: Props) {
             <FAQPageJsonLd
                 mainEntity={[
                     {
-                        "@type": "Question",
-                        "name": "How to create an AI agent for my business?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "We start with a discovery call to understand your pain points. Then our automation expert maps out what tasks to automate, designs the AI agent architecture, develops it custom for your workflow, tests thoroughly, and deploys it into your systems."
-                        }
+                        questionName: "How to create an AI agent for my business?",
+                        acceptedAnswerText:
+                            "We start with a discovery call to understand your pain points. Then our automation expert maps out what tasks to automate, designs the AI agent architecture, develops it custom for your workflow, tests thoroughly, and deploys it into your systems."
                     },
                     {
-                        "@type": "Question",
-                        "name": "How much does AI cost for a small business?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "It depends on complexity, but most AI automation agency projects start between $5,000–$15,000. Monthly maintenance runs $500–$2,000."
-                        }
+                        questionName: "How much does AI cost for a small business?",
+                        acceptedAnswerText:
+                            "It depends on complexity, but most AI automation agency projects start between $5,000–$15,000. Monthly maintenance runs $500–$2,000."
                     },
                     {
-                        "@type": "Question",
-                        "name": "Will AI assistants work with my current software?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Yes. We build AI automation solutions that integrate with your existing CRM, scheduling tools, accounting software, and databases."
-                        }
+                        questionName: "Will AI assistants work with my current software?",
+                        acceptedAnswerText:
+                            "Yes. We build AI automation solutions that integrate with your existing CRM, scheduling tools, accounting software, and databases."
                     },
                     {
-                        "@type": "Question",
-                        "name": "How long does it take to build custom AI agents?",
-                        "acceptedAnswer": {
-                            "@type": "Answer",
-                            "text": "Simple automation takes 2–4 weeks. Complex multi-system integrations need 6–12 weeks. Most clients see their first automation running within 30 days."
-                        }
+                        questionName: "How long does it take to build custom AI agents?",
+                        acceptedAnswerText:
+                            "Simple automation takes 2–4 weeks. Complex multi-system integrations need 6–12 weeks. Most clients see their first automation running within 30 days."
                     }
                 ]}
             />
