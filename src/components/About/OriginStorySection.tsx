@@ -13,7 +13,7 @@ export default function OriginStory() {
                     className="space-y-6"
                 >
                     <p className="font-medium text-sm tracking-wide">
-                        01 — Our Mission
+                        01 - Our Mission
                     </p>
 
                     <h2 className="text-4xl sm:text-5xl font-bold leading-tight">

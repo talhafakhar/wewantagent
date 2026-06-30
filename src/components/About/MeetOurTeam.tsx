@@ -7,7 +7,7 @@ const industries = [
     {
         title: "Real Estate Focused",
         description:
-            "We understand MLS systems, CRM workflows, lead nurturing cycles, and transaction coordination chaos. Your AI agent speaks real estate — not generic business automation that misses industry-specific needs.",
+            "We understand MLS systems, CRM workflows, lead nurturing cycles, and transaction coordination chaos. Your AI agent speaks real estate - not generic business automation that misses industry-specific needs.",
         icon: Home,
     },
     {
@@ -44,7 +44,7 @@ export default function AutomationExperts() {
                     viewport={{ once: true }}
                     variants={fadeUp}
                 >
-                    <p className="font-medium tracking-wide mb-2">03 —Expertise In</p>
+                    <p className="font-medium tracking-wide mb-2">03 -Expertise In</p>
                     <h2 className="max-w-4xl mx-auto text-4xl md:text-5xl font-semibold leading-tight">
             <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
               Automation Experts

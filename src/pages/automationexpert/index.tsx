@@ -12,7 +12,7 @@ export default function AutomationExpert() {
     return (
         <>
             <NextSeo
-                title="Automation Expert Team — Custom AI Solutions | We Want Agent"
+                title="Automation Expert Team - Custom AI Solutions | We Want Agent"
                 description="Meet our automation expert team building custom AI solutions."
                 canonical="https://wewantagent.com/automationexpert"
                 additionalMetaTags={[

@@ -25,7 +25,7 @@ export default function SolutionsSection() {
                     className="mb-12"
                 >
                     <div className="flex items-center gap-3 mb-4">
-                        <span className="font-medium tracking-wide">02 —</span>
+                        <span className="font-medium tracking-wide">02 -</span>
                         <span className="font-medium">What Drives Us</span>
                     </div>
 

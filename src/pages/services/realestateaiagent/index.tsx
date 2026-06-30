@@ -71,7 +71,7 @@ export default function RealEstateAiAgent() {
         },
         {
             title: "Listing Management Agent",
-            desc: "Publish listings to MLS, Zillow, social media, and your site simultaneously. Updates, archives, and edits sync everywhere automatically—no manual effort needed.",
+            desc: "Publish listings to MLS, Zillow, social media, and your site simultaneously. Updates, archives, and edits sync everywhere automatically-no manual effort needed.",
             icon: Home,
         },
         {
