@@ -1,6 +1,13 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import {Variants, motion } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
+import {
+    Variants,
+    motion,
+    useScroll,
+    useSpring,
+    useTransform,
+    useMotionValue,
+} from "framer-motion";
 import Image from "next/image";
 import Navbar from "@/components/Header/Navbar";
 import { ArrowRight } from "lucide-react";
@@ -18,6 +25,45 @@ const HeroSection = () => {
         }, 2000);
         return () => clearInterval(interval);
     }, []);
+
+    // --- Scroll-driven depth (Apple/Linear style: slow, layered, spring-eased) ---
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start start", "end start"],
+    });
+
+    // Spring-smooth the raw scroll value so motion settles instead of tracking 1:1.
+    // Low stiffness + high damping = slow, heavy, "expensive" easing rather than a snap.
+    const smoothProgress = useSpring(scrollYProgress, {
+        stiffness: 60,
+        damping: 20,
+        mass: 0.6,
+    });
+
+    // Each layer moves a distinct amount — depth is felt through the
+    // difference between layers, scaled up for a more noticeable effect.
+    const videoY = useTransform(smoothProgress, [0, 1], ["0%", "30%"]);
+    const videoScale = useTransform(smoothProgress, [0, 1], [1, 1.18]);
+    const vignetteY = useTransform(smoothProgress, [0, 1], ["0%", "16%"]);
+    const contentY = useTransform(smoothProgress, [0, 1], ["0%", "-24%"]);
+
+    // --- Cursor-driven micro-parallax (the bit most visitors actually see) ---
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
+    const springMouseX = useSpring(mouseX, { stiffness: 40, damping: 15 });
+    const springMouseY = useSpring(mouseY, { stiffness: 40, damping: 15 });
+
+    const videoOffsetX = useTransform(springMouseX, [-1, 1], ["-2%", "2%"]);
+    const videoOffsetY = useTransform(springMouseY, [-1, 1], ["-2%", "2%"]);
+    const contentOffsetX = useTransform(springMouseX, [-1, 1], ["1.5%", "-1.5%"]);
+    const contentOffsetY = useTransform(springMouseY, [-1, 1], ["1.5%", "-1.5%"]);
+
+    const handlePointerMove = (e: React.PointerEvent<HTMLElement>) => {
+        const { innerWidth, innerHeight } = window;
+        mouseX.set((e.clientX / innerWidth) * 2 - 1);
+        mouseY.set((e.clientY / innerHeight) * 2 - 1);
+    };
 
     const container = {
         hidden: { opacity: 0 },
@@ -52,23 +98,45 @@ const HeroSection = () => {
 
     return (
         <motion.section
+            ref={sectionRef}
+            onPointerMove={handlePointerMove}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative min-h-screen bg-black w-full overflow-x-hidden"
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="relative min-h-screen bg-black w-full overflow-hidden"
         >
-            <video
-                className="absolute inset-0 w-full h-full object-cover"
-                src="/assets/home/hero-bg.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
-            />
-            <div className="absolute inset-0 bg-black/60" />
+            <motion.div
+                className="absolute -inset-x-[5%] -inset-y-[16%] will-change-transform"
+                style={{ y: videoY, x: videoOffsetX, scale: videoScale }}
+            >
+                <motion.video
+                    className="w-full h-full object-cover"
+                    style={{ y: videoOffsetY }}
+                    src="/assets/home/hero-bg.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                />
+            </motion.div>
 
-            <div className="relative z-10 flex flex-col min-h-screen w-full">
+            {/* Base tint */}
+            <div className="absolute inset-0 bg-black/55" />
+
+            {/* Vignette layer — moves a hair slower than the video for a faint sense of depth */}
+            <motion.div
+                style={{ y: vignetteY }}
+                className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_35%,_rgba(0,0,0,0.55)_100%)]"
+            />
+
+            <motion.div
+                style={{
+                    y: contentY,
+                    x: contentOffsetX,
+                }}
+                className="relative z-10 flex flex-col min-h-screen w-full"
+            >
                 <Navbar />
 
                 <motion.div
@@ -162,7 +230,7 @@ const HeroSection = () => {
                         </div>
                     </div>
                 </motion.div>
-            </div>
+            </motion.div>
         </motion.section>
     );
 };
