@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect } from "react";
-import Image from "next/image";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/effect-coverflow";
@@ -8,6 +7,7 @@ import "swiper/css/pagination";
 import {EffectCoverflow} from "swiper/modules";
 import { motion, useAnimation, easeOut } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import RobotSvg from "./RobotSvg";
 
 const services = [
     {
@@ -108,13 +108,7 @@ const BenefitSection = () => {
                                 animate={inView ? { opacity: 1, y: 0 } : {}}
                                 transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
                             >
-                                <Image
-                                    width={220}
-                                    height={220}
-                                    src="/assets/svg/home/robot.svg"
-                                    alt="Services Illustration"
-                                    className="mx-auto"
-                                />
+                                <RobotSvg />
                             </motion.div>
                         </motion.div>
                     </div>
