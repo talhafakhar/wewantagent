@@ -55,7 +55,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative min-h-screen bg-black w-full overflow-x-hidden overflow-y-auto"
+            className="relative min-h-screen bg-black w-full overflow-x-hidden"
         >
             <video
                 className="absolute inset-0 w-full h-full object-cover"
