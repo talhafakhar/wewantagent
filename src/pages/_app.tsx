@@ -27,9 +27,9 @@ export default function App({ Component, pageProps }: AppProps) {
     }, []);
     return (
         <>
+            <CustomCursor />
             <div id="smooth-wrapper">
                 <div id="smooth-content">
-                    <CustomCursor />
                     <Component {...pageProps} />
                 </div>
             </div>

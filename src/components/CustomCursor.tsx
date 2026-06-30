@@ -30,8 +30,12 @@ const CustomCursor = () => {
     return (
         <div
             className="cursor-example fixed top-0 left-0 w-4 h-4 rounded-full
-      bg-white pointer-events-none z-[9999] mix-blend-difference
+      pointer-events-none z-[9999]
       transition-transform duration-100 ease-out"
+            style={{
+                background:
+                    "radial-gradient(circle at 35% 30%, #ffffff 0%, #cfe8ff 30%, #5fa8ff 75%, #2f7fe0 100%)",
+            }}
         />
     );
 };
