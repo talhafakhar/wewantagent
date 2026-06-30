@@ -1,11 +1,11 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import {EffectCoverflow} from "swiper/modules";
-import { motion, useAnimation, easeOut } from "framer-motion";
+import { motion, useAnimation, easeOut, useScroll, useSpring, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import RobotSvg from "./RobotSvg";
 
@@ -59,11 +59,38 @@ const BenefitSection = () => {
         if (inView) controls.start("visible");
     }, [inView, controls]);
 
+    // Scroll-driven depth parallax: text and robot drift at different rates
+    // as the section moves through the viewport, spring-smoothed for a slow,
+    // weighty feel rather than a 1:1 scroll-linked snap.
+    const sectionRef = useRef<HTMLElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start end", "end start"],
+    });
+
+    const smoothProgress = useSpring(scrollYProgress, {
+        stiffness: 60,
+        damping: 20,
+        mass: 0.6,
+    });
+
+    const textY = useTransform(smoothProgress, [0, 1], ["30%", "-30%"]);
+    const robotY = useTransform(smoothProgress, [0, 1], ["55%", "-55%"]);
+    const robotRotate = useTransform(smoothProgress, [0, 1], [-8, 8]);
+    const robotScale = useTransform(smoothProgress, [0, 0.5, 1], [0.8, 1.05, 0.8]);
+    const cardsY = useTransform(smoothProgress, [0, 1], ["18%", "-18%"]);
+
     return (
-        <section ref={ref} className="min-h-screen">
+        <section
+            ref={(node) => {
+                ref(node);
+                sectionRef.current = node;
+            }}
+            className="min-h-screen"
+        >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  py-20">
                 <div className="flex justify-between items-center flex-col md:flex-row">
-                    <div className="w-full md:w-1/2 space-y-6">
+                    <motion.div className="w-full md:w-1/2 space-y-6" style={{ y: textY }}>
                         <motion.h2
                             className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight"
                             variants={{
@@ -97,8 +124,11 @@ const BenefitSection = () => {
                         >
                             Tired of repetitive tasks eating up your day? We&#39;re an AI automation agency building intelligent agents for your business. Share what&#39;s slowing you down in real estate, healthcare, or accounting. We&#39;ll map your automation roadmap, develop AI assistants that work, and hand you back your time so you can focus on growth.
                         </motion.p>
-                    </div>
-                    <div className="w-full md:w-1/2 mt-10 md:mt-0 flex md:justify-center">
+                    </motion.div>
+                    <motion.div
+                        className="w-full md:w-1/2 mt-10 md:mt-0 flex md:justify-center"
+                        style={{ y: robotY, scale: robotScale, rotate: robotRotate }}
+                    >
                         <motion.div
                             whileHover={{ scale: 1.05, rotate: [0, 1, -1, 0] }}
                             transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -111,10 +141,10 @@ const BenefitSection = () => {
                                 <RobotSvg />
                             </motion.div>
                         </motion.div>
-                    </div>
+                    </motion.div>
                 </div>
 
-                <div className="mt-20">
+                <motion.div className="mt-20" style={{ y: cardsY }}>
                     <Swiper
                         effect={"coverflow"}
                         grabCursor={true}
@@ -166,7 +196,7 @@ const BenefitSection = () => {
                             </SwiperSlide>
                         ))}
                     </Swiper>
-                </div>
+                </motion.div>
                 <div className="mt-10  flex justify-center ">
                     <motion.button
                         variants={{
