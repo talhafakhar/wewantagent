@@ -4,6 +4,22 @@ import { useState } from "react";
 import helpAnimation from "@/assets/lottie/contact.json";
 import Lottie from "lottie-react";
 import { easeOut, motion, AnimatePresence } from "framer-motion";
+import CustomSelect from "@/components/ui/CustomSelect";
+
+const INDUSTRY_OPTIONS = [
+    { value: "real-estate", label: "Real Estate" },
+    { value: "healthcare", label: "Healthcare" },
+    { value: "accounting", label: "Accounting & Bookkeeping" },
+    { value: "other", label: "Other" },
+];
+
+const COMPANY_SIZE_OPTIONS = [
+    { value: "solo", label: "Solo" },
+    { value: "2-10", label: "2–10" },
+    { value: "11-50", label: "11–50" },
+    { value: "51-200", label: "51–200" },
+    { value: "200+", label: "200+" },
+];
 
 export default function ContactSection() {
     const fadeUp = {
@@ -29,6 +45,13 @@ export default function ContactSection() {
             ...formData,
             [e.target.name]: e.target.value,
         });
+    };
+
+    const handleSelectChange = (name: string, value: string) => {
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
     };
 
     const handleSubmit = async (e: any) => {
@@ -189,39 +212,32 @@ export default function ContactSection() {
                                             <label className="block font-medium text-gray-700">
                                                 Industry <span className="text-red-500">*</span>
                                             </label>
-                                            <select
-                                                name="industry"
-                                                value={formData.industry}
-                                                onChange={handleChange}
-                                                className="w-full mt-1 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none bg-white"
-                                                required
-                                            >
-                                                <option value="">Select Industry</option>
-                                                <option value="real-estate">Real Estate</option>
-                                                <option value="healthcare">Healthcare</option>
-                                                <option value="accounting">Accounting & Bookkeeping</option>
-                                                <option value="other">Other</option>
-                                            </select>
+                                            <div className="mt-1">
+                                                <CustomSelect
+                                                    name="industry"
+                                                    value={formData.industry}
+                                                    onChange={handleSelectChange}
+                                                    options={INDUSTRY_OPTIONS}
+                                                    placeholder="Select Industry"
+                                                    required
+                                                />
+                                            </div>
                                         </div>
 
                                         <div>
                                             <label className="block font-medium text-gray-700">
                                                 Company Size <span className="text-red-500">*</span>
                                             </label>
-                                            <select
-                                                name="companySize"
-                                                value={formData.companySize}
-                                                onChange={handleChange}
-                                                className="w-full mt-1 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none bg-white"
-                                                required
-                                            >
-                                                <option value="">Select Size</option>
-                                                <option value="solo">Solo</option>
-                                                <option value="2-10">2–10</option>
-                                                <option value="11-50">11–50</option>
-                                                <option value="51-200">51–200</option>
-                                                <option value="200+">200+</option>
-                                            </select>
+                                            <div className="mt-1">
+                                                <CustomSelect
+                                                    name="companySize"
+                                                    value={formData.companySize}
+                                                    onChange={handleSelectChange}
+                                                    options={COMPANY_SIZE_OPTIONS}
+                                                    placeholder="Select Size"
+                                                    required
+                                                />
+                                            </div>
                                         </div>
                                     </div>
 
