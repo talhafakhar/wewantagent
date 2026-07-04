@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import GlowButton from "@/components/ui/GlowButton";
 
 const NAV_LINKS = [
     { label: "Real Estate", href: "/services/realestateaiagent" },
@@ -55,12 +56,9 @@ const Navbar = () => {
                         </Link>
                     ))}
                 </div>
-                <Link
-                    href="/contact"
-                    className="font-['Space_Grotesk'] rounded-full bg-[#5EA8FF] px-5 py-2.5 text-sm font-semibold text-[#07080c] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_26px_rgba(94,168,255,0.45)]"
-                >
+                <GlowButton href="/contact" size="sm">
                     Let&#39;s Collaborate
-                </Link>
+                </GlowButton>
             </div>
 
             <button
@@ -113,13 +111,13 @@ const Navbar = () => {
                                     {link.label}
                                 </Link>
                             ))}
-                            <Link
+                            <GlowButton
                                 href="/contact"
                                 onClick={() => setIsOpen(false)}
-                                className="font-['Space_Grotesk'] mt-2 rounded-full bg-[#5EA8FF] px-6 py-3 text-center font-semibold text-[#07080c] transition-all hover:brightness-95"
+                                className="mt-2 w-full justify-center"
                             >
                                 Let&#39;s Collaborate
-                            </Link>
+                            </GlowButton>
                         </div>
                     </motion.div>
                 )}
