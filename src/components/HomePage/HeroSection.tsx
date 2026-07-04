@@ -132,7 +132,7 @@ const HeroSection = () => {
 
                 <motion.h1
                     variants={item}
-                    className="mb-6 font-['Space_Grotesk'] text-[clamp(44px,8vw,92px)] font-semibold leading-[0.98] tracking-[-0.035em] text-white"
+                    className="mb-6 font-['Space_Grotesk'] text-[clamp(44px,8vw,92px)] font-semibold leading-[0.98] tracking-[-0.035em] text-white/80"
                 >
                     Build Custom AI Agents That{" "}
                     <span className="bg-gradient-to-r from-[#8FCBFF] via-[#5EA8FF] to-[#3E7BFF] bg-clip-text text-transparent">

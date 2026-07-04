@@ -195,7 +195,7 @@ const ContactForm = () => {
                     <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-20">
                         {/* left column: heading + contact info */}
                         <div className="flex flex-col justify-center">
-                            <h1 className="font-['Space_Grotesk'] text-6xl font-semibold leading-none tracking-[-0.03em] text-white sm:text-7xl">
+                            <h1 className="font-['Space_Grotesk'] text-6xl font-semibold leading-none tracking-[-0.03em] text-white/80 sm:text-7xl">
                                 Let&#39;s{" "}
                                 <span className="bg-gradient-to-r from-[#8FCBFF] via-[#5EA8FF] to-[#3E7BFF] bg-clip-text text-transparent">
                                     talk!
