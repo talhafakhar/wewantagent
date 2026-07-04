@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { easeOut, motion } from "framer-motion";
-import Navbar from "@/components/Header/Navbar";
 
 const HeroSection = () => {
     const container = {
@@ -32,7 +31,6 @@ const HeroSection = () => {
         >
             <div className="absolute inset-0 bg-black/30" />
             <div className="relative z-10 flex flex-col min-h-screen">
-                <Navbar />
                 <motion.div
                     variants={container}
                     initial="hidden"

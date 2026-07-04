@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import useGsapSmoothScroll from "@/hooks/useGsapSmoothScroll";
 import ConsentBanner from "@/components/Common/CookieConsent";
 import CustomCursor from "@/components/CustomCursor";
+import Navbar from "@/components/Header/Navbar";
 export default function App({ Component, pageProps }: AppProps) {
     useGsapSmoothScroll();
     useEffect(() => {
@@ -28,6 +29,7 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
         <>
             <CustomCursor />
+            <Navbar />
             <div id="smooth-wrapper">
                 <div id="smooth-content">
                     <Component {...pageProps} />
