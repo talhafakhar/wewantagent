@@ -10,6 +10,7 @@ type GlowButtonProps = {
     disabled?: boolean;
     className?: string;
     size?: "sm" | "md";
+    shape?: "pill" | "rect";
 };
 
 const GlowButton = ({
@@ -20,6 +21,7 @@ const GlowButton = ({
     disabled,
     className = "",
     size = "md",
+    shape = "pill",
 }: GlowButtonProps) => {
     const rootRef = useRef<HTMLElement | null>(null);
     const [box, setBox] = useState({ width: 0, height: 0 });
@@ -37,9 +39,11 @@ const GlowButton = ({
     }, []);
 
     const { width, height } = box;
-    const radius = height ? height / 2 : 0;
+    const radius = shape === "rect" ? 12 : height ? height / 2 : 0;
     const perimeter =
-        width && height ? 2 * (width - height) + Math.PI * height : 0;
+        width && height
+            ? 2 * (width - 2 * radius) + 2 * (height - 2 * radius) + 2 * Math.PI * radius
+            : 0;
     const sweepAnimation = `glowBtnSweep${uid}`;
 
     const content = (
@@ -74,7 +78,7 @@ const GlowButton = ({
                     />
                 </svg>
             )}
-            <span className={`glow-btn-inner glow-btn-inner--${size}`}>
+            <span className={`glow-btn-inner glow-btn-inner--${size} glow-btn-inner--${shape}`}>
                 <span className="glow-btn-text">{children}</span>
             </span>
             {perimeter > 0 && (
@@ -92,7 +96,7 @@ const GlowButton = ({
         </>
     );
 
-    const sharedClassName = `glow-btn ${className}`;
+    const sharedClassName = `glow-btn glow-btn--${shape} ${className}`;
 
     return (
         <>
@@ -122,8 +126,13 @@ const GlowButton = ({
                     position: relative;
                     display: inline-flex;
                     padding: 1.5px;
-                    border-radius: 9999px;
                     isolation: isolate;
+                }
+                .glow-btn--pill {
+                    border-radius: 9999px;
+                }
+                .glow-btn--rect {
+                    border-radius: 12px;
                 }
                 .glow-btn-border {
                     position: absolute;
@@ -152,11 +161,16 @@ const GlowButton = ({
                     justify-content: center;
                     gap: 10px;
                     width: 100%;
-                    border-radius: 9999px;
                     background: #07080c;
                     font-family: "Space Grotesk", sans-serif;
                     font-weight: 600;
                     transition: background-color 0.2s ease;
+                }
+                .glow-btn-inner--pill {
+                    border-radius: 9999px;
+                }
+                .glow-btn-inner--rect {
+                    border-radius: 10.5px;
                 }
                 .glow-btn-inner--md {
                     padding: 13px 28px;

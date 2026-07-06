@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import GlowButton from "@/components/ui/GlowButton";
 interface  BannerSectionProps {
     text?: string;
     subtext?: string;
@@ -43,18 +44,7 @@ export default function BannerSection({text, subtext, lastText}: BannerSectionPr
                         viewport={{ once: true }}
                         className="mt-8"
                     >
-                        <motion.button
-                            whileHover={{
-                                scale: 1.05,
-                                boxShadow: "0px 0px 20px rgba(255, 255, 255, 0.3)",
-                            }}
-                            whileTap={{ scale: 0.95 }}
-                            className="relative rounded bg-gradient-to-r from-primary via-accent to-secondary p-[2px] shadow-lg hover:shadow-2xl transition-all duration-300"
-                        >
-                            <span className="block rounded bg-black text-white  py-2 px-6  ">
-                                Book your call
-                            </span>
-                        </motion.button>
+                        <GlowButton shape="rect">Book your call</GlowButton>
                     </motion.div>
                 </motion.div>
             </div>

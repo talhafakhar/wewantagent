@@ -2,6 +2,7 @@
 import React from "react";
 import { motion, easeOut } from "framer-motion";
 import { LucideIcon } from "lucide-react";
+import GlowButton from "@/components/ui/GlowButton";
 interface StatItem {
     icon: LucideIcon;
     title: string;
@@ -61,27 +62,7 @@ const WhatWeDo: React.FC<StatsSectionProps> = ({
 
                 {buttonText && (
                     <div className="mt-10 flex justify-center">
-                        <motion.button
-                            variants={{
-                                hover: {
-                                    scale: 1.05,
-                                    rotate: [0, 1, -1, 0],
-                                    transition: { duration: 0.3 },
-                                },
-                                tap: { scale: 0.95 },
-                            }}
-                            whileHover="hover"
-                            whileTap="tap"
-                            className="relative h-12 w-44 overflow-hidden text-white shadow-2xl transition-all duration-200
-                before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto
-                before:h-0 before:w-0 before:rounded-sm before:bg-white before:duration-300
-                before:ease-out hover:before:h-40 hover:before:w-44
-                border-transparent bg-gradient-to-r from-primary via-accent to-secondary p-[2px]"
-                        >
-              <span className="relative z-10 flex h-full w-full items-center justify-center text-nowrap bg-black rounded-sm">
-                {buttonText}
-              </span>
-                        </motion.button>
+                        <GlowButton shape="rect">{buttonText}</GlowButton>
                     </div>
                 )}
             </div>

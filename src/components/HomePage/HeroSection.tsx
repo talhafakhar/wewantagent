@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion, Variants } from "framer-motion";
 import Link from "next/link";
+import GlowButton from "@/components/ui/GlowButton";
 
 const MARQUEE_ITEMS = [
     "Delivering results to clients of all sizes",
@@ -153,12 +154,9 @@ const HeroSection = () => {
                     variants={item}
                     className="flex flex-wrap items-center justify-center gap-[14px]"
                 >
-                    <Link
-                        href="/contact"
-                        className="font-['Space_Grotesk'] rounded-full bg-[#5EA8FF] px-[30px] py-[15px] text-[15px] font-semibold text-[#07080c] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_34px_rgba(94,168,255,0.5)]"
-                    >
+                    <GlowButton href="/contact">
                         Get Your AI Agent →
-                    </Link>
+                    </GlowButton>
                     <Link
                         href="/contact"
                         className="font-['Space_Grotesk'] rounded-full border border-white/[0.14] bg-white/[0.04] px-[30px] py-[15px] text-[15px] font-semibold text-[#eceef4] transition-all duration-200 hover:border-white/[0.28] hover:bg-white/[0.08]"
