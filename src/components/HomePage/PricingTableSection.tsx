@@ -1,7 +1,8 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import { CheckCircle, XCircle } from "lucide-react";
 import { motion } from "framer-motion";
+import ScrollGlow from "@/components/ui/ScrollGlow";
 
 const PricingSection = () => {
     const plans = [
@@ -73,8 +74,10 @@ const PricingSection = () => {
         },
     };
 
+    const sectionRef = useRef<HTMLElement>(null);
     return (
-        <section className="relative flex flex-col items-center justify-center text-white  py-20">
+        <section ref={sectionRef} className="relative flex flex-col items-center justify-center overflow-hidden text-white  py-20">
+            <ScrollGlow target={sectionRef} />
             <div className="relative max-w-7xl w-full px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}

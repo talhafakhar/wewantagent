@@ -1,7 +1,8 @@
 "use client";
 import React, {useRef} from "react";
-import {motion, useScroll, useTransform} from "framer-motion";
+import {motion} from "framer-motion";
 import Image from "next/image";
+import ScrollGlow from "@/components/ui/ScrollGlow";
 import {
     Building2,
     Stethoscope,
@@ -57,10 +58,6 @@ const services = [
 
 const OrbitAnimation: React.FC = () => {
     const sectionRef = useRef<HTMLDivElement | null>(null);
-    const {scrollYProgress} = useScroll({
-        target: sectionRef,
-        offset: ["start end", "end start"],
-    });
     const imageExt: Record<string, string> = {
         AssemblyAI: "svg",
         aws: "jpeg",
@@ -95,7 +92,6 @@ const OrbitAnimation: React.FC = () => {
         websocket: "svg",
     };
 
-    const yParallax = useTransform(scrollYProgress, [0, 1], ["-70%", "40%"]);
     const SmartImage = ({
                             name,
                             width,
@@ -124,12 +120,7 @@ const OrbitAnimation: React.FC = () => {
 
     return (
         <section ref={sectionRef} className="relative py-20  overflow-hidden">
-            <motion.div
-                style={{y: yParallax}}
-                className="absolute inset-0 flex justify-center items-center pointer-events-none"
-            >
-                <div className="w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-purple-600/20 to-blue-500/30 blur-3xl"/>
-            </motion.div>
+            <ScrollGlow target={sectionRef} />
             <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8  ">
                 <motion.div
                     initial={{opacity: 0, y: 50}}

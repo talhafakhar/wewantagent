@@ -1,15 +1,18 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import GlowButton from "@/components/ui/GlowButton";
+import ScrollGlow from "@/components/ui/ScrollGlow";
 interface  BannerSectionProps {
     text?: string;
     subtext?: string;
     lastText?: string;
 }
 export default function BannerSection({text, subtext, lastText}: BannerSectionProps) {
+    const sectionRef = useRef<HTMLElement>(null);
     return (
-        <section className="relative text-white  ">
+        <section ref={sectionRef} className="relative overflow-hidden text-white  ">
+            <ScrollGlow target={sectionRef} />
             <div className="relative py-6 md:py-14 rounded max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center  flex flex-col items-center justify-center"
                 style={{
                     backgroundImage: "url('/assets/home/banner-bg.webp')",

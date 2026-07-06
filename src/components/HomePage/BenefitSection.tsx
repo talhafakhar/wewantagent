@@ -9,6 +9,7 @@ import { motion, useAnimation, easeOut, useScroll, useSpring, useTransform } fro
 import { useInView } from "react-intersection-observer";
 import RobotSvg from "./RobotSvg";
 import GlowButton from "@/components/ui/GlowButton";
+import ScrollGlow from "@/components/ui/ScrollGlow";
 
 const services = [
     {
@@ -87,9 +88,10 @@ const BenefitSection = () => {
                 ref(node);
                 sectionRef.current = node;
             }}
-            className="min-h-screen"
+            className="relative min-h-screen overflow-hidden"
         >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  py-20">
+            <ScrollGlow target={sectionRef} />
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  py-20">
                 <div className="flex justify-between items-center flex-col md:flex-row">
                     <motion.div className="w-full md:w-1/2 space-y-6" style={{ y: textY }}>
                         <motion.h2

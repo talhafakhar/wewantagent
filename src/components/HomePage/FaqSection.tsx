@@ -1,7 +1,9 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Plus, X } from "lucide-react";
 import GlowButton from "@/components/ui/GlowButton";
+import ScrollGlow from "@/components/ui/ScrollGlow";
 const faqs = [
     {
         question: "How to create an AI agent for my business?",
@@ -25,61 +27,109 @@ const faqs = [
     },
 ];
 export default function FaqSection() {
+    const [openIndex, setOpenIndex] = useState<number | null>(0);
+    const half = Math.ceil(faqs.length / 2);
+    const columns = [faqs.slice(0, half), faqs.slice(half)];
+    const sectionRef = useRef<HTMLElement>(null);
     return (
-        <section className="py-24 text-white">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="lg:grid lg:grid-cols-12 lg:gap-8">
+        <section ref={sectionRef} className="relative overflow-hidden py-24 text-white">
+            <ScrollGlow target={sectionRef} />
+            <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    viewport={{ once: true }}
+                    className="mx-auto max-w-2xl text-center"
+                >
+                    <h2 className="text-3xl sm:text-6xl font-semibold tracking-tight bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                        Frequently asked questions
+                    </h2>
+                    <p className="mt-6 text-base leading-7 text-gray-300">
+                        Questions We Hear Every Day
+                    </p>
                     <motion.div
-                        initial={{ opacity: 0, x: -40 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.9, ease: "easeOut" }}
                         viewport={{ once: true }}
-                        className="lg:col-span-5"
+                        className="mt-10 flex justify-center"
                     >
-                        <h2 className="text-3xl sm:text-6xl font-semibold tracking-tight text-white">
-                            Frequently asked questions
-                        </h2>
-                        <p className="mt-6 text-base leading-7 text-gray-300">
-                            Questions We Hear Every Day
-                        </p>
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.9, ease: "easeOut" }}
-                            viewport={{ once: true }}
-                            className="mt-10 "
-                        >
-                            <GlowButton shape="rect">Book a free consultation</GlowButton>
-                        </motion.div>
+                        <GlowButton shape="rect">Book a free consultation</GlowButton>
                     </motion.div>
-                    <div className="mt-10 lg:col-span-7 lg:mt-0">
-                        <dl className="divide-y divide-white/10">
-                            {faqs.map((faq, index) => (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{
-                                        duration: 0.6,
-                                        delay: index * 0.2,
-                                        ease: "easeOut",
-                                    }}
-                                    viewport={{ once: true }}
-                                    className="py-6 first:pt-0 last:pb-0"
-                                >
-                                    <dt className="text-xl font-semibold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-                                        {faq.question}
-                                    </dt>
-                                    <dd className="mt-3 text-base leading-7 text-gray-400">
-                                        {faq.answer}
-                                    </dd>
-                                </motion.div>
-                            ))}
-                        </dl>
-                    </div>
+                </motion.div>
 
+                <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2">
+                    {columns.map((col, colIndex) => (
+                        <div key={colIndex} className="flex flex-col gap-6">
+                            {col.map((faq, i) => {
+                                const index = colIndex * half + i;
+                                const isOpen = openIndex === index;
+                                return (
+                                    <motion.div
+                                        key={index}
+                                        initial={{ opacity: 0, y: 30 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        transition={{
+                                            duration: 0.6,
+                                            delay: index * 0.1,
+                                            ease: "easeOut",
+                                        }}
+                                        viewport={{ once: true }}
+                                        className={`rounded-2xl border p-6 transition-colors duration-300 ${
+                                            isOpen
+                                                ? "border-primary/60 bg-white/5"
+                                                : "border-white/10 bg-white/[0.02]"
+                                        }`}
+                                    >
+                                        <button
+                                            type="button"
+                                            onClick={() =>
+                                                setOpenIndex(isOpen ? null : index)
+                                            }
+                                            className="flex w-full items-center justify-between gap-4 text-left"
+                                        >
+                                            <span className="text-base sm:text-lg font-medium text-white">
+                                                {faq.question}
+                                            </span>
+                                            <span
+                                                className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border transition-colors duration-300 ${
+                                                    isOpen
+                                                        ? "border-primary/60 text-primary"
+                                                        : "border-white/20 text-white"
+                                                }`}
+                                            >
+                                                {isOpen ? (
+                                                    <X size={16} />
+                                                ) : (
+                                                    <Plus size={16} />
+                                                )}
+                                            </span>
+                                        </button>
+                                        <AnimatePresence initial={false}>
+                                            {isOpen && (
+                                                <motion.div
+                                                    initial={{ height: 0, opacity: 0 }}
+                                                    animate={{ height: "auto", opacity: 1 }}
+                                                    exit={{ height: 0, opacity: 0 }}
+                                                    transition={{
+                                                        duration: 0.3,
+                                                        ease: "easeOut",
+                                                    }}
+                                                    className="overflow-hidden"
+                                                >
+                                                    <p className="mt-4 text-sm sm:text-base leading-7 text-gray-400">
+                                                        {faq.answer}
+                                                    </p>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </motion.div>
+                                );
+                            })}
+                        </div>
+                    ))}
                 </div>
-
             </div>
         </section>
     );

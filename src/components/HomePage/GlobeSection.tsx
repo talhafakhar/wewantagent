@@ -1,13 +1,16 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import GlowButton from "@/components/ui/GlowButton";
+import ScrollGlow from "@/components/ui/ScrollGlow";
 
 export default function GlobeSection() {
+    const sectionRef = useRef<HTMLElement>(null);
     return (
-        <section className="px-4 sm:px-6 lg:px-8  relative overflow-hidden pt-32">
+        <section ref={sectionRef} className="px-4 sm:px-6 lg:px-8  relative overflow-hidden pt-32 pb-24">
+            <ScrollGlow target={sectionRef} />
             <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}

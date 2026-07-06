@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import HeroSection from "@/components/HomePage/HeroSection";
 import BenefitSection from "@/components/HomePage/BenefitSection";
 import OrbitAnimation from "@/components/HomePage/FlowSection";
@@ -9,6 +9,7 @@ import TestimonialsSection from "@/components/HomePage/TestimonialSection";
 import FaqSection from "@/components/HomePage/FaqSection";
 import FooterSection from "@/components/Footer/footer";
 import BannerSection from "@/components/HomePage/BannerSection";
+import ScrollGlow from "@/components/ui/ScrollGlow";
 import { motion } from "framer-motion";
 import BlogCard from "@/components/Blog/BlogCard";
 import { BlogResponse } from "@/types/blog";
@@ -39,6 +40,7 @@ export default function Home({ initialBlogs, pagination }: Props) {
     const [page, setPage] = useState(1);
     const [pageCount, setPageCount] = useState(pagination?.pageCount || 1);
     const [loading, setLoading] = useState(false);
+    const insightsRef = useRef<HTMLElement>(null);
     const loadNext = async (nextPage: number) => {
         setLoading(true);
         const { data, pagination } = await fetchBlogs(nextPage, 3);
@@ -119,7 +121,13 @@ export default function Home({ initialBlogs, pagination }: Props) {
                 />
                 <FaqSection />
 
-                <div className="max-w-7xl mx-auto px-4 py-8 relative">
+                <section ref={insightsRef} className="relative overflow-hidden py-8">
+                    <ScrollGlow
+                        target={insightsRef}
+                        speed={0}
+                        positionClassName="left-1/2 top-0 h-[560px] w-[900px] -translate-x-1/2"
+                    />
+                    <div className="max-w-7xl mx-auto px-4 relative">
                     <motion.div
                         className="text-center mb-16"
                         initial={{ opacity: 0, y: 20 }}
@@ -176,7 +184,8 @@ export default function Home({ initialBlogs, pagination }: Props) {
                             </button>
                         </div>
                     )}
-                </div>
+                    </div>
+                </section>
 
                 <FooterSection />
             </div>
