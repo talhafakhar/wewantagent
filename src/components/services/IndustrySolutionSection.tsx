@@ -72,7 +72,7 @@ const IndustrySolutionsSection: React.FC<IndustrySolutionsSectionProps> = ({
                                         whileInView={{ opacity: 1, scale: 1 }}
                                         transition={{ type: "spring", stiffness: 130, damping: 18, delay: idx * 0.15 }}
                                         viewport={{ once: true }}
-                                        className="h-full min-h-[320px] flex flex-col justify-between bg-white/10 backdrop-blur-lg rounded-xl p-8 text-left shadow-md border border-[#262626] hover:shadow-xl hover:scale-[1.03] transition-all duration-300 hover:border-[#00D1B2]"
+                                        className="h-full min-h-[320px] flex flex-col justify-between bg-white/10 backdrop-blur-lg rounded-xl p-8 text-left shadow-md border border-[#262626] hover:shadow-xl hover:scale-[1.03] transition-all duration-300 hover:border-[#5EA8FF]"
                                     >
                                         <div className="mb-6">
                                             <div className="p-4 rounded-full bg-primary/10 w-fit shadow-md">

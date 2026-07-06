@@ -39,7 +39,7 @@ const ProcessTimeline: React.FC<ProcessTimelineProps> = ({ heading, steps }) => 
                                 </div>
                             </div>
 
-                            <div className="ml-8 bg-white/10 border border-white/20 rounded p-6 shadow-md hover:shadow-[#00D1B2]/20 transition">
+                            <div className="ml-8 bg-white/10 border border-white/20 rounded p-6 shadow-md hover:shadow-[#5EA8FF]/20 transition">
                                 <h3 className="text-xl font-bold text-white mb-2 uppercase tracking-wide">
                                     {step.title}
                                 </h3>

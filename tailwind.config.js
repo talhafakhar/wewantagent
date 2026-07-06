@@ -10,9 +10,9 @@ module.exports = {
         extend: {
             fontFamily: {},
             colors: {
-                primary:"#00D1B2",
-                secondary:"#FF416C",
-                accent:"#FFB347",
+                primary:"#5EA8FF",
+                secondary:"#3E7BFF",
+                accent:"#8FCBFF",
             },
             keyframes: {
                 spin: {

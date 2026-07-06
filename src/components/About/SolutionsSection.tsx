@@ -54,7 +54,7 @@ export default function SolutionsSection() {
                             We tell you exactly how long development takes and never overpromise speed. Rush jobs create buggy automation. We&#39;d rather deliver working solutions on realistic schedules than fast failures that waste your investment and break trust completely
                         </p>
 
-                        <div className="absolute inset-0 rounded-[2rem] opacity-0 group-hover:opacity-100 transition duration-700 bg-[#00D1B2]/10 blur-2xl" />
+                        <div className="absolute inset-0 rounded-[2rem] opacity-0 group-hover:opacity-100 transition duration-700 bg-[#5EA8FF]/10 blur-2xl" />
                     </motion.div>
 
                     <motion.div
@@ -69,7 +69,7 @@ export default function SolutionsSection() {
                             You know every cost before we start. No surprise fees, no scope creep charges, no hidden maintenance bills. Our automation expert team breaks down exactly what you&#39;re paying for and why. Budget clarity matters as much as technical clarity always
                         </p>
 
-                        <div className="absolute inset-0 rounded-[2rem] opacity-0 group-hover:opacity-100 transition duration-700 bg-[#00D1B2]/10 blur-2xl" />
+                        <div className="absolute inset-0 rounded-[2rem] opacity-0 group-hover:opacity-100 transition duration-700 bg-[#5EA8FF]/10 blur-2xl" />
                     </motion.div>
                 </div>
             </div>
