@@ -27,7 +27,7 @@ export default function TestimonialsSection() {
     ];
 
     return (
-        <section ref={sectionRef} className="relative overflow-hidden py-16">
+        <section ref={sectionRef} className="relative overflow-x-hidden py-16">
             <ScrollGlow target={sectionRef} />
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div

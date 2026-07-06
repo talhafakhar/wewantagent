@@ -76,8 +76,11 @@ const PricingSection = () => {
 
     const sectionRef = useRef<HTMLElement>(null);
     return (
-        <section ref={sectionRef} className="relative flex flex-col items-center justify-center overflow-hidden text-white  py-20">
-            <ScrollGlow target={sectionRef} />
+        <section ref={sectionRef} className="relative flex flex-col items-center justify-center overflow-x-hidden text-white  py-20">
+            <ScrollGlow
+                target={sectionRef}
+                positionClassName="left-1/2 top-0 h-[560px] w-[900px] -translate-x-1/2"
+            />
             <div className="relative max-w-7xl w-full px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
