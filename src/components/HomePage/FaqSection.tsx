@@ -27,7 +27,7 @@ const faqs = [
     },
 ];
 export default function FaqSection() {
-    const [openIndex, setOpenIndex] = useState<number | null>(0);
+    const [openIndex, setOpenIndex] = useState<number | null>(null);
     const half = Math.ceil(faqs.length / 2);
     const columns = [faqs.slice(0, half), faqs.slice(half)];
     const sectionRef = useRef<HTMLElement>(null);
