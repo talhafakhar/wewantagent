@@ -128,7 +128,7 @@ const OrbitAnimation: React.FC = () => {
                     transition={{duration: 1, ease: "easeOut"}}
                     viewport={{once: true}}
                 >
-                    <h2 className="text-4xl md:text-5xl font-semibold text-center pb-2 text-white mb-4  tracking-tight">
+                    <h2 className="text-4xl md:text-5xl font-semibold text-center pb-2 mb-4 tracking-tight bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
                         Empower Your Workflow with AI
                     </h2>
                     <p className="text-center text-gray-400 max-w-3xl mx-auto mb-20">
@@ -291,7 +291,7 @@ const OrbitAnimation: React.FC = () => {
                     viewport={{once: true}}
                     className="text-center relative mt-32 z-10 text-white"
                 >
-                    <h2 className="text-4xl md:text-5xl font-semibold mb-4">
+                    <h2 className="text-4xl md:text-5xl font-semibold mb-4 bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
                         Custom AI Agents Built For Your Reality
                     </h2>
                     <p className="text-gray-400">

@@ -134,7 +134,7 @@ export default function Home({ initialBlogs, pagination }: Props) {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h2 className="text-3xl sm:text-5xl font-semibold mb-4 text-white leading-tight">
+                        <h2 className="text-3xl sm:text-5xl font-semibold mb-4 leading-tight bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
                             Our Latest Insights
                         </h2>
                         <p className="text-gray-300 leading-relaxed">

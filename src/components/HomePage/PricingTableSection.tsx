@@ -89,7 +89,7 @@ const PricingSection = () => {
                     viewport={{ once: true }}
                     className="text-center mb-12"
                 >
-                    <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4">
+                    <h2 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4 bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
                         Simple Pricing, Powerful Results
                     </h2>
                     <p className="text-gray-400 max-w-3xl mx-auto text-base leading-relaxed">

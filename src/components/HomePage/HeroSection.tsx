@@ -126,7 +126,7 @@ const HeroSection = () => {
                             animation: "heroPulseGlow 2s ease-in-out infinite",
                         }}
                     />
-                    <span className="font-['Space_Mono'] text-xs uppercase tracking-[2px] text-[#c2c5d2]">
+                    <span className="font-['Space_Mono'] text-xs uppercase tracking-[2px] bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
                         AI Automation Agency
                     </span>
                 </motion.div>

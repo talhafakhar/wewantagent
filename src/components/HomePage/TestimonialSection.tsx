@@ -34,7 +34,7 @@ export default function TestimonialsSection() {
                     className="flex justify-center items-center gap-y-8 lg:gap-y-0 flex-wrap md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between lg:gap-x-8 max-w-sm sm:max-w-2xl lg:max-w-full mx-auto">
                     <div className="w-full lg:w-2/5">
                         <span className=" text-gray-300 font-medium mb-8 block">What Clients Say</span>
-                        <h2 className="text-4xl  text-white leading-[3rem] font-semibold ">
+                        <h2 className="text-4xl leading-[3rem] font-semibold bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
                             Real Results From Beta Partners
                         </h2>
 

@@ -95,7 +95,7 @@ const BenefitSection = () => {
                 <div className="flex justify-between items-center flex-col md:flex-row">
                     <motion.div className="w-full md:w-1/2 space-y-6" style={{ y: textY }}>
                         <motion.h2
-                            className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight"
+                            className="text-4xl md:text-5xl font-bold mb-6 tracking-tight bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent"
                             variants={{
                                 hidden: { opacity: 0, y: 80, skewY: 5 },
                                 visible: {
