@@ -41,9 +41,14 @@ const HeroSection = () => {
                     <div className="max-w-4xl">
                         <motion.h1
                             variants={item}
-                            className="text-5xl md:text-7xl font-semibold leading-tight bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent"
+                            className="text-5xl md:text-7xl font-semibold leading-tight"
                         >
-                            Meet Your Automation Expert Team
+                            <span className="bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                                Meet Your Automation
+                            </span>{" "}
+                            <span className="bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                                Expert Team
+                            </span>
                         </motion.h1>
 
                         <motion.p
