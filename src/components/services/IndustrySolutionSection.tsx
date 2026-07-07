@@ -1,11 +1,12 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import {ArrowLeft,ArrowRight, LucideIcon} from "lucide-react";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Navigation} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import ScrollGlow from "@/components/ui/ScrollGlow";
 interface Industry {
     icon: LucideIcon;
     title: string;
@@ -25,9 +26,10 @@ const IndustrySolutionsSection: React.FC<IndustrySolutionsSectionProps> = ({
                                                                                description,
                                                                                industries,
                                                                            }) => {
+    const sectionRef = useRef<HTMLElement>(null);
     return (
-        <section className="relative text-white pb-24 pt-16  overflow-hidden">
-            <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-3xl z-0" />
+        <section ref={sectionRef} className="relative text-white pb-24 pt-16  overflow-hidden">
+            <ScrollGlow target={sectionRef} speed={0} />
 
             <div className="max-w-7xl mx-auto text-center relative z-10 px-4 sm:px-6 lg:px-8">
                 <motion.h2
@@ -90,7 +92,7 @@ const IndustrySolutionsSection: React.FC<IndustrySolutionsSectionProps> = ({
                                         </div>
 
                                         <div className="flex-1">
-                                            <h3 className="text-xl font-semibold text-white mb-4">
+                                            <h3 className="text-xl font-semibold mb-4 bg-gradient-to-r from-[white] from-0% via-[#f2c14e] via-20% to-[#f2c14e] bg-clip-text text-transparent">
                                                 {industry.title}
                                             </h3>
                                             <p className="text-gray-300 text-sm md:text-base">

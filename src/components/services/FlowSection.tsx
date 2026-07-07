@@ -1,6 +1,7 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
+import ScrollGlow from "@/components/ui/ScrollGlow";
 
 interface Step {
     number: number;
@@ -14,9 +15,11 @@ interface ProcessTimelineProps {
 }
 
 const ProcessTimeline: React.FC<ProcessTimelineProps> = ({ heading, steps }) => {
+    const sectionRef = useRef<HTMLElement>(null);
     return (
-        <section className="bg-black text-white py-20">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section ref={sectionRef} className="relative bg-black text-white py-20 overflow-hidden">
+            <ScrollGlow target={sectionRef} speed={0} />
+            <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 className="text-4xl md:text-5xl font-semibold text-center mb-16">
                     <span className="bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
                         {heading}
@@ -42,7 +45,7 @@ const ProcessTimeline: React.FC<ProcessTimelineProps> = ({ heading, steps }) => 
                             </div>
 
                             <div className="ml-8 bg-white/10 border border-white/20 rounded p-6 shadow-md hover:shadow-[#5EA8FF]/20 transition">
-                                <h3 className="text-xl font-bold text-white mb-2 uppercase tracking-wide">
+                                <h3 className="text-xl font-bold mb-2 uppercase tracking-wide bg-gradient-to-r from-[white] from-0% via-[#f2c14e] via-20% to-[#f2c14e] bg-clip-text text-transparent">
                                     {step.title}
                                 </h3>
                                 <p className="text-gray-400 text-sm md:text-base leading-relaxed">

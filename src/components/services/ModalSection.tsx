@@ -1,7 +1,8 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import ScrollGlow from "@/components/ui/ScrollGlow";
 
 const aiModels = [
     { name: "ChatGPT 4.0", img: "/assets/services/openAI.webp" },
@@ -16,9 +17,11 @@ const aiModels = [
 const duplicatedModels = [...aiModels, ...aiModels, ...aiModels,...aiModels];
 
 const AIModulesSection = () => {
+    const sectionRef = useRef<HTMLElement>(null);
     return (
-        <section className=" text-white pt-20 pb-10">
-            <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+        <section ref={sectionRef} className="relative text-white pt-20 pb-10 overflow-hidden">
+            <ScrollGlow target={sectionRef} speed={0} />
+            <div className="relative z-10 max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
                 <motion.h2
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -34,7 +37,7 @@ const AIModulesSection = () => {
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.8 }}
-                    className="text-gray-300 text-lg mb-14"
+                    className="text-gray-300 text-lg"
                 >
                     We build using advanced language models and n8n automation workflows
                 </motion.p>

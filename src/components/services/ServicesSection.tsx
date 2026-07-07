@@ -1,7 +1,8 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import { motion, easeOut } from "framer-motion";
 import { LucideIcon } from "lucide-react";
+import ScrollGlow from "@/components/ui/ScrollGlow";
 
 interface ServiceItem {
     icon: LucideIcon;
@@ -37,9 +38,15 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({
         },
     };
 
+    const sectionRef = useRef<HTMLElement>(null);
     return (
-        <section className="py-16">
-            <div className="max-w-7xl mx-auto text-white px-4 sm:px-6 lg:px-8">
+        <section ref={sectionRef} className="relative py-16 overflow-hidden">
+            <ScrollGlow
+                target={sectionRef}
+                speed={0}
+                positionClassName="left-1/2 top-0 h-[560px] w-[900px] -translate-x-1/2"
+            />
+            <div className="relative z-10 max-w-7xl mx-auto text-white px-4 sm:px-6 lg:px-8">
                 <motion.div variants={container} initial="hidden" animate="show">
                     <motion.div
                         variants={fadeUp}
@@ -71,16 +78,15 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({
                                             whileInView={{ opacity: 1, y: 0 }}
                                             transition={{ duration: 0.6, delay: i * 0.1 }}
                                             viewport={{ once: true }}
-                                            className={`relative overflow-hidden border border-white/10 
-                        bg-gradient-to-br from-white/10 via-white/5 to-transparent 
-                        backdrop-blur-xl p-6 shadow-lg hover:shadow-2xl 
-                        hover:scale-[1.03] transition-all duration-300 group
+                                            className={`relative rounded-2xl border border-white/10
+                        bg-white/5 backdrop-blur-sm p-6
+                        transition-all duration-300 group
+                        hover:border-primary hover:-translate-y-1
                         ${i === 1 ? "col-span-1 sm:col-span-2" : ""}`}
                                         >
-                                            <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/10 to-white/20 opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
                                             <div className="relative z-10">
                                                 <Icon className="w-10 h-10 mb-4 text-cyan-400 group-hover:text-cyan-300 transition-colors duration-300" />
-                                                <h3 className="text-xl font-semibold text-white mb-2">
+                                                <h3 className="text-xl font-semibold mb-2 bg-gradient-to-r from-[white] from-0% via-[#f2c14e] via-20% to-[#f2c14e] bg-clip-text text-transparent">
                                                     {service.title}
                                                 </h3>
                                                 <p className="text-gray-300 leading-relaxed">
