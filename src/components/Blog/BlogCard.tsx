@@ -25,7 +25,7 @@ const BlogCard: React.FC<BlogCardProps> = ({blog, id}) => {
 
     return (
         <div
-            className="group relative bg-white/[0.04] backdrop-blur-2xl rounded-2xl overflow-hidden border border-white/10 transform-gpu transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(242,193,78,0.35),0_0_55px_rgba(242,193,78,0.18)]"
+            className="group relative bg-white/[0.04] backdrop-blur-2xl rounded-2xl overflow-hidden border border-white/10 transform-gpu transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(242,193,78,0.6),0_0_55px_rgba(242,193,78,0.35)]"
             style={{animation: `fadeInUp 0.6s ease-out ${id * 0.1}s both`}}>
             {imageUrl && (
                 <div className="relative overflow-hidden h-56 rounded-t-2xl isolate transform-gpu">

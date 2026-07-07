@@ -15,8 +15,6 @@ import BlogCard from "@/components/Blog/BlogCard";
 import { BlogResponse } from "@/types/blog";
 import { GetStaticProps } from "next";
 import { fetchBlogs } from "@/lib/strapi";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
     FAQPageJsonLd,
@@ -145,22 +143,11 @@ export default function Home({ initialBlogs, pagination }: Props) {
                     {loading ? (
                         <div className="text-center text-gray-400">Loading...</div>
                     ) : blogs && blogs.length > 0 ? (
-                        <Swiper
-                            spaceBetween={40}
-                            slidesPerView={1}
-                            breakpoints={{
-                                640: { slidesPerView: 1 },
-                                768: { slidesPerView: 2 },
-                                1024: { slidesPerView: 3 },
-                            }}
-                            className="!py-3 !px-1"
-                        >
+                        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 py-3 px-1">
                             {blogs.map((blog, index) => (
-                                <SwiperSlide key={blog.id}>
-                                    <BlogCard blog={blog} id={index} />
-                                </SwiperSlide>
+                                <BlogCard key={blog.id} blog={blog} id={index} />
                             ))}
-                        </Swiper>
+                        </div>
                     ) : (
                         <div className="text-center text-gray-500">
                             No blogs available at the moment.
