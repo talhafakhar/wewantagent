@@ -1,9 +1,13 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useRef } from "react";
+import ScrollGlow from "@/components/ui/ScrollGlow";
 export default function OriginStory() {
+    const sectionRef = useRef<HTMLElement>(null);
     return (
-        <section className="relative   text-white py-16">
+        <section ref={sectionRef} className="relative text-white py-16 overflow-hidden">
+            <ScrollGlow target={sectionRef} speed={0} />
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center px-4 sm:px-6 lg:px-8 ">
                 <motion.div
                     initial={{ opacity: 0, x: -100 }}
@@ -12,15 +16,12 @@ export default function OriginStory() {
                     viewport={{ once: true }}
                     className="space-y-6"
                 >
-                    <p className="font-medium text-sm tracking-wide">
+                    <p className="font-medium text-sm tracking-wide bg-gradient-to-r from-[#fff4d6] via-[#f7d488] to-[#f2c14e] bg-clip-text text-transparent drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]">
                         01 - Our Mission
                     </p>
 
-                    <h2 className="text-4xl sm:text-5xl font-bold leading-tight">
-                        Building AI {" "}
-                        <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-                            That Actually Works
-                        </span>
+                    <h2 className="text-4xl sm:text-5xl font-bold leading-tight bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                        Building AI That Actually Works
                     </h2>
 
                     <p className="text-gray-300 leading-relaxed">
