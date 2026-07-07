@@ -57,7 +57,7 @@ const Navbar = () => {
                             </span>
                             <span
                                 aria-hidden
-                                className="absolute inset-0 bg-gradient-to-r from-[#4fd1a5] via-[#f2c14e] to-[#f2665b] bg-clip-text text-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+                                className="absolute inset-0 bg-gradient-to-r from-white to-[#f2c14e] bg-clip-text text-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100"
                             >
                                 {link.label}
                             </span>
