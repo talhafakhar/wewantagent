@@ -27,9 +27,9 @@ export default function SolutionsSection() {
                     viewport={{ once: true }}
                     className="mb-12"
                 >
-                    <div className="flex items-center gap-3 mb-4">
-                        <span className="font-medium tracking-wide bg-gradient-to-r from-[#fff4d6] via-[#f7d488] to-[#f2c14e] bg-clip-text text-transparent drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]">02 -</span>
-                        <span className="font-medium bg-gradient-to-r from-[#fff4d6] via-[#f7d488] to-[#f2c14e] bg-clip-text text-transparent drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]">What Drives Us</span>
+                    <div className="flex items-center gap-3 -mb-3 ml-1">
+                        <span className="text-lg font-semibold tracking-wide bg-gradient-to-r from-[#fff4d6] via-[#f7d488] to-[#f2c14e] bg-clip-text text-transparent drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]">02 -</span>
+                        <span className="text-lg font-semibold bg-gradient-to-r from-[#fff4d6] via-[#f7d488] to-[#f2c14e] bg-clip-text text-transparent drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]">What Drives Us</span>
                     </div>
 
                   <div className="flex items-center gap-4 mb-4">

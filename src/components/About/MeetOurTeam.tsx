@@ -48,7 +48,7 @@ export default function AutomationExperts() {
                     viewport={{ once: true }}
                     variants={fadeUp}
                 >
-                    <p className="font-medium tracking-wide mb-2 bg-gradient-to-r from-[#fff4d6] via-[#f7d488] to-[#f2c14e] bg-clip-text text-transparent drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]">03 -Expertise In</p>
+                    <p className="text-lg font-semibold tracking-wide mb-4 bg-gradient-to-r from-[#fff4d6] via-[#f7d488] to-[#f2c14e] bg-clip-text text-transparent drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]">03 - Expertise In</p>
                     <h2 className="max-w-4xl mx-auto text-4xl md:text-5xl font-semibold leading-tight bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
                         Automation Experts
                         <br />
