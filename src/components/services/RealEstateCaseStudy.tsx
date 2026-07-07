@@ -82,7 +82,7 @@ const RealEstateCaseStudy: React.FC<RealEstateCaseStudyProps> = ({
                             variants={cardVariants}
                         >
                             <div className="mb-4">
-                                <h3 className="text-2xl font-semibold bg-gradient-to-r from-[white] from-0% via-[#f2c14e] via-20% to-[#f2c14e] bg-clip-text text-transparent">{heading}</h3>
+                                <h3 className="text-2xl font-semibold bg-gradient-to-r from-[white] via-[#f2c14e] to-[#f2c14e] bg-clip-text text-transparent">{heading}</h3>
                             </div>
                             <ul className="space-y-3 text-gray-300 text-base leading-relaxed list-none">
                                 {points.map((point, idx) => (

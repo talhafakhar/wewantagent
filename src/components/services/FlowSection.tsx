@@ -45,7 +45,7 @@ const ProcessTimeline: React.FC<ProcessTimelineProps> = ({ heading, steps }) => 
                             </div>
 
                             <div className="ml-8 bg-white/10 border border-white/20 rounded p-6 shadow-md hover:shadow-[#5EA8FF]/20 transition">
-                                <h3 className="text-xl font-bold mb-2 uppercase tracking-wide bg-gradient-to-r from-[white] from-0% via-[#f2c14e] via-20% to-[#f2c14e] bg-clip-text text-transparent">
+                                <h3 className="text-xl font-bold mb-2 uppercase tracking-wide bg-gradient-to-r from-[white] via-[#f2c14e] to-[#f2c14e] bg-clip-text text-transparent">
                                     {step.title}
                                 </h3>
                                 <p className="text-gray-400 text-sm md:text-base leading-relaxed">

@@ -56,7 +56,7 @@ const WhatWeDo: React.FC<StatsSectionProps> = ({
                                 className="p-6 border border-white/10 rounded-xl bg-black/20 backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
                             >
                                 <Icon className="text-white w-16 h-16 mb-4" />
-                                <h4 className="text-2xl font-bold mb-2 bg-gradient-to-r from-[white] from-0% via-[#f2c14e] via-20% to-[#f2c14e] bg-clip-text text-transparent">
+                                <h4 className="text-2xl font-bold mb-2 bg-gradient-to-r from-[white] via-[#f2c14e] to-[#f2c14e] bg-clip-text text-transparent">
                                     {stat.title}
                                 </h4>
                                 <p className="text-sm text-gray-400">{stat.description}</p>

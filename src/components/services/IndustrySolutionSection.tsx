@@ -92,7 +92,7 @@ const IndustrySolutionsSection: React.FC<IndustrySolutionsSectionProps> = ({
                                         </div>
 
                                         <div className="flex-1">
-                                            <h3 className="text-xl font-semibold mb-4 bg-gradient-to-r from-[white] from-0% via-[#f2c14e] via-20% to-[#f2c14e] bg-clip-text text-transparent">
+                                            <h3 className="text-xl font-semibold mb-4 bg-gradient-to-r from-[white] via-[#f2c14e] to-[#f2c14e] bg-clip-text text-transparent">
                                                 {industry.title}
                                             </h3>
                                             <p className="text-gray-300 text-sm md:text-base">

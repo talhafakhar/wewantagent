@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import helpAnimation from "@/assets/lottie/contact.json";
 import Lottie from "lottie-react";
 import { easeOut, motion, AnimatePresence } from "framer-motion";
 import CustomSelect from "@/components/ui/CustomSelect";
+import ScrollGlow from "@/components/ui/ScrollGlow";
 
 const INDUSTRY_OPTIONS = [
     { value: "real-estate", label: "Real Estate" },
@@ -95,8 +96,15 @@ export default function ContactSection() {
         });
     };
 
+    const sectionRef = useRef<HTMLElement>(null);
+
     return (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section ref={sectionRef} className="relative overflow-hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <ScrollGlow
+                target={sectionRef}
+                speed={0}
+                positionClassName="left-1/3 top-1/3 h-[560px] w-[900px] -translate-x-1/3 -translate-y-1/2"
+            />
             <motion.div
                 initial="hidden"
                 whileInView="show"

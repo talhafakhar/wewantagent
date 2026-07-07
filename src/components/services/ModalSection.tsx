@@ -19,7 +19,7 @@ const duplicatedModels = [...aiModels, ...aiModels, ...aiModels,...aiModels];
 const AIModulesSection = () => {
     const sectionRef = useRef<HTMLElement>(null);
     return (
-        <section ref={sectionRef} className="relative text-white pt-20 pb-10 overflow-hidden">
+        <section ref={sectionRef} className="relative text-white pt-32 pb-24 overflow-hidden">
             <ScrollGlow target={sectionRef} speed={0} />
             <div className="relative z-10 max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
                 <motion.h2
