@@ -32,16 +32,21 @@ export default function TestimonialsSection() {
     ];
 
     return (
-        <section ref={sectionRef} className="relative overflow-x-hidden py-16">
-            <ScrollGlow target={sectionRef} />
+        <section ref={sectionRef} className="relative overflow-x-hidden py-40">
+            <div className="pointer-events-none absolute inset-0 overflow-hidden">
+                <ScrollGlow target={sectionRef} />
+            </div>
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div
                     className="flex justify-center items-center gap-y-8 lg:gap-y-0 flex-wrap md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between lg:gap-x-8 max-w-sm sm:max-w-2xl lg:max-w-full mx-auto">
                     <div className="w-full lg:w-2/5">
-                        <span className=" text-gray-300 font-medium mb-8 block">What Clients Say</span>
+                        <span className="font-medium mb-8 block bg-gradient-to-r from-white to-[#f2c14e] bg-clip-text text-transparent">What Clients Say</span>
                         <h2 className="text-4xl leading-[3rem] font-semibold bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
                             Real Results From Beta Partners
                         </h2>
+                        <p className="mt-4 text-gray-400">
+                            From massive time savings to direct revenue growth. Actual results from the innovative teams driving efficiency with our custom solutions.
+                        </p>
 
                     </div>
 
@@ -64,7 +69,7 @@ export default function TestimonialsSection() {
                                 <SwiperSlide key={i} className="h-auto">
                                     <div className="group h-full min-h-[200px] border border-gray-600 rounded max-sm:max-w-sm max-sm:mx-auto p-6 transition-all duration-500 hover:bg-white/10">
                                         <div>
-                                            <h3 className="text-lg font-semibold text-white mb-2">
+                                            <h3 className="text-lg font-semibold mb-2 bg-gradient-to-r from-white to-[#f2c14e] bg-clip-text text-transparent">
                                                 {t.title}
                                             </h3>
                                             <p className="text-xs uppercase tracking-wide text-gray-400 mb-4">

@@ -11,8 +11,8 @@ const CustomCursor = () => {
             posX += (mouseX - posX) / 8;
             posY += (mouseY - posY) / 8;
             g.to(".cursor-example", {
-                x: posX - 12,
-                y: posY - 12,
+                x: posX - 11,
+                y: posY - 0,
                 duration: 0,
             });
         };

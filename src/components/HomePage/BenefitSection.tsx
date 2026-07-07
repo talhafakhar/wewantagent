@@ -45,7 +45,7 @@ const services = [
         number: "5",
     },
     {
-        title: "Industry Specific Expertise Matters",
+        title: "Industry Expertise Matters",
         description:
             "Our ai automation agency specializes in real estate, healthcare, and accounting. We speak your industry language, understand your challenges, build solutions that fit your workflow. Generic automation fails, custom agents succeed every time.",
         number: "6",
@@ -202,14 +202,14 @@ const BenefitSection = () => {
                                     </div>
                                     <div className="relative z-10 mb-6">
       <span
-          className="text-8xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent transition-colors duration-500"
+          className="text-7xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent transition-colors duration-500"
           style={{ fontFamily: "Arial Black, sans-serif" }}
       >
         {service.number}
       </span>
                                     </div>
                                     <div className="relative z-10 flex-1">
-                                        <h4 className="text-2xl sm:text-3xl font-bold mb-3 uppercase sm:mb-4 px-2 tracking-wide group-hover:tracking-wider transition-all duration-300 bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                                        <h4 className="text-xl sm:text-2xl font-bold mb-3 uppercase sm:mb-4 px-2 tracking-wide group-hover:tracking-wider transition-all duration-300 bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
                                             {service.title}
                                         </h4>
                                         <p className="text-sm sm:text-base text-gray-400 leading-relaxed px-2 group-hover:text-gray-300 transition-colors duration-300">
@@ -221,7 +221,7 @@ const BenefitSection = () => {
                         ))}
                     </Swiper>
 
-                    <div className="flex items-center justify-center gap-6">
+                    <div className="-mt-0 flex items-center justify-center gap-6">
                         <button
                             type="button"
                             aria-label="Previous card"
@@ -278,14 +278,14 @@ const BenefitSection = () => {
                                     </div>
                                     <div className="relative z-10 mb-6">
       <span
-          className="text-8xl font-bold leading-none bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent transition-colors duration-500"
+          className="text-7xl font-bold leading-none bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent transition-colors duration-500"
           style={{ fontFamily: "Arial Black, sans-serif" }}
       >
         {service.number}
       </span>
                                     </div>
                                     <div className="relative z-10">
-                                        <h4 className="text-2xl sm:text-3xl font-bold mb-3 uppercase sm:mb-4 px-2 tracking-wide group-hover:tracking-wider transition-all duration-300 bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                                        <h4 className="text-xl sm:text-2xl font-bold mb-3 uppercase sm:mb-4 px-2 tracking-wide group-hover:tracking-wider transition-all duration-300 bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
                                             {service.title}
                                         </h4>
                                         <p className="text-sm sm:text-base text-gray-400 leading-relaxed px-2 group-hover:text-gray-300 transition-colors duration-300">
@@ -297,7 +297,7 @@ const BenefitSection = () => {
                         ))}
                     </Swiper>
 
-                    <div className="mt-8 flex items-center justify-center gap-6">
+                    <div className="mt-6 flex items-center justify-center gap-6">
                         <button
                             type="button"
                             aria-label="Previous card"

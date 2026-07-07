@@ -83,10 +83,10 @@ const BlogCard: React.FC<BlogCardProps> = ({blog, id}) => {
                     className="group/btn flex items-center gap-2 text-sm font-semibold text-white"
                 >
                     <div
-                        className="w-8 h-8 bg-white/5 border border-white/10 rounded-full flex items-center justify-center transition-all duration-300 group-hover/btn:bg-secondary group-hover/btn:border-secondary group-hover/btn:scale-110">
+                        className="w-8 h-8 bg-white/5 border border-white/10 rounded-full flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#e0af3f] group-hover/btn:border-[#e0af3f] group-hover/btn:scale-110">
                         <ArrowRight
                             size={14}
-                            className="text-white group-hover/btn:translate-x-0.5 transition-transform duration-300"
+                            className="text-white group-hover/btn:text-[#0b0b0b] group-hover/btn:translate-x-0.5 transition-transform duration-300"
                         />
                     </div>
                 </Link>

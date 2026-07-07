@@ -207,7 +207,7 @@ const ContactForm = () => {
                                 <p className="text-[15px] text-[#5EA8FF]">Email:</p>
                                 <a
                                     href="mailto:hello@wewantagent.com"
-                                    className="mt-2 block text-3xl font-medium text-white transition-colors hover:text-[#5EA8FF] sm:text-lg"
+                                    className="mt-2 block text-3xl font-medium text-white transition-colors hover:text-[#5EA8FF] sm:text-base"
                                 >
                                     hello@wewantagent.com
                                 </a>
@@ -217,7 +217,7 @@ const ContactForm = () => {
                                 <p className="text-[15px] text-[#5EA8FF]">Phone:</p>
                                 <a
                                     href="tel:+923000000000"
-                                    className="mt-2 block text-3xl font-medium text-white transition-colors hover:text-[#5EA8FF] sm:text-lg"
+                                    className="mt-2 block text-3xl font-medium text-white transition-colors hover:text-[#5EA8FF] sm:text-base"
                                 >
                                     +92 300 0000000
                                 </a>
