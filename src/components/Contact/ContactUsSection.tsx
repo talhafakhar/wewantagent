@@ -1,8 +1,40 @@
+"use client";
 import React, {useEffect, useRef, useState} from 'react';
 import {Send} from "lucide-react";
+import {easeOut, motion} from "framer-motion";
 
 import CustomSelect from "@/components/ui/CustomSelect";
 import FooterSection from "@/components/Footer/footer";
+
+const container = {
+    hidden: {opacity: 0},
+    show: {
+        opacity: 1,
+        transition: {staggerChildren: 0.3},
+    },
+};
+
+const itemLeft = {
+    hidden: {opacity: 0, x: -40, scale: 0.98, filter: "blur(4px)"},
+    show: {
+        opacity: 1,
+        x: 0,
+        scale: 1,
+        filter: "blur(0px)",
+        transition: {duration: 0.8, ease: easeOut},
+    },
+};
+
+const itemRight = {
+    hidden: {opacity: 0, x: 40, scale: 0.98, filter: "blur(4px)"},
+    show: {
+        opacity: 1,
+        x: 0,
+        scale: 1,
+        filter: "blur(0px)",
+        transition: {duration: 0.8, ease: easeOut},
+    },
+};
 
 const INDUSTRY_OPTIONS = [
     { value: "real-estate", label: "Real Estate" },
@@ -139,8 +171,11 @@ const ContactForm = () => {
 
     return (
         <div>
-            <section
+            <motion.section
                 ref={sectionRef}
+                initial={{scale: 1.05, opacity: 0}}
+                animate={{scale: 1, opacity: 1}}
+                transition={{duration: 2, ease: "easeOut"}}
                 className="relative w-full overflow-hidden bg-[#07080c] px-6 pt-[100px] pb-[60px]"
             >
                 {/* ambient gradient blobs — same animated glow as the homepage hero */}
@@ -184,15 +219,23 @@ const ContactForm = () => {
                     }}
                 />
 
-                <div className="relative z-[2] mx-auto max-w-7xl">
+                <motion.div
+                    variants={container}
+                    initial="hidden"
+                    animate="show"
+                    className="relative z-[2] mx-auto max-w-7xl"
+                >
                     <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-20">
                         {/* left column: heading + contact info */}
                         <div className="flex flex-col justify-center">
-                            <h1 className="font-['Space_Grotesk'] text-6xl font-semibold leading-none tracking-[-0.03em] bg-gradient-to-r from-white via-[#f2c14e] to-[#4fd1a5]. bg-clip-text text-transparent sm:text-7xl">
+                            <motion.h1
+                                variants={itemLeft}
+                                className="font-['Space_Grotesk'] text-6xl font-semibold leading-none tracking-[-0.03em] bg-gradient-to-r from-white via-[#f2c14e] to-[#4fd1a5]. bg-clip-text text-transparent sm:text-7xl"
+                            >
                                 Let&#39;s Connect & Build Your Agent!
-                            </h1>
+                            </motion.h1>
 
-                            <div className="mt-16 border-t border-white/10 pt-6">
+                            <motion.div variants={itemLeft} className="mt-16 border-t border-white/10 pt-6">
                                 <p className="text-[15px] text-[#5EA8FF]">Office:</p>
                                 <p className="mt-2 text-[15px] font-medium leading-relaxed text-[#eceef4]">
                                     Lahore
@@ -201,9 +244,9 @@ const ContactForm = () => {
                                     <br/>
                                     Local time: {localTime}
                                 </p>
-                            </div>
+                            </motion.div>
 
-                            <div className="mt-8 border-t border-white/10 pt-6">
+                            <motion.div variants={itemLeft} className="mt-8 border-t border-white/10 pt-6">
                                 <p className="text-[15px] text-[#5EA8FF]">Email:</p>
                                 <a
                                     href="mailto:hello@wewantagent.com"
@@ -211,9 +254,9 @@ const ContactForm = () => {
                                 >
                                     hello@wewantagent.com
                                 </a>
-                            </div>
+                            </motion.div>
 
-                            <div className="mt-8 border-t border-white/10 pt-6">
+                            <motion.div variants={itemLeft} className="mt-8 border-t border-white/10 pt-6">
                                 <p className="text-[15px] text-[#5EA8FF]">Phone:</p>
                                 <a
                                     href="tel:+923000000000"
@@ -221,11 +264,14 @@ const ContactForm = () => {
                                 >
                                     +92 300 0000000
                                 </a>
-                            </div>
+                            </motion.div>
                         </div>
 
                         {/* right column: form */}
-                        <div className="relative left-12 rounded-2xl border  border-white/[0.12] *:first-letter:bg-white/[0.03] p-6 backdrop-blur-sm md:p-8 ">
+                        <motion.div
+                            variants={itemRight}
+                            className="relative left-12 rounded-2xl border  border-white/[0.12] *:first-letter:bg-white/[0.03] p-6 backdrop-blur-sm md:p-8 "
+                        >
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                                     <div>
@@ -365,9 +411,9 @@ const ContactForm = () => {
                                     </button>
                                 </div>
                             </form>
-                        </div>
+                        </motion.div>
                     </div>
-                </div>
+                </motion.div>
 
                 {showModal && (
                     <div className="fixed inset-0 z-[9999] flex justify-center bg-black/60">
@@ -449,7 +495,7 @@ const ContactForm = () => {
                         }
                     }
                 `}</style>
-            </section>
+            </motion.section>
             <FooterSection/>
         </div>
     );
