@@ -20,3 +20,6 @@ body::-webkit-scrollbar {
 .swiper-3d{
     padding: 10px 0 !important;
 }
+.marquee-row:hover .marquee-track {
+    animation-play-state: paused;
+}

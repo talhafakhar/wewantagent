@@ -1,9 +1,5 @@
 "use client";
 import React, { useRef } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
 import ScrollGlow from "@/components/ui/ScrollGlow";
 
 export default function TestimonialsSection() {
@@ -32,42 +28,27 @@ export default function TestimonialsSection() {
     ];
 
     return (
-        <section ref={sectionRef} className="relative overflow-x-hidden py-40">
+        <section ref={sectionRef} className="relative overflow-hidden h-screen flex flex-col justify-center py-20">
             <div className="pointer-events-none absolute inset-0 overflow-hidden">
                 <ScrollGlow target={sectionRef} />
             </div>
-            <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div
-                    className="flex justify-center items-center gap-y-8 lg:gap-y-0 flex-wrap md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between lg:gap-x-8 max-w-sm sm:max-w-2xl lg:max-w-full mx-auto">
-                    <div className="w-full lg:w-2/5">
-                        <span className="font-medium mb-8 block bg-gradient-to-r from-[white] via-[#f2c14e] to-[#f2c14e] bg-clip-text text-transparent drop-shadow-[0_0_18px_rgba(242,193,78,0.45)]">What Clients Say</span>
-                        <h2 className="text-4xl leading-[3rem] font-semibold bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
-                            Real Results From Beta Partners
-                        </h2>
-                        <p className="mt-4 text-gray-400">
-                            From massive time savings to direct revenue growth. Actual results from the innovative teams driving efficiency with our custom solutions.
-                        </p>
+            <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+                <div className="max-w-2xl mx-auto text-center">
+                    <span className="font-medium mb-4 block bg-gradient-to-r from-[white] via-[#f2c14e] to-[#f2c14e] bg-clip-text text-transparent drop-shadow-[0_0_18px_rgba(242,193,78,0.45)]">What Clients Say</span>
+                    <h2 className="text-4xl leading-[3rem] font-semibold bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                        Real Results From Beta Partners
+                    </h2>
+                    <p className="mt-4 text-gray-400">
+                        From massive time savings to direct revenue growth. Actual results from the innovative teams driving efficiency with our custom solutions.
+                    </p>
+                </div>
 
-                    </div>
-
-                    <div className="w-full lg:w-3/5">
-                        <Swiper
-                            modules={[Autoplay]}
-                            loop={true}
-                            autoplay={{
-                                delay: 3000,
-                            }}
-                            spaceBetween={30}
-                            slidesPerView={1}
-                            breakpoints={{
-                                768: { slidesPerView: 2 },
-                                1024: { slidesPerView: 2 },
-                            }}
-                            className="mySwiper mt-12 items-stretch"
-                        >
-                            {testimonials.map((t, i) => (
-                                <SwiperSlide key={i} className="h-auto">
-                                    <div className="group h-full min-h-[200px] border border-gray-600 rounded max-sm:max-w-sm max-sm:mx-auto p-6 transition-all duration-500 hover:bg-white/10">
+                <div className="w-full mt-10 flex flex-col gap-6 overflow-hidden">
+                    <div className="marquee-row overflow-hidden">
+                        <div className="marquee-track flex w-max animate-marquee-right">
+                            {[...testimonials, ...testimonials].map((t, i) => (
+                                <div key={i} className="shrink-0 w-[280px] sm:w-[320px] mr-6">
+                                    <div className="group h-full min-h-[160px] border border-white/10 rounded-xl max-sm:max-w-sm max-sm:mx-auto p-6 bg-gradient-to-b from-white/[0.06] to-white/[0.015] backdrop-blur-sm shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-500 hover:border-white/20 hover:from-white/10 hover:to-white/[0.03]">
                                         <div>
                                             <h3 className="text-lg font-semibold mb-2 bg-gradient-to-r from-white to-[#f2c14e] bg-clip-text text-transparent">
                                                 {t.title}
@@ -80,12 +61,34 @@ export default function TestimonialsSection() {
                                             </p>
                                         </div>
                                     </div>
-                                </SwiperSlide>
+                                </div>
                             ))}
-                        </Swiper>
+                        </div>
+                    </div>
+
+                    <div className="marquee-row overflow-hidden">
+                        <div className="marquee-track flex w-max animate-marquee-left">
+                            {[...testimonials, ...testimonials].map((t, i) => (
+                                <div key={i} className="shrink-0 w-[280px] sm:w-[320px] mr-6">
+                                    <div className="group h-full min-h-[160px] border border-white/10 rounded-xl max-sm:max-w-sm max-sm:mx-auto p-6 bg-gradient-to-b from-white/[0.06] to-white/[0.015] backdrop-blur-sm shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-500 hover:border-white/20 hover:from-white/10 hover:to-white/[0.03]">
+                                        <div>
+                                            <h3 className="text-lg font-semibold mb-2 bg-gradient-to-r from-white to-[#f2c14e] bg-clip-text text-transparent">
+                                                {t.title}
+                                            </h3>
+                                            <p className="text-xs uppercase tracking-wide text-gray-400 mb-4">
+                                                {t.industry}
+                                            </p>
+                                            <p className="text-sm text-gray-400 leading-6">
+                                                {t.text}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-);
+    );
 }
