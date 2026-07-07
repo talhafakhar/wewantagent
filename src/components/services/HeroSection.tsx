@@ -57,9 +57,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                         <div className="w-full md:w-1/2">
                             <motion.h1
                                 variants={item}
-                                className="text-5xl md:text-8xl font-semibold text-white max-w-4xl"
+                                className="text-5xl md:text-7xl font-semibold leading-tight max-w-4xl"
                             >
-                                {title}
+                                <span className="bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                                    {title}
+                                </span>
                             </motion.h1>
                             <motion.p variants={item} className="mt-4 text-gray-200">
                                 {description}

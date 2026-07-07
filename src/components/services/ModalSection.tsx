@@ -24,9 +24,11 @@ const AIModulesSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, ease: "easeOut" }}
                     viewport={{ once: true }}
-                    className="text-4xl md:text-5xl font-bold mb-6"
+                    className="text-4xl md:text-5xl font-semibold mb-6"
                 >
-                    Powerful Tools Behind Your AI Agents
+                    <span className="bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                        Powerful Tools Behind Your AI Agents
+                    </span>
                 </motion.h2>
                 <motion.p
                     initial={{ opacity: 0 }}

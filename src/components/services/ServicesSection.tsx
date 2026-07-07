@@ -49,7 +49,9 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({
                         className="mb-12 text-center"
                     >
                         <h2 className="text-4xl md:text-5xl font-semibold leading-tight max-w-4xl mx-auto">
-                            {heading}
+                            <span className="bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                                {heading}
+                            </span>
                         </h2>
                         {description && (
                             <p className="mt-4 text-gray-300 max-w-3xl mx-auto">

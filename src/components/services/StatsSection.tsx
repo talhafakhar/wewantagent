@@ -34,7 +34,9 @@ const WhatWeDo: React.FC<StatsSectionProps> = ({
                     className="mb-10"
                 >
                     <h2 className="text-4xl md:text-5xl font-semibold leading-tight">
-                        {heading}
+                        <span className="bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                            {heading}
+                        </span>
                     </h2>
                 </motion.div>
 

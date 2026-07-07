@@ -17,8 +17,10 @@ const ProcessTimeline: React.FC<ProcessTimelineProps> = ({ heading, steps }) => 
     return (
         <section className="bg-black text-white py-20">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-                    {heading}
+                <h2 className="text-4xl md:text-5xl font-semibold text-center mb-16">
+                    <span className="bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                        {heading}
+                    </span>
                 </h2>
 
                 <div className="relative border-l-2 border-gray-700 ml-6">

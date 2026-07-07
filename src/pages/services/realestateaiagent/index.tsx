@@ -216,7 +216,8 @@ export default function RealEstateAiAgent() {
                     imageSrc="/assets/services/realEstate.webp"
                 />
                 <BusinessSolutionsSection
-                    heading="Custom AI Agents Built For Real Estate Success"
+                    heading="Custom AI Agents Built"
+                    headingLine2="For Real Estate Success"
                     paragraphs={[
                         "Stop losing deals to slow response times and manual tasks. Our real estate agent AI handles lead qualification, client communication, listing management, document processing, and appointment coordination automatically. From voice agents answering calls instantly to email automation nurturing prospects, we build intelligent systems that work while you sleep.",
                         "High intent leads get fast-tracked to your team, cold prospects enter nurture campaigns, and administrative tasks happen without human effort. We use advanced language models, n8n workflow automation, and custom integrations with your existing CRM and MLS systems. Fair Housing Act compliant, RESPA aligned, NAR guideline adherent. Real estate automation designed specifically for agents, brokerages, property managers, and investors who want more closings with less grinding.",
@@ -229,7 +230,8 @@ export default function RealEstateAiAgent() {
                     buttonText="See Full Capabilities"
                 />
                 <IndustrySolutionsSection
-                    heading="Real Estate Automation Across Every Property Type"
+                    heading="Real Estate Automation Across Every"
+                    headingLine2="Property Type"
                     description="Whether you specialize in residential, commercial, luxury, or rentals, our AI agents adapt to your niche."
                     industries={industries}
                 />
@@ -239,7 +241,8 @@ export default function RealEstateAiAgent() {
                     services={services}
                 />
                 <RealEstateCaseStudy
-                    heading="Real Results From Real Estate Clients"
+                    heading="Real Results From Real"
+                    headingLine2="Estate Clients"
                     description="See how we transformed a regional brokerage with 47 agents completely."
                     imageSrc="/assets/svg/services/robotFly.svg"
                     cards={caseStudyCards}

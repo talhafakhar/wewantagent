@@ -103,11 +103,10 @@ export default function ContactSection() {
                 viewport={{ once: true }}
                 variants={fadeUp}
             >
-                <h2 className="text-4xl md:text-5xl text-white text-center font-semibold leading-tight">
-                    Get Your{" "}
-                    <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-             Custom AI Agent Roadmap
-            </span>
+                <h2 className="text-4xl md:text-5xl text-center font-semibold leading-tight">
+                    <span className="bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                        Get Your Custom AI Agent Roadmap
+                    </span>
                 </h2>
                 <p className="mt-6 text-gray-300 text-center max-w-4xl mx-auto">
                     Share your automation challenge below. We&#39;ll analyze your workflow and share a custom roadmap showing how AI agents can transform your operations

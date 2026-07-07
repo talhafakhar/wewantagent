@@ -14,12 +14,14 @@ interface Industry {
 
 interface IndustrySolutionsSectionProps {
     heading: string;
+    headingLine2?: string;
     description: string;
     industries: Industry[];
 }
 
 const IndustrySolutionsSection: React.FC<IndustrySolutionsSectionProps> = ({
                                                                                heading,
+                                                                               headingLine2,
                                                                                description,
                                                                                industries,
                                                                            }) => {
@@ -33,9 +35,16 @@ const IndustrySolutionsSection: React.FC<IndustrySolutionsSectionProps> = ({
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
                     viewport={{ once: true }}
-                    className="text-3xl md:text-5xl font-bold mb-4 max-w-4xl mx-auto"
+                    className="text-3xl md:text-5xl font-semibold mb-4 max-w-4xl mx-auto"
                 >
-                    {heading}
+                    <span className="block bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                        {heading}
+                    </span>
+                    {headingLine2 && (
+                        <span className="block bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                            {headingLine2}
+                        </span>
+                    )}
                 </motion.h2>
 
                 <motion.p

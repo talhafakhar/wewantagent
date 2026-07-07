@@ -6,6 +6,7 @@ import Lottie from "lottie-react";
 
 interface BusinessSolutionsSectionProps {
     heading: string;
+    headingLine2?: string;
     paragraphs: string[];
     lottieFile: object;
     reverse?: boolean;
@@ -28,6 +29,7 @@ const lottieVariants = {
 
 const BusinessSolutionsSection: React.FC<BusinessSolutionsSectionProps> = ({
                                                                                heading,
+                                                                               headingLine2,
                                                                                paragraphs,
                                                                                lottieFile,
                                                                                reverse = false,
@@ -46,8 +48,15 @@ const BusinessSolutionsSection: React.FC<BusinessSolutionsSectionProps> = ({
                     viewport={{ once: true, amount: 0.3 }}
                     className="md:w-1/2 w-full"
                 >
-                    <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-tight">
-                        {heading}
+                    <h2 className="text-3xl md:text-5xl font-semibold mb-8 leading-tight">
+                        <span className="block bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                            {heading}
+                        </span>
+                        {headingLine2 && (
+                            <span className="block bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                                {headingLine2}
+                            </span>
+                        )}
                     </h2>
 
                     {paragraphs.map((para, i) => (
