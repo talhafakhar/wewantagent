@@ -64,7 +64,7 @@ const Navbar = () => {
                         </Link>
                     ))}
                 </div>
-                <GlowButton href="/contact" size="sm">
+                <GlowButton href="/contact" size="sm" textGradient="gold">
                     Let&#39;s Collaborate
                 </GlowButton>
             </div>
@@ -131,6 +131,7 @@ const Navbar = () => {
                                 href="/contact"
                                 onClick={() => setIsOpen(false)}
                                 className="mt-2 w-full justify-center"
+                                textGradient="gold"
                             >
                                 Let&#39;s Collaborate
                             </GlowButton>

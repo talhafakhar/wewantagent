@@ -283,7 +283,6 @@ const OrbitAnimation: React.FC = () => {
 
                 </div>
                 
-                
                 <motion.div
                     initial={{opacity: 0, y: 30}}
                     whileInView={{opacity: 1, y: 0}}
@@ -301,27 +300,21 @@ const OrbitAnimation: React.FC = () => {
 
                 <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 text-white">
                     {services.map((feature, index) => {
-                        const isEven = index % 2 === 0;
                         return (
                             <motion.div
                                 key={index}
                                 initial={{
                                     opacity: 0,
-                                    y: 40,
-                                    scale: 0.95,
-                                    rotateX: isEven ? 5 : -5,
+                                    y: 20,
                                 }}
                                 whileInView={{
                                     opacity: 1,
                                     y: 0,
-                                    scale: 1,
-                                    rotateX: 0,
                                 }}
                                 transition={{
-                                    type: "spring",
-                                    stiffness: 80,
-                                    damping: 15,
-                                    delay: index * 0.12,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                    delay: index * 0.1,
                                 }}
                                 viewport={{ once: true, amount: 0.3 }}
 

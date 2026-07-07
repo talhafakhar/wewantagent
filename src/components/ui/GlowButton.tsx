@@ -12,6 +12,7 @@ type GlowButtonProps = {
     size?: "sm" | "md";
     shape?: "pill" | "rect";
     animateGlow?: boolean;
+    textGradient?: "blue" | "gold";
 };
 
 const GlowButton = ({
@@ -24,6 +25,7 @@ const GlowButton = ({
     size = "md",
     shape = "pill",
     animateGlow = true,
+    textGradient = "blue",
 }: GlowButtonProps) => {
     const rootRef = useRef<HTMLElement | null>(null);
     const [box, setBox] = useState({ width: 0, height: 0 });
@@ -83,7 +85,7 @@ const GlowButton = ({
                 </svg>
             )}
             <span className={`glow-btn-inner glow-btn-inner--${size} glow-btn-inner--${shape}`}>
-                <span className="glow-btn-text">{children}</span>
+                <span className={`glow-btn-text glow-btn-text--${textGradient}`}>{children}</span>
             </span>
             {perimeter > 0 && animateGlow && (
                 <style jsx>{`
@@ -185,7 +187,15 @@ const GlowButton = ({
                     font-size: 14px;
                 }
                 .glow-btn-text {
-                    background: linear-gradient(
+                    background-size: 250% 100%;
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    color: transparent;
+                    -webkit-text-fill-color: transparent;
+                    animation: glowBtnShimmer 3s linear infinite;
+                }
+                .glow-btn-text--blue {
+                    background-image: linear-gradient(
                         90deg,
                         #ffffff,
                         #cfe6ff,
@@ -193,12 +203,14 @@ const GlowButton = ({
                         #cfe6ff,
                         #ffffff
                     );
-                    background-size: 250% 100%;
-                    background-clip: text;
-                    -webkit-background-clip: text;
-                    color: transparent;
-                    -webkit-text-fill-color: transparent;
-                    animation: glowBtnShimmer 3s linear infinite;
+                }
+                .glow-btn-text--gold {
+                    background-image: linear-gradient(
+                        90deg,
+                        #ffffff,
+                        #f2c14e,
+                        #ffffff
+                    );
                 }
                 .glow-btn:hover .glow-btn-inner {
                     background: #0d0f16;
