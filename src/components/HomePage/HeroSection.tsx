@@ -157,12 +157,12 @@ const HeroSection = () => {
                     <GlowButton href="/contact">
                         Get Your AI Agent →
                     </GlowButton>
-                    <Link
+                    {/* <Link
                         href="/contact"
                         className="font-['Space_Grotesk'] rounded-full border border-white/[0.14] bg-white/[0.04] px-[30px] py-[15px] text-[15px] font-semibold text-[#eceef4] transition-all duration-200 hover:border-white/[0.28] hover:bg-white/[0.08]"
                     >
                         Book a Portfolio Call
-                    </Link>
+                    </Link> */}
                 </motion.div>
             </motion.div>
 

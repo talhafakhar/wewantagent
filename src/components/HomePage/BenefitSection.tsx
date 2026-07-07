@@ -96,7 +96,6 @@ const BenefitSection = () => {
 
     const textY = useTransform(smoothProgress, [0, 1], ["30%", "-30%"]);
     const robotY = useTransform(smoothProgress, [0, 1], ["55%", "-55%"]);
-    const robotRotate = useTransform(smoothProgress, [0, 1], [-8, 8]);
     const robotScale = useTransform(smoothProgress, [0, 0.5, 1], [0.8, 1.05, 0.8]);
     const cardsY = useTransform(smoothProgress, [0, 1], ["18%", "-18%"]);
 
@@ -148,7 +147,7 @@ const BenefitSection = () => {
                     </motion.div>
                     <motion.div
                         className="w-full md:w-1/2 mt-10 md:mt-0 flex md:justify-center"
-                        style={{ y: robotY, scale: robotScale, rotate: robotRotate }}
+                        style={{ y: robotY, scale: robotScale }}
                     >
                         <motion.div
                             whileHover={{ scale: 1.05, rotate: [0, 1, -1, 0] }}
