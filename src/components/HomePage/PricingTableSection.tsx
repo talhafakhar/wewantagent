@@ -141,7 +141,9 @@ const PricingSection = () => {
 
                                 <div className="mt-6">
                                     <GlowButton href="#" shape="rect" className="w-full" animateGlow={false}>
-                                        {plan.cta}
+                                        <span className="bg-gradient-to-r from-white to-[#f2c14e] bg-clip-text text-transparent">
+                                            {plan.cta}
+                                        </span>
                                     </GlowButton>
                                 </div>
 
