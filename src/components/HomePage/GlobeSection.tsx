@@ -9,7 +9,7 @@ import ScrollGlow from "@/components/ui/ScrollGlow";
 export default function GlobeSection() {
     const sectionRef = useRef<HTMLElement>(null);
     return (
-        <section ref={sectionRef} className="px-4 sm:px-6 lg:px-8  relative overflow-hidden pt-32 pb-24">
+        <section ref={sectionRef} className="px-4 sm:px-6 lg:px-8  relative overflow-hidden pt-60 pb-40">
             <ScrollGlow target={sectionRef} />
             <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -55,11 +55,11 @@ export default function GlobeSection() {
                         duration: 2,
                         ease: "easeInOut",
                     }}
-                    className="mt-8 flex justify-center"
+                    className="mt-2 flex justify-center"
                 >
                     <ArrowDown className="w-8 h-8 md:w-10 md:h-10 text-white" />
                 </motion.div>
-                <div className="mt-10  flex justify-center ">
+                <div className="mt-6 flex justify-center translate-y-0">
                     <GlowButton shape="rect">See Our Pricing</GlowButton>
                 </div>
             </div>

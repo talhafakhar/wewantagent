@@ -70,7 +70,7 @@ const HeroSection = () => {
                 data-parallax="0.14"
                 className="pointer-events-none absolute -left-[8%] -top-[10%] h-[620px] w-[620px] rounded-full blur-[40px]"
                 style={{
-                    background: "radial-gradient(circle, rgba(56,150,255,0.55), transparent 65%)",
+                    background: "radial-gradient(circle, rgba(242,193,78,0.55), transparent 65%)",
                     animation: "heroFloatA 14s ease-in-out infinite",
                 }}
             />
@@ -78,19 +78,19 @@ const HeroSection = () => {
                 data-parallax="0.22"
                 className="pointer-events-none absolute -bottom-[15%] -right-[10%] h-[560px] w-[560px] rounded-full blur-[50px]"
                 style={{
-                    background: "radial-gradient(circle, rgba(70,130,255,0.34), transparent 65%)",
+                    background: "radial-gradient(circle, rgba(242,193,78,0.55), transparent 65%)",
                     animation: "heroFloatB 17s ease-in-out infinite",
                 }}
             />
-            <div
+            {/* <div
                 data-parallax="0.1"
                 className="pointer-events-none absolute left-1/2 top-1/2 h-[720px] w-[720px] rounded-full blur-[60px]"
                 style={{
-                    background: "radial-gradient(circle, rgba(94,168,255,0.28), transparent 70%)",
+                    background: "radial-gradient(circle, rgba(242,193,78,0.55), transparent 70%)",
                     animation: "heroFloatC 20s ease-in-out infinite",
                     translate: "-50% -50%",
                 }}
-            />
+            /> */}
 
             {/* faint grid pattern */}
             <div

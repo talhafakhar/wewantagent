@@ -5,11 +5,17 @@
 @tailwind components;
 @tailwind utilities;
 html {
-    scroll-behavior: smooth;
+    scrollbar-width: none;
 }
 body {
     font-family: "Alan Sans", sans-serif;
     background-color: #07080c;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
 }
 .swiper-3d{
     padding: 10px 0 !important;

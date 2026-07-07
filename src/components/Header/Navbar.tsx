@@ -50,9 +50,17 @@ const Navbar = () => {
                         <Link
                             key={link.label}
                             href={link.href}
-                            className="font-['IBM_Plex_Sans'] text-[14.5px] font-medium text-[#b6b9c6] transition-colors duration-200 hover:text-[#89C7FF]"
+                            className="group relative font-['IBM_Plex_Sans'] text-[14.5px] font-medium"
                         >
-                            {link.label}
+                            <span className="text-[#b6b9c6] transition-opacity duration-200 group-hover:opacity-0">
+                                {link.label}
+                            </span>
+                            <span
+                                aria-hidden
+                                className="absolute inset-0 bg-gradient-to-r from-[#4fd1a5] via-[#f2c14e] to-[#f2665b] bg-clip-text text-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+                            >
+                                {link.label}
+                            </span>
                         </Link>
                     ))}
                 </div>
@@ -106,9 +114,17 @@ const Navbar = () => {
                                     key={link.label}
                                     href={link.href}
                                     onClick={() => setIsOpen(false)}
-                                    className="font-['IBM_Plex_Sans'] rounded-lg px-4 py-2.5 text-[#b6b9c6] transition-colors hover:bg-white/5 hover:text-white"
+                                    className="group relative rounded-lg px-4 py-2.5 font-['IBM_Plex_Sans'] transition-colors hover:bg-white/5"
                                 >
-                                    {link.label}
+                                    <span className="text-[#b6b9c6] transition-opacity duration-200 group-hover:opacity-0">
+                                        {link.label}
+                                    </span>
+                                    <span
+                                        aria-hidden
+                                        className="absolute inset-y-0 left-4 flex items-center bg-gradient-to-r from-[#4fd1a5] via-[#f2c14e] to-[#f2665b] bg-clip-text text-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+                                    >
+                                        {link.label}
+                                    </span>
                                 </Link>
                             ))}
                             <GlowButton

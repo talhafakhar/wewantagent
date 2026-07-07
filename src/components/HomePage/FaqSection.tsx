@@ -43,20 +43,11 @@ export default function FaqSection() {
                     className="mx-auto max-w-2xl text-center"
                 >
                     <h2 className="text-3xl sm:text-6xl font-semibold tracking-tight bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
-                        Frequently asked questions
+                        Frequently Asked Questions
                     </h2>
                     <p className="mt-6 text-base leading-7 text-gray-300">
                         Questions We Hear Every Day
                     </p>
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.9, ease: "easeOut" }}
-                        viewport={{ once: true }}
-                        className="mt-10 flex justify-center"
-                    >
-                        <GlowButton shape="rect">Book a free consultation</GlowButton>
-                    </motion.div>
                 </motion.div>
 
                 <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -130,6 +121,16 @@ export default function FaqSection() {
                         </div>
                     ))}
                 </div>
+
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.9, ease: "easeOut" }}
+                    viewport={{ once: true }}
+                    className="mt-16 flex justify-center"
+                >
+                    <GlowButton shape="rect">Book a free consultation</GlowButton>
+                </motion.div>
             </div>
         </section>
     );

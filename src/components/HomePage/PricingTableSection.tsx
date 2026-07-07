@@ -122,12 +122,12 @@ const PricingSection = () => {
                             )}
 
                             <div className="flex h-full flex-col">
-                                <span className="text-lg font-medium bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+                                <span className="text-lg font-medium bg-gradient-to-r from-white via-[#f2c14e] to-[#4fd1a5] bg-clip-text text-transparent">
                                     {plan.title}
                                 </span>
 
                                 <p className="mt-3">
-                                    <span className="text-2xl sm:text-3xl font-bold tracking-tight bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+                                    <span className="text-2xl sm:text-3xl font-bold tracking-tight bg-gradient-to-r from-white via-[#f2c14e] to-[#4fd1a5] bg-clip-text text-transparent">
                                         {plan.price}
                                     </span>{" "}
                                     <span className="text-sm font-medium text-white/50">
@@ -140,7 +140,7 @@ const PricingSection = () => {
                                 </p>
 
                                 <div className="mt-6">
-                                    <GlowButton href="#" shape="rect" className="w-full">
+                                    <GlowButton href="#" shape="rect" className="w-full" animateGlow={false}>
                                         {plan.cta}
                                     </GlowButton>
                                 </div>

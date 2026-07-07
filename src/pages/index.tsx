@@ -146,13 +146,14 @@ export default function Home({ initialBlogs, pagination }: Props) {
                         <div className="text-center text-gray-400">Loading...</div>
                     ) : blogs && blogs.length > 0 ? (
                         <Swiper
-                            spaceBetween={20}
+                            spaceBetween={40}
                             slidesPerView={1}
                             breakpoints={{
                                 640: { slidesPerView: 1 },
                                 768: { slidesPerView: 2 },
                                 1024: { slidesPerView: 3 },
                             }}
+                            className="!py-3 !px-1"
                         >
                             {blogs.map((blog, index) => (
                                 <SwiperSlide key={blog.id}>

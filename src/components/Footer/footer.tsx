@@ -74,7 +74,7 @@ export default function FooterSection() {
                     </div>
 
                     <div className="col-span-2">
-                        <p className="text-xs uppercase font-semibold text-gray-400 mb-3 tracking-wider">
+                        <p className="text-xs text-center uppercase font-semibold text-gray-400 mb-3 tracking-wider">
                             Sign up for Newsletter
                         </p>
                         <input
@@ -87,7 +87,7 @@ export default function FooterSection() {
                         </button>
                     </div>
                 </div>
-                <div className="border-t  border-gray-800 mt-8 md:mt-12 py-6">
+                <div className="border-t  border-gray-800 mt-6 md:mt-0 py-6">
                     <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500">
                         <div className="flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-1 mb-3 sm:mb-0">
                             {["Privacy Policy", "Terms of Use", "Cookies Policy"].map((link, idx) => (
@@ -97,7 +97,7 @@ export default function FooterSection() {
                             ))}
                         </div>
                         <div className="flex items-center gap-2 text-center sm:text-right">
-                            <span>Copyright 2025 © All rights reserved.</span>
+                            <span>Copyright 2026 © All rights reserved.</span>
                         </div>
                     </div>
                 </div>

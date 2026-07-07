@@ -1,10 +1,12 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-import {EffectCoverflow} from "swiper/modules";
+import { EffectCoverflow, Navigation } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, useAnimation, easeOut, useScroll, useSpring, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import RobotSvg from "./RobotSvg";
@@ -43,14 +45,19 @@ const services = [
         number: "5",
     },
     {
-        title: " Industry Specific Expertise Matters\n",
+        title: "Industry Specific Expertise Matters",
         description:
             "Our ai automation agency specializes in real estate, healthcare, and accounting. We speak your industry language, understand your challenges, build solutions that fit your workflow. Generic automation fails, custom agents succeed every time.",
         number: "6",
     },
 ];
 
+const firstRowServices = services.slice(0, 3);
+const secondRowServices = services.slice(3, 6);
+
 const BenefitSection = () => {
+    const [swiperInstanceRow1, setSwiperInstanceRow1] = useState<SwiperType | null>(null);
+    const [swiperInstanceRow2, setSwiperInstanceRow2] = useState<SwiperType | null>(null);
     const controls = useAnimation();
     const { ref, inView } = useInView({
         triggerOnce: true,
@@ -60,6 +67,17 @@ const BenefitSection = () => {
     useEffect(() => {
         if (inView) controls.start("visible");
     }, [inView, controls]);
+
+    const handleSwiperInit = (
+        swiper: SwiperType,
+        setter: (swiper: SwiperType) => void
+    ) => {
+        setter(swiper);
+        requestAnimationFrame(() => {
+            swiper.update();
+            swiper.slideTo(swiper.activeIndex, 0);
+        });
+    };
 
     // Scroll-driven depth parallax: text and robot drift at different rates
     // as the section moves through the viewport, spring-smoothed for a slow,
@@ -167,9 +185,12 @@ const BenefitSection = () => {
                             768: { slidesPerView: 2 },
                             1024: { slidesPerView: 3 },
                         }}
-                        modules={[EffectCoverflow]}
+                        modules={[EffectCoverflow, Navigation]}
+                        observer={true}
+                        observeParents={true}
+                        onSwiper={(swiper) => handleSwiperInit(swiper, setSwiperInstanceRow1)}
                     >
-                        {services.map((service, index) => (
+                        {firstRowServices.map((service, index) => (
                             <SwiperSlide key={index}>
                                 <div className="bg-zinc-900 rounded p-6 sm:p-8 shadow-2xl mx-auto max-w-sm h-full min-h-[420px] flex flex-col justify-between group relative overflow-hidden border border-white/10 transition-all duration-500 hover:bg-zinc-800 hover:border-primary/60 hover:shadow-[0_0_20px_rgba(94,168,255,0.35),0_0_55px_rgba(94,168,255,0.18)]">
                                     <div className="absolute -bottom-12 -left-12 w-32 h-32 rounded-full transition-all duration-700 group-hover:scale-150" />
@@ -199,8 +220,103 @@ const BenefitSection = () => {
                             </SwiperSlide>
                         ))}
                     </Swiper>
+
+                    <div className="flex items-center justify-center gap-6">
+                        <button
+                            type="button"
+                            aria-label="Previous card"
+                            onClick={() => swiperInstanceRow1?.slidePrev()}
+                            className="flex items-center justify-center w-12 h-12 rounded-full border border-white/10 bg-zinc-900 text-gray-300 transition-all duration-300 hover:bg-zinc-800 hover:border-primary/60 hover:text-white hover:shadow-[0_0_20px_rgba(94,168,255,0.35)]"
+                        >
+                            <ChevronLeft className="w-5 h-5" />
+                        </button>
+                        <button
+                            type="button"
+                            aria-label="Next card"
+                            onClick={() => swiperInstanceRow1?.slideNext()}
+                            className="flex items-center justify-center w-12 h-12 rounded-full border border-white/10 bg-zinc-900 text-gray-300 transition-all duration-300 hover:bg-zinc-800 hover:border-primary/60 hover:text-white hover:shadow-[0_0_20px_rgba(94,168,255,0.35)]"
+                        >
+                            <ChevronRight className="w-5 h-5" />
+                        </button>
+                    </div>
                 </motion.div>
-                <div className="mt-10  flex justify-center ">
+
+                <motion.div className="mt-12" style={{ y: cardsY }}>
+                    <Swiper
+                        effect={"coverflow"}
+                        grabCursor={true}
+                        centeredSlides={true}
+                        slidesPerView={1}
+                        spaceBetween={20}
+                        initialSlide={1}
+                        coverflowEffect={{
+                            rotate: 50,
+                            stretch: 0,
+                            depth: 100,
+                            modifier: 1,
+                            slideShadows: true,
+                        }}
+                        breakpoints={{
+                            640: { slidesPerView: 1 },
+                            768: { slidesPerView: 2 },
+                            1024: { slidesPerView: 3 },
+                        }}
+                        modules={[EffectCoverflow, Navigation]}
+                        observer={true}
+                        observeParents={true}
+                        onSwiper={(swiper) => handleSwiperInit(swiper, setSwiperInstanceRow2)}
+                    >
+                        {secondRowServices.map((service, index) => (
+                            <SwiperSlide key={index}>
+                                <div className="bg-zinc-900 rounded p-6 sm:p-8 shadow-2xl mx-auto max-w-sm h-full min-h-[420px] flex flex-col group relative overflow-hidden border border-white/10 transition-all duration-500 hover:bg-zinc-800 hover:border-primary/60 hover:shadow-[0_0_20px_rgba(94,168,255,0.35),0_0_55px_rgba(94,168,255,0.18)]">
+                                    <div className="absolute -bottom-12 -left-12 w-32 h-32 rounded-full transition-all duration-700 group-hover:scale-150" />
+                                    <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+                                        <div className="absolute top-1/4 left-0 w-full h-px bg-white"></div>
+                                        <div className="absolute top-1/2 left-0 w-full h-px bg-white"></div>
+                                        <div className="absolute top-0 left-1/4 w-px h-full bg-white"></div>
+                                        <div className="absolute top-0 left-1/2 w-px h-full bg-white"></div>
+                                    </div>
+                                    <div className="relative z-10 mb-6">
+      <span
+          className="text-8xl font-bold leading-none bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent transition-colors duration-500"
+          style={{ fontFamily: "Arial Black, sans-serif" }}
+      >
+        {service.number}
+      </span>
+                                    </div>
+                                    <div className="relative z-10">
+                                        <h4 className="text-2xl sm:text-3xl font-bold mb-3 uppercase sm:mb-4 px-2 tracking-wide group-hover:tracking-wider transition-all duration-300 bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                                            {service.title}
+                                        </h4>
+                                        <p className="text-sm sm:text-base text-gray-400 leading-relaxed px-2 group-hover:text-gray-300 transition-colors duration-300">
+                                            {service.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+
+                    <div className="mt-8 flex items-center justify-center gap-6">
+                        <button
+                            type="button"
+                            aria-label="Previous card"
+                            onClick={() => swiperInstanceRow2?.slidePrev()}
+                            className="flex items-center justify-center w-12 h-12 rounded-full border border-white/10 bg-zinc-900 text-gray-300 transition-all duration-300 hover:bg-zinc-800 hover:border-primary/60 hover:text-white hover:shadow-[0_0_20px_rgba(94,168,255,0.35)]"
+                        >
+                            <ChevronLeft className="w-5 h-5" />
+                        </button>
+                        <button
+                            type="button"
+                            aria-label="Next card"
+                            onClick={() => swiperInstanceRow2?.slideNext()}
+                            className="flex items-center justify-center w-12 h-12 rounded-full border border-white/10 bg-zinc-900 text-gray-300 transition-all duration-300 hover:bg-zinc-800 hover:border-primary/60 hover:text-white hover:shadow-[0_0_20px_rgba(94,168,255,0.35)]"
+                        >
+                            <ChevronRight className="w-5 h-5" />
+                        </button>
+                    </div>
+                </motion.div>
+                <div className="mt-6 flex justify-center ">
                     <GlowButton shape="rect">Book a Free Consultation</GlowButton>
 
                 </div>

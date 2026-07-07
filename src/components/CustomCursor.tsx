@@ -1,5 +1,6 @@
 "use client";
 import { useEffect } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 const CustomCursor = () => {
     useEffect(() => {
@@ -10,8 +11,8 @@ const CustomCursor = () => {
             posX += (mouseX - posX) / 8;
             posY += (mouseY - posY) / 8;
             g.to(".cursor-example", {
-                x: posX - 10,
-                y: posY - 10,
+                x: posX - 12,
+                y: posY - 12,
                 duration: 0,
             });
         };
@@ -29,14 +30,19 @@ const CustomCursor = () => {
 
     return (
         <div
-            className="cursor-example fixed top-0 left-0 w-4 h-4 rounded-full
+            className="cursor-example fixed top-0 left-0 w-6 h-6
       pointer-events-none z-[9999]
       transition-transform duration-100 ease-out"
-            style={{
-                background:
-                    "radial-gradient(circle at 35% 30%, #ffffff 0%, #cfe8ff 30%, #5fa8ff 75%, #2f7fe0 100%)",
-            }}
-        />
+        >
+            <Image
+                src="/assets/home/logo-icon.png"
+                alt=""
+                width={24}
+                height={24}
+                className="w-full h-full object-contain"
+                priority
+            />
+        </div>
     );
 };
 

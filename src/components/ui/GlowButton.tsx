@@ -11,6 +11,7 @@ type GlowButtonProps = {
     className?: string;
     size?: "sm" | "md";
     shape?: "pill" | "rect";
+    animateGlow?: boolean;
 };
 
 const GlowButton = ({
@@ -22,6 +23,7 @@ const GlowButton = ({
     className = "",
     size = "md",
     shape = "pill",
+    animateGlow = true,
 }: GlowButtonProps) => {
     const rootRef = useRef<HTMLElement | null>(null);
     const [box, setBox] = useState({ width: 0, height: 0 });
@@ -64,24 +66,26 @@ const GlowButton = ({
                         height={height - 1.5}
                         rx={radius - 0.75}
                     />
-                    <rect
-                        className="glow-btn-border-glow"
-                        x="0.75"
-                        y="0.75"
-                        width={width - 1.5}
-                        height={height - 1.5}
-                        rx={radius - 0.75}
-                        style={{
-                            strokeDasharray: `${perimeter * 0.16} ${perimeter * 0.84}`,
-                            animation: `${sweepAnimation} 2.6s linear infinite`,
-                        }}
-                    />
+                    {animateGlow && (
+                        <rect
+                            className="glow-btn-border-glow"
+                            x="0.75"
+                            y="0.75"
+                            width={width - 1.5}
+                            height={height - 1.5}
+                            rx={radius - 0.75}
+                            style={{
+                                strokeDasharray: `${perimeter * 0.16} ${perimeter * 0.84}`,
+                                animation: `${sweepAnimation} 2.6s linear infinite`,
+                            }}
+                        />
+                    )}
                 </svg>
             )}
             <span className={`glow-btn-inner glow-btn-inner--${size} glow-btn-inner--${shape}`}>
                 <span className="glow-btn-text">{children}</span>
             </span>
-            {perimeter > 0 && (
+            {perimeter > 0 && animateGlow && (
                 <style jsx>{`
                     @keyframes ${sweepAnimation} {
                         from {

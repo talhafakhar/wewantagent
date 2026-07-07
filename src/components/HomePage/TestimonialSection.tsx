@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef } from "react";
-import {Swiper, SwiperSlide} from "swiper/react";
-import {Autoplay} from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import ScrollGlow from "@/components/ui/ScrollGlow";
@@ -23,6 +23,11 @@ export default function TestimonialsSection() {
             title: "Accounting Practice Finance",
             industry: "Finance",
             text: "Month-end close went from 7 days to 2 days. Client satisfaction up 40%, and we doubled capacity without new hires.",
+        },
+        {
+            title: "Small Business Bookkeeping Firm",
+            industry: "Bookkeeping",
+            text: "Onboarding calls and reconciliation follow-ups are fully automated, cutting admin time by 15 hours a week.",
         },
     ];
 
@@ -50,14 +55,14 @@ export default function TestimonialsSection() {
                             spaceBetween={30}
                             slidesPerView={1}
                             breakpoints={{
-                                768: {slidesPerView: 2},
-                                1024: {slidesPerView: 2},
+                                768: { slidesPerView: 2 },
+                                1024: { slidesPerView: 2 },
                             }}
-                            className="mySwiper mt-12"
+                            className="mySwiper mt-12 items-stretch"
                         >
                             {testimonials.map((t, i) => (
-                                <SwiperSlide key={i}>
-                                    <div className="group border border-gray-600 rounded max-sm:max-w-sm max-sm:mx-auto p-6 transition-all duration-500 hover:bg-white/10">
+                                <SwiperSlide key={i} className="h-auto">
+                                    <div className="group h-full min-h-[200px] border border-gray-600 rounded max-sm:max-w-sm max-sm:mx-auto p-6 transition-all duration-500 hover:bg-white/10">
                                         <div>
                                             <h3 className="text-lg font-semibold text-white mb-2">
                                                 {t.title}
@@ -71,7 +76,7 @@ export default function TestimonialsSection() {
                                         </div>
                                     </div>
                                 </SwiperSlide>
-                                ))}
+                            ))}
                         </Swiper>
                     </div>
                 </div>

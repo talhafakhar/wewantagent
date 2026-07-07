@@ -1,15 +1,8 @@
 import React, {useEffect, useRef, useState} from 'react';
-import Image from "next/image";
-import {
-    Facebook,
-    Instagram,
-    Linkedin,
-    Send
-} from "lucide-react";
+import {Send} from "lucide-react";
 
-
-import Link from "next/link";
 import CustomSelect from "@/components/ui/CustomSelect";
+import FooterSection from "@/components/Footer/footer";
 
 const INDUSTRY_OPTIONS = [
     { value: "real-estate", label: "Real Estate" },
@@ -155,7 +148,7 @@ const ContactForm = () => {
                     data-parallax="0.14"
                     className="pointer-events-none absolute -left-[8%] -top-[10%] h-[620px] w-[620px] rounded-full blur-[40px]"
                     style={{
-                        background: "radial-gradient(circle, rgba(56,150,255,0.55), transparent 65%)",
+                        background: "radial-gradient(circle, rgba(242,193,78,0.55), transparent 65%)",
                         animation: "contactFloatA 14s ease-in-out infinite",
                     }}
                 />
@@ -163,7 +156,7 @@ const ContactForm = () => {
                     data-parallax="0.22"
                     className="pointer-events-none absolute -bottom-[15%] -right-[10%] h-[560px] w-[560px] rounded-full blur-[50px]"
                     style={{
-                        background: "radial-gradient(circle, rgba(70,130,255,0.34), transparent 65%)",
+                        background: "radial-gradient(circle, rgba(79,209,165,0.34), transparent 65%)",
                         animation: "contactFloatB 17s ease-in-out infinite",
                     }}
                 />
@@ -171,7 +164,7 @@ const ContactForm = () => {
                     data-parallax="0.1"
                     className="pointer-events-none absolute left-1/2 top-1/2 h-[720px] w-[720px] rounded-full blur-[60px]"
                     style={{
-                        background: "radial-gradient(circle, rgba(94,168,255,0.28), transparent 70%)",
+                        background: "radial-gradient(circle, rgba(242,193,78,0.55), transparent 70%)",
                         animation: "contactFloatC 20s ease-in-out infinite",
                         translate: "-50% -50%",
                     }}
@@ -182,12 +175,12 @@ const ContactForm = () => {
                     className="pointer-events-none absolute inset-0"
                     style={{
                         backgroundImage:
-                            "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)",
+                            "linear-gradient(rgba(255,255,255,0.01) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.01) 1px, transparent 1px)",
                         backgroundSize: "64px 64px",
                         maskImage:
-                            "radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 75%)",
+                            "radial-gradient(ellipse 80% 70% at 50% 40%, #000 20%, transparent 50%)",
                         WebkitMaskImage:
-                            "radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 75%)",
+                            "radial-gradient(ellipse 80% 70% at 50% 40%, #000 20%, transparent 50%)",
                     }}
                 />
 
@@ -195,11 +188,8 @@ const ContactForm = () => {
                     <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-20">
                         {/* left column: heading + contact info */}
                         <div className="flex flex-col justify-center">
-                            <h1 className="font-['Space_Grotesk'] text-6xl font-semibold leading-none tracking-[-0.03em] text-white/80 sm:text-7xl">
-                                Let&#39;s{" "}
-                                <span className="bg-gradient-to-r from-[#8FCBFF] via-[#5EA8FF] to-[#3E7BFF] bg-clip-text text-transparent">
-                                    talk!
-                                </span>
+                            <h1 className="font-['Space_Grotesk'] text-6xl font-semibold leading-none tracking-[-0.03em] bg-gradient-to-r from-white via-[#cfe6ff] to-[#5EA8FF] bg-clip-text text-transparent sm:text-7xl">
+                                Let&#39;s Connect & Build Your Agent!
                             </h1>
 
                             <div className="mt-16 border-t border-white/10 pt-6">
@@ -217,7 +207,7 @@ const ContactForm = () => {
                                 <p className="text-[15px] text-[#5EA8FF]">Email:</p>
                                 <a
                                     href="mailto:hello@wewantagent.com"
-                                    className="mt-2 block text-3xl font-medium text-white transition-colors hover:text-[#5EA8FF] sm:text-4xl"
+                                    className="mt-2 block text-3xl font-medium text-white transition-colors hover:text-[#5EA8FF] sm:text-lg"
                                 >
                                     hello@wewantagent.com
                                 </a>
@@ -227,7 +217,7 @@ const ContactForm = () => {
                                 <p className="text-[15px] text-[#5EA8FF]">Phone:</p>
                                 <a
                                     href="tel:+923000000000"
-                                    className="mt-2 block text-3xl font-medium text-white transition-colors hover:text-[#5EA8FF] sm:text-4xl"
+                                    className="mt-2 block text-3xl font-medium text-white transition-colors hover:text-[#5EA8FF] sm:text-lg"
                                 >
                                     +92 300 0000000
                                 </a>
@@ -235,7 +225,7 @@ const ContactForm = () => {
                         </div>
 
                         {/* right column: form */}
-                        <div className="rounded-2xl border border-white/[0.12] *:first-letter:bg-white/[0.03] p-6 backdrop-blur-sm md:p-8">
+                        <div className="relative left-12 rounded-2xl border  border-white/[0.12] *:first-letter:bg-white/[0.03] p-6 backdrop-blur-sm md:p-8 ">
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                                     <div>
@@ -460,103 +450,7 @@ const ContactForm = () => {
                     }
                 `}</style>
             </section>
-            <footer className="text-white bg-black relative mt-10">
-                <div className="max-w-7xl  mx-auto px-6 lg:px-8 pt-10 border-t ">
-                    <div className="grid pb-12 grid-cols-1 md:grid-cols-6 gap-8">
-                        <div className="col-span-2 md:col-span-2">
-                            <div className="flex flex-col space-y-4">
-                                <div className="flex items-center space-x-2">
-                                    <Image
-                                        src="/assets/svg/home/logo.png"
-                                        alt="Company Logo"
-                                        width={140}
-                                        height={50}
-                                        className="object-contain"
-                                    />
-                                </div>
-                                <p className="text-sm text-gray-400 leading-relaxed">
-                                    We Want Agent builds custom AI automation solutions for real estate, healthcare, and accounting industries. From voice AI agents to workflow automation, we help businesses eliminate repetitive tasks and focus on growth
-                                </p>
-                                <div className="flex space-x-4 pt-4">
-                                    <Link href="#" className="text-gray-400 hover:text-white">
-                                        <Facebook className="w-5 h-5" />
-                                    </Link>
-                                    <Link href="#" className="text-gray-400 hover:text-white">
-                                        <Linkedin className="w-5 h-5" />
-                                    </Link>
-                                    <Link href="#" className="text-gray-400 hover:text-white">
-                                        <Instagram className="w-5 h-5" />
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <p className="text-xs uppercase font-semibold text-gray-400 mb-3 tracking-wider">
-                                Services
-                            </p>
-                            <div className="flex flex-col space-y-2">
-                                {[
-                                    { name: "AI Agent for Real Estate", href: "/services/realestateaiagent" },
-                                    { name: "AI Agent for Healthcare", href: "/services/healthcareautomation" },
-                                    { name: "Accounting AI Agent", href: "/services/bookkeepingai" },
-                                ].map((item, idx) => (
-                                    <Link
-                                        key={idx}
-                                        href={item.href}
-                                        className="text-sm hover:text-white transition duration-150"
-                                    >
-                                        {item.name}
-                                    </Link>
-                                ))}
-
-                            </div>
-                        </div>
-
-                        <div>
-                            <p className="text-xs uppercase font-semibold text-gray-400 mb-3 tracking-wider">
-                                Quick Links
-                            </p>
-                            <div className="flex flex-col space-y-2">
-                                <Link href="/automationexpert" className="text-sm hover:text-white transition duration-150">
-                                    About Us
-                                </Link>
-                                <Link href="/contact" className="text-sm hover:text-white transition duration-150">
-                                    Contact Us
-                                </Link>
-                            </div>
-                        </div>
-
-                        <div className="col-span-2">
-                            <p className="text-xs uppercase font-semibold text-gray-400 mb-3 tracking-wider">
-                                Sign up for Newsletter
-                            </p>
-                            <input
-                                type="email"
-                                placeholder="Enter your email..."
-                                className="w-full bg-gray-800 border border-gray-700 rounded-full py-2 px-4 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 mb-3 appearance-none"
-                            />
-                            <button className="w-full bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-full py-2 px-4 text-sm transition duration-200 mb-6">
-                                Subscribe
-                            </button>
-                        </div>
-                    </div>
-                    <div className="border-t  border-gray-800 mt-8 md:mt-12 py-6">
-                        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500">
-                            <div className="flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-1 mb-3 sm:mb-0">
-                                {["Privacy Policy", "Terms of Use", "Cookies Policy"].map((link, idx) => (
-                                    <a key={idx} href="#" className="hover:text-gray-300 transition">
-                                        {link}
-                                    </a>
-                                ))}
-                            </div>
-                            <div className="flex items-center gap-2 text-center sm:text-right">
-                                <span>Copyright 2025 © All rights reserved.</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <FooterSection/>
         </div>
     );
 }
