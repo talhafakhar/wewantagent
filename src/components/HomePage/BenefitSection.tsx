@@ -1,12 +1,11 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-import { EffectCoverflow, Navigation } from "swiper/modules";
+import { Autoplay, EffectCoverflow } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, useAnimation, easeOut, useScroll, useSpring, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import RobotSvg from "./RobotSvg";
@@ -56,8 +55,6 @@ const firstRowServices = services.slice(0, 3);
 const secondRowServices = services.slice(3, 6);
 
 const BenefitSection = () => {
-    const [swiperInstanceRow1, setSwiperInstanceRow1] = useState<SwiperType | null>(null);
-    const [swiperInstanceRow2, setSwiperInstanceRow2] = useState<SwiperType | null>(null);
     const controls = useAnimation();
     const { ref, inView } = useInView({
         triggerOnce: true,
@@ -68,15 +65,17 @@ const BenefitSection = () => {
         if (inView) controls.start("visible");
     }, [inView, controls]);
 
-    const handleSwiperInit = (
-        swiper: SwiperType,
-        setter: (swiper: SwiperType) => void
-    ) => {
-        setter(swiper);
+    const handleSwiperInit = (swiper: SwiperType) => {
         requestAnimationFrame(() => {
             swiper.update();
-            swiper.slideTo(swiper.activeIndex, 0);
+            swiper.slideTo(1, 0);
         });
+    };
+
+    const handleReachEnd = (swiper: SwiperType) => {
+        setTimeout(() => {
+            swiper.slideTo(0);
+        }, swiper.params.autoplay && typeof swiper.params.autoplay === "object" ? swiper.params.autoplay.delay : 2500);
     };
 
     // Scroll-driven depth parallax: text and robot drift at different rates
@@ -184,10 +183,16 @@ const BenefitSection = () => {
                             768: { slidesPerView: 2 },
                             1024: { slidesPerView: 3 },
                         }}
-                        modules={[EffectCoverflow, Navigation]}
+                        autoplay={{
+                            delay: 5000,
+                            disableOnInteraction: false,
+                            pauseOnMouseEnter: true,
+                        }}
+                        modules={[EffectCoverflow, Autoplay]}
                         observer={true}
                         observeParents={true}
-                        onSwiper={(swiper) => handleSwiperInit(swiper, setSwiperInstanceRow1)}
+                        onSwiper={handleSwiperInit}
+                        onReachEnd={handleReachEnd}
                     >
                         {firstRowServices.map((service, index) => (
                             <SwiperSlide key={index}>
@@ -219,25 +224,6 @@ const BenefitSection = () => {
                             </SwiperSlide>
                         ))}
                     </Swiper>
-
-                    <div className="-mt-0 flex items-center justify-center gap-6">
-                        <button
-                            type="button"
-                            aria-label="Previous card"
-                            onClick={() => swiperInstanceRow1?.slidePrev()}
-                            className="flex items-center justify-center w-12 h-12 rounded-full border border-white/10 bg-zinc-900 text-gray-300 transition-all duration-300 hover:bg-zinc-800 hover:border-primary/60 hover:text-white hover:shadow-[0_0_20px_rgba(94,168,255,0.35)]"
-                        >
-                            <ChevronLeft className="w-5 h-5" />
-                        </button>
-                        <button
-                            type="button"
-                            aria-label="Next card"
-                            onClick={() => swiperInstanceRow1?.slideNext()}
-                            className="flex items-center justify-center w-12 h-12 rounded-full border border-white/10 bg-zinc-900 text-gray-300 transition-all duration-300 hover:bg-zinc-800 hover:border-primary/60 hover:text-white hover:shadow-[0_0_20px_rgba(94,168,255,0.35)]"
-                        >
-                            <ChevronRight className="w-5 h-5" />
-                        </button>
-                    </div>
                 </motion.div>
 
                 <motion.div className="mt-12" style={{ y: cardsY }}>
@@ -260,10 +246,16 @@ const BenefitSection = () => {
                             768: { slidesPerView: 2 },
                             1024: { slidesPerView: 3 },
                         }}
-                        modules={[EffectCoverflow, Navigation]}
+                        autoplay={{
+                            delay: 5000,
+                            disableOnInteraction: false,
+                            pauseOnMouseEnter: true,
+                        }}
+                        modules={[EffectCoverflow, Autoplay]}
                         observer={true}
                         observeParents={true}
-                        onSwiper={(swiper) => handleSwiperInit(swiper, setSwiperInstanceRow2)}
+                        onSwiper={handleSwiperInit}
+                        onReachEnd={handleReachEnd}
                     >
                         {secondRowServices.map((service, index) => (
                             <SwiperSlide key={index}>
@@ -295,25 +287,6 @@ const BenefitSection = () => {
                             </SwiperSlide>
                         ))}
                     </Swiper>
-
-                    <div className="mt-6 flex items-center justify-center gap-6">
-                        <button
-                            type="button"
-                            aria-label="Previous card"
-                            onClick={() => swiperInstanceRow2?.slidePrev()}
-                            className="flex items-center justify-center w-12 h-12 rounded-full border border-white/10 bg-zinc-900 text-gray-300 transition-all duration-300 hover:bg-zinc-800 hover:border-primary/60 hover:text-white hover:shadow-[0_0_20px_rgba(94,168,255,0.35)]"
-                        >
-                            <ChevronLeft className="w-5 h-5" />
-                        </button>
-                        <button
-                            type="button"
-                            aria-label="Next card"
-                            onClick={() => swiperInstanceRow2?.slideNext()}
-                            className="flex items-center justify-center w-12 h-12 rounded-full border border-white/10 bg-zinc-900 text-gray-300 transition-all duration-300 hover:bg-zinc-800 hover:border-primary/60 hover:text-white hover:shadow-[0_0_20px_rgba(94,168,255,0.35)]"
-                        >
-                            <ChevronRight className="w-5 h-5" />
-                        </button>
-                    </div>
                 </motion.div>
                 <div className="mt-6 flex justify-center ">
                     <GlowButton shape="rect">Book a Free Consultation</GlowButton>

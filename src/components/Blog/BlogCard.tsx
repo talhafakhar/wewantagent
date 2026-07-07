@@ -28,12 +28,12 @@ const BlogCard: React.FC<BlogCardProps> = ({blog, id}) => {
             className="group relative bg-white/[0.04] backdrop-blur-2xl rounded-2xl overflow-hidden border border-white/10 transform-gpu transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(242,193,78,0.6),0_0_55px_rgba(242,193,78,0.35)]"
             style={{animation: `fadeInUp 0.6s ease-out ${id * 0.1}s both`}}>
             {imageUrl && (
-                <div className="relative overflow-hidden h-56 rounded-t-2xl isolate transform-gpu">
+                <div className="relative overflow-hidden h-56 rounded-t-2xl isolate transform-gpu [backface-visibility:hidden] [-webkit-backface-visibility:hidden]">
                     <Image
                         src={imageUrl}
                         alt={imageAlt}
                         fill
-                        className="object-cover transition-transform duration-700 ease-out will-change-transform transform-gpu group-hover:scale-110"
+                        className="object-cover rounded-t-2xl transition-transform duration-700 ease-out will-change-transform transform-gpu [backface-visibility:hidden] group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b0b] via-[#0b0b0b]/10 to-transparent"/>
                 </div>
