@@ -160,7 +160,7 @@ const ContactForm = () => {
                         animation: "contactFloatB 17s ease-in-out infinite",
                     }}
                 />
-                <div
+                {/* <div
                     data-parallax="0.1"
                     className="pointer-events-none absolute left-1/2 top-1/2 h-[720px] w-[720px] rounded-full blur-[60px]"
                     style={{
@@ -168,7 +168,7 @@ const ContactForm = () => {
                         animation: "contactFloatC 20s ease-in-out infinite",
                         translate: "-50% -50%",
                     }}
-                />
+                /> */}
 
                 {/* faint grid pattern */}
                 <div
@@ -188,7 +188,7 @@ const ContactForm = () => {
                     <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-20">
                         {/* left column: heading + contact info */}
                         <div className="flex flex-col justify-center">
-                            <h1 className="font-['Space_Grotesk'] text-6xl font-semibold leading-none tracking-[-0.03em] bg-gradient-to-r from-white via-[#cfe6ff] to-[#5EA8FF] bg-clip-text text-transparent sm:text-7xl">
+                            <h1 className="font-['Space_Grotesk'] text-6xl font-semibold leading-none tracking-[-0.03em] bg-gradient-to-r from-white via-[#f2c14e] to-[#4fd1a5]. bg-clip-text text-transparent sm:text-7xl">
                                 Let&#39;s Connect & Build Your Agent!
                             </h1>
 
@@ -358,7 +358,7 @@ const ContactForm = () => {
                                     <button
                                         type="submit"
                                         disabled={loading}
-                                        className="font-['Space_Grotesk'] flex items-center justify-between gap-3 rounded-full bg-[#5EA8FF] px-6 py-2.5 text-sm font-semibold text-[#07080c] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_34px_rgba(94,168,255,0.5)] disabled:opacity-60"
+                                        className="font-['Space_Grotesk'] flex items-center justify-between gap-3 rounded-full bg-[rgba(79,209,165,0.34)] px-6 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_34px_rgba(79,209,165,0.34)] disabled:opacity-60"
                                     >
                                         {loading ? 'Submitting...' : 'Submit'}
                                         {!loading && <Send className="h-4 w-4"/>}

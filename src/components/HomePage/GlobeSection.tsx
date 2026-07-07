@@ -33,9 +33,9 @@ export default function GlobeSection() {
                     initial={{ y: 30, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     transition={{ duration: 1, ease: "easeOut" }}
-                    className="text-4xl md:text-7xl text-white font-bold tracking-tight mb-4"
+                    className="text-4xl md:text-7xl bg-gradient-to-r from-white via-[#f2c14e] to-[#4fd1a5] bg-clip-text text-transparent font-bold tracking-tight mb-4"
                 >
-                    Transparent From<span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent font-bold"> Day One</span>
+                    Transparent From Day One
                 </motion.h2>
 
                 <motion.p
