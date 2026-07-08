@@ -11,6 +11,8 @@ interface HeroSectionProps {
     buttonHref?: string;
     imageSrc: string;
 width?: number;
+height?: number;
+imageClassName?: string;
 }
 const HeroSection: React.FC<HeroSectionProps> = ({
                                                      title,
@@ -18,7 +20,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                                                      buttonText,
                                                      buttonHref = "/contact",
                                                      imageSrc,
-                                                     width
+                                                     width,
+                                                     height,
+                                                     imageClassName = ""
                                                  }) => {
     const container = {
         hidden: { opacity: 0 },
@@ -55,8 +59,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                     animate="show"
                     className="flex-1 flex flex-col justify-center items-start max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8"
                 >
-                    <div className="flex md:flex-row flex-col gap-5 items-center justify-center md:justify-between">
-                        <div className="w-full md:w-1/2">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center w-full">
+                        <div className="w-full">
                             <motion.h1
                                 variants={item}
                                 className="text-5xl md:text-7xl font-semibold leading-tight max-w-4xl"
@@ -75,16 +79,20 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
                         <motion.div
                             variants={item}
-                            className="w-full md:w-1/2 flex justify-center md:justify-end"
+                            className="w-full flex justify-center md:justify-end"
                         >
-                            <Image
-                                src={imageSrc}
-                                alt={title}
-                                width={width ? width : 500}
-                                height={500}
-                                priority
-                                loading="eager"
-                            />
+                            <div className={imageClassName}>
+                                <Image
+                                    src={imageSrc}
+                                    alt={title}
+                                    width={width ? width : 400}
+                                    height={height ? height : 600}
+                                    className="h-auto max-w-full"
+                                    style={{ width: width ? width : 400 }}
+                                    priority
+                                    loading="eager"
+                                />
+                            </div>
                         </motion.div>
                     </div>
                 </motion.div>

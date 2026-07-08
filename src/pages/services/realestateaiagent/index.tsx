@@ -214,6 +214,8 @@ export default function RealEstateAiAgent() {
                     description="Never miss another lead. Our real estate automation handles calls, emails, follow-ups, and scheduling instantly for you."
                     buttonText="Get Your AI Agent"
                     imageSrc="/assets/services/realEstate.webp"
+                    width={440}
+                    height={536}
                 />
                 <BusinessSolutionsSection
                     heading="Custom AI Agents Built"

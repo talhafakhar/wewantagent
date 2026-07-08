@@ -207,7 +207,8 @@ export default function BookkeepingAi() {
                     description=" Stop manual data entry forever. Our accounting automation handles invoices, expenses, reconciliation, reporting automatically for firms"
                     buttonText="Get Your AI Agent"
                     imageSrc="/assets/services/bookkeepingAgent.webp"
-                    width={700}
+                    width={440}
+                    height={536}
                 />
                 <BusinessSolutionsSection
                     heading="AI Agents Built For Accounting Firms"
