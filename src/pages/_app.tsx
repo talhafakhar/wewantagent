@@ -2,12 +2,10 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { useEffect } from "react";
-import useGsapSmoothScroll from "@/hooks/useGsapSmoothScroll";
 import ConsentBanner from "@/components/Common/CookieConsent";
 import CustomCursor from "@/components/CustomCursor";
 import Navbar from "@/components/Header/Navbar";
 export default function App({ Component, pageProps }: AppProps) {
-    useGsapSmoothScroll();
     useEffect(() => {
         const getParameterByName = (name: string) => {
             const url = window.location.href;
@@ -30,11 +28,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <>
             <CustomCursor />
             <Navbar />
-            <div id="smooth-wrapper">
-                <div id="smooth-content">
-                    <Component {...pageProps} />
-                </div>
-            </div>
+            <Component {...pageProps} />
             <ConsentBanner />
         </>
     );

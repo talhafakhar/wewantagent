@@ -31,8 +31,7 @@ const CustomCursor = () => {
     return (
         <div
             className="cursor-example fixed top-0 left-0 w-6 h-6
-      pointer-events-none z-[9999]
-      transition-transform duration-100 ease-out"
+      pointer-events-none z-[9999]"
         >
             <Image
                 src="/assets/home/logo-icon.png"

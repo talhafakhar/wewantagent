@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import { motion, Variants } from "framer-motion";
+import gsap from "gsap";
 import GlowButton from "@/components/ui/GlowButton";
 
 const MARQUEE_ITEMS = [
@@ -32,30 +33,45 @@ const HeroSection = () => {
     const sectionRef = useRef<HTMLElement>(null);
 
     // Scroll-driven parallax for the ambient background blobs - offset scales with
-    // how far the section's center sits from the viewport's center.
+    // how far the section's center sits from the viewport's center. Driven by
+    // ScrollTrigger (shared scroll listener across the page) instead of a
+    // per-component "scroll" listener + getBoundingClientRect on every tick.
     useEffect(() => {
         const section = sectionRef.current;
         if (!section) return;
         const blobs = Array.from(
             section.querySelectorAll<HTMLElement>("[data-parallax]")
         );
+        if (blobs.length === 0) return;
 
-        const onScroll = () => {
-            const vh = window.innerHeight;
-            const rect = section.getBoundingClientRect();
-            const center = rect.top + rect.height / 2 - vh / 2;
-            blobs.forEach((blob) => {
-                const speed = parseFloat(blob.dataset.parallax || "0");
-                blob.style.transform = `translate3d(0, ${(-center * speed).toFixed(1)}px, 0)`;
+        let trigger: any;
+        let cancelled = false;
+
+        (async () => {
+            const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+            gsap.registerPlugin(ScrollTrigger);
+            if (cancelled) return;
+
+            const setters = blobs.map((blob) => ({
+                setY: gsap.quickTo(blob, "y", { duration: 0.5, ease: "power3.out" }),
+                speed: parseFloat(blob.dataset.parallax || "0"),
+            }));
+
+            trigger = ScrollTrigger.create({
+                trigger: section,
+                start: "top bottom",
+                end: "bottom top",
+                onUpdate: (self) => {
+                    const range = self.end - self.start;
+                    const center = range * (0.5 - self.progress);
+                    setters.forEach(({ setY, speed }) => setY(-center * speed));
+                },
             });
-        };
+        })();
 
-        onScroll();
-        window.addEventListener("scroll", onScroll, { passive: true });
-        window.addEventListener("resize", onScroll, { passive: true });
         return () => {
-            window.removeEventListener("scroll", onScroll);
-            window.removeEventListener("resize", onScroll);
+            cancelled = true;
+            trigger?.kill();
         };
     }, []);
 

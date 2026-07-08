@@ -1,6 +1,6 @@
 "use client";
-import React, { RefObject, useEffect } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import React, { RefObject, useEffect, useRef } from "react";
+import gsap from "gsap";
 
 interface ScrollGlowProps {
     target: RefObject<HTMLElement | null>;
@@ -15,44 +15,62 @@ export default function ScrollGlow({
     speed = 0.15,
     color = "rgba(94,168,255,0.28)",
 }: ScrollGlowProps) {
-    const rawY = useMotionValue(0);
-    const y = useSpring(rawY, { stiffness: 60, damping: 20, mass: 0.6 });
+    const glowRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        if (!speed) return;
         const el = target.current;
-        if (!el) return;
+        const glow = glowRef.current;
+        if (!el || !glow) return;
 
-        const onScroll = () => {
-            const vh = window.innerHeight;
-            const rect = el.getBoundingClientRect();
-            const center = rect.top + rect.height / 2 - vh / 2;
-            rawY.set(-center * speed);
-        };
+        let trigger: any;
+        let cancelled = false;
 
-        onScroll();
-        window.addEventListener("scroll", onScroll, { passive: true });
-        window.addEventListener("resize", onScroll, { passive: true });
+        (async () => {
+            const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+            gsap.registerPlugin(ScrollTrigger);
+            if (cancelled) return;
+
+            // Mirrors the previous getBoundingClientRect-based formula (distance of
+            // el's center from viewport center) but derives it from ScrollTrigger's
+            // own cached start/end + progress instead of reading layout every scroll
+            // tick, so it shares ScrollTrigger's single batched scroll listener
+            // instead of adding one more per ScrollGlow instance on the page.
+            const setY = gsap.quickTo(glow, "y", {
+                duration: 0.5,
+                ease: "power3.out",
+            });
+
+            trigger = ScrollTrigger.create({
+                trigger: el,
+                start: "top bottom",
+                end: "bottom top",
+                onUpdate: (self) => {
+                    const range = self.end - self.start;
+                    const center = range * (0.5 - self.progress);
+                    setY(-center * speed);
+                },
+            });
+        })();
+
         return () => {
-            window.removeEventListener("scroll", onScroll);
-            window.removeEventListener("resize", onScroll);
+            cancelled = true;
+            trigger?.kill();
         };
-    }, [target, speed, rawY]);
+    }, [target, speed]);
 
     return (
         <div
             className={`pointer-events-none absolute overflow-visible ${positionClassName}`}
         >
-            <motion.div
-                style={{ y }}
-                className="h-full w-full rounded-full blur-[80px]"
-            >
+            <div ref={glowRef} className="h-full w-full rounded-full blur-[80px]">
                 <div
                     className="h-full w-full rounded-full"
                     style={{
                         background: `radial-gradient(circle, ${color}, transparent 70%)`,
                     }}
                 />
-            </motion.div>
+            </div>
         </div>
     );
 }
