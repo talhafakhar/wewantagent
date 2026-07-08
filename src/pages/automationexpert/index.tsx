@@ -15,14 +15,11 @@ export default function AutomationExpert() {
                 title="Automation Expert Team - Custom AI Solutions | We Want Agent"
                 description="Meet our automation expert team building custom AI solutions."
                 canonical="https://wewantagent.com/automationexpert"
-                additionalMetaTags={[
-                    { name: 'robots', content: 'index, follow' }
-                ]}
                 openGraph={{
                     url: "https://wewantagent.com/automationexpert",
                     images: [
                         {
-                            url: "https://wewantagent.com/images/automation-expert-og.jpg",
+                            url: "https://wewantagent.com/assets/home/logo white.png",
                             width: 1200,
                             height: 630
                         }

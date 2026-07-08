@@ -189,7 +189,7 @@ export default function HealthcareAutomation() {
                     description: "Health care automation with healthcare agents for scheduling, intake, insurance verification, and patient communication. Automation in health care that reduces admin burden",
                     images: [
                         {
-                            url: "https://wewantagent.com/images/healthcareautomation-og.jpg",
+                            url: "https://wewantagent.com/assets/home/logo white.png",
                             width: 1200,
                             height: 630,
                             alt: "Healthcare AI Agent by We Want Agent",

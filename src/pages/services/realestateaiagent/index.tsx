@@ -174,7 +174,7 @@ export default function RealEstateAiAgent() {
     const description =
         "Real estate ai agent automation for agents, brokers, and property managers. Voice AI, lead qualification, listing management, and marketing automation for real estate agents";
     const url = "https://wewantagent.com/services/realestateaiagent";
-    const imageUrl = "https://wewantagent.com/images/realestate-og.jpg";
+    const imageUrl = "https://wewantagent.com/assets/home/logo white.png";
 
     return (
         <>

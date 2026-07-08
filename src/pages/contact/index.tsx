@@ -9,14 +9,11 @@ export default function AboutUsPage() {
                 title="Contact Us | We Want Agent"
                 description="Get in touch with We Want Agent to discuss AI automation."
                 canonical="https://wewantagent.com/contact"
-                additionalMetaTags={[
-                    { name: 'robots', content: 'index, follow' }
-                ]}
                 openGraph={{
                     url: "https://wewantagent.com/contact",
                     images: [
                         {
-                            url: "https://wewantagent.com/images/contact-og.jpg",
+                            url: "https://wewantagent.com/assets/home/logo white.png",
                             width: 1200,
                             height: 630
                         }

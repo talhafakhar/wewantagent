@@ -53,9 +53,6 @@ export default function Home({ initialBlogs, pagination }: Props) {
                 title="We Want Agent | The Custom Build AI Automation Agency"
                 description="We Want Agent is an AI automation agency building custom AI agents."
                 canonical="https://wewantagent.com/"
-                additionalMetaTags={[
-                    { name: 'robots', content: 'index, follow' }
-                ]}
                 openGraph={{
                     url: "https://wewantagent.com/",
                     images: [

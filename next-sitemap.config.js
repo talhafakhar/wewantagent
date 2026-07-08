@@ -9,7 +9,6 @@ module.exports = {
         '/_error',
         '/404',
         '/500',
-        '/about-us',
         '/blogs',
         '/blogs/[slug]',
         '/server-sitemap.xml',
@@ -17,7 +16,7 @@ module.exports = {
     ],
     robotsTxtOptions: {
         policies: [
-            { userAgent: '*', allow: '/', disallow: [ '/api/', '/_next/', '/admin/','/about-us']},
+            { userAgent: '*', allow: '/', disallow: [ '/api/', '/_next/', '/admin/']},
             { userAgent: 'GPTBot', allow: '/' },
             { userAgent: 'ChatGPT-User', allow: '/' },
             { userAgent: 'CCBot', allow: '/' },

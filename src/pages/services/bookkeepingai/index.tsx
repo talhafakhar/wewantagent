@@ -180,7 +180,7 @@ export default function BookkeepingAi() {
                     description: "Bookkeeping AI agent for firms. AI agent for accounting handles invoices, reconciliation, reporting. Accounting workflow automation that eliminates manual work",
                     images: [
                         {
-                            url: "https://wewantagent.com/images/bookkeepingai-og.jpg",
+                            url: "https://wewantagent.com/assets/home/logo white.png",
                             width: 1200,
                             height: 630,
                             alt: "Bookkeeping AI Agent by We Want Agent",
