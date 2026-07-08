@@ -5,7 +5,9 @@ import { useEffect } from "react";
 import ConsentBanner from "@/components/Common/CookieConsent";
 import CustomCursor from "@/components/CustomCursor";
 import Navbar from "@/components/Header/Navbar";
+import useWheelScrollSpeed from "@/hooks/useWheelScrollSpeed";
 export default function App({ Component, pageProps }: AppProps) {
+    useWheelScrollSpeed(0.7);
     useEffect(() => {
         const getParameterByName = (name: string) => {
             const url = window.location.href;
