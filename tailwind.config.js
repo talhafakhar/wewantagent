@@ -35,8 +35,8 @@ module.exports = {
             animation: {
                 "spin-slow": "spin 20s linear infinite",
                 "spin-reverse-slower": "spinReverse 30s linear infinite",
-                "marquee-right": "marqueeRight 50s linear infinite",
-                "marquee-left": "marqueeLeft 50s linear infinite",
+                "marquee-right": "marqueeRight 90s linear infinite",
+                "marquee-left": "marqueeLeft 90s linear infinite",
             },
         },
     },

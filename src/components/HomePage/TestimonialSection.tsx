@@ -4,7 +4,7 @@ import ScrollGlow from "@/components/ui/ScrollGlow";
 
 export default function TestimonialsSection() {
     const sectionRef = useRef<HTMLElement>(null);
-    const testimonials = [
+    const testimonialsTop = [
         {
             title: "Regional Brokerage Real Estate",
             industry: "Real Estate",
@@ -24,6 +24,49 @@ export default function TestimonialsSection() {
             title: "Small Business Bookkeeping Firm",
             industry: "Bookkeeping",
             text: "Onboarding calls and reconciliation follow-ups are fully automated, cutting admin time by 15 hours a week.",
+        },
+        {
+            title: "Boutique Law Firm Legal",
+            industry: "Legal",
+            text: "Client intake and scheduling are now fully automated, giving our paralegals back 10+ hours a week for billable work.",
+        },
+        {
+            title: "Home Services Company Field Service",
+            industry: "Field Service",
+            text: "Our custom AI agent handles dispatch confirmations and rescheduling instantly, keeping every technician on time.",
+        },
+    ];
+
+    const testimonialsBottom = [
+        {
+            title: "E-commerce Retailer Retail",
+            industry: "Retail",
+            text: "Order status and return inquiries are resolved instantly, cutting our support ticket backlog by 70% in the first month.",
+        },
+        {
+            title: "Dental Group Practice Healthcare",
+            industry: "Healthcare",
+            text: "Appointment reminders and rebooking run automatically now, freeing our front desk to focus on patients in the chair.",
+        },
+        {
+            title: "Independent Insurance Agency Insurance",
+            industry: "Insurance",
+            text: "Renewal calls happen on schedule every time, and our close rate on policy renewals climbed 30% in one quarter.",
+        },
+        {
+            title: "Property Management Group Real Estate",
+            industry: "Real Estate",
+            text: "Maintenance requests are logged and routed automatically around the clock, so nothing falls through the cracks overnight.",
+        },
+        {
+            title: "Auto Repair Shop Automotive",
+            industry: "Automotive",
+            text: "Estimate follow-ups that used to slip through the cracks now happen automatically, lifting our approval rate by 25%.",
+        },
+        {
+            title: "Regional CPA Group Finance",
+            industry: "Finance",
+            text: "Tax season intake calls are triaged and scheduled by our custom agent, letting the team focus purely on client work.",
         },
     ];
 
@@ -46,7 +89,7 @@ export default function TestimonialsSection() {
                 <div className="w-full mt-10 flex flex-col gap-6 overflow-hidden">
                     <div className="marquee-row overflow-hidden">
                         <div className="marquee-track flex w-max animate-marquee-right">
-                            {[...testimonials, ...testimonials].map((t, i) => (
+                            {[...testimonialsTop, ...testimonialsTop].map((t, i) => (
                                 <div key={i} className="shrink-0 w-[280px] sm:w-[320px] mr-6">
                                     <div className="group h-full min-h-[160px] border border-white/10 rounded-xl max-sm:max-w-sm max-sm:mx-auto p-6 bg-gradient-to-b from-white/[0.06] to-white/[0.015] backdrop-blur-sm shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-500 hover:border-white/20 hover:from-white/10 hover:to-white/[0.03]">
                                         <div>
@@ -68,7 +111,7 @@ export default function TestimonialsSection() {
 
                     <div className="marquee-row overflow-hidden">
                         <div className="marquee-track flex w-max animate-marquee-left">
-                            {[...testimonials, ...testimonials].map((t, i) => (
+                            {[...testimonialsBottom, ...testimonialsBottom].map((t, i) => (
                                 <div key={i} className="shrink-0 w-[280px] sm:w-[320px] mr-6">
                                     <div className="group h-full min-h-[160px] border border-white/10 rounded-xl max-sm:max-w-sm max-sm:mx-auto p-6 bg-gradient-to-b from-white/[0.06] to-white/[0.015] backdrop-blur-sm shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-500 hover:border-white/20 hover:from-white/10 hover:to-white/[0.03]">
                                         <div>
