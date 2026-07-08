@@ -1,11 +1,10 @@
 import React, {JSX} from "react";
-import Link from "next/link";
 import Image from "next/image";
 import {motion} from "framer-motion";
 import {BlogPost, RichTextBlock} from "@/types/blog";
 import FooterSection from "@/components/Footer/footer";
 import GlowButton from "@/components/ui/GlowButton";
-import {ArrowLeft, Calendar, RefreshCw} from "lucide-react";
+import {Calendar, RefreshCw} from "lucide-react";
 
 interface BlogDetailProps {
     blog: BlogPost | null;
@@ -211,16 +210,6 @@ const BlogDetail: React.FC<BlogDetailProps> = ({blog}) => {
                         animate="animate"
                     >
                         <div className="max-w-5xl mx-auto px-6 lg:px-8 pt-36 pb-20">
-                            <motion.div variants={fadeInUp} className="mb-8">
-                                <Link
-                                    href="/blogs"
-                                    className="inline-flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-[#f2c14e] transition-colors"
-                                >
-                                    <ArrowLeft className="w-4 h-4"/>
-                                    Back to Blogs
-                                </Link>
-                            </motion.div>
-
                             <motion.header className="mb-12" variants={fadeInUp}>
                                 {blog.tags && (
                                     <motion.div className="flex flex-wrap gap-1.5 mb-6" variants={fadeInUp}>
