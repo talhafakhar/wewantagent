@@ -141,7 +141,7 @@ const HeroSection = () => {
                             animation: "heroPulseGlow 2s ease-in-out infinite",
                         }}
                     />
-                    <span className="font-['Space_Mono'] text-xs uppercase tracking-[2px] bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                    <span className="font-['Space_Grotesk'] text-xs uppercase tracking-[2px] bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
                         AI Automation Agency
                     </span>
                 </motion.div>
@@ -198,7 +198,7 @@ const HeroSection = () => {
                     {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((text, i) => (
                         <span
                             key={i}
-                            className="whitespace-nowrap font-['Space_Mono'] text-xs uppercase tracking-[2px] text-[#6b6f80]"
+                            className="whitespace-nowrap font-['Space_Grotesk'] text-xs uppercase tracking-[2px] text-[#6b6f80]"
                         >
                             {text}
                         </span>

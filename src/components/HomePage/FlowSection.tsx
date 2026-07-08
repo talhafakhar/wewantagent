@@ -60,7 +60,7 @@ const OrbitAnimation: React.FC = () => {
     const sectionRef = useRef<HTMLDivElement | null>(null);
     const imageExt: Record<string, string> = {
         AssemblyAI: "svg",
-        aws: "jpeg",
+        aws: "webp",
         claude: "svg",
         clickup: "svg",
         deepseek: "svg",
@@ -69,13 +69,13 @@ const OrbitAnimation: React.FC = () => {
         fallback: "svg",
         flask: "svg",
         gemini: "svg",
-        Gmail: "jpeg",
+        Gmail: "webp",
         googlDocs: "svg",
         "google-sheet": "svg",
         GoogleDrive: "svg",
         gpt: "svg",
-        Grafana: "jpeg",
-        LangChain: "jpeg",
+        Grafana: "webp",
+        LangChain: "webp",
         logo: "svg",
         make: "svg",
         mesha: "svg",
@@ -84,11 +84,11 @@ const OrbitAnimation: React.FC = () => {
         Outlook: "svg",
         PostgreSQL: "svg",
         Python: "svg",
-        Sentry: "jpeg",
+        Sentry: "webp",
         slack: "svg",
         trello: "svg",
-        titan: "jpeg",
-        Twilio: "jpeg",
+        titan: "webp",
+        Twilio: "webp",
         websocket: "svg",
     };
 
@@ -146,7 +146,7 @@ const OrbitAnimation: React.FC = () => {
                         className="text-center md:text-left"
                     >
                         <Image
-                            src="/assets/home/chatbot.png"
+                            src="/assets/home/chatbot.webp"
                             alt="AI Chatbot"
                             width={500}
                             height={500}
