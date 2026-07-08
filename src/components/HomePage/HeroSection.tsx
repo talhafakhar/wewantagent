@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import { motion, Variants } from "framer-motion";
-import Link from "next/link";
 import GlowButton from "@/components/ui/GlowButton";
 
 const MARQUEE_ITEMS = [
@@ -32,7 +31,7 @@ const item: Variants = {
 const HeroSection = () => {
     const sectionRef = useRef<HTMLElement>(null);
 
-    // Scroll-driven parallax for the ambient background blobs — offset scales with
+    // Scroll-driven parallax for the ambient background blobs - offset scales with
     // how far the section's center sits from the viewport's center.
     useEffect(() => {
         const section = sectionRef.current;
