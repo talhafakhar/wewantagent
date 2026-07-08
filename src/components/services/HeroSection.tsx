@@ -8,6 +8,7 @@ interface HeroSectionProps {
     title: string;
     description: string;
     buttonText: string;
+    buttonHref?: string;
     imageSrc: string;
 width?: number;
 }
@@ -15,6 +16,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                                                      title,
                                                      description,
                                                      buttonText,
+                                                     buttonHref = "/contact",
                                                      imageSrc,
                                                      width
                                                  }) => {
@@ -67,7 +69,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                                 {description}
                             </motion.p>
                             <div className="mt-10">
-                                <GlowButton shape="rect">{buttonText}</GlowButton>
+                                <GlowButton href={buttonHref} shape="rect">{buttonText}</GlowButton>
                             </div>
                         </div>
 

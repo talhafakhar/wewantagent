@@ -228,7 +228,7 @@ export default function HealthcareAutomation() {
                 <StatsSection
                     heading="What We Automate For You"
                     stats={stats}
-                    buttonText="See Full Capabilities"
+                    buttonText="Know Our Full Capabilities"
                 />
                 <IndustrySolutionsSection
                     heading="Automation In Health Care Every Practice Type"

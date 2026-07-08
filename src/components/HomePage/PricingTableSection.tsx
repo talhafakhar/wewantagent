@@ -77,7 +77,7 @@ const PricingSection = () => {
 
     const sectionRef = useRef<HTMLElement>(null);
     return (
-        <section ref={sectionRef} className="relative flex flex-col items-center justify-center overflow-x-hidden text-white  py-20">
+        <section id="pricing" ref={sectionRef} className="relative flex flex-col items-center justify-center overflow-x-hidden text-white  py-20">
             <ScrollGlow
                 target={sectionRef}
                 positionClassName="left-1/2 top-0 h-[560px] w-[900px] -translate-x-1/2"
@@ -140,7 +140,7 @@ const PricingSection = () => {
                                 </p>
 
                                 <div className="mt-6">
-                                    <GlowButton href="#" shape="rect" className="w-full" animateGlow={false}>
+                                    <GlowButton href="/contact" shape="rect" className="w-full" animateGlow={false}>
                                         <span className="bg-gradient-to-r from-white to-[#f2c14e] bg-clip-text text-transparent">
                                             {plan.cta}
                                         </span>

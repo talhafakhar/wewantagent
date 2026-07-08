@@ -227,7 +227,7 @@ export default function RealEstateAiAgent() {
                 <StatsSection
                     heading="What We Automate For You"
                     stats={stats}
-                    buttonText="See Full Capabilities"
+                    buttonText="Know Our Full Capabilities"
                 />
                 <IndustrySolutionsSection
                     heading="Real Estate Automation Across Every"

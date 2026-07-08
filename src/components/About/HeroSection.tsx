@@ -59,7 +59,7 @@ const HeroSection = () => {
                         </motion.p>
 
                         <motion.div variants={item} className="mt-10">
-                            <GlowButton shape="rect">Schedule Free Call</GlowButton>
+                            <GlowButton href="/contact" shape="rect">Schedule Free Call</GlowButton>
                         </motion.div>
                     </div>
                 </motion.div>

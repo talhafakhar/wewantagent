@@ -47,7 +47,7 @@ export default function BannerSection({text, subtext, lastText}: BannerSectionPr
                         viewport={{ once: true }}
                         className="mt-8"
                     >
-                        <GlowButton shape="rect">Book your call</GlowButton>
+                        <GlowButton href="/contact" shape="rect">Book your call</GlowButton>
                     </motion.div>
                 </motion.div>
             </div>

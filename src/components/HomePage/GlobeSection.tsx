@@ -60,7 +60,7 @@ export default function GlobeSection() {
                     <ArrowDown className="w-8 h-8 md:w-10 md:h-10 text-white" />
                 </motion.div>
                 <div className="mt-6 flex justify-center translate-y-0">
-                    <GlowButton shape="rect">See Our Pricing</GlowButton>
+                    <GlowButton href="#pricing" shape="rect">See Our Pricing</GlowButton>
                 </div>
             </div>
         </section>

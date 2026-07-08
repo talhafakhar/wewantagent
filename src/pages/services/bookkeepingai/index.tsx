@@ -220,7 +220,7 @@ export default function BookkeepingAi() {
                 <StatsSection
                     heading="What We Automate For You"
                     stats={stats}
-                    buttonText="See Full Capabilities"
+                    buttonText="Know Our Full Capabilities"
                 />
                 <IndustrySolutionsSection
                     heading="Bookkeeping AI For Every Business Type"

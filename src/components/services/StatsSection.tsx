@@ -13,11 +13,13 @@ interface StatsSectionProps {
     heading: string;
     stats: StatItem[];
     buttonText?: string;
+    buttonHref?: string;
 }
 const WhatWeDo: React.FC<StatsSectionProps> = ({
                                                        heading,
                                                        stats,
                                                        buttonText,
+                                                       buttonHref = "/contact",
 
                                                    }) => {
     const fadeUp = {
@@ -66,8 +68,8 @@ const WhatWeDo: React.FC<StatsSectionProps> = ({
                 </div>
 
                 {buttonText && (
-                    <div className="mt-10 flex justify-center">
-                        <GlowButton shape="rect">{buttonText}</GlowButton>
+                    <div className="mt-16 flex justify-center">
+                        <GlowButton href={buttonHref} shape="rect">{buttonText}</GlowButton>
                     </div>
                 )}
             </div>

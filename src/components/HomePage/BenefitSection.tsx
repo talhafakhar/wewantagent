@@ -289,7 +289,7 @@ const BenefitSection = () => {
                     </Swiper>
                 </motion.div>
                 <div className="mt-6 flex justify-center ">
-                    <GlowButton shape="rect">Book a Free Consultation</GlowButton>
+                    <GlowButton href="/contact" shape="rect">Book a Free Consultation</GlowButton>
 
                 </div>
 

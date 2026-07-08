@@ -129,7 +129,7 @@ export default function FaqSection() {
                     viewport={{ once: true }}
                     className="mt-16 flex justify-center"
                 >
-                    <GlowButton shape="rect">Book a free consultation</GlowButton>
+                    <GlowButton href="/contact" shape="rect">Book a free consultation</GlowButton>
                 </motion.div>
             </div>
         </section>

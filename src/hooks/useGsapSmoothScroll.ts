@@ -1,8 +1,11 @@
 
 "use client";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 import gsap from "gsap";
 export default function useGsapSmoothScroll() {
+    const router = useRouter();
+
     useEffect(() => {
         let smoother: any;
         let resizeObserver: ResizeObserver | undefined;
@@ -54,13 +57,31 @@ export default function useGsapSmoothScroll() {
             }
         };
         const timeoutId = setTimeout(initSmoothScroll, 100);
+
+        // ScrollSmoother owns scroll position via a transform on #smooth-content,
+        // independent of native scrollTop. Next.js swaps the routed page in place
+        // without resetting that transform, so client-side navigation would
+        // otherwise land the new page mid-scroll. Snap both the smoother and the
+        // native scroll position back to the top on every route change, unless
+        // navigating to an in-page hash (e.g. "#pricing").
+        const resetScroll = (url: string) => {
+            const [, hash] = url.split("#");
+            if (hash) return;
+            if (smoother) {
+                smoother.scrollTop(0);
+            }
+            window.scrollTo(0, 0);
+        };
+        router.events.on("routeChangeComplete", resetScroll);
+
         return () => {
             cancelled = true;
             clearTimeout(timeoutId);
             if (refreshTimeout) clearTimeout(refreshTimeout);
             resizeObserver?.disconnect();
+            router.events.off("routeChangeComplete", resetScroll);
             if (smoother) smoother.kill();
         };
-    }, []);
+    }, [router.events]);
     return null;
 }
