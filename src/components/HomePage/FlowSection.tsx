@@ -101,8 +101,11 @@ const OrbitAnimation: React.FC = () => {
         width: number;
         height: number;
     }) => {
+        const [errored, setErrored] = React.useState(false);
         const ext = imageExt[name] || "svg";
-        const src = `/assets/svg/home/${name}.${ext}`;
+        const src = errored
+            ? "/assets/svg/home/fallback.svg"
+            : `/assets/svg/home/${name}.${ext}`;
 
         return (
             <Image
@@ -112,6 +115,7 @@ const OrbitAnimation: React.FC = () => {
                 height={height}
                 unoptimized
                 className="rounded-full"
+                onError={() => setErrored(true)}
             />
         );
     };
@@ -227,6 +231,8 @@ const OrbitAnimation: React.FC = () => {
                                 "mongodb",
                                 "titan",
                                 "websocket",
+                                "deepseek",
+                                "flask",
                             ].map((name, i) => (
                                 <div
                                     key={name}
@@ -234,8 +240,8 @@ const OrbitAnimation: React.FC = () => {
                                     style={{
                                         top: "50%",
                                         left: "50%",
-                                        transform: `rotate(${(i * 360) / 9}deg) translate(140px) rotate(-${
-                                            (i * 360) / 9
+                                        transform: `rotate(${(i * 360) / 11}deg) translate(140px) rotate(-${
+                                            (i * 360) / 11
                                         }deg) translate(-50%, -50%)`,
                                     }}
                                 >
@@ -249,15 +255,15 @@ const OrbitAnimation: React.FC = () => {
                             transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                             className="absolute w-[180px] h-[180px] rounded-full border border-white/50"
                         >
-                            {["aws", "Twilio", "AssemblyAI", "Sentry", "Grafana"].map((name, i) => (
+                            {["aws", "Twilio", "AssemblyAI", "Sentry", "Grafana", "ElevenLabs"].map((name, i) => (
                                 <div
                                     key={name}
                                     className="absolute flex items-center justify-center"
                                     style={{
                                         top: "50%",
                                         left: "50%",
-                                        transform: `rotate(${(i * 360) / 5}deg) translate(90px) rotate(-${
-                                            (i * 360) / 5
+                                        transform: `rotate(${(i * 360) / 6}deg) translate(90px) rotate(-${
+                                            (i * 360) / 6
                                         }deg) translate(-50%, -50%)`,
                                     }}
                                 >
