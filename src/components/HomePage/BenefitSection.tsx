@@ -78,9 +78,6 @@ const BenefitSection = () => {
         }, swiper.params.autoplay && typeof swiper.params.autoplay === "object" ? swiper.params.autoplay.delay : 2500);
     };
 
-    // Scroll-driven depth parallax: text and robot drift at different rates
-    // as the section moves through the viewport, spring-smoothed for a slow,
-    // weighty feel rather than a 1:1 scroll-linked snap.
     const sectionRef = useRef<HTMLElement>(null);
     const { scrollYProgress } = useScroll({
         target: sectionRef,

@@ -7,7 +7,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
     try {
         const {
-            fullName,
+            firstName,
+            lastName,
             email,
             phone,
             companyName,
@@ -15,6 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             companySize,
             message,
         } = req.body;
+        const fullName = `${firstName} ${lastName}`.trim();
 
         const htmlContent = `
       <div style="font-family: 'Segoe UI', Roboto, Arial, sans-serif; background-color: #f5f6fa; padding: 40px 0;">
