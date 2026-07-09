@@ -12,17 +12,15 @@ const MARQUEE_ITEMS = [
 ];
 
 const container: Variants = {
-    hidden: { opacity: 0 },
+    hidden: {},
     show: {
-        opacity: 1,
         transition: { staggerChildren: 0.15, delayChildren: 0.15 },
     },
 };
 
 const item: Variants = {
-    hidden: { opacity: 0, y: 20, filter: "blur(8px)" },
+    hidden: { y: 20, filter: "blur(8px)" },
     show: {
-        opacity: 1,
         y: 0,
         filter: "blur(0px)",
         transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
@@ -141,14 +139,14 @@ const HeroSection = () => {
                             animation: "heroPulseGlow 2s ease-in-out infinite",
                         }}
                     />
-                    <span className="font-['Space_Grotesk'] text-xs uppercase tracking-[2px] bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                    <span className="font-heading text-xs uppercase tracking-[2px] bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
                         AI Automation Agency
                     </span>
                 </motion.div>
 
                 <motion.h1
                     variants={item}
-                    className="mb-6 font-['Space_Grotesk'] text-[clamp(44px,8vw,92px)] font-semibold leading-[0.98] tracking-[-0.035em] text-white/80"
+                    className="mb-6 font-heading text-[clamp(44px,8vw,92px)] font-semibold leading-[0.98] tracking-[-0.035em] text-white/80"
                 >
                     Build Custom AI Agents That{" "}
                     <span className="bg-gradient-to-r from-[#8FCBFF] via-[#5EA8FF] to-[#3E7BFF] bg-clip-text text-transparent">
@@ -174,7 +172,7 @@ const HeroSection = () => {
                     </GlowButton>
                     {/* <Link
                         href="/contact"
-                        className="font-['Space_Grotesk'] rounded-full border border-white/[0.14] bg-white/[0.04] px-[30px] py-[15px] text-[15px] font-semibold text-[#eceef4] transition-all duration-200 hover:border-white/[0.28] hover:bg-white/[0.08]"
+                        className="font-heading rounded-full border border-white/[0.14] bg-white/[0.04] px-[30px] py-[15px] text-[15px] font-semibold text-[#eceef4] transition-all duration-200 hover:border-white/[0.28] hover:bg-white/[0.08]"
                     >
                         Book a Portfolio Call
                     </Link> */}
@@ -198,7 +196,7 @@ const HeroSection = () => {
                     {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((text, i) => (
                         <span
                             key={i}
-                            className="whitespace-nowrap font-['Space_Grotesk'] text-xs uppercase tracking-[2px] text-[#6b6f80]"
+                            className="whitespace-nowrap font-heading text-xs uppercase tracking-[2px] text-[#6b6f80]"
                         >
                             {text}
                         </span>

@@ -1,14 +1,7 @@
 "use client";
 import React, { useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import HeroSection from "@/components/HomePage/HeroSection";
-import BenefitSection from "@/components/HomePage/BenefitSection";
-import OrbitAnimation from "@/components/HomePage/FlowSection";
-import GlobeSection from "@/components/HomePage/GlobeSection";
-import PricingSection from "@/components/HomePage/PricingTableSection";
-import TestimonialsSection from "@/components/HomePage/TestimonialSection";
-import FaqSection from "@/components/HomePage/FaqSection";
-import FooterSection from "@/components/Footer/footer";
-import BannerSection from "@/components/HomePage/BannerSection";
 import ScrollGlow from "@/components/ui/ScrollGlow";
 import { motion } from "framer-motion";
 import BlogCard from "@/components/Blog/BlogCard";
@@ -22,6 +15,16 @@ import {
     OrganizationJsonLd,
     WebPageJsonLd,
 } from "next-seo";
+
+const BenefitSection = dynamic(() => import("@/components/HomePage/BenefitSection"));
+const OrbitAnimation = dynamic(() => import("@/components/HomePage/FlowSection"));
+const GlobeSection = dynamic(() => import("@/components/HomePage/GlobeSection"));
+const TestimonialsSection = dynamic(() => import("@/components/HomePage/TestimonialSection"));
+const PricingSection = dynamic(() => import("@/components/HomePage/PricingTableSection"));
+const FaqSection = dynamic(() => import("@/components/HomePage/FaqSection"));
+const FooterSection = dynamic(() => import("@/components/Footer/footer"));
+const BannerSection = dynamic(() => import("@/components/HomePage/BannerSection"));
+
 type Props = {
     initialBlogs: BlogResponse["data"];
     pagination: BlogResponse["meta"]["pagination"];

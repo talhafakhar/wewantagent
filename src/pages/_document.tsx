@@ -4,29 +4,6 @@ export default function Document() {
     return (
         <Html lang="en">
             <Head>
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-                <script
-                    id="google-fonts-loader"
-                    dangerouslySetInnerHTML={{
-                        __html: `
-              (function(){
-                  var l = document.createElement('link');
-                  l.rel = 'preload';
-                  l.as = 'style';
-                  l.href = 'https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=Space+Grotesk:wght@500;600;700&display=swap';
-                  l.onload = function(){ this.onload = null; this.rel = 'stylesheet'; };
-                  document.head.appendChild(l);
-              })();
-            `,
-                    }}
-                />
-                <noscript>
-                    <link
-                        rel="stylesheet"
-                        href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=Space+Grotesk:wght@500;600;700&display=swap"
-                    />
-                </noscript>
                 {/* eslint-disable-next-line @next/next/next-script-for-ga */}
                 <script
                     id="gtm-script"

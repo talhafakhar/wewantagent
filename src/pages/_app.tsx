@@ -2,10 +2,27 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { useEffect } from "react";
+import localFont from "next/font/local";
+import { Space_Grotesk } from "next/font/google";
 import ConsentBanner from "@/components/Common/CookieConsent";
 import CustomCursor from "@/components/CustomCursor";
 import Navbar from "@/components/Header/Navbar";
 import useWheelScrollSpeed from "@/hooks/useWheelScrollSpeed";
+
+const alanSans = localFont({
+    src: "../fonts/AlanSans-Variable.woff2",
+    variable: "--font-alan-sans",
+    weight: "300 900",
+    display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+    subsets: ["latin"],
+    weight: ["500", "600", "700"],
+    variable: "--font-space-grotesk",
+    display: "swap",
+});
+
 export default function App({ Component, pageProps }: AppProps) {
     useWheelScrollSpeed(0.7);
     useEffect(() => {
@@ -27,11 +44,11 @@ export default function App({ Component, pageProps }: AppProps) {
         }
     }, []);
     return (
-        <>
+        <div className={`${alanSans.variable} ${spaceGrotesk.variable} font-sans`}>
             <CustomCursor />
             <Navbar />
             <Component {...pageProps} />
             <ConsentBanner />
-        </>
+        </div>
     );
 }

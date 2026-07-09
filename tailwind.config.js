@@ -8,7 +8,10 @@ module.exports = {
     ],
     theme: {
         extend: {
-            fontFamily: {},
+            fontFamily: {
+                sans: ["var(--font-alan-sans)", "sans-serif"],
+                heading: ["var(--font-space-grotesk)", "sans-serif"],
+            },
             colors: {
                 primary:"#5EA8FF",
                 secondary:"#3E7BFF",

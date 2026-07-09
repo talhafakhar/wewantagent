@@ -203,7 +203,7 @@ const BenefitSection = () => {
                                     </div>
                                     <div className="relative z-10 mb-6">
       <span
-          className="font-['Space_Grotesk'] text-7xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent transition-colors duration-500"
+          className="font-heading text-7xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent transition-colors duration-500"
       >
         {service.number}
       </span>
@@ -265,7 +265,7 @@ const BenefitSection = () => {
                                     </div>
                                     <div className="relative z-10 mb-6">
       <span
-          className="font-['Space_Grotesk'] text-7xl font-bold leading-none bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent transition-colors duration-500"
+          className="font-heading text-7xl font-bold leading-none bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent transition-colors duration-500"
       >
         {service.number}
       </span>

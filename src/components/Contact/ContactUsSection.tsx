@@ -230,7 +230,7 @@ const ContactForm = () => {
                         <div className="flex flex-col justify-center">
                             <motion.h1
                                 variants={itemLeft}
-                                className="font-['Space_Grotesk'] text-6xl font-semibold leading-none tracking-[-0.03em] bg-gradient-to-r from-white via-[#f2c14e] to-[#4fd1a5]. bg-clip-text text-transparent sm:text-7xl"
+                                className="font-heading text-6xl font-semibold leading-none tracking-[-0.03em] bg-gradient-to-r from-white via-[#f2c14e] to-[#4fd1a5]. bg-clip-text text-transparent sm:text-7xl"
                             >
                                 Let&#39;s Connect & Build Your Agent!
                             </motion.h1>
@@ -404,7 +404,7 @@ const ContactForm = () => {
                                     <button
                                         type="submit"
                                         disabled={loading}
-                                        className="font-['Space_Grotesk'] flex items-center justify-between gap-3 rounded-full bg-[rgba(79,209,165,0.34)] px-6 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_34px_rgba(79,209,165,0.34)] disabled:opacity-60"
+                                        className="font-heading flex items-center justify-between gap-3 rounded-full bg-[rgba(79,209,165,0.34)] px-6 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_34px_rgba(79,209,165,0.34)] disabled:opacity-60"
                                     >
                                         {loading ? 'Submitting...' : 'Submit'}
                                         {!loading && <Send className="h-4 w-4"/>}
