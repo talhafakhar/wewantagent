@@ -50,7 +50,7 @@ const Navbar = () => {
                         <Link
                             key={link.label}
                             href={link.href}
-                            className="group relative font-['IBM_Plex_Sans'] text-[14.5px] font-medium"
+                            className="group relative font-['Alan_Sans'] text-[14.5px] font-medium"
                         >
                             <span className="text-[#b6b9c6] transition-opacity duration-200 group-hover:opacity-0">
                                 {link.label}
@@ -114,7 +114,7 @@ const Navbar = () => {
                                     key={link.label}
                                     href={link.href}
                                     onClick={() => setIsOpen(false)}
-                                    className="group relative rounded-lg px-4 py-2.5 font-['IBM_Plex_Sans'] transition-colors hover:bg-white/5"
+                                    className="group relative rounded-lg px-4 py-2.5 font-['Alan_Sans'] transition-colors hover:bg-white/5"
                                 >
                                     <span className="text-[#b6b9c6] transition-opacity duration-200 group-hover:opacity-0">
                                         {link.label}

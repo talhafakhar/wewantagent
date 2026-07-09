@@ -14,7 +14,7 @@ export default function Document() {
                   var l = document.createElement('link');
                   l.rel = 'preload';
                   l.as = 'style';
-                  l.href = 'https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap';
+                  l.href = 'https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=Space+Grotesk:wght@500;600;700&display=swap';
                   l.onload = function(){ this.onload = null; this.rel = 'stylesheet'; };
                   document.head.appendChild(l);
               })();
@@ -24,7 +24,7 @@ export default function Document() {
                 <noscript>
                     <link
                         rel="stylesheet"
-                        href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+                        href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=Space+Grotesk:wght@500;600;700&display=swap"
                     />
                 </noscript>
                 {/* eslint-disable-next-line @next/next/next-script-for-ga */}
