@@ -57,7 +57,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                     variants={container}
                     initial="hidden"
                     animate="show"
-                    className="flex-1 flex flex-col justify-center items-start max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8"
+                    className="flex-1 flex flex-col justify-center items-start pt-28 lg:pt-0 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8"
                 >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center w-full">
                         <div className="w-full">
@@ -72,7 +72,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                             <motion.p variants={item} className="mt-4 text-gray-200">
                                 {description}
                             </motion.p>
-                            <div className="mt-10">
+                            <div className="mt-10 flex justify-center lg:justify-start">
                                 <GlowButton href={buttonHref} shape="rect">{buttonText}</GlowButton>
                             </div>
                         </div>

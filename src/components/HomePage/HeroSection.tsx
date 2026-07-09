@@ -76,7 +76,7 @@ const HeroSection = () => {
     return (
         <section
             ref={sectionRef}
-            className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-[#07080c] px-6 pb-[60px] pt-[120px] text-center"
+            className="relative flex min-h-[90vh] w-full flex-col items-center justify-center overflow-hidden bg-[#07080c] px-6 pb-[50px] pt-[90px] text-center lg:min-h-screen lg:pb-[60px] lg:pt-[120px]"
         >
             {/* ambient gradient blobs */}
             <div

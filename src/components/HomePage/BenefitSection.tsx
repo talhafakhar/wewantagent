@@ -142,7 +142,7 @@ const BenefitSection = () => {
                         </motion.p>
                     </motion.div>
                     <motion.div
-                        className="w-full md:w-1/2 mt-10 md:mt-0 flex md:justify-center"
+                        className="w-full md:w-1/2 mt-10 md:mt-0 flex justify-center"
                         style={{ y: robotY, scale: robotScale }}
                     >
                         <motion.div

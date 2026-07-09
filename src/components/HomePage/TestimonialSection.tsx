@@ -71,7 +71,7 @@ export default function TestimonialsSection() {
     ];
 
     return (
-        <section ref={sectionRef} className="relative overflow-hidden h-screen flex flex-col justify-center py-20">
+        <section ref={sectionRef} className="relative overflow-hidden h-auto flex flex-col justify-center py-16 lg:h-screen lg:py-20">
             <div className="pointer-events-none absolute inset-0 overflow-hidden">
                 <ScrollGlow target={sectionRef} />
             </div>

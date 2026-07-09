@@ -27,7 +27,7 @@ const HeroSection = () => {
             initial={{ scale: 1.05, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 2, ease: "easeOut" }}
-            className="relative min-h-screen overflow-hidden bg-cover bg-center bg-no-repeat"
+            className="relative min-h-screen overflow-hidden bg-cover bg-[right_center] bg-no-repeat lg:bg-center"
             style={{ backgroundImage: "url('/assets/about/about-bg.webp')" }}
         >
             <div className="absolute inset-0 bg-black/30" />
@@ -58,7 +58,7 @@ const HeroSection = () => {
                             We&#39;re not another cookie-cutter AI shop. We&#39;re builders who actually listen, strategists who solve real problems, automation experts obsessed with giving you time back.
                         </motion.p>
 
-                        <motion.div variants={item} className="mt-10">
+                        <motion.div variants={item} className="mt-10 flex justify-center lg:justify-start">
                             <GlowButton href="/contact" shape="rect">Schedule Free Call</GlowButton>
                         </motion.div>
                     </div>
