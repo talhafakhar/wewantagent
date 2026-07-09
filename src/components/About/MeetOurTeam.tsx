@@ -68,7 +68,6 @@ export default function AutomationExperts() {
                                 whileInView="show"
                                 viewport={{ once: true }}
                                 className="bg-[#0d0d0d]/60 border border-white/10 hover:border-secondary/40
-                transition-all duration-300
              rounded-tr-[4rem] rounded-bl-2xl p-8 flex flex-col text-left"
                             >
                                 {/* Icon */}

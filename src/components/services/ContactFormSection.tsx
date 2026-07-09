@@ -131,7 +131,7 @@ export default function ContactSection() {
                 </div>
 
                 <div className="relative w-full md:w-1/2">
-                    <div className="absolute inset-0 transform rotate-6 bg-gradient-to-r from-primary via-accent to-secondary rounded-2xl"></div>
+                    <div className="absolute inset-0 transform rotate-6 bg-gradient-to-r from-[#ddb966] via-[#ddb966] to-[#ddb966] rounded-2xl"></div>
                     <AnimatePresence mode="wait">
                         {!isSuccess ? (
                             <motion.div
@@ -263,7 +263,7 @@ export default function ContactSection() {
                                     <button
                                         type="submit"
                                         disabled={loading}
-                                        className="w-full py-3 rounded-md border border-black text-black font-medium hover:bg-black hover:text-white transition-all duration-300"
+                                        className="w-full py-3 rounded-md border border-black text-black font-medium hover:bg-[#0147DE] hover:text-white transition-all duration-300"
                                     >
                                         {loading ? "Submitting..." : "Send Message"}
                                     </button>

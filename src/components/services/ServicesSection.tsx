@@ -86,7 +86,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({
                                         >
                                             <div className="relative z-10">
                                                 <Icon className="w-10 h-10 mb-4 text-cyan-400 group-hover:text-cyan-300 transition-colors duration-300" />
-                                                <h3 className="text-xl font-semibold mb-2 bg-gradient-to-r from-[white] via-[#f2c14e] to-[#f2c14e] bg-clip-text text-transparent">
+                                                <h3 className="text-xl font-semibold mb-2 bg-gradient-to-r from-[#f2c14e] to-[white] bg-clip-text text-transparent">
                                                     {service.title}
                                                 </h3>
                                                 <p className="text-gray-300 leading-relaxed">

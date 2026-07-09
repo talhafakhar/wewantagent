@@ -127,7 +127,7 @@ const PricingSection = () => {
                                 </span>
 
                                 <p className="mt-3">
-                                    <span className="text-2xl sm:text-3xl font-bold tracking-tight bg-gradient-to-r from-white via-[#f2c14e] to-[#4fd1a5] bg-clip-text text-transparent">
+                                    <span className="text-2xl sm:text-3xl font-bold tracking-tight bg-gradient-to-r from-[#f2c14e] to-[#4fd1a5] bg-clip-text text-transparent">
                                         {plan.price}
                                     </span>{" "}
                                     <span className="text-sm font-medium text-white/50">
@@ -141,7 +141,7 @@ const PricingSection = () => {
 
                                 <div className="mt-6">
                                     <GlowButton href="/contact" shape="rect" className="w-full" animateGlow={false}>
-                                        <span className="bg-gradient-to-r from-white to-[#f2c14e] bg-clip-text text-transparent">
+                                        <span className="bg-gradient-to-r from-[#4fd1a5] to-[#f2c14e] bg-clip-text text-transparent">
                                             {plan.cta}
                                         </span>
                                     </GlowButton>
