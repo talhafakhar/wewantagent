@@ -36,7 +36,7 @@ const HeroSection = () => {
                     variants={container}
                     initial="hidden"
                     animate="show"
-                    className="flex-1 flex flex-col justify-center items-start max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 "
+                    className="flex-1 flex flex-col justify-start pt-[22vh] lg:justify-center lg:pt-0 items-start max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 "
                 >
                     <div className="max-w-4xl">
                         <motion.h1

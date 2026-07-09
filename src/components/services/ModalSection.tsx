@@ -82,6 +82,7 @@ const AIModulesSection = () => {
                                             src={model.img}
                                             alt={model.name}
                                             fill
+                                            sizes="(min-width: 1024px) 9rem, (min-width: 768px) 8rem, (min-width: 640px) 7rem, 6rem"
                                             className="object-contain invert brightness-0"
                                         />
                                     </div>

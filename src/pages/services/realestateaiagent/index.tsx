@@ -10,7 +10,6 @@ import ProcessTimeline from "@/components/services/FlowSection";
 import AIModulesSection from "@/components/services/ModalSection";
 import IndustrySolutionsSection from "@/components/services/IndustrySolutionSection";
 import {NextSeo, WebPageJsonLd} from "next-seo";
-import aiDevelopmentLottie from "@/assets/lottie/aiDevelopment.json";
 import {
     Building2,
     Calendar,
@@ -224,7 +223,7 @@ export default function RealEstateAiAgent() {
                         "Stop losing deals to slow response times and manual tasks. Our real estate agent AI handles lead qualification, client communication, listing management, document processing, and appointment coordination automatically. From voice agents answering calls instantly to email automation nurturing prospects, we build intelligent systems that work while you sleep.",
                         "High intent leads get fast-tracked to your team, cold prospects enter nurture campaigns, and administrative tasks happen without human effort. We use advanced language models, n8n workflow automation, and custom integrations with your existing CRM and MLS systems. Fair Housing Act compliant, RESPA aligned, NAR guideline adherent. Real estate automation designed specifically for agents, brokerages, property managers, and investors who want more closings with less grinding.",
                     ]}
-                    lottieFile={aiDevelopmentLottie}
+                    lottieFile={() => import("@/assets/lottie/aiDevelopment.json")}
                 />
                 <StatsSection
                     heading="What We Automate For You"
@@ -247,6 +246,8 @@ export default function RealEstateAiAgent() {
                     headingLine2="Estate Clients"
                     description="See how we transformed a regional brokerage with 47 agents completely."
                     imageSrc="/assets/svg/services/robotFly.svg"
+                    width={300}
+                    height={343}
                     cards={caseStudyCards}
                 />
                 <ProcessTimeline

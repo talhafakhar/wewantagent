@@ -10,7 +10,6 @@ import ProcessTimeline from "@/components/services/FlowSection";
 import AIModulesSection from "@/components/services/ModalSection";
 import IndustrySolutionsSection from "@/components/services/IndustrySolutionSection";
 import {NextSeo, WebPageJsonLd} from "next-seo";
-import healthcareLottie from "@/assets/lottie/healthcare.json";
 import {
     Brain,
     Building2,
@@ -226,7 +225,7 @@ export default function HealthcareAutomation() {
                         "Stop losing hours to administrative chaos and patient communication bottlenecks. Our automation in health care handles appointment scheduling, patient intake, insurance verification, prescription refills, and follow-up coordination automatically. From AI answering patient calls instantly to automated reminder systems reducing no-shows, we build intelligent healthcare agents that work around the clock. Urgent cases get priority routing, routine requests are handled without staff intervention, and the administrative burden is eliminated completely.",
                         "We use advanced language models, n8n workflow automation, and HIPAA-compliant integrations with your EHR, practice management software, and communication systems. Health care automation designed specifically for clinics, hospitals, private practices, and specialty care providers who want better patient experience with less administrative overhead and burnout",
                     ]}
-                    lottieFile={healthcareLottie}
+                    lottieFile={() => import("@/assets/lottie/healthcare.json")}
                 />
                 <StatsSection
                     heading="What We Automate For You"

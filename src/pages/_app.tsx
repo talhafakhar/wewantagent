@@ -2,12 +2,18 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { useEffect } from "react";
+import dynamic from "next/dynamic";
 import localFont from "next/font/local";
 import { Space_Grotesk } from "next/font/google";
-import ConsentBanner from "@/components/Common/CookieConsent";
-import CustomCursor from "@/components/CustomCursor";
 import Navbar from "@/components/Header/Navbar";
 import useWheelScrollSpeed from "@/hooks/useWheelScrollSpeed";
+
+const ConsentBanner = dynamic(() => import("@/components/Common/CookieConsent"), {
+    ssr: false,
+});
+const CustomCursor = dynamic(() => import("@/components/CustomCursor"), {
+    ssr: false,
+});
 
 const alanSans = localFont({
     src: "../fonts/AlanSans-Variable.woff2",

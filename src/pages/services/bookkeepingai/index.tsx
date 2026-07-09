@@ -10,7 +10,6 @@ import ProcessTimeline from "@/components/services/FlowSection";
 import AIModulesSection from "@/components/services/ModalSection";
 import IndustrySolutionsSection from "@/components/services/IndustrySolutionSection";
 import {NextSeo, WebPageJsonLd} from "next-seo";
-import bookkeepingAgent from "@/assets/lottie/bookkeeping.json";
 import {
     Calendar,
     Check, CheckSquare,
@@ -216,7 +215,7 @@ export default function BookkeepingAi() {
                         "Stop losing billable hours to manual bookkeeping tasks and data entry chaos. Our bookkeeping ai handles invoice processing, expense categorization, bank reconciliation, financial reporting, and compliance checks automatically. From AI extracting transaction data instantly to automated financial statement generation, we build intelligent accounting ai agent systems that work continuously. Routine transactions get processed without human touch, anomalies flagged for review, reports generated on schedule automatically",
                         "We use advanced language models, n8n workflow automation, and seamless integrations with QuickBooks, Xero, accounting software, and banking systems. Automation of accounting process designed specifically for accounting firms, bookkeeping services, CFO offices, and finance departments who want accuracy with less manual work and overhead costs always",
                     ]}
-                    lottieFile={bookkeepingAgent}
+                    lottieFile={() => import("@/assets/lottie/bookkeeping.json")}
                 />
                 <StatsSection
                     heading="What We Automate For You"

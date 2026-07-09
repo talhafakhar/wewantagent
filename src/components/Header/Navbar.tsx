@@ -38,7 +38,7 @@ const Navbar = () => {
                     src="/assets/home/logo white.png"
                     alt="We Want Agent"
                     width={140}
-                    height={36}
+                    height={37}
                     priority
                     className="h-8 sm:h-9 w-auto object-contain"
                 />

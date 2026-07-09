@@ -1,14 +1,16 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, easeOut } from "framer-motion";
-import Lottie from "lottie-react";
+import dynamic from "next/dynamic";
+
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 interface BusinessSolutionsSectionProps {
     heading: string;
     headingLine2?: string;
     paragraphs: string[];
-    lottieFile: object;
+    lottieFile: () => Promise<{ default: object }>;
     reverse?: boolean;
 }
 
@@ -34,6 +36,27 @@ const BusinessSolutionsSection: React.FC<BusinessSolutionsSectionProps> = ({
                                                                                lottieFile,
                                                                                reverse = false,
                                                                            }) => {
+    const lottieRef = useRef<HTMLDivElement>(null);
+    const [animationData, setAnimationData] = useState<object | null>(null);
+
+    useEffect(() => {
+        const el = lottieRef.current;
+        if (!el) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting) {
+                    lottieFile().then((mod) => setAnimationData(mod.default));
+                    observer.disconnect();
+                }
+            },
+            { rootMargin: "200px" }
+        );
+        observer.observe(el);
+
+        return () => observer.disconnect();
+    }, [lottieFile]);
+
     return (
         <section className="text-white py-16">
             <div
@@ -73,11 +96,15 @@ const BusinessSolutionsSection: React.FC<BusinessSolutionsSectionProps> = ({
                     viewport={{ once: true, amount: 0.3 }}
                     className="md:w-1/2 w-full flex justify-center"
                 >
-                    <Lottie
-                        animationData={lottieFile}
-                        loop
-                        className="w-full h-full max-w-md drop-shadow-[0_0_30px_rgba(139,92,246,0.4)]"
-                    />
+                    <div ref={lottieRef} className="w-full max-w-md">
+                        {animationData && (
+                            <Lottie
+                                animationData={animationData}
+                                loop
+                                className="w-full h-full drop-shadow-[0_0_30px_rgba(139,92,246,0.4)]"
+                            />
+                        )}
+                    </div>
                 </motion.div>
             </div>
         </section>

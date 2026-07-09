@@ -18,6 +18,7 @@ interface RealEstateCaseStudyProps {
     description: string;
     imageSrc: string;
     width?: number;
+    height?: number;
     cards: CaseStudyCard[];
 }
 
@@ -39,6 +40,7 @@ const RealEstateCaseStudy: React.FC<RealEstateCaseStudyProps> = ({
                                                                      description,
                                                                      imageSrc,
                                                                      width,
+                                                                     height,
                                                                      cards,
                                                                  }) => {
     const sectionRef = useRef<HTMLElement>(null);
@@ -64,7 +66,7 @@ const RealEstateCaseStudy: React.FC<RealEstateCaseStudyProps> = ({
                             src={imageSrc}
                             alt="Case Study Visual"
                             width={width ? width : 300}
-                            height={300}
+                            height={height ? height : 300}
                             priority
                             className="mx-auto"
                         />

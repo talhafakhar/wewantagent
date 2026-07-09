@@ -270,7 +270,7 @@ const ContactForm = () => {
                         {/* right column: form */}
                         <motion.div
                             variants={itemRight}
-                            className="relative left-12 rounded-2xl border  border-white/[0.12] *:first-letter:bg-white/[0.03] p-6 backdrop-blur-sm md:p-8 "
+                            className="relative mx-auto w-full max-w-xl rounded-2xl border border-white/[0.12] *:first-letter:bg-white/[0.03] p-6 backdrop-blur-sm md:p-8 lg:mx-0 lg:left-12 lg:max-w-none"
                         >
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
