@@ -84,7 +84,6 @@ const ContactForm = () => {
         return () => clearInterval(interval);
     }, []);
 
-    // Scroll-driven parallax for the ambient background blobs, same as the homepage hero
     useEffect(() => {
         const section = sectionRef.current;
         if (!section) return;
@@ -416,8 +415,8 @@ const ContactForm = () => {
                 </motion.div>
 
                 {showModal && (
-                    <div className="fixed inset-0 z-[9999] flex justify-center bg-black/60">
-                        <div className="mt-20">
+                    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60">
+                        <div>
                             <div className="w-[90%] max-w-sm rounded-xl border border-white/10 bg-[#0d0e14] p-6 text-center shadow-2xl">
                                 <p
                                     className={`mb-4 text-lg font-semibold ${
