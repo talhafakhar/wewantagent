@@ -1,16 +1,11 @@
 "use client";
 import React, { useEffect, useRef } from "react";
-import "swiper/css";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
-import { Autoplay, EffectCoverflow } from "swiper/modules";
-import type { Swiper as SwiperType } from "swiper";
 import { motion, useAnimation, easeOut, useScroll, useSpring, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import RobotSvg from "./RobotSvg";
 import GlowButton from "@/components/ui/GlowButton";
 import ScrollGlow from "@/components/ui/ScrollGlow";
+import BenefitCardFan from "./BenefitCardFan";
 
 const services = [
     {
@@ -64,19 +59,6 @@ const BenefitSection = () => {
     useEffect(() => {
         if (inView) controls.start("visible");
     }, [inView, controls]);
-
-    const handleSwiperInit = (swiper: SwiperType) => {
-        requestAnimationFrame(() => {
-            swiper.update();
-            swiper.slideTo(1, 0);
-        });
-    };
-
-    const handleReachEnd = (swiper: SwiperType) => {
-        setTimeout(() => {
-            swiper.slideTo(0);
-        }, swiper.params.autoplay && typeof swiper.params.autoplay === "object" ? swiper.params.autoplay.delay : 2500);
-    };
 
     const sectionRef = useRef<HTMLElement>(null);
     const { scrollYProgress } = useScroll({
@@ -161,127 +143,11 @@ const BenefitSection = () => {
                 </div>
 
                 <motion.div className="mt-20" style={{ y: cardsY }}>
-                    <Swiper
-                        effect={"coverflow"}
-                        grabCursor={true}
-                        centeredSlides={true}
-                        slidesPerView={1}
-                        spaceBetween={20}
-                        initialSlide={1}
-                        coverflowEffect={{
-                            rotate: 50,
-                            stretch: 0,
-                            depth: 100,
-                            modifier: 1,
-                            slideShadows: true,
-                        }}
-                        breakpoints={{
-                            640: { slidesPerView: 1 },
-                            768: { slidesPerView: 2 },
-                            1024: { slidesPerView: 3 },
-                        }}
-                        autoplay={{
-                            delay: 5000,
-                            disableOnInteraction: false,
-                            pauseOnMouseEnter: true,
-                        }}
-                        modules={[EffectCoverflow, Autoplay]}
-                        observer={true}
-                        observeParents={true}
-                        onSwiper={handleSwiperInit}
-                        onReachEnd={handleReachEnd}
-                    >
-                        {firstRowServices.map((service, index) => (
-                            <SwiperSlide key={index}>
-                                <div className="bg-zinc-900 rounded p-6 sm:p-8 shadow-2xl mx-auto max-w-sm h-full min-h-[420px] flex flex-col justify-between group relative overflow-hidden border border-white/10 transition-all duration-500 hover:bg-zinc-800 hover:border-primary/60 hover:shadow-[0_0_20px_rgba(94,168,255,0.35),0_0_55px_rgba(94,168,255,0.18)]">
-                                    <div className="absolute -bottom-12 -left-12 w-32 h-32 rounded-full transition-all duration-700 group-hover:scale-150" />
-                                    <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-                                        <div className="absolute top-1/4 left-0 w-full h-px bg-white"></div>
-                                        <div className="absolute top-1/2 left-0 w-full h-px bg-white"></div>
-                                        <div className="absolute top-0 left-1/4 w-px h-full bg-white"></div>
-                                        <div className="absolute top-0 left-1/2 w-px h-full bg-white"></div>
-                                    </div>
-                                    <div className="relative z-10 mb-6">
-      <span
-          className="font-heading text-7xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent transition-colors duration-500"
-      >
-        {service.number}
-      </span>
-                                    </div>
-                                    <div className="relative z-10 flex-1">
-                                        <h4 className="text-xl sm:text-2xl font-bold mb-3 uppercase sm:mb-4 px-2 tracking-wide group-hover:tracking-wider transition-all duration-300 bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
-                                            {service.title}
-                                        </h4>
-                                        <p className="text-sm sm:text-base text-gray-400 leading-relaxed px-2 group-hover:text-gray-300 transition-colors duration-300">
-                                            {service.description}
-                                        </p>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+                    <BenefitCardFan services={firstRowServices} />
                 </motion.div>
 
                 <motion.div className="mt-12" style={{ y: cardsY }}>
-                    <Swiper
-                        effect={"coverflow"}
-                        grabCursor={true}
-                        centeredSlides={true}
-                        slidesPerView={1}
-                        spaceBetween={20}
-                        initialSlide={1}
-                        coverflowEffect={{
-                            rotate: 50,
-                            stretch: 0,
-                            depth: 100,
-                            modifier: 1,
-                            slideShadows: true,
-                        }}
-                        breakpoints={{
-                            640: { slidesPerView: 1 },
-                            768: { slidesPerView: 2 },
-                            1024: { slidesPerView: 3 },
-                        }}
-                        autoplay={{
-                            delay: 5000,
-                            disableOnInteraction: false,
-                            pauseOnMouseEnter: true,
-                        }}
-                        modules={[EffectCoverflow, Autoplay]}
-                        observer={true}
-                        observeParents={true}
-                        onSwiper={handleSwiperInit}
-                        onReachEnd={handleReachEnd}
-                    >
-                        {secondRowServices.map((service, index) => (
-                            <SwiperSlide key={index}>
-                                <div className="bg-zinc-900 rounded p-6 sm:p-8 shadow-2xl mx-auto max-w-sm h-full min-h-[420px] flex flex-col group relative overflow-hidden border border-white/10 transition-all duration-500 hover:bg-zinc-800 hover:border-primary/60 hover:shadow-[0_0_20px_rgba(94,168,255,0.35),0_0_55px_rgba(94,168,255,0.18)]">
-                                    <div className="absolute -bottom-12 -left-12 w-32 h-32 rounded-full transition-all duration-700 group-hover:scale-150" />
-                                    <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-                                        <div className="absolute top-1/4 left-0 w-full h-px bg-white"></div>
-                                        <div className="absolute top-1/2 left-0 w-full h-px bg-white"></div>
-                                        <div className="absolute top-0 left-1/4 w-px h-full bg-white"></div>
-                                        <div className="absolute top-0 left-1/2 w-px h-full bg-white"></div>
-                                    </div>
-                                    <div className="relative z-10 mb-6">
-      <span
-          className="font-heading text-7xl font-bold leading-none bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent transition-colors duration-500"
-      >
-        {service.number}
-      </span>
-                                    </div>
-                                    <div className="relative z-10">
-                                        <h4 className="text-xl sm:text-2xl font-bold mb-3 uppercase sm:mb-4 px-2 tracking-wide group-hover:tracking-wider transition-all duration-300 bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
-                                            {service.title}
-                                        </h4>
-                                        <p className="text-sm sm:text-base text-gray-400 leading-relaxed px-2 group-hover:text-gray-300 transition-colors duration-300">
-                                            {service.description}
-                                        </p>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+                    <BenefitCardFan services={secondRowServices} />
                 </motion.div>
                 <div className="mt-6 flex justify-center ">
                     <GlowButton href="/contact" shape="rect">Book a Free Consultation</GlowButton>

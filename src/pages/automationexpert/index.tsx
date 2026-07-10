@@ -3,7 +3,7 @@ import React from "react";
 import OriginStory from "@/components/About/OriginStorySection";
 import SolutionsSection from "@/components/About/SolutionsSection";
 import MeetOurTeam from "@/components/About/MeetOurTeam";
-import ContactSection from "@/components/About/ContactSection";
+import ContactSection from "@/components/services/ContactFormSection";
 import FooterSection from "@/components/Footer/footer";
 import {NextSeo ,WebPageJsonLd} from "next-seo";
 import BannerSection from "@/components/HomePage/BannerSection";

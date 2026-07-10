@@ -96,7 +96,7 @@ export default function TestimonialsSection() {
                                             <h3 className="text-lg font-semibold mb-2 bg-gradient-to-r from-white to-[#f2c14e] bg-clip-text text-transparent">
                                                 {t.title}
                                             </h3>
-                                            <p className="text-xs uppercase tracking-wide text-gray-400 mb-4">
+                                            <p className="text-xs uppercase tracking-wide mb-4 font-semibold bg-gradient-to-r from-[#f2c14e] to-[#4ade80] bg-clip-text text-transparent">
                                                 {t.industry}
                                             </p>
                                             <p className="text-sm text-gray-400 leading-6">
@@ -118,7 +118,7 @@ export default function TestimonialsSection() {
                                             <h3 className="text-lg font-semibold mb-2 bg-gradient-to-r from-white to-[#f2c14e] bg-clip-text text-transparent">
                                                 {t.title}
                                             </h3>
-                                            <p className="text-xs uppercase tracking-wide text-gray-400 mb-4">
+                                            <p className="text-xs uppercase tracking-wide mb-4 font-semibold bg-gradient-to-r from-[#f2c14e] to-[#4ade80] bg-clip-text text-transparent">
                                                 {t.industry}
                                             </p>
                                             <p className="text-sm text-gray-400 leading-6">

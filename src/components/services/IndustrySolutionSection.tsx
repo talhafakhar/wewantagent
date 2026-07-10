@@ -22,7 +22,7 @@ interface IndustrySolutionsSectionProps {
     industries: Industry[];
 }
 
-const IndustrySolutionsSection: React.FC<IndustrySolutionsSectionProps> = ({
+const IndustrySolutionsSection: React.FC<IndustrySolutionsSectionProps> = ({ 
                                                                                heading,
                                                                                headingLine2,
                                                                                description,
