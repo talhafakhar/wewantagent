@@ -24,15 +24,20 @@ export default function FooterSection() {
                                 We Want Agent builds custom AI automation solutions for real estate, healthcare, and accounting industries. From voice AI agents to workflow automation, we help businesses eliminate repetitive tasks and focus on growth
                             </p>
                             <div className="flex space-x-4 pt-4">
-                                <Link href="#" className="text-gray-400 hover:text-white">
+                                {/* <Link href="#" className="text-gray-400 hover:text-white">
                                     <Facebook className="w-5 h-5" />
-                                </Link>
-                                <Link href="#" className="text-gray-400 hover:text-white">
+                                </Link> */}
+                                <Link
+                                    href="https://www.linkedin.com/company/we-want-agent"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-gray-400 hover:text-white"
+                                >
                                     <Linkedin className="w-5 h-5" />
                                 </Link>
-                                <Link href="#" className="text-gray-400 hover:text-white">
+                                {/* <Link href="#" className="text-gray-400 hover:text-white">
                                     <Instagram className="w-5 h-5" />
-                                </Link>
+                                </Link> */}
                             </div>
                         </div>
                     </div>

@@ -150,7 +150,7 @@ const BenefitSection = () => {
                     <BenefitCardFan services={secondRowServices} />
                 </motion.div>
                 <div className="mt-6 flex justify-center ">
-                    <GlowButton href="/contact" shape="rect">Book a Free Consultation</GlowButton>
+                    <GlowButton href="https://calendly.com/talhafakhar/discoverycall" target="_blank" rel="noopener noreferrer" shape="rect">Book a Free Consultation</GlowButton>
 
                 </div>
 

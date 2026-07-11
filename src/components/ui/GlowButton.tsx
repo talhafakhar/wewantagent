@@ -5,6 +5,8 @@ import Link from "next/link";
 type GlowButtonProps = {
     children: React.ReactNode;
     href?: string;
+    target?: string;
+    rel?: string;
     onClick?: () => void;
     type?: "button" | "submit" | "reset";
     disabled?: boolean;
@@ -18,6 +20,8 @@ type GlowButtonProps = {
 const GlowButton = ({
     children,
     href,
+    target,
+    rel,
     onClick,
     type = "button",
     disabled,
@@ -109,6 +113,8 @@ const GlowButton = ({
             {href ? (
                 <Link
                     href={href}
+                    target={target}
+                    rel={rel}
                     onClick={onClick}
                     className={sharedClassName}
                     ref={rootRef as React.Ref<HTMLAnchorElement>}

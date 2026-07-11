@@ -64,7 +64,12 @@ const Navbar = () => {
                         </Link>
                     ))}
                 </div>
-                <GlowButton href="/contact" size="sm">
+                <GlowButton
+                    href="https://calendly.com/talhafakhar/discoverycall"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    size="sm"
+                >
                     Let&#39;s Collaborate
                 </GlowButton>
             </div>
@@ -128,7 +133,9 @@ const Navbar = () => {
                                 </Link>
                             ))}
                             <GlowButton
-                                href="/contact"
+                                href="https://calendly.com/talhafakhar/discoverycall"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 onClick={() => setIsOpen(false)}
                                 className="mt-2 w-full justify-center"
                             >

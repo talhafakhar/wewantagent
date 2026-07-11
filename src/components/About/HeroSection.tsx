@@ -59,7 +59,7 @@ const HeroSection = () => {
                         </motion.p>
 
                         <motion.div variants={item} className="mt-10 flex justify-center lg:justify-start">
-                            <GlowButton href="/contact" shape="rect">Schedule Free Call</GlowButton>
+                            <GlowButton href="https://calendly.com/talhafakhar/discoverycall" target="_blank" rel="noopener noreferrer" shape="rect">Schedule Free Call</GlowButton>
                         </motion.div>
                     </div>
                 </motion.div>

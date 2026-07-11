@@ -129,7 +129,7 @@ export default function FaqSection() {
                     viewport={{ once: true }}
                     className="mt-16 flex justify-center"
                 >
-                    <GlowButton href="/contact" shape="rect">Book a free consultation</GlowButton>
+                    <GlowButton href="https://calendly.com/talhafakhar/discoverycall" target="_blank" rel="noopener noreferrer" shape="rect">Book a free consultation</GlowButton>
                 </motion.div>
             </div>
         </section>

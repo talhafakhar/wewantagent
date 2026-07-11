@@ -164,7 +164,7 @@ const BlogDetail: React.FC<BlogDetailProps> = ({blog}) => {
 
         if (child.bold) {
             content = (
-                <strong className="bg-gradient-to-r from-white to-[#f2c14e] bg-clip-text text-transparent">
+                <strong className="bg-gradient-to-r from-[#f2c14e] to-white bg-clip-text text-transparent">
                     {content}
                 </strong>
             );
@@ -193,108 +193,118 @@ const BlogDetail: React.FC<BlogDetailProps> = ({blog}) => {
 
     return (
         <div className="bg-[#07080c]">
-            <div className="relative min-h-screen overflow-hidden">
+            <div className="relative flex flex-col justify-end min-h-[320px] md:min-h-[380px] lg:min-h-[440px] overflow-hidden">
+                {imageUrl ? (
+                    <>
+                        <Image
+                            src={imageUrl}
+                            alt={blog.title}
+                            fill
+                            className="object-cover"
+                            priority
+                        />
+                        <div className="absolute inset-0 bg-[#07080c]/60"/>
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#07080c] via-[#07080c]/60 to-[#07080c]/20"/>
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#07080c]/80 via-[#07080c]/30 to-transparent"/>
+                    </>
+                ) : (
+                    <>
+                        <div
+                            className="pointer-events-none absolute -left-[10%] -top-[10%] h-[560px] w-[560px] rounded-full blur-[70px]"
+                            style={{background: "radial-gradient(circle, rgba(242,193,78,0.18), transparent 65%)"}}
+                        />
+                        <div
+                            className="pointer-events-none absolute -right-[10%] top-[20%] h-[480px] w-[480px] rounded-full blur-[70px]"
+                            style={{background: "radial-gradient(circle, rgba(79,209,165,0.14), transparent 65%)"}}
+                        />
+                    </>
+                )}
+
+                <motion.header
+                    className="relative z-10 max-w-5xl mx-auto w-full px-6 lg:px-8 pt-32 pb-14 text-left"
+                    variants={staggerContainer}
+                    initial="initial"
+                    animate="animate"
+                >
+                    {blog.tags && (
+                        <motion.div className="flex flex-wrap gap-1.5 mb-6" variants={fadeInUp}>
+                            {blog.tags?.map((tag, index) => (
+                                <span
+                                    key={index}
+                                    className="inline-block text-[11px] font-medium tracking-wide text-primary/90 bg-primary/10 border border-primary/20 rounded-full px-2.5 py-1"
+                                >
+                                    #{tag.trim()}
+                                </span>
+                            ))}
+                        </motion.div>
+                    )}
+
+                    <motion.h1
+                        className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8"
+                        variants={fadeInUp}
+                    >
+                        <span className="bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                            {blog.title}
+                        </span>
+                    </motion.h1>
+
+                    <motion.div
+                        className="flex flex-wrap items-center gap-6 text-gray-400 mb-8"
+                        variants={fadeInUp}
+                    >
+                        <div className="flex items-center gap-2">
+                            <Calendar size={14} className="text-[#f2c14e]"/>
+                            <span className="text-sm font-medium">
+                                Published {formatDate(blog.published)}
+                            </span>
+                        </div>
+
+                        {blog.updatedAt && blog.updatedAt !== blog.published && (
+                            <div className="flex items-center gap-2">
+                                <RefreshCw size={14} className="text-[#4fd1a5]"/>
+                                <span className="text-sm font-medium">
+                                    Updated {formatDate(blog.updatedAt)}
+                                </span>
+                            </div>
+                        )}
+                    </motion.div>
+
+                    {blog.excerpt && (
+                        <motion.div
+                            className="text-lg md:text-xl text-gray-300 leading-relaxed font-light max-w-3xl"
+                            variants={fadeInUp}
+                        >
+                            {renderRichText(blog.excerpt)}
+                        </motion.div>
+                    )}
+                </motion.header>
+            </div>
+
+            <div className="relative overflow-hidden">
                 <div
-                    className="pointer-events-none absolute -left-[10%] -top-[10%] h-[560px] w-[560px] rounded-full blur-[70px]"
-                    style={{background: "radial-gradient(circle, rgba(242,193,78,0.18), transparent 65%)"}}
-                />
-                <div
-                    className="pointer-events-none absolute -right-[10%] top-[20%] h-[480px] w-[480px] rounded-full blur-[70px]"
+                    className="pointer-events-none absolute -right-[10%] top-[10%] h-[480px] w-[480px] rounded-full blur-[70px]"
                     style={{background: "radial-gradient(circle, rgba(79,209,165,0.14), transparent 65%)"}}
                 />
+                <motion.main
+                    className="relative z-10"
+                    variants={staggerContainer}
+                    initial="initial"
+                    animate="animate"
+                >
+                    <div className="max-w-5xl mx-auto px-6 lg:px-8 pt-16 pb-20">
+                        <motion.article className="max-w-none mb-16" variants={fadeInUp}>
+                            <div className="max-w-none text-gray-300">
+                                {renderRichText(blog.content)}
+                            </div>
+                        </motion.article>
 
-                <div className="relative z-10 flex flex-col min-h-screen">
-                    <motion.main
-                        variants={staggerContainer}
-                        initial="initial"
-                        animate="animate"
-                    >
-                        <div className="max-w-5xl mx-auto px-6 lg:px-8 pt-36 pb-20">
-                            <motion.header className="mb-12" variants={fadeInUp}>
-                                {blog.tags && (
-                                    <motion.div className="flex flex-wrap gap-1.5 mb-6" variants={fadeInUp}>
-                                        {blog.tags?.map((tag, index) => (
-                                            <span
-                                                key={index}
-                                                className="inline-block text-[11px] font-medium tracking-wide text-primary/90 bg-primary/10 border border-primary/20 rounded-full px-2.5 py-1"
-                                            >
-                                                #{tag.trim()}
-                                            </span>
-                                        ))}
-                                    </motion.div>
-                                )}
-
-                                <motion.h1
-                                    className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8"
-                                    variants={fadeInUp}
-                                >
-                                    <span className="bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
-                                        {blog.title}
-                                    </span>
-                                </motion.h1>
-
-                                <motion.div
-                                    className="flex flex-wrap items-center gap-6 text-gray-400 mb-8"
-                                    variants={fadeInUp}
-                                >
-                                    <div className="flex items-center gap-2">
-                                        <Calendar size={14} className="text-[#f2c14e]"/>
-                                        <span className="text-sm font-medium">
-                                            Published {formatDate(blog.published)}
-                                        </span>
-                                    </div>
-
-                                    {blog.updatedAt && blog.updatedAt !== blog.published && (
-                                        <div className="flex items-center gap-2">
-                                            <RefreshCw size={14} className="text-[#4fd1a5]"/>
-                                            <span className="text-sm font-medium">
-                                                Updated {formatDate(blog.updatedAt)}
-                                            </span>
-                                        </div>
-                                    )}
-                                </motion.div>
-
-                                {blog.excerpt && (
-                                    <motion.div
-                                        className="text-lg md:text-xl text-gray-300 leading-relaxed font-light max-w-3xl"
-                                        variants={fadeInUp}
-                                    >
-                                        {renderRichText(blog.excerpt)}
-                                    </motion.div>
-                                )}
-                            </motion.header>
-
-                            {imageUrl && (
-                                <motion.div className="mb-16" variants={fadeInUp}>
-                                    <div
-                                        className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] h-[260px] md:h-[380px] lg:h-[460px]">
-                                        <Image
-                                            src={imageUrl}
-                                            alt={blog.title}
-                                            fill
-                                            className="object-cover"
-                                            priority
-                                        />
-                                        <div
-                                            className="absolute inset-0 bg-gradient-to-t from-[#07080c] via-transparent to-transparent"/>
-                                    </div>
-                                </motion.div>
-                            )}
-
-                            <motion.article className="max-w-none mb-16" variants={fadeInUp}>
-                                <div className="max-w-none text-gray-300">
-                                    {renderRichText(blog.content)}
-                                </div>
-                            </motion.article>
-
-                            <motion.footer className="py-8 border-t border-white/10" variants={fadeInUp}>
-                                <GlowButton href="/">
-                                    ← Back to Home
-                                </GlowButton>
-                            </motion.footer>
-                        </div>
-                    </motion.main>
-                </div>
+                        <motion.footer className="py-8 border-t border-white/10" variants={fadeInUp}>
+                            <GlowButton href="/">
+                                ← Back to Home
+                            </GlowButton>
+                        </motion.footer>
+                    </div>
+                </motion.main>
             </div>
             <FooterSection/>
         </div>

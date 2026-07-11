@@ -47,7 +47,7 @@ export default function BannerSection({text, subtext, lastText}: BannerSectionPr
                         viewport={{ once: true }}
                         className="mt-8"
                     >
-                        <GlowButton href="/contact" shape="rect">Book your call</GlowButton>
+                        <GlowButton href="https://calendly.com/talhafakhar/discoverycall" target="_blank" rel="noopener noreferrer" shape="rect">Book your call</GlowButton>
                     </motion.div>
                 </motion.div>
             </div>

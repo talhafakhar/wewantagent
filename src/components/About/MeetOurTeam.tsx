@@ -87,7 +87,7 @@ export default function AutomationExperts() {
                     })}
                 </div>
                 <div className="mt-10  flex justify-center ">
-                    <GlowButton href="/contact" shape="rect">Get a Free Consultation</GlowButton>
+                    <GlowButton href="https://calendly.com/talhafakhar/discoverycall" target="_blank" rel="noopener noreferrer" shape="rect">Get a Free Consultation</GlowButton>
                 </div>
             </div>
         </section>

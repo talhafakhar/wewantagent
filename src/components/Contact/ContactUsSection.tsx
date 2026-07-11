@@ -75,7 +75,7 @@ const ContactForm = () => {
         const update = () =>
             setLocalTime(
                 new Date().toLocaleTimeString("en-GB", {
-                    timeZone: "Asia/Karachi",
+                    timeZone: "America/Chicago",
                     hour12: true,
                 })
             );
@@ -237,9 +237,9 @@ const ContactForm = () => {
                             <motion.div variants={itemLeft} className="mt-16 border-t border-white/10 pt-6">
                                 <p className="text-[15px] text-[#5EA8FF]">Office:</p>
                                 <p className="mt-2 text-[15px] font-medium leading-relaxed text-[#eceef4]">
-                                    Lahore
+                                    Austin
                                     <br/>
-                                    Pakistan
+                                    Texas
                                     <br/>
                                     Local time: {localTime}
                                 </p>
@@ -252,16 +252,6 @@ const ContactForm = () => {
                                     className="mt-2 block text-3xl font-medium text-white transition-colors hover:text-[#5EA8FF] sm:text-base"
                                 >
                                     hello@wewantagent.com
-                                </a>
-                            </motion.div>
-
-                            <motion.div variants={itemLeft} className="mt-8 border-t border-white/10 pt-6">
-                                <p className="text-[15px] text-[#5EA8FF]">Phone:</p>
-                                <a
-                                    href="tel:+923000000000"
-                                    className="mt-2 block text-3xl font-medium text-white transition-colors hover:text-[#5EA8FF] sm:text-base"
-                                >
-                                    +92 300 0000000
                                 </a>
                             </motion.div>
                         </div>
