@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Facebook, Linkedin, Instagram } from "lucide-react";
+import { Linkedin } from "lucide-react"; //Instagram and Facebook add later
 export default function FooterSection() {
     return (
         <footer className="text-white relative mt-10">
