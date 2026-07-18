@@ -7,8 +7,20 @@ interface  BannerSectionProps {
     text?: string;
     subtext?: string;
     lastText?: string;
+    description?: string;
+    note?: string;
+    buttonText?: string;
+    buttonHref?: string;
 }
-export default function BannerSection({text, subtext, lastText}: BannerSectionProps) {
+export default function BannerSection({
+                                           text,
+                                           subtext,
+                                           lastText,
+                                           description,
+                                           note,
+                                           buttonText = "Book your call",
+                                           buttonHref = "https://calendly.com/talhafakhar/discoverycall",
+                                       }: BannerSectionProps) {
     const sectionRef = useRef<HTMLElement>(null);
     return (
         <section ref={sectionRef} className="relative overflow-hidden text-white  ">
@@ -40,6 +52,18 @@ export default function BannerSection({text, subtext, lastText}: BannerSectionPr
                         {text}  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-secondary font-bold">{subtext}</span> {lastText}
                     </motion.h2>
 
+                    {description && (
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2, duration: 0.8 }}
+                            viewport={{ once: true }}
+                            className="mt-6 text-gray-300"
+                        >
+                            {description}
+                        </motion.p>
+                    )}
+
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -47,7 +71,8 @@ export default function BannerSection({text, subtext, lastText}: BannerSectionPr
                         viewport={{ once: true }}
                         className="mt-8"
                     >
-                        <GlowButton href="https://calendly.com/talhafakhar/discoverycall" target="_blank" rel="noopener noreferrer" shape="rect">Book your call</GlowButton>
+                        <GlowButton href={buttonHref} target="_blank" rel="noopener noreferrer" shape="rect">{buttonText}</GlowButton>
+                        {note && <p className="mt-4 text-sm text-gray-400">{note}</p>}
                     </motion.div>
                 </motion.div>
             </div>

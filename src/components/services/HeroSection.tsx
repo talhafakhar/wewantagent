@@ -9,20 +9,26 @@ interface HeroSectionProps {
     description: string;
     buttonText: string;
     buttonHref?: string;
+    buttonTarget?: string;
+    buttonRel?: string;
     imageSrc: string;
 width?: number;
 height?: number;
 imageClassName?: string;
+note?: string;
 }
 const HeroSection: React.FC<HeroSectionProps> = ({
                                                      title,
                                                      description,
                                                      buttonText,
                                                      buttonHref = "/contact",
+                                                     buttonTarget,
+                                                     buttonRel,
                                                      imageSrc,
                                                      width,
                                                      height,
-                                                     imageClassName = ""
+                                                     imageClassName = "",
+                                                     note,
                                                  }) => {
     const container = {
         hidden: {},
@@ -72,8 +78,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                             <motion.p variants={item} className="mt-4 text-gray-200">
                                 {description}
                             </motion.p>
-                            <div className="mt-10 flex justify-center lg:justify-start">
-                                <GlowButton href={buttonHref} shape="rect">{buttonText}</GlowButton>
+                            <div className="mt-10 flex flex-col items-center lg:items-start gap-3">
+                                <GlowButton href={buttonHref} target={buttonTarget} rel={buttonRel} shape="rect">{buttonText}</GlowButton>
+                                {note && <p className="text-sm text-gray-400">{note}</p>}
                             </div>
                         </div>
 

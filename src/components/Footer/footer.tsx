@@ -48,9 +48,11 @@ export default function FooterSection() {
                         </p>
                         <div className="flex flex-col space-y-2">
                             {[
-                                { name: "AI Agent for Real Estate", href: "/services/realestateaiagent" },
-                                { name: "AI Agent for Healthcare", href: "/services/healthcareautomation" },
-                                { name: "Accounting AI Agent", href: "/services/bookkeepingai" },
+                                { name: "AI Transformation Program", href: "/services/ai-transformation" },
+                                { name: "AI Consulting Services", href: "/services/ai-consulting" },
+                                { name: "AI Agent for Real Estate", href: "/services/real-estate" },
+                                { name: "AI Agent for Healthcare", href: "/services/healthcare" },
+                                { name: "Accounting AI Agent", href: "/services/bookkeeping" },
                             ].map((item, idx) => (
                                 <Link
                                     key={idx}
@@ -69,7 +71,7 @@ export default function FooterSection() {
                             Quick Links
                         </p>
                         <div className="flex flex-col space-y-2">
-                            <Link href="/automationexpert" className="text-sm hover:text-white transition duration-150">
+                            <Link href="/about" className="text-sm hover:text-white transition duration-150">
                                 About Us
                             </Link>
                              <Link href="/contact" className="text-sm hover:text-white transition duration-150">

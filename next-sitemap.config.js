@@ -35,14 +35,14 @@ module.exports = {
 
         const priorities = {
             '/': 1.0,
-            '/automationexpert': 0.8,
+            '/about': 0.8,
             '/contact': 0.8,
             '/services': 0.9,
         };
         const changeFreqs = {
             '/': 'daily',
             '/contact': 'monthly',
-            '/automationexpert': 'monthly',
+            '/about': 'monthly',
         };
 
         const lastmodDate = new Date();

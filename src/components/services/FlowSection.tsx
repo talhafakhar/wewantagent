@@ -2,6 +2,7 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import ScrollGlow from "@/components/ui/ScrollGlow";
+import GlowButton from "@/components/ui/GlowButton";
 
 interface Step {
     number: number;
@@ -12,9 +13,16 @@ interface Step {
 interface ProcessTimelineProps {
     heading: string;
     steps: Step[];
+    buttonText?: string;
+    buttonHref?: string;
 }
 
-const ProcessTimeline: React.FC<ProcessTimelineProps> = ({ heading, steps }) => {
+const ProcessTimeline: React.FC<ProcessTimelineProps> = ({
+    heading,
+    steps,
+    buttonText,
+    buttonHref = "/contact",
+}) => {
     const sectionRef = useRef<HTMLElement>(null);
     return (
         <section ref={sectionRef} className="relative bg-black text-white py-20 overflow-hidden">
@@ -55,6 +63,14 @@ const ProcessTimeline: React.FC<ProcessTimelineProps> = ({ heading, steps }) => 
                         </motion.div>
                     ))}
                 </div>
+
+                {buttonText && (
+                    <div className="mt-14 flex justify-center">
+                        <GlowButton href={buttonHref} shape="rect">
+                            {buttonText}
+                        </GlowButton>
+                    </div>
+                )}
             </div>
         </section>
     );

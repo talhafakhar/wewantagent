@@ -4,7 +4,19 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Plus, X } from "lucide-react";
 import GlowButton from "@/components/ui/GlowButton";
 import ScrollGlow from "@/components/ui/ScrollGlow";
-const faqs = [
+interface Faq {
+    question: string;
+    answer: string;
+}
+
+interface FaqSectionProps {
+    heading?: string;
+    subheading?: string;
+    faqs?: Faq[];
+    showButton?: boolean;
+}
+
+const defaultFaqs: Faq[] = [
     {
         question: "How to create an AI agent for my business?",
         answer:
@@ -26,7 +38,13 @@ const faqs = [
             "Simple artificial intelligence automation takes 2–4 weeks. Complex multi-system integrations need 6–12 weeks. Rush projects are possible for urgent needs. We give you realistic timelines during consultation - never overpromise. Most clients see their first automation running within 30 days of starting.",
     },
 ];
-export default function FaqSection() {
+
+export default function FaqSection({
+                                         heading = "Frequently Asked Questions",
+                                         subheading = "Questions We Hear Every Day",
+                                         faqs = defaultFaqs,
+                                         showButton = true,
+                                     }: FaqSectionProps) {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
     const half = Math.ceil(faqs.length / 2);
     const columns = [faqs.slice(0, half), faqs.slice(half)];
@@ -43,10 +61,10 @@ export default function FaqSection() {
                     className="mx-auto max-w-2xl text-center"
                 >
                     <h2 className="text-3xl sm:text-6xl font-semibold tracking-tight bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
-                        Frequently Asked Questions
+                        {heading}
                     </h2>
                     <p className="mt-6 text-base leading-7 text-gray-300">
-                        Questions We Hear Every Day
+                        {subheading}
                     </p>
                 </motion.div>
 
@@ -122,15 +140,17 @@ export default function FaqSection() {
                     ))}
                 </div>
 
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.9, ease: "easeOut" }}
-                    viewport={{ once: true }}
-                    className="mt-16 flex justify-center"
-                >
-                    <GlowButton href="https://calendly.com/talhafakhar/discoverycall" target="_blank" rel="noopener noreferrer" shape="rect">Book a free consultation</GlowButton>
-                </motion.div>
+                {showButton && (
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.9, ease: "easeOut" }}
+                        viewport={{ once: true }}
+                        className="mt-16 flex justify-center"
+                    >
+                        <GlowButton href="https://calendly.com/talhafakhar/discoverycall" target="_blank" rel="noopener noreferrer" shape="rect">Book a free consultation</GlowButton>
+                    </motion.div>
+                )}
             </div>
         </section>
     );

@@ -169,10 +169,10 @@ export default function RealEstateAiAgent() {
                 "Client information is secured with encryption standards, access controls are implemented, and privacy law compliance is maintained always.",
         },
     ];
-    const title = "Real Estate AI Agent Automation Services | We Want Agent";
+    const title = "Real Estate AI Agent | Automate Property Business | We Want Agent";
     const description =
-        "Real estate ai agent automation for agents, brokers, and property managers. Voice AI, lead qualification, listing management, and marketing automation for real estate agents";
-    const url = "https://wewantagent.com/services/realestateaiagent";
+        "Automate property listings, lead follow-ups, and client management with AI agents built for real estate professionals. Close more deals with We Want Agent.";
+    const url = "https://wewantagent.com/services/real-estate";
     const imageUrl = "https://wewantagent.com/assets/home/logo white.png";
 
     return (

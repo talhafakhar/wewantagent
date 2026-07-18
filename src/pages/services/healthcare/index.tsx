@@ -174,18 +174,18 @@ export default function HealthcareAutomation() {
                 "Patient consent management, data access controls, PHI protection protocols. Privacy regulations ensured thoroughly always",
         },
     ];
-    const description = "Health care automation with healthcare agents for scheduling, intake, insurance verification, and patient communication. Automation in health care that reduces admin burden";
+    const description = "Automate patient scheduling, documentation, and compliance workflows with HIPAA-compliant AI agents designed for healthcare providers. We Want Agent.";
 
     return (
         <>
             <NextSeo
-                title="Health Care Automation AI Agents Solutions | We Want Agent"
+                title="Healthcare AI Agent | HIPAA Compliant Automation | We Want Agent"
                 description={description}
-                canonical="https://wewantagent.com/services/healthcareautomation"
+                canonical="https://wewantagent.com/services/healthcare"
                 openGraph={{
-                    url: "https://wewantagent.com/services/healthcareautomation",
-                    title: "Health Care Automation AI Agents Solutions | We Want Agent",
-                    description: "Health care automation with healthcare agents for scheduling, intake, insurance verification, and patient communication. Automation in health care that reduces admin burden",
+                    url: "https://wewantagent.com/services/healthcare",
+                    title: "Healthcare AI Agent | HIPAA Compliant Automation | We Want Agent",
+                    description: "Automate patient scheduling, documentation, and compliance workflows with HIPAA-compliant AI agents designed for healthcare providers. We Want Agent.",
                     images: [
                         {
                             url: "https://wewantagent.com/assets/home/logo white.png",
@@ -203,9 +203,9 @@ export default function HealthcareAutomation() {
                 }}
             />
             <WebPageJsonLd
-                id="https://wewantagent.com/services/healthcareautomation#webpage"
-                url="https://wewantagent.com/services/healthcareautomation"
-                name="Health Care Automation AI Agents Solutions | We Want Agent"
+                id="https://wewantagent.com/services/healthcare#webpage"
+                url="https://wewantagent.com/services/healthcare"
+                name="Healthcare AI Agent | HIPAA Compliant Automation | We Want Agent"
                 description={description}
             />
 

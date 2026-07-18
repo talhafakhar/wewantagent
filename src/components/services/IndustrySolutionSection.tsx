@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { LucideIcon } from "lucide-react";
 import dynamic from "next/dynamic";
 import ScrollGlow from "@/components/ui/ScrollGlow";
+import GlowButton from "@/components/ui/GlowButton";
 
 const IndustryCarousel = dynamic(() => import("./IndustryCarousel"), {
     ssr: false,
@@ -20,13 +21,19 @@ interface IndustrySolutionsSectionProps {
     headingLine2?: string;
     description: string;
     industries: Industry[];
+    note?: string;
+    buttonText?: string;
+    buttonHref?: string;
 }
 
-const IndustrySolutionsSection: React.FC<IndustrySolutionsSectionProps> = ({ 
+const IndustrySolutionsSection: React.FC<IndustrySolutionsSectionProps> = ({
                                                                                heading,
                                                                                headingLine2,
                                                                                description,
                                                                                industries,
+                                                                               note,
+                                                                               buttonText,
+                                                                               buttonHref = "/contact",
                                                                            }) => {
     const sectionRef = useRef<HTMLElement>(null);
     return (
@@ -60,6 +67,18 @@ const IndustrySolutionsSection: React.FC<IndustrySolutionsSectionProps> = ({
                     {description}
                 </motion.p>
                 <IndustryCarousel industries={industries} />
+
+                {note && (
+                    <p className="mt-12 text-gray-400 max-w-2xl mx-auto">{note}</p>
+                )}
+
+                {buttonText && (
+                    <div className="mt-8 flex justify-center">
+                        <GlowButton href={buttonHref} shape="rect">
+                            {buttonText}
+                        </GlowButton>
+                    </div>
+                )}
             </div>
         </section>
     );

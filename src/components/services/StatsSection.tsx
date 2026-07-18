@@ -36,7 +36,7 @@ const WhatWeDo: React.FC<StatsSectionProps> = ({
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: true }}
-                    className="mb-10"
+                    className="mb-16 text-center"
                 >
                     <h2 className="text-4xl md:text-5xl font-semibold leading-tight">
                         <span className="bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
@@ -57,7 +57,7 @@ const WhatWeDo: React.FC<StatsSectionProps> = ({
                                 viewport={{ once: true }}
                                 className="p-6 border border-white/10 rounded-xl bg-black/20 backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
                             >
-                                <Icon className="text-white w-16 h-16 mb-4" />
+                                <Icon className="text-white w-16 h-16 mb-4" strokeWidth={1.25} />
                                 <h4 className="text-2xl font-bold mb-2 bg-gradient-to-r from-[#f2c14e] to-[#a1e355] bg-clip-text text-transparent">
                                     {stat.title}
                                 </h4>

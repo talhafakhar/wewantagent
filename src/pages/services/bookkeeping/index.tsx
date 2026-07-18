@@ -144,39 +144,39 @@ export default function BookkeepingAi() {
     const steps = [
         {
             number: 1,
-            title: " HIPAA",
+            title: " GAAP",
             description:
-                "Patient data encrypted, access controlled, audit trails maintained. Complete HIPAA compliance is guaranteed",
+                "Financial records prepared and maintained in full accordance with Generally Accepted Accounting Principles. Accuracy and consistency guaranteed always.",
         },
         {
             number: 2,
             title: "Security",
             description:
-                "Healthcare agents use encrypted channels, secure storage, authentication protocols. Patient privacy protected completely",
+                "Financial data encrypted with bank-level security, access controlled, and stored with multi-layer authentication protocols. Your books protected completely.",
         },
         {
             number: 3,
-            title: "Compliance ",
+            title: "Compliance",
             description:
-                "Automation follows healthcare regulations, medical board requirements, telehealth laws. Documentation standards maintained consistently",
+                "Automation follows IRS regulations, tax filing requirements, and industry accounting standards. Documentation and reporting standards maintained consistently.",
         },
         {
             number: 4,
-            title: "Privacy ",
+            title: "ACCURACY",
             description:
-                "Patient consent management, data access controls, PHI protection protocols. Privacy regulations ensured thoroughly always",
+                "Real-time reconciliation, error detection, and audit-ready records. Every transaction verified and every number accountable at all times.",
         },
     ];
     return (
         <>
             <NextSeo
-                title="Bookkeeping AI Agent | We Want Agent"
-                description="Bookkeeping AI agent for firms. AI agent for accounting handles invoices, reconciliation, reporting. Accounting workflow automation that eliminates manual work."
-                canonical="https://wewantagent.com/services/bookkeepingai"
+                title="Bookkeeping AI Agent | GAAP Compliant Financial Automation | We Want Agent"
+                description="Automate bookkeeping, tax compliance, and financial reporting with secure AI agents. GAAP compliant and always accurate. Powered by We Want Agent."
+                canonical="https://wewantagent.com/services/bookkeeping"
                 openGraph={{
-                    url: "https://wewantagent.com/services/bookkeepingai",
-                    title: "Bookkeeping AI Agent | We Want Agent",
-                    description: "Bookkeeping AI agent for firms. AI agent for accounting handles invoices, reconciliation, reporting. Accounting workflow automation that eliminates manual work",
+                    url: "https://wewantagent.com/services/bookkeeping",
+                    title: "Bookkeeping AI Agent | GAAP Compliant Financial Automation | We Want Agent",
+                    description: "Automate bookkeeping, tax compliance, and financial reporting with secure AI agents. GAAP compliant and always accurate. Powered by We Want Agent.",
                     images: [
                         {
                             url: "https://wewantagent.com/assets/home/logo white.png",
@@ -195,10 +195,10 @@ export default function BookkeepingAi() {
             />
 
             <WebPageJsonLd
-                id="https://wewantagent.com/services/bookkeepingai#webpage"
-                url="https://wewantagent.com/services/bookkeepingai"
-                name="Bookkeeping AI Agent | We Want Agent"
-                description="Bookkeeping AI agent for firms. AI agent for accounting handles invoices, reconciliation, reporting. Accounting workflow automation that eliminates manual work."
+                id="https://wewantagent.com/services/bookkeeping#webpage"
+                url="https://wewantagent.com/services/bookkeeping"
+                name="Bookkeeping AI Agent | GAAP Compliant Financial Automation | We Want Agent"
+                description="Automate bookkeeping, tax compliance, and financial reporting with secure AI agents. GAAP compliant and always accurate. Powered by We Want Agent."
             />
             <div className="bg-black">
                 <HeroSection

@@ -14,9 +14,9 @@ export default function AutomationExpert() {
             <NextSeo
                 title="Automation Expert Team - Custom AI Solutions | We Want Agent"
                 description="Meet our automation expert team building custom AI solutions."
-                canonical="https://wewantagent.com/automationexpert"
+                canonical="https://wewantagent.com/about"
                 openGraph={{
-                    url: "https://wewantagent.com/automationexpert",
+                    url: "https://wewantagent.com/about",
                     images: [
                         {
                             url: "https://wewantagent.com/assets/home/logo white.png",
@@ -28,8 +28,8 @@ export default function AutomationExpert() {
             />
 
             <WebPageJsonLd
-                id="https://wewantagent.com/automationexpert#webpage"
-                url="https://wewantagent.com/automationexpert"
+                id="https://wewantagent.com/about#webpage"
+                url="https://wewantagent.com/about"
                 name="Automation Expert Team"
             />
 

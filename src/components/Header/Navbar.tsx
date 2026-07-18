@@ -7,10 +7,12 @@ import Link from "next/link";
 import GlowButton from "@/components/ui/GlowButton";
 
 const NAV_LINKS = [
-    { label: "Real Estate", href: "/services/realestateaiagent" },
-    { label: "Healthcare", href: "/services/healthcareautomation" },
-    { label: "Bookkeeping", href: "/services/bookkeepingai" },
-    { label: "About", href: "/automationexpert" },
+    { label: "AI Transformation", href: "/services/ai-transformation" },
+    { label: "AI Consulting", href: "/services/ai-consulting" },
+    { label: "Real Estate", href: "/services/real-estate" },
+    { label: "Healthcare", href: "/services/healthcare" },
+    { label: "Bookkeeping", href: "/services/bookkeeping" },
+    { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
 ];
 
