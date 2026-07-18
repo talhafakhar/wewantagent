@@ -15,6 +15,8 @@ interface ProcessTimelineProps {
     steps: Step[];
     buttonText?: string;
     buttonHref?: string;
+    buttonTarget?: string;
+    buttonRel?: string;
 }
 
 const ProcessTimeline: React.FC<ProcessTimelineProps> = ({
@@ -22,6 +24,8 @@ const ProcessTimeline: React.FC<ProcessTimelineProps> = ({
     steps,
     buttonText,
     buttonHref = "/contact",
+    buttonTarget,
+    buttonRel,
 }) => {
     const sectionRef = useRef<HTMLElement>(null);
     return (
@@ -66,7 +70,7 @@ const ProcessTimeline: React.FC<ProcessTimelineProps> = ({
 
                 {buttonText && (
                     <div className="mt-14 flex justify-center">
-                        <GlowButton href={buttonHref} shape="rect">
+                        <GlowButton href={buttonHref} target={buttonTarget} rel={buttonRel} shape="rect">
                             {buttonText}
                         </GlowButton>
                     </div>

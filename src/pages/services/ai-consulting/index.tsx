@@ -305,6 +305,8 @@ export default function AiConsulting() {
                 <ServicesSection
                     heading="Consulting That Ends with a Plan, Not a PowerPoint"
                     services={services}
+                    buttonText="Start With Your Free Assessment"
+                    buttonHref="/contact"
                 />
                 <IndustrySolutionsSection
                     heading="Deep Expertise Across Industries That Run on Efficiency"
@@ -312,10 +314,17 @@ export default function AiConsulting() {
                     industries={industries}
                     note="Don't see your industry? The principles transfer. Book a call and we'll map it out together."
                     buttonText="Find AI Opportunities in Your Industry"
+                    buttonHref="https://calendly.com/talhafakhar/discoverycall"
+                    buttonTarget="_blank"
+                    buttonRel="noopener noreferrer"
                 />
                 <ProcessTimeline
                     heading="Four Steps from Confusion to Clarity"
                     steps={steps}
+                    buttonText="Book Your Discovery Call"
+                    buttonHref="https://calendly.com/talhafakhar/discoverycall"
+                    buttonTarget="_blank"
+                    buttonRel="noopener noreferrer"
                 />
                 <ComparisonTableSection
                     heading="Not Sure Which Service You Need?"

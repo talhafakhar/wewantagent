@@ -3,6 +3,7 @@ import React, { useRef } from "react";
 import { motion, easeOut } from "framer-motion";
 import { LucideIcon } from "lucide-react";
 import ScrollGlow from "@/components/ui/ScrollGlow";
+import GlowButton from "@/components/ui/GlowButton";
 
 interface ServiceItem {
     icon: LucideIcon;
@@ -14,12 +15,16 @@ interface ServicesSectionProps {
     heading: string;
     description?: string;
     services: ServiceItem[];
+    buttonText?: string;
+    buttonHref?: string;
 }
 
 const ServicesSection: React.FC<ServicesSectionProps> = ({
                                                              heading,
                                                              description,
                                                              services,
+                                                             buttonText,
+                                                             buttonHref = "/contact",
                                                          }) => {
     const container = {
         hidden: { opacity: 0 },
@@ -98,6 +103,14 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({
                                 })}
                             </div>
                     </div>
+
+                    {buttonText && (
+                        <div className="mt-12 flex justify-center">
+                            <GlowButton href={buttonHref} shape="rect">
+                                {buttonText}
+                            </GlowButton>
+                        </div>
+                    )}
                 </motion.div>
             </div>
         </section>

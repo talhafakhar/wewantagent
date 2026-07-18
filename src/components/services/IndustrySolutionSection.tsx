@@ -24,6 +24,8 @@ interface IndustrySolutionsSectionProps {
     note?: string;
     buttonText?: string;
     buttonHref?: string;
+    buttonTarget?: string;
+    buttonRel?: string;
 }
 
 const IndustrySolutionsSection: React.FC<IndustrySolutionsSectionProps> = ({
@@ -34,6 +36,8 @@ const IndustrySolutionsSection: React.FC<IndustrySolutionsSectionProps> = ({
                                                                                note,
                                                                                buttonText,
                                                                                buttonHref = "/contact",
+                                                                               buttonTarget,
+                                                                               buttonRel,
                                                                            }) => {
     const sectionRef = useRef<HTMLElement>(null);
     return (
@@ -74,7 +78,7 @@ const IndustrySolutionsSection: React.FC<IndustrySolutionsSectionProps> = ({
 
                 {buttonText && (
                     <div className="mt-8 flex justify-center">
-                        <GlowButton href={buttonHref} shape="rect">
+                        <GlowButton href={buttonHref} target={buttonTarget} rel={buttonRel} shape="rect">
                             {buttonText}
                         </GlowButton>
                     </div>
