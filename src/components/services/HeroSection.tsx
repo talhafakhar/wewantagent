@@ -15,6 +15,7 @@ interface HeroSectionProps {
 width?: number;
 height?: number;
 imageClassName?: string;
+contentClassName?: string;
 note?: string;
 }
 const HeroSection: React.FC<HeroSectionProps> = ({
@@ -28,6 +29,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                                                      width,
                                                      height,
                                                      imageClassName = "",
+                                                     contentClassName = "",
                                                      note,
                                                  }) => {
     const container = {
@@ -69,7 +71,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                     className="flex-1 flex flex-col justify-center items-start pt-28 lg:pt-0 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8"
                 >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center w-full">
-                        <div className="w-full">
+                        <div className={`w-full ${contentClassName}`}>
                             <h1 className="text-5xl md:text-7xl font-semibold leading-tight max-w-4xl">
                                 <span className="bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
                                     {title}

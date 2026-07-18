@@ -291,6 +291,8 @@ export default function AiConsulting() {
                     imageSrc="/assets/services/aiDevelopment.webp"
                     width={420}
                     height={480}
+                    imageClassName="-mt-16 md:-mt-24"
+                    contentClassName="mt-10 md:mt-16"
                     note="30 minutes. Zero commitment. Walk away with clarity."
                 />
                 <ProblemSection

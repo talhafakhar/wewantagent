@@ -303,6 +303,8 @@ export default function AiTransformation() {
                     imageSrc="/assets/services/aiDevelopment.webp"
                     width={420}
                     height={480}
+                    imageClassName="-mt-16 md:-mt-24"
+                    contentClassName="mt-10 md:mt-16"
                     note="30 minutes. No commitment. Just a clear picture of what AI can do for your business."
                 />
                 <ProblemSection
