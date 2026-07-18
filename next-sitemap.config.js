@@ -50,10 +50,14 @@ module.exports = {
             lastmodDate.getMonth() + 1
         ).padStart(2, '0')}`;
 
+        const priority =
+            priorities[path] ??
+            (path.startsWith('/services/') ? 0.7 : 0.5);
+
         return {
             loc: path,
             changefreq: changeFreqs[path] || 'monthly',
-            priority: priorities[path] || 0.5,
+            priority,
             lastmod: lastmodMonthly,
         };
     },
