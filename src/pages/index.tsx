@@ -53,8 +53,8 @@ export default function Home({ initialBlogs, pagination }: Props) {
     return (
         <>
             <NextSeo
-                title="We Want Agent | The Custom Build AI Automation Agency"
-                description="We Want Agent is an AI automation agency building custom AI agents."
+                title="AI Automation Agency | Custom AI Agents for Business | We Want Agent"
+                description="We build custom AI agents that eliminate repetitive tasks, automate workflows, and save you hours daily. Serving 10+ industries. Book a free consultation today."
                 canonical="https://wewantagent.com/"
                 openGraph={{
                     url: "https://wewantagent.com/",
@@ -119,7 +119,7 @@ export default function Home({ initialBlogs, pagination }: Props) {
                 />
                 <FaqSection />
 
-                <section ref={insightsRef} className="relative overflow-hidden py-8">
+                <section id="blog-section" ref={insightsRef} className="relative overflow-hidden py-8">
                     <ScrollGlow
                         target={insightsRef}
                         speed={0}
