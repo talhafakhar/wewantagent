@@ -20,7 +20,7 @@ const BenefitSection = dynamic(() => import("@/components/HomePage/BenefitSectio
 const OrbitAnimation = dynamic(() => import("@/components/HomePage/FlowSection"));
 const GlobeSection = dynamic(() => import("@/components/HomePage/GlobeSection"));
 const TestimonialsSection = dynamic(() => import("@/components/HomePage/TestimonialSection"));
-const PricingSection = dynamic(() => import("@/components/HomePage/PricingTableSection"));
+// const PricingSection = dynamic(() => import("@/components/HomePage/PricingTableSection"));
 const FaqSection = dynamic(() => import("@/components/HomePage/FaqSection"));
 const FooterSection = dynamic(() => import("@/components/Footer/footer"));
 const BannerSection = dynamic(() => import("@/components/HomePage/BannerSection"));
@@ -111,7 +111,7 @@ export default function Home({ initialBlogs, pagination }: Props) {
                 <OrbitAnimation />
                 <GlobeSection />
                 <TestimonialsSection />
-                <PricingSection />
+                {/* <PricingSection /> */}
                 <BannerSection
                     text="Wasting hours on repetitive tasks? Let AI handle the work while you focus on growth."
                     subtext="Get your"
