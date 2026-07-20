@@ -44,7 +44,7 @@ export default function GlobeSection() {
                     transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
                     className="text-base md:text-lg text-gray-300 max-w-2xl mx-auto"
                 >
-                    Wondering how much AI costs? We break down every dollar before you commit. No hidden fees, no surprise charges, no vague estimates that double later
+                    Wondering how much AI costs? We scope your project and break down every dollar before you commit. No hidden fees, no surprise charges, no vague estimates that double later.
                 </motion.p>
 
                 <motion.div
@@ -60,7 +60,7 @@ export default function GlobeSection() {
                     <ArrowDown className="w-8 h-8 md:w-10 md:h-10 text-white" />
                 </motion.div>
                 <div className="mt-4 flex justify-center translate-y-0">
-                    <GlowButton href="#pricing" shape="rect">See Our Pricing</GlowButton>
+                    <GlowButton href="#pricing" shape="rect">Get Your Custom Quote</GlowButton>
                 </div>
             </div>
         </section>
