@@ -95,15 +95,6 @@ const HeroSection = () => {
                     animation: "heroFloatB 17s ease-in-out infinite",
                 }}
             />
-            {/* <div
-                data-parallax="0.1"
-                className="pointer-events-none absolute left-1/2 top-1/2 h-[720px] w-[720px] rounded-full blur-[60px]"
-                style={{
-                    background: "radial-gradient(circle, rgba(242,193,78,0.55), transparent 70%)",
-                    animation: "heroFloatC 20s ease-in-out infinite",
-                    translate: "-50% -50%",
-                }}
-            /> */}
 
             {/* faint grid pattern */}
             <div
@@ -200,7 +191,7 @@ const HeroSection = () => {
                 </div> */}
             </div>
 
-            {/* <style jsx>{`
+            <style jsx>{`
                 @keyframes heroFloatA {
                     0%,
                     100% {
@@ -274,7 +265,7 @@ const HeroSection = () => {
                         transform: translateX(-50%);
                     }
                 }
-            `}</style> */}
+            `}</style>
         </section>
     );
 };
