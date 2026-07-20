@@ -20,22 +20,22 @@ const defaultFaqs: Faq[] = [
     {
         question: "How to create an AI agent for my business?",
         answer:
-            "We start with a discovery call to understand your pain points. Then our automation expert maps out what tasks to automate, designs the AI agent architecture, develops it custom for your workflow, tests thoroughly, and deploys it into your systems. You're involved at every step - no surprises.",
+            " It starts with a free consultation where we identify your biggest time drains. From there, we design, build, and deploy a custom AI agent that fits your exact workflow. You don't need any technical knowledge; we handle everything from discovery to deployment.",
     },
     {
         question: "How much does AI cost for a small business?",
         answer:
-            "It depends on complexity, but most AI automation agency projects start between $5,000–$15,000 for initial development. Monthly maintenance runs $500–$2,000. We provide transparent quotes upfront - no hidden fees. Think of it as hiring a full-time employee who never sleeps, never quits, and costs less annually.",
+            "Every project is tailored to your needs and scope, so pricing varies. We provide a clear, itemized quote after your free consultation, before any commitment. No hidden fees, no surprises, and packages designed to pay for themselves in saved hours.",
     },
     {
         question: "Will AI assistants work with my current software?",
         answer:
-            "Yes. We build AI automation service solutions that integrate with your existing CRM, scheduling tools, accounting software, and databases. No need to change what's working - we make it work smarter. If you use it daily, we can likely automate around it or enhance it.",
+            "Yes. We build automation that works with your existing systems, not against them. Whether you use Gmail, Slack, ClickUp, QuickBooks, Salesforce, or custom tools, your stack stays and we make it smarter.",
     },
     {
         question: "How long does it take to build custom AI agents?",
         answer:
-            "Simple artificial intelligence automation takes 2–4 weeks. Complex multi-system integrations need 6–12 weeks. Rush projects are possible for urgent needs. We give you realistic timelines during consultation - never overpromise. Most clients see their first automation running within 30 days of starting.",
+            "Simple single-workflow agents go live in about 2 weeks. Multi-workflow systems take 6 to 8 weeks. Enterprise-wide automation timelines are scoped based on your needs, and we always give you a clear timeline before starting.",
     },
 ];
 
