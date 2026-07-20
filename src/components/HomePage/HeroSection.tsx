@@ -4,12 +4,12 @@ import { motion, Variants } from "framer-motion";
 import gsap from "gsap";
 import GlowButton from "@/components/ui/GlowButton";
 
-const MARQUEE_ITEMS = [
-    "Delivering results to clients of all sizes",
-    "Real Estate",
-    "Healthcare",
-    "Accounting",
-];
+// const MARQUEE_ITEMS = [
+//     "Delivering results to clients of all sizes",
+//     "Real Estate",
+//     "Healthcare",
+//     "Accounting",
+// ];
 
 const container: Variants = {
     hidden: {},
@@ -158,7 +158,7 @@ const HeroSection = () => {
                     variants={item}
                     className="mx-auto mb-[38px] max-w-[600px] text-[17px] leading-[1.6] text-[#9095a6] md:text-[20px]"
                 >
-                    Tired of repetitive tasks eating up your day? We're an AI automation agency building intelligent agents for your business. Share what's slowing you down and we'll map your automation roadmap, develop AI assistants that work, and hand you back your time so you can focus on growth.
+                    Tired of repetitive tasks eating up your day? We&apos;re an AI automation agency building intelligent agents for your business. Share what&apos;s slowing you down and we&apos;ll map your automation roadmap, develop AI assistants that work, and hand you back your time so you can focus on growth.
                 </motion.p>
 
                 <motion.div

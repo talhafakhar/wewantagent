@@ -42,7 +42,7 @@ export default function TermsOfUse() {
                 </p>
                 <h2 className="text-2xl font-semibold mt-8 mb-3">Limitation of Liability</h2>
                 <p className="text-gray-300 leading-relaxed mb-4">
-                    We Want Agent is not liable for any indirect, incidental, or consequential damages resulting from the use of the website. The site is provided "as is" without warranties of any kind.
+                    We Want Agent is not liable for any indirect, incidental, or consequential damages resulting from the use of the website. The site is provided &quot;as is&quot; without warranties of any kind.
                 </p>
                 <h2 className="text-2xl font-semibold mt-8 mb-3">Changes to These Terms</h2>
                 <p className="text-gray-300 leading-relaxed mb-4">
