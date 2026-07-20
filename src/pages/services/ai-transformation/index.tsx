@@ -28,7 +28,6 @@ import {
     Workflow,
     Zap,
 } from "lucide-react";
-import ContactSection from "@/components/services/ContactFormSection";
 import BannerSection from "@/components/HomePage/BannerSection";
 import FaqSection from "@/components/HomePage/FaqSection";
 
@@ -349,7 +348,7 @@ export default function AiTransformation() {
                 <StatsSection
                     heading="Numbers Don't Lie"
                     stats={results}
-                    buttonText="Get These Results for Your Business"
+                    buttonText="Get These Results"
                 />
                 <WhoForSection
                     heading="If Any of These Sound Like You, We Should Talk"
@@ -370,7 +369,6 @@ export default function AiTransformation() {
                     items={whyUsItems}
                 />
                 <AIModulesSection />
-                <ContactSection />
                 <BannerSection
                     text="Every Week You Wait, the Gap Gets Wider"
                     description="Your free 30-minute strategy call gives you a clear AI roadmap for your business, whether you work with us or not. No commitment. No pressure. Just clarity."

@@ -45,7 +45,7 @@ export default function FooterSection() {
     return (
         <footer className="text-white relative mt-10">
             <div className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8 pt-10 border-t ">
-                <div className="grid pb-12 grid-cols-1 md:grid-cols-6 gap-8 md:gap-10">
+                <div className="grid pb-12 grid-cols-1 md:grid-cols-5 gap-8 md:gap-8">
                     <div className="col-span-1 md:col-span-2">
                         <div className="flex flex-col space-y-4">
                             <div className="flex items-center space-x-2">
@@ -79,15 +79,17 @@ export default function FooterSection() {
                         </div>
                     </div>
 
-                    <div>
+                    <div className="md:col-span-1">
                         <p className="text-xs uppercase font-semibold text-gray-400 mb-3 tracking-wider">
                             Services
                         </p>
                         <div className="flex flex-col space-y-2">
                             {[
-                                { name: "AI Transformation Program", href: "/services/ai-transformation" },
-                                { name: "AI Consulting Services", href: "/services/ai-consulting" },
-
+                                { name: "AI Transformation", href: "/services/ai-transformation" },
+                                { name: "AI Consulting", href: "/services/ai-consulting" },
+                                { name: "Real Estate", href: "/services/real-estate" },
+                                { name: "Healthcare", href: "/services/healthcare" },
+                                { name: "Bookkeeping", href: "/services/bookkeeping" },
                             ].map((item, idx) => (
                                 <Link
                                     key={idx}
@@ -97,37 +99,13 @@ export default function FooterSection() {
                                     {item.name}
                                 </Link>
                             ))}
-
                         </div>
                     </div>
-                    <div>
-                        <p className="text-xs uppercase font-semibold text-gray-400 mb-3 tracking-wider">
-                            Industries
-                        </p>
-                        <div className="flex flex-col space-y-2">
-                            {[
-                                "AI Agent for Real Estate",
-                                "AI Agent for Healthcare",
-                                "AI Agent for Bookkeeping",
-                                "AI Agent for Legal",
-                                "AI Agent for E-commerce",
-                                "AI Agent for Hospitality",
-                                "AI Agent for Recruitment",
-                                "AI Agent for Marketing Agencies",
-                                "AI Agent for Consultants",
-                                "AI Agent for SaaS",
-                            ].map((item, idx) => (
-                                <span key={idx} className="text-sm text-gray-300">
-                                    {item}
-                                </span>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="justify-self-center text-center">
+                    <div className="md:col-span-1">
                         <p className="text-xs uppercase font-semibold text-gray-400 mb-3 tracking-wider">
                             Quick Links
                         </p>
-                        <div className="flex flex-col items-center space-y-2">
+                        <div className="flex flex-col items-start space-y-2">
                             <Link href="/about" className="text-sm hover:text-white transition duration-150">
                                 About Us
                             </Link>

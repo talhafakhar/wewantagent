@@ -31,7 +31,6 @@ import {
     UserSearch,
     UtensilsCrossed,
 } from "lucide-react";
-import ContactSection from "@/components/services/ContactFormSection";
 import BannerSection from "@/components/HomePage/BannerSection";
 import FaqSection from "@/components/HomePage/FaqSection";
 
@@ -183,6 +182,10 @@ export default function AiConsulting() {
         {
             myth: "\"My business is too small for AI consulting\"",
             reality: "Small businesses see the fastest wins because they can move immediately on our recommendations.",
+        },
+        {
+            myth: "\"AI projects take too long to deliver value\"",
+            reality: "We focus on rapid, prioritised experiments that prove value in weeks - not months.",
         },
     ];
 
@@ -356,7 +359,6 @@ export default function AiConsulting() {
                     showButton={false}
                 />
                 <AIModulesSection />
-                <ContactSection />
                 <BannerSection
                     text="The Best Time to Get AI Clarity Was Yesterday. The Second Best Is Now."
                     description="Book your free 30-minute consultation. Whether we work together or not, you'll leave with a clearer picture of what AI can do for your business."

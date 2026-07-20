@@ -71,7 +71,9 @@ const ComparisonTableSection: React.FC<ComparisonTableSectionProps> = ({
                                 i !== rows.length - 1 ? "border-b border-white/10" : ""
                             }`}
                         >
-                            <div className="p-3 sm:p-5 text-xs sm:text-sm md:text-base font-semibold text-gray-400">
+                                    <div
+                                className={`p-3 sm:p-5 text-xs sm:text-sm md:text-base font-semibold ${["Best for", "You get", "We deliver", "Timeline", "Next step"].includes(row.label) ? "bg-gradient-to-r from-[#f2c14e] via-white to-white bg-clip-text text-transparent" : "text-gray-400"}`}
+                            >
                                 {row.label}
                             </div>
                             <div className="p-3 sm:p-5 border-l border-white/10 text-xs sm:text-sm md:text-base text-gray-100">

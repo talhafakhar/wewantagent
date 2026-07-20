@@ -40,36 +40,58 @@ const ComparisonSection: React.FC<ComparisonSectionProps> = ({
                     </span>
                 </motion.h2>
 
-                <div className="rounded-2xl border border-white/10 overflow-hidden bg-white/[0.02]">
-                    <div className="grid grid-cols-2 border-b border-white/10">
-                        <div className="p-4 sm:p-5 text-center text-sm sm:text-base font-semibold bg-gradient-to-r from-[#f2c14e] to-white bg-clip-text text-transparent">
-                            Without AI
-                        </div>
-                        <div className="p-4 sm:p-5 text-center text-sm sm:text-base font-semibold bg-gradient-to-r from-[#f2c14e] to-white bg-clip-text text-transparent">
-                            With We Want Agent
-                        </div>
-                    </div>
-                    {rows.map((row, i) => (
-                        <motion.div
-                            key={i}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: i * 0.08 }}
-                            viewport={{ once: true }}
-                            className={`grid grid-cols-2 ${
-                                i !== rows.length - 1 ? "border-b border-white/10" : ""
-                            }`}
-                        >
-                            <div className="p-3 sm:p-5 flex items-start gap-2 sm:gap-3 border-r border-white/10 text-gray-400">
-                                <X className="text-secondary shrink-0 mt-0.5" size={16} />
-                                <span className="text-xs sm:text-sm md:text-base">{row.without}</span>
+                <div className="flex flex-col md:flex-row md:justify-center md:items-start gap-6">
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7 }}
+                        viewport={{ once: true }}
+                        className={`relative max-w-[400px] w-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 transition-all duration-300 group hover:border-primary hover:-translate-y-1`}
+                    >
+                        <div className="relative z-10">
+                            <div className="flex items-center justify-between mb-6 ml-2">
+                                    <h3 className="text-xl font-medium text-gray-200">Without AI</h3>
+                                <span className="text-sm text-[#f2c14e] font-medium">Old Way</span>
                             </div>
-                            <div className="p-3 sm:p-5 flex items-start gap-2 sm:gap-3 text-gray-100">
-                                <Check className="text-accent shrink-0 mt-0.5" size={16} />
-                                <span className="text-xs sm:text-sm md:text-base">{row.with}</span>
+
+                            <ul className="space-y-5">
+                                {rows.map((row, i) => (
+                                    <li key={i} className="flex items-center gap-3">
+                                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/6">
+                                            <X className="w-4 h-4 text-[#8aa1c8] group-hover:text-[#8aa1c8] transition-colors duration-300" />
+                                        </div>
+                                        <p className="text-base text-gray-300 leading-relaxed">{row.without}</p>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, delay: 0.08 }}
+                        viewport={{ once: true }}
+                        className={`relative max-w-[400px] w-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 transition-all duration-300 group hover:border-primary hover:-translate-y-1 hover:shadow-[0_20px_60px rgba(43,143,255,0.08)]`}
+                    >
+                        <div className="relative z-10">
+                            <div className="flex items-center justify-between mb-6 ml-2">
+                                    <h3 className="text-xl font-medium text-white">With We Want Agent</h3>
+                                <span className="text-sm text-[#5EA8FF] font-medium">AI-powered</span>
                             </div>
-                        </motion.div>
-                    ))}
+
+                            <ul className="space-y-5">
+                                {rows.map((row, i) => (
+                                    <li key={i} className="flex items-center gap-3">
+                                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/6">
+                                            <Check className="w-4 h-4 text-[#8aa1c8] group-hover:text-[#8aa1c8] transition-colors duration-300" />
+                                        </div>
+                                        <p className="text-base text-gray-100 leading-relaxed">{row.with}</p>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </motion.div>
                 </div>
 
                 <div className="mt-12 flex justify-center">

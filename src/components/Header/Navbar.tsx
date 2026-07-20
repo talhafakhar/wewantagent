@@ -12,8 +12,6 @@ const NAV_LINKS = [
     { label: "Real Estate", href: "/services/real-estate" },
     { label: "Healthcare", href: "/services/healthcare" },
     { label: "Bookkeeping", href: "/services/bookkeeping" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {

@@ -52,25 +52,30 @@ const MythsSection: React.FC<MythsSectionProps> = ({
                 </div>
 
                 <div className="grid gap-6 sm:grid-cols-2">
-                    {myths.map((m, i) => (
-                        <motion.div
-                            key={i}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: i * 0.1 }}
-                            viewport={{ once: true }}
-                            className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 hover:border-primary/40 transition-all duration-300"
-                        >
-                            <div className="flex items-start gap-3 mb-4">
-                                <XCircle className="text-secondary shrink-0 mt-0.5" size={20} />
-                                <span className="text-gray-400">{m.myth}</span>
-                            </div>
-                            <div className="flex items-start gap-3">
-                                <CheckCircle2 className="text-accent shrink-0 mt-0.5" size={20} />
-                                <span className="text-gray-100">{m.reality}</span>
-                            </div>
-                        </motion.div>
-                    ))}
+                    {myths.map((m, i) => {
+                        const isLast = i === myths.length - 1;
+                        return (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: i * 0.1 }}
+                                viewport={{ once: true }}
+                                className={`${isLast ? "sm:col-span-2 flex justify-center" : ""}`}
+                            >
+                                <div className={`rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 hover:border-primary/40 transition-all duration-300 ${isLast ? "w-full sm:w-1/2" : "w-full"}`}>
+                                    <div className="flex items-start gap-3 mb-4">
+                                        <XCircle className="text-secondary shrink-0 mt-0.5" size={20} />
+                                        <span className="text-gray-400">{m.myth}</span>
+                                    </div>
+                                    <div className="flex items-start gap-3">
+                                        <CheckCircle2 className="text-accent shrink-0 mt-0.5" size={20} />
+                                        <span className="text-gray-100">{m.reality}</span>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        );
+                    })}
                 </div>
 
                 <div className="mt-12 flex justify-center">
