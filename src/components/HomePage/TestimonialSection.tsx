@@ -6,17 +6,17 @@ export default function TestimonialsSection() {
     const sectionRef = useRef<HTMLElement>(null);
     const testimonialsTop = [
         {
-            title: "Regional Brokerage Real Estate",
+            title: "Regional Brokerage",
             industry: "Real Estate",
             text: "47 second average response time, 64% conversion increase, and 12 hours saved per agent weekly. The ROI was immediate.",
         },
         {
-            title: "Multi-Location Clinic Healthcare",
+            title: "Multi-Location Clinic",
             industry: "Healthcare",
             text: "No-shows dropped from 22% to 8%, saving us $12,600 monthly. The AI handles 200+ calls daily without missing one.",
         },
         {
-            title: "Accounting Practice Finance",
+            title: "Accounting Practice",
             industry: "Finance",
             text: "Month-end close went from 7 days to 2 days. Client satisfaction up 40%, and we doubled capacity without new hires.",
         },
@@ -26,12 +26,12 @@ export default function TestimonialsSection() {
             text: "Onboarding calls and reconciliation follow-ups are fully automated, cutting admin time by 15 hours a week.",
         },
         {
-            title: "Boutique Law Firm Legal",
+            title: "Boutique Law Firm",
             industry: "Legal",
             text: "Client intake and scheduling are now fully automated, giving our paralegals back 10+ hours a week for billable work.",
         },
         {
-            title: "Home Services Company Field Service",
+            title: "Home Services Company",
             industry: "Field Service",
             text: "Our custom AI agent handles dispatch confirmations and rescheduling instantly, keeping every technician on time.",
         },
@@ -39,32 +39,32 @@ export default function TestimonialsSection() {
 
     const testimonialsBottom = [
         {
-            title: "E-commerce Retailer Retail",
+            title: "E-commerce Retailer",
             industry: "Retail",
             text: "Order status and return inquiries are resolved instantly, cutting our support ticket backlog by 70% in the first month.",
         },
         {
-            title: "Dental Group Practice Healthcare",
+            title: "Dental Group Practice",
             industry: "Healthcare",
             text: "Appointment reminders and rebooking run automatically now, freeing our front desk to focus on patients in the chair.",
         },
         {
-            title: "Independent Insurance Agency Insurance",
+            title: "Independent Insurance Agency",
             industry: "Insurance",
             text: "Renewal calls happen on schedule every time, and our close rate on policy renewals climbed 30% in one quarter.",
         },
         {
-            title: "Property Management Group Real Estate",
+            title: "Property Management Group",
             industry: "Real Estate",
             text: "Maintenance requests are logged and routed automatically around the clock, so nothing falls through the cracks overnight.",
         },
         {
-            title: "Auto Repair Shop Automotive",
+            title: "Auto Repair Shop",
             industry: "Automotive",
             text: "Estimate follow-ups that used to slip through the cracks now happen automatically, lifting our approval rate by 25%.",
         },
         {
-            title: "Regional CPA Group Finance",
+            title: "Regional CPA Group",
             industry: "Finance",
             text: "Tax season intake calls are triaged and scheduled by our custom agent, letting the team focus purely on client work.",
         },
@@ -77,12 +77,11 @@ export default function TestimonialsSection() {
             </div>
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
                 <div className="max-w-2xl mx-auto text-center">
-                    <span className="font-medium mb-4 block bg-gradient-to-r from-[white] via-[#f2c14e] to-[#f2c14e] bg-clip-text text-transparent drop-shadow-[0_0_18px_rgba(242,193,78,0.45)]">What Clients Say</span>
                     <h2 className="text-4xl leading-[3rem] font-semibold bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
-                        Real Results From Beta Partners
+                        What Clients Say
                     </h2>
                     <p className="mt-4 text-gray-400">
-                        From massive time savings to direct revenue growth. Actual results from the innovative teams driving efficiency with our custom solutions.
+                        Real Results From Beta Partners. From massive time savings to direct revenue growth. Actual results from the innovative teams driving efficiency with our custom solutions.
                     </p>
                 </div>
 
