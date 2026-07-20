@@ -3,6 +3,7 @@ import React, {useRef} from "react";
 import {motion} from "framer-motion";
 import Image from "next/image";
 import ScrollGlow from "@/components/ui/ScrollGlow";
+import GlowButton from "@/components/ui/GlowButton";
 import {
     Building2,
     Stethoscope,
@@ -28,7 +29,7 @@ const services = [
     },
     {
         icon: <Calculator className="w-6 h-6 text-white" />,
-        title: "Accounting That Thinks",
+        title: "Bookkeeping That Thinks",
         description:
             "Invoice processing, expense categorization, reconciliation checks done before you think about them. Your artificial intelligence automation catches errors, flags anomalies, and keeps books clean automatically every time",
         number: "3",
@@ -339,6 +340,21 @@ const OrbitAnimation: React.FC = () => {
                         );
                     })}
                 </div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                    className="mt-10 text-center"
+                >
+                    <p className="mx-auto mb-6 max-w-2xl text-base leading-relaxed text-gray-400">
+                        Serving 10+ industries including Legal, E-commerce, Hospitality, Recruitment, Marketing Agencies, Consultants, and SaaS.
+                    </p>
+                    <GlowButton href="/contact" shape="rect">
+                        Explore All Industries
+                    </GlowButton>
+                </motion.div>
             </div>
 
         </section>
