@@ -185,7 +185,7 @@ const HeroSection = () => {
                         "linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent)",
                 }}
             >
-                <div
+                {/* <div
                     className="flex w-max gap-[60px] opacity-55"
                     style={{ animation: "heroMarquee 28s linear infinite" }}
                 >
@@ -197,10 +197,10 @@ const HeroSection = () => {
                             {text}
                         </span>
                     ))}
-                </div>
+                </div> */}
             </div>
 
-            <style jsx>{`
+            {/* <style jsx>{`
                 @keyframes heroFloatA {
                     0%,
                     100% {
@@ -274,7 +274,7 @@ const HeroSection = () => {
                         transform: translateX(-50%);
                     }
                 }
-            `}</style>
+            `}</style> */}
         </section>
     );
 };

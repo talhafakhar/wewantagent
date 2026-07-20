@@ -27,9 +27,9 @@ const services = [
         number: "3",
     },
     {
-        title: "Transparent Pricing Always Upfront",
+        title: "Transparent From Day One",
         description:
-            "Wondering how much does AI cost? We break down every dollar before you commit. No hidden fees, no surprise charges, no vague estimates that double later. AI automation agency services with honest pricing for honest work always",
+            "Wondering how much AI costs? Every project is scoped and priced upfront based on your exact needs. No hidden fees, no surprise charges, no vague estimates that double later. Honest pricing for honest work, shared before you commit.",
         number: "4",
     },
     {
@@ -41,7 +41,7 @@ const services = [
     {
         title: "Industry Expertise Matters",
         description:
-            "Our ai automation agency specializes in real estate, healthcare, and accounting. We speak your industry language, understand your challenges, build solutions that fit your workflow. Generic automation fails, custom agents succeed every time.",
+            " Our AI automation agency serves real estate, healthcare, legal, e-commerce, SaaS, and more. We speak your industry language, understand your challenges, and build solutions that fit your workflow. Generic automation fails, custom agents succeed every time.",
         number: "6",
     },
 ];
