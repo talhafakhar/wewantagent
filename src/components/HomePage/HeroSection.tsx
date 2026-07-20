@@ -158,24 +158,20 @@ const HeroSection = () => {
                     variants={item}
                     className="mx-auto mb-[38px] max-w-[600px] text-[17px] leading-[1.6] text-[#9095a6] md:text-[20px]"
                 >
-                    We&#39;re an AI automation agency building custom agents for your
-                    business. No templates, just intelligent automation designed for
-                    your workflow and industry.
+                    Tired of repetitive tasks eating up your day? We're an AI automation agency building intelligent agents for your business. Share what's slowing you down and we'll map your automation roadmap, develop AI assistants that work, and hand you back your time so you can focus on growth.
                 </motion.p>
 
                 <motion.div
                     variants={item}
                     className="flex flex-wrap items-center justify-center gap-[14px]"
                 >
-                    <GlowButton href="/contact">
-                        Get Your AI Agent →
-                    </GlowButton>
-                    {/* <Link
-                        href="/contact"
-                        className="font-heading rounded-full border border-white/[0.14] bg-white/[0.04] px-[30px] py-[15px] text-[15px] font-semibold text-[#eceef4] transition-all duration-200 hover:border-white/[0.28] hover:bg-white/[0.08]"
+                    <GlowButton
+                        href="https://calendly.com/talhafakhar/discoverycall"
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
-                        Book a Portfolio Call
-                    </Link> */}
+                        Book a Free Consultation
+                    </GlowButton>
                 </motion.div>
             </motion.div>
 
