@@ -312,6 +312,7 @@ export default function AiConsulting() {
                     services={services}
                     buttonText="Start With Your Free Assessment"
                     buttonHref="/contact"
+                    buttonFillsLastRow
                 />
                 <IndustrySolutionsSection
                     heading="Deep Expertise Across Industries That Run on Efficiency"

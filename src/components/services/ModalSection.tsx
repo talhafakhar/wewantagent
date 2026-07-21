@@ -2,7 +2,6 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import ScrollGlow from "@/components/ui/ScrollGlow";
 
 const aiModels = [
     { name: "ChatGPT 4.0", img: "/assets/services/openAI.webp" },
@@ -19,8 +18,7 @@ const duplicatedModels = [...aiModels, ...aiModels, ...aiModels,...aiModels];
 const AIModulesSection = () => {
     const sectionRef = useRef<HTMLElement>(null);
     return (
-        <section ref={sectionRef} className="relative text-white pt-32 pb-24 overflow-hidden">
-            <ScrollGlow target={sectionRef} speed={0} />
+        <section ref={sectionRef} className="relative text-white pt-32 pb-2 overflow-hidden">
             <div className="relative z-10 max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
                 <motion.h2
                     initial={{ opacity: 0, y: 40 }}
@@ -83,7 +81,7 @@ const AIModulesSection = () => {
                                             alt={model.name}
                                             fill
                                             sizes="(min-width: 1024px) 9rem, (min-width: 768px) 8rem, (min-width: 640px) 7rem, 6rem"
-                                            className="object-contain invert brightness-0"
+                                            className="object-contain"
                                         />
                                     </div>
                                 </motion.div>

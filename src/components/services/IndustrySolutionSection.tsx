@@ -26,6 +26,8 @@ interface IndustrySolutionsSectionProps {
     buttonHref?: string;
     buttonTarget?: string;
     buttonRel?: string;
+    /** Seconds for one full marquee loop. Lower = faster. Defaults to 18s. */
+    carouselSpeedSeconds?: number;
 }
 
 const IndustrySolutionsSection: React.FC<IndustrySolutionsSectionProps> = ({
@@ -38,6 +40,7 @@ const IndustrySolutionsSection: React.FC<IndustrySolutionsSectionProps> = ({
                                                                                buttonHref = "/contact",
                                                                                buttonTarget,
                                                                                buttonRel,
+                                                                               carouselSpeedSeconds,
                                                                            }) => {
     const sectionRef = useRef<HTMLElement>(null);
     return (
@@ -70,7 +73,7 @@ const IndustrySolutionsSection: React.FC<IndustrySolutionsSectionProps> = ({
                 >
                     {description}
                 </motion.p>
-                <IndustryCarousel industries={industries} />
+                <IndustryCarousel industries={industries} speedSeconds={carouselSpeedSeconds} />
 
                 {note && (
                     <p className="mt-12 text-gray-400 max-w-2xl mx-auto">{note}</p>

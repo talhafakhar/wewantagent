@@ -17,6 +17,7 @@ interface ServicesSectionProps {
     services: ServiceItem[];
     buttonText?: string;
     buttonHref?: string;
+    buttonFillsLastRow?: boolean;
 }
 
 const ServicesSection: React.FC<ServicesSectionProps> = ({
@@ -25,6 +26,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({
                                                              services,
                                                              buttonText,
                                                              buttonHref = "/contact",
+                                                             buttonFillsLastRow = false,
                                                          }) => {
     const container = {
         hidden: { opacity: 0 },
@@ -87,7 +89,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({
                         bg-white/5 backdrop-blur-sm p-6
                         transition-all duration-300 group
                         hover:border-primary hover:-translate-y-1
-                        ${i === 1 ? "col-span-1 sm:col-span-2" : ""}`}
+                        ${i === 1 || i === services.length - 1 ? "col-span-1 sm:col-span-2" : ""}`}
                                         >
                                             <div className="relative z-10">
                                                 <Icon className="w-10 h-10 mb-4 text-cyan-400 group-hover:text-cyan-300 transition-colors duration-300" />
@@ -101,11 +103,22 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({
                                         </motion.div>
                                     );
                                 })}
+                                {buttonFillsLastRow && buttonText && (
+                                    <div className="hidden lg:flex col-span-1 items-center justify-center">
+                                        <GlowButton href={buttonHref} shape="rect">
+                                            {buttonText}
+                                        </GlowButton>
+                                    </div>
+                                )}
                             </div>
                     </div>
 
                     {buttonText && (
-                        <div className="mt-12 flex justify-center">
+                        <div
+                            className={`mt-12 flex justify-center ${
+                                buttonFillsLastRow ? "lg:hidden" : ""
+                            }`}
+                        >
                             <GlowButton href={buttonHref} shape="rect">
                                 {buttonText}
                             </GlowButton>

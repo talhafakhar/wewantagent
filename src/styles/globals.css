@@ -24,12 +24,13 @@ body::-webkit-scrollbar {
 .marquee-track {
     will-change: transform;
 }
-/* Marquee animation used by homepage testimonial and AI consulting industry carousel */
+/* Marquee animation used by homepage testimonial and AI consulting industry carousel.
+   --marquee-duration lets each usage override speed independently. */
 .animate-marquee-right {
-    animation: marquee-right 35s linear infinite;
+    animation: marquee-right var(--marquee-duration, 18s) linear infinite;
 }
 .animate-marquee-left {
-    animation: marquee-left 35s linear infinite;
+    animation: marquee-left var(--marquee-duration, 18s) linear infinite;
 }
 @keyframes marquee-right {
     0% {

@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
+import { Target, Package, Rocket, Clock, ArrowRight, Sparkles } from "lucide-react";
 import GlowButton from "@/components/ui/GlowButton";
 import ScrollGlow from "@/components/ui/ScrollGlow";
 
@@ -9,6 +10,14 @@ interface TableRow {
     left: string;
     right: string;
 }
+
+const LABEL_ICONS: Record<string, React.ElementType> = {
+    "Best for": Target,
+    "You get": Package,
+    "We deliver": Rocket,
+    "Timeline": Clock,
+    "Next step": ArrowRight,
+};
 
 interface ComparisonTableSectionProps {
     heading: string;
@@ -50,37 +59,44 @@ const ComparisonTableSection: React.FC<ComparisonTableSectionProps> = ({
                     </span>
                 </motion.h2>
 
-                <div className="rounded-2xl border border-white/10 overflow-hidden bg-white/[0.02]">
-                    <div className="grid grid-cols-[1fr_1.3fr_1.3fr] border-b border-white/10">
-                        <div className="p-3 sm:p-5" />
-                        <div className="p-3 sm:p-5 text-center text-sm sm:text-base font-semibold border-l border-white/10 bg-gradient-to-r from-[#f2c14e] to-white bg-clip-text text-transparent">
-                            {leftHeader}
-                        </div>
-                        <div className="p-3 sm:p-5 text-center text-sm sm:text-base font-semibold border-l border-white/10 bg-gradient-to-r from-[#f2c14e] to-white bg-clip-text text-transparent">
-                            {rightHeader}
-                        </div>
-                    </div>
-                    {rows.map((row, i) => (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {[leftHeader, rightHeader].map((headerLabel, col) => (
                         <motion.div
-                            key={i}
-                            initial={{ opacity: 0, y: 20 }}
+                            key={headerLabel}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: i * 0.08 }}
+                            transition={{ duration: 0.6, delay: col * 0.1 }}
                             viewport={{ once: true }}
-                            className={`grid grid-cols-[1fr_1.3fr_1.3fr] ${
-                                i !== rows.length - 1 ? "border-b border-white/10" : ""
+                            className={`relative rounded-2xl border p-5 sm:p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 ${
+                                col === 1
+                                    ? "border-primary/30 bg-primary/[0.04] hover:border-primary"
+                                    : "border-white/10 bg-white/[0.02] hover:border-white/25"
                             }`}
                         >
-                                    <div
-                                className={`p-3 sm:p-5 text-xs sm:text-sm md:text-base font-semibold ${["Best for", "You get", "We deliver", "Timeline", "Next step"].includes(row.label) ? "bg-gradient-to-r from-[#f2c14e] via-white to-white bg-clip-text text-transparent" : "text-gray-400"}`}
-                            >
-                                {row.label}
-                            </div>
-                            <div className="p-3 sm:p-5 border-l border-white/10 text-xs sm:text-sm md:text-base text-gray-100">
-                                {row.left}
-                            </div>
-                            <div className="p-3 sm:p-5 border-l border-white/10 text-xs sm:text-sm md:text-base text-gray-100">
-                                {row.right}
+                            <h3 className="text-lg sm:text-xl font-semibold mb-4 bg-gradient-to-r from-[#f2c14e] to-white bg-clip-text text-transparent">
+                                {headerLabel}
+                            </h3>
+
+                            <div className="space-y-3 divide-y divide-white/10">
+                                {rows.map((row, i) => {
+                                    const Icon = LABEL_ICONS[row.label] ?? Sparkles;
+                                    const value = col === 0 ? row.left : row.right;
+                                    return (
+                                        <div key={i} className={`flex items-center gap-3 ${i !== 0 ? "pt-3" : ""}`}>
+                                            <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/6">
+                                                <Icon className="w-3.5 h-3.5 text-primary" />
+                                            </div>
+                                            <div>
+                                                <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-0.5">
+                                                    {row.label}
+                                                </div>
+                                                <p className="text-sm text-gray-100 leading-snug">
+                                                    {value}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    );
+                                })}
                             </div>
                         </motion.div>
                     ))}

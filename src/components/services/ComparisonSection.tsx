@@ -40,7 +40,7 @@ const ComparisonSection: React.FC<ComparisonSectionProps> = ({
                     </span>
                 </motion.h2>
 
-                <div className="flex flex-col md:flex-row md:justify-center md:items-start gap-6">
+                <div className="flex flex-col md:flex-row md:justify-center md:items-start gap-10">
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -50,8 +50,8 @@ const ComparisonSection: React.FC<ComparisonSectionProps> = ({
                     >
                         <div className="relative z-10">
                             <div className="flex items-center justify-between mb-6 ml-2">
-                                    <h3 className="text-xl font-medium text-gray-200">Without AI</h3>
-                                <span className="text-sm text-[#f2c14e] font-medium">Old Way</span>
+                                    <h3 className="text-xl font-medium text-[#c7dff8]">Traditional Method</h3>
+                                <span className="text-sm text-[#f2c14e] font-bold">Old Way</span>
                             </div>
 
                             <ul className="space-y-5">
@@ -76,8 +76,8 @@ const ComparisonSection: React.FC<ComparisonSectionProps> = ({
                     >
                         <div className="relative z-10">
                             <div className="flex items-center justify-between mb-6 ml-2">
-                                    <h3 className="text-xl font-medium text-white">With We Want Agent</h3>
-                                <span className="text-sm text-[#5EA8FF] font-medium">AI-powered</span>
+                                    <h3 className="text-xl font-medium text-[#c7dff8]">With We Want Agent</h3>
+                                <span className="text-sm text-[#5EA8FF] font-bold">AI-Powered</span>
                             </div>
 
                             <ul className="space-y-5">

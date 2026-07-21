@@ -10,15 +10,20 @@ interface Industry {
 
 interface IndustryCarouselProps {
     industries: Industry[];
+    /** Seconds for one full marquee loop. Lower = faster. Defaults to 18s. */
+    speedSeconds?: number;
 }
 
-const IndustryCarousel: React.FC<IndustryCarouselProps> = ({ industries }) => {
+const IndustryCarousel: React.FC<IndustryCarouselProps> = ({ industries, speedSeconds }) => {
     const repeatIndustries = [...industries, ...industries];
 
     return (
         <div className="overflow-hidden">
             <div className="marquee-row overflow-hidden">
-                <div className="marquee-track flex flex-nowrap gap-6 animate-marquee-right">
+                <div
+                    className="marquee-track flex flex-nowrap gap-6 animate-marquee-right"
+                    style={speedSeconds ? ({ "--marquee-duration": `${speedSeconds}s` } as React.CSSProperties) : undefined}
+                >
                     {repeatIndustries.map((industry, idx) => {
                         const Icon = industry.icon;
                         return (

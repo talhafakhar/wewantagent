@@ -87,7 +87,10 @@ export default function TestimonialsSection() {
 
                 <div className="w-full mt-10 flex flex-col gap-6 overflow-hidden">
                     <div className="marquee-row overflow-hidden">
-                        <div className="marquee-track flex w-max animate-marquee-right">
+                        <div
+                            className="marquee-track flex w-max animate-marquee-right"
+                            style={{ "--marquee-duration": "35s" } as React.CSSProperties}
+                        >
                             {[...testimonialsTop, ...testimonialsTop].map((t, i) => (
                                 <div key={i} className="shrink-0 w-[280px] sm:w-[320px] mr-6">
                                     <div className="group h-full min-h-[160px] border border-white/10 rounded-xl max-sm:max-w-sm max-sm:mx-auto p-6 bg-gradient-to-b from-white/[0.06] to-white/[0.015] backdrop-blur-sm shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-500 hover:border-white/20 hover:from-white/10 hover:to-white/[0.03]">
@@ -109,7 +112,10 @@ export default function TestimonialsSection() {
                     </div>
 
                     <div className="marquee-row overflow-hidden">
-                        <div className="marquee-track flex w-max animate-marquee-left">
+                        <div
+                            className="marquee-track flex w-max animate-marquee-left"
+                            style={{ "--marquee-duration": "35s" } as React.CSSProperties}
+                        >
                             {[...testimonialsBottom, ...testimonialsBottom].map((t, i) => (
                                 <div key={i} className="shrink-0 w-[280px] sm:w-[320px] mr-6">
                                     <div className="group h-full min-h-[160px] border border-white/10 rounded-xl max-sm:max-w-sm max-sm:mx-auto p-6 bg-gradient-to-b from-white/[0.06] to-white/[0.015] backdrop-blur-sm shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-500 hover:border-white/20 hover:from-white/10 hover:to-white/[0.03]">
