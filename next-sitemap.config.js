@@ -9,7 +9,6 @@ module.exports = {
         '/_error',
         '/404',
         '/500',
-        '/about-us',
         '/blogs',
         '/blogs/[slug]',
         '/server-sitemap.xml',
@@ -17,7 +16,7 @@ module.exports = {
     ],
     robotsTxtOptions: {
         policies: [
-            { userAgent: '*', allow: '/', disallow: [ '/api/', '/_next/', '/admin/','/about-us']},
+            { userAgent: '*', allow: '/', disallow: [ '/api/', '/_next/', '/admin/']},
             { userAgent: 'GPTBot', allow: '/' },
             { userAgent: 'ChatGPT-User', allow: '/' },
             { userAgent: 'CCBot', allow: '/' },
@@ -36,14 +35,14 @@ module.exports = {
 
         const priorities = {
             '/': 1.0,
-            '/automationexpert': 0.8,
+            '/about': 0.8,
             '/contact': 0.8,
             '/services': 0.9,
         };
         const changeFreqs = {
             '/': 'daily',
             '/contact': 'monthly',
-            '/automationexpert': 'monthly',
+            '/about': 'monthly',
         };
 
         const lastmodDate = new Date();
@@ -51,10 +50,14 @@ module.exports = {
             lastmodDate.getMonth() + 1
         ).padStart(2, '0')}`;
 
+        const priority =
+            priorities[path] ??
+            (path.startsWith('/services/') ? 0.7 : 0.5);
+
         return {
             loc: path,
             changefreq: changeFreqs[path] || 'monthly',
-            priority: priorities[path] || 0.5,
+            priority,
             lastmod: lastmodMonthly,
         };
     },

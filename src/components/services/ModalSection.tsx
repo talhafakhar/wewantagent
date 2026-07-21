@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -16,23 +16,26 @@ const aiModels = [
 const duplicatedModels = [...aiModels, ...aiModels, ...aiModels,...aiModels];
 
 const AIModulesSection = () => {
+    const sectionRef = useRef<HTMLElement>(null);
     return (
-        <section className=" text-white pt-20 pb-10">
-            <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+        <section ref={sectionRef} className="relative text-white pt-32 pb-2 overflow-hidden">
+            <div className="relative z-10 max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
                 <motion.h2
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, ease: "easeOut" }}
                     viewport={{ once: true }}
-                    className="text-4xl md:text-5xl font-bold mb-6"
+                    className="text-4xl md:text-5xl font-semibold mb-6"
                 >
-                    Powerful Tools Behind Your AI Agents
+                    <span className="bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                        Powerful Tools Behind Your AI Agents
+                    </span>
                 </motion.h2>
                 <motion.p
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.8 }}
-                    className="text-gray-300 text-lg mb-14"
+                    className="text-gray-300 text-lg"
                 >
                     We build using advanced language models and n8n automation workflows
                 </motion.p>
@@ -77,7 +80,8 @@ const AIModulesSection = () => {
                                             src={model.img}
                                             alt={model.name}
                                             fill
-                                            className="object-contain invert brightness-0"
+                                            sizes="(min-width: 1024px) 9rem, (min-width: 768px) 8rem, (min-width: 640px) 7rem, 6rem"
+                                            className="object-contain"
                                         />
                                     </div>
                                 </motion.div>

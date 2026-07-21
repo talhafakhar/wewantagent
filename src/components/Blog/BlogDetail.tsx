@@ -1,19 +1,19 @@
 import React, {JSX} from "react";
-import Link from "next/link";
 import Image from "next/image";
 import {motion} from "framer-motion";
 import {BlogPost, RichTextBlock} from "@/types/blog";
-import BlogNavbar from "@/components/Blog/BlogHeader";
-import {ArrowLeft, Facebook, Instagram, Linkedin} from "lucide-react";
+import FooterSection from "@/components/Footer/footer";
+import GlowButton from "@/components/ui/GlowButton";
+import {Calendar, RefreshCw} from "lucide-react";
 
 interface BlogDetailProps {
     blog: BlogPost | null;
 }
+
 const BlogDetail: React.FC<BlogDetailProps> = ({blog}) => {
     if (!blog) {
         return (
-            <div className="min-h-screen">
-                <BlogNavbar/>
+            <div className="min-h-screen bg-[#07080c]">
                 <motion.div
                     className="container mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center"
                     initial={{opacity: 0, scale: 0.9}}
@@ -22,9 +22,9 @@ const BlogDetail: React.FC<BlogDetailProps> = ({blog}) => {
                 >
                     <div className="max-w-md mx-auto">
                         <div
-                            className="w-24 h-24 mx-auto mb-8 bg-gradient-to-r from-red-400 to-pink-500 rounded-full flex items-center justify-center">
+                            className="w-24 h-24 mx-auto mb-8 bg-white/[0.04] border border-white/10 rounded-full flex items-center justify-center">
                             <svg
-                                className="w-12 h-12 text-white"
+                                className="w-12 h-12 text-[#f2c14e]"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -37,20 +37,13 @@ const BlogDetail: React.FC<BlogDetailProps> = ({blog}) => {
                                 />
                             </svg>
                         </div>
-                        <h1 className="text-4xl font-bold mb-4">Blog Not Found</h1>
-                        <p className="text-gray-600 mb-8">
+                        <h1 className="text-4xl font-bold mb-4 text-white">Blog Not Found</h1>
+                        <p className="text-gray-400 mb-8">
                             The blog post you&apos;re looking for doesn&apos;t exist or may have been moved.
                         </p>
-                        <Link
-                            href="/blogs"
-                            className="group relative inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-secondary text-white font-semibold shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl focus:outline-none"
-                        >
-              <span
-                  className="mr-4 inline-flex w-8 h-8 rounded-full bg-white text-primary items-center justify-center transition-transform duration-500 group-hover:translate-x-2 group-hover:rotate-12">
-                <ArrowLeft className="w-4 h-4"/>
-              </span>
-                            Back to List
-                        </Link>
+                        <GlowButton href="/blogs">
+                            ← Back to List
+                        </GlowButton>
                     </div>
                 </motion.div>
             </div>
@@ -86,7 +79,7 @@ const BlogDetail: React.FC<BlogDetailProps> = ({blog}) => {
                             return (
                                 <HeadingTag
                                     key={index}
-                                    className={`font-bold mb-4 ${
+                                    className={`font-bold mb-4 bg-gradient-to-r from-white to-[#f2c14e] bg-clip-text text-transparent ${
                                         block.level === 1 ? 'text-4xl' :
                                             block.level === 2 ? 'text-3xl' :
                                                 block.level === 3 ? 'text-2xl' :
@@ -101,7 +94,7 @@ const BlogDetail: React.FC<BlogDetailProps> = ({blog}) => {
                             const ListTag = block.format === 'ordered' ? 'ol' : 'ul';
                             const listClass = block.format === 'ordered' ? 'list-decimal' : 'list-disc';
                             return (
-                                <ListTag key={index} className={`${listClass} ml-6 mb-4 space-y-2`}>
+                                <ListTag key={index} className={`${listClass} ml-6 mb-4 space-y-2 marker:text-[#f2c14e]`}>
                                     {block.children.map((item, i) => (
                                         <li key={i}>
                                             {item.children?.map((child, j) => renderTextNode(child, j))}
@@ -114,7 +107,7 @@ const BlogDetail: React.FC<BlogDetailProps> = ({blog}) => {
                             return (
                                 <blockquote
                                     key={index}
-                                    className="border-l-4 border-gray-300 pl-4 italic my-4 text-gray-700"
+                                    className="border-l-4 border-[#f2c14e]/50 pl-4 italic my-4 text-gray-300"
                                 >
                                     {block.children.map((child, i) => renderTextNode(child, i))}
                                 </blockquote>
@@ -122,7 +115,7 @@ const BlogDetail: React.FC<BlogDetailProps> = ({blog}) => {
 
                         case 'code':
                             return (
-                                <pre key={index} className="bg-gray-100 p-4 rounded-lg overflow-x-auto mb-4">
+                                <pre key={index} className="bg-white/[0.04] border border-white/10 p-4 rounded-xl overflow-x-auto mb-4">
                                 <code>
                                     {block.children.map((child) => child.text).join('')}
                                 </code>
@@ -145,7 +138,7 @@ const BlogDetail: React.FC<BlogDetailProps> = ({blog}) => {
         if (!child) return null;
         let content: React.ReactNode = child.text || '';
         const style: React.CSSProperties = {};
-        if (child.color) {
+        if (child.color && !child.bold) {
             style.color = child.color;
         }
         if (child.backgroundColor) {
@@ -157,7 +150,7 @@ const BlogDetail: React.FC<BlogDetailProps> = ({blog}) => {
                 <a
                     key={key}
                     href={child.url}
-                    className="text-blue-600 hover:text-blue-800 underline"
+                    className="text-[#f2c14e] hover:text-[#4fd1a5] underline underline-offset-2 transition-colors"
                     target={child.url?.startsWith('http') ? '_blank' : '_self'}
                     rel={child.url?.startsWith('http') ? 'noopener noreferrer' : ''}
                 >
@@ -166,11 +159,15 @@ const BlogDetail: React.FC<BlogDetailProps> = ({blog}) => {
             );
         }
         if (child.code) {
-            content = <code className="bg-gray-100 px-2 py-1 rounded text-sm font-mono">{content}</code>;
+            content = <code className="bg-white/10 px-2 py-1 rounded text-sm font-mono text-[#f2c14e]">{content}</code>;
         }
 
         if (child.bold) {
-            content = <strong>{content}</strong>;
+            content = (
+                <strong className="bg-gradient-to-r from-[#f2c14e] to-white bg-clip-text text-transparent">
+                    {content}
+                </strong>
+            );
         }
 
         if (child.italic) {
@@ -195,220 +192,121 @@ const BlogDetail: React.FC<BlogDetailProps> = ({blog}) => {
     };
 
     return (
-        <div>
-            <div className="relative min-h-screen">
-                <div className="relative z-10 flex flex-col min-h-screen ">
-                    <BlogNavbar/>
-                    <motion.main
-                        variants={staggerContainer}
-                        initial="initial"
-                        animate="animate"
-                    >
-                        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
-                            <motion.header className="mb-12" variants={fadeInUp}>
-                                {blog.tags && (
-                                    <motion.div className="flex flex-wrap gap-3 mb-6" variants={fadeInUp}>
-                                        {blog.tags?.map((tag, index) => (
-                                            <motion.span
-                                                key={index}
-                                                whileHover={{scale: 1.05}}
-                                                whileTap={{scale: 0.95}}
-                                                className="relative inline-block px-[1px] py-[1px]  font-semibold  rounded"
-                                            >
-    <span
-        className="absolute inset-0 rounded p-[1px] bg-gradient-to-r from-primary via-secondary to-accent"
-    ></span>
-                                                <span
-                                                    className="relative block rounded bg-white px-6 py-1"
-                                                >
-      #{tag.trim()}
-    </span>
-                                            </motion.span>
-                                        ))}
-                                    </motion.div>
-                                )}
-
-                                <motion.h1
-                                    className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8 uppercase"
-                                    variants={fadeInUp}
-                                >
-                                    {blog.title}
-                                </motion.h1>
-
-                                <motion.div
-                                    className="flex flex-wrap items-center gap-6 text-gray-600 mb-8"
-                                    variants={fadeInUp}
-                                >
-                                    <div className="flex items-center gap-2">
-                                        <div className="w-2 h-2 bg-green-500 rounded-full"/>
-                                        <span className="text-sm font-medium">
-                  Published {formatDate(blog.published)}
-                </span>
-                                    </div>
-
-                                    {blog.updatedAt && blog.updatedAt !== blog.published && (
-                                        <div className="flex items-center gap-2">
-                                            <div className="w-2 h-2 bg-blue-500 rounded-full"/>
-                                            <span className="text-sm font-medium">
-                    Updated {formatDate(blog.updatedAt)}
-                  </span>
-                                        </div>
-                                    )}
-                                </motion.div>
-
-                                {blog.excerpt && (
-                                    <motion.div
-                                        className="text-xl md:text-2xl text-gray-700 leading-relaxed font-light max-w-3xl"
-                                        variants={fadeInUp}
-                                    >
-                                        {renderRichText(blog.excerpt)}
-                                    </motion.div>
-                                )}
-                            </motion.header>
-
-                            {imageUrl && (
-                                <motion.div className="mb-16 group" variants={fadeInUp}>
-                                    <div
-                                        className="relative overflow-hidden rounded-3xl shadow-2xl bg-white group h-[300px] md:h-[400px] lg:h-[500px]">
-                                        <div
-                                            className="absolute inset-0 bg-cover bg-center filter blur-[4px] scale-105"
-                                            style={{backgroundImage: `url(${imageUrl})`}}
-                                        />
-                                        <div className="relative overflow-hidden rounded-2xl w-full h-full">
-                                            <Image
-                                                src={imageUrl}
-                                                alt={blog.title}
-                                                fill
-                                                className="object-contain transition-transform duration-700 ease-out group-hover:scale-105"
-                                                priority
-                                            />
-                                            <div
-                                                className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"/>
-                                        </div>
-                                    </div>
-                                </motion.div>
-                            )}
-
-                            <motion.article className="max-w-none mb-16" variants={fadeInUp}>
-                                <div className="prose prose-lg max-w-none text-gray-800">
-                                    {renderRichText(blog.content)}
-                                </div>
-                            </motion.article>
-
-                            <motion.footer className="py-8 border-t border-black" variants={fadeInUp}>
-                                <div className="flex items-center">
-                                    <Link
-                                        href="/"
-                                        className="group relative inline-flex items-center px-6 py-3 rounded bg-gradient-to-r from-primary via-accent to-secondary text-white font-semibold shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl focus:outline-none"
-                                    >
-                <span
-                    className="mr-4 inline-flex w-8 h-8 rounded-full bg-white text-primary items-center justify-center transition-transform duration-500 group-hover:translate-x-2 group-hover:rotate-12">
-                  <ArrowLeft className="w-4 h-4"/>
-                </span>
-                                        Back to Home
-                                    </Link>
-                                </div>
-                            </motion.footer>
-                        </div>
-                    </motion.main>
-                </div>
-
-            </div>
-            <footer className="text-white bg-black relative">
-                <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-                    <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
-                        <div className="col-span-2 md:col-span-2">
-                            <div className="flex flex-col space-y-4">
-                                <div className="flex items-center space-x-2">
-                                    <Image
-                                        src="/assets/svg/home/logo.png"
-                                        alt="Company Logo"
-                                        width={140}
-                                        height={50}
-                                        className="object-contain"
-                                    />
-                                </div>
-                                <p className="text-sm text-gray-400 leading-relaxed">
-                                    Empowering learners and innovators worldwide through
-                                    accessible, high-quality education and training programs.
-                                </p>
-                                <div className="flex space-x-4 pt-4">
-                                    <a href="#" className="text-gray-400 hover:text-white">
-                                        <Facebook className="w-5 h-5"/>
-                                    </a>
-                                    <a href="#" className="text-gray-400 hover:text-white">
-                                        <Linkedin className="w-5 h-5"/>
-                                    </a>
-                                    <a href="#" className="text-gray-400 hover:text-white">
-                                        <Instagram className="w-5 h-5"/>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <p className="text-xs uppercase font-semibold text-gray-400 mb-3 tracking-wider">
-                                Start Learning
-                            </p>
-                            <div className="flex flex-col space-y-2">
-                                {["UX/UI Design", "Software Development", "Workplace Skills", "Job Search", "Digital Freelancing"].map(
-                                    (item, idx) => (
-                                        <a
-                                            key={idx}
-                                            href="#"
-                                            className="text-sm hover:text-white transition duration-150"
-                                        >
-                                            {item}
-                                        </a>
-                                    )
-                                )}
-                            </div>
-                        </div>
-
-                        <div>
-                            <p className="text-xs uppercase font-semibold text-gray-400 mb-3 tracking-wider">
-                                Other Resources
-                            </p>
-                            <div className="flex flex-col space-y-2">
-                                <a href="#" className="text-sm hover:text-white transition duration-150">
-                                    Events
-                                </a>
-                            </div>
-                        </div>
-
-                        <div className="col-span-2">
-                            <p className="text-xs uppercase font-semibold text-gray-400 mb-3 tracking-wider">
-                                Sign up for Newsletter
-                            </p>
-                            <input
-                                type="email"
-                                placeholder="Enter your email..."
-                                className="w-full bg-gray-800 border border-gray-700 rounded-full py-2 px-4 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 mb-3 appearance-none"
-                            />
-                            <button
-                                className="w-full bg-gray-700 hover:bg-gray-600 text-gray-300 rounded-full py-2 px-4 text-sm transition duration-200 mb-6">
-                                Subscribe
-                            </button>
-                        </div>
-                    </div>
-                    <div className="border-t border-gray-800 mt-8 md:mt-12 pt-6">
+        <div className="bg-[#07080c]">
+            <div className="relative flex flex-col justify-end min-h-[320px] md:min-h-[380px] lg:min-h-[440px] overflow-hidden">
+                {imageUrl ? (
+                    <>
+                        <Image
+                            src={imageUrl}
+                            alt={blog.title}
+                            fill
+                            className="object-cover"
+                            priority
+                        />
+                        <div className="absolute inset-0 bg-[#07080c]/60"/>
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#07080c] via-[#07080c]/60 to-[#07080c]/20"/>
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#07080c]/80 via-[#07080c]/30 to-transparent"/>
+                    </>
+                ) : (
+                    <>
                         <div
-                            className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500">
-                            <div
-                                className="flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-1 mb-3 sm:mb-0">
-                                {["Privacy Policy", "Terms of Use", "Cookies Policy"].map((link, idx) => (
-                                    <a key={idx} href="#" className="hover:text-gray-300 transition">
-                                        {link}
-                                    </a>
-                                ))}
-                            </div>
-                            <div className="flex items-center gap-2 text-center sm:text-right">
-                                <span>Copyright 2025 © All rights reserved.</span>
-                            </div>
+                            className="pointer-events-none absolute -left-[10%] -top-[10%] h-[560px] w-[560px] rounded-full blur-[70px]"
+                            style={{background: "radial-gradient(circle, rgba(242,193,78,0.18), transparent 65%)"}}
+                        />
+                        <div
+                            className="pointer-events-none absolute -right-[10%] top-[20%] h-[480px] w-[480px] rounded-full blur-[70px]"
+                            style={{background: "radial-gradient(circle, rgba(79,209,165,0.14), transparent 65%)"}}
+                        />
+                    </>
+                )}
+
+                <motion.header
+                    className="relative z-10 max-w-5xl mx-auto w-full px-6 lg:px-8 pt-32 pb-14 text-left"
+                    variants={staggerContainer}
+                    initial="initial"
+                    animate="animate"
+                >
+                    {blog.tags && (
+                        <motion.div className="flex flex-wrap gap-1.5 mb-6" variants={fadeInUp}>
+                            {blog.tags?.map((tag, index) => (
+                                <span
+                                    key={index}
+                                    className="inline-block text-[11px] font-medium tracking-wide text-primary/90 bg-primary/10 border border-primary/20 rounded-full px-2.5 py-1"
+                                >
+                                    #{tag.trim()}
+                                </span>
+                            ))}
+                        </motion.div>
+                    )}
+
+                    <motion.h1
+                        className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8"
+                        variants={fadeInUp}
+                    >
+                        <span className="bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                            {blog.title}
+                        </span>
+                    </motion.h1>
+
+                    <motion.div
+                        className="flex flex-wrap items-center gap-6 text-gray-400 mb-8"
+                        variants={fadeInUp}
+                    >
+                        <div className="flex items-center gap-2">
+                            <Calendar size={14} className="text-[#f2c14e]"/>
+                            <span className="text-sm font-medium">
+                                Published {formatDate(blog.published)}
+                            </span>
                         </div>
+
+                        {blog.updatedAt && blog.updatedAt !== blog.published && (
+                            <div className="flex items-center gap-2">
+                                <RefreshCw size={14} className="text-[#4fd1a5]"/>
+                                <span className="text-sm font-medium">
+                                    Updated {formatDate(blog.updatedAt)}
+                                </span>
+                            </div>
+                        )}
+                    </motion.div>
+
+                    {blog.excerpt && (
+                        <motion.div
+                            className="text-lg md:text-xl text-gray-300 leading-relaxed font-light max-w-3xl"
+                            variants={fadeInUp}
+                        >
+                            {renderRichText(blog.excerpt)}
+                        </motion.div>
+                    )}
+                </motion.header>
+            </div>
+
+            <div className="relative overflow-hidden">
+                <div
+                    className="pointer-events-none absolute -right-[10%] top-[10%] h-[480px] w-[480px] rounded-full blur-[70px]"
+                    style={{background: "radial-gradient(circle, rgba(79,209,165,0.14), transparent 65%)"}}
+                />
+                <motion.main
+                    className="relative z-10"
+                    variants={staggerContainer}
+                    initial="initial"
+                    animate="animate"
+                >
+                    <div className="max-w-5xl mx-auto px-6 lg:px-8 pt-16 pb-20">
+                        <motion.article className="max-w-none mb-16" variants={fadeInUp}>
+                            <div className="max-w-none text-gray-300">
+                                {renderRichText(blog.content)}
+                            </div>
+                        </motion.article>
+
+                        <motion.footer className="py-8 border-t border-white/10" variants={fadeInUp}>
+                            <GlowButton href="/">
+                                ← Back to Home
+                            </GlowButton>
+                        </motion.footer>
                     </div>
-                </div>
-            </footer>
+                </motion.main>
+            </div>
+            <FooterSection/>
         </div>
     );
 };

@@ -1,169 +1,272 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import {Variants, motion } from "framer-motion";
-import Image from "next/image";
-import Navbar from "@/components/Header/Navbar";
-import { ArrowRight } from "lucide-react";
-const logos = [
-    { src: "/assets/svg/home/mesha.svg" },
-    { src: "/assets/home/serve_co_logo.webp" },
-    { src: "/assets/home/pandora.webp" },
-];
+import React, { useEffect, useRef } from "react";
+import { motion, Variants } from "framer-motion";
+import gsap from "gsap";
+import GlowButton from "@/components/ui/GlowButton";
+
+// const MARQUEE_ITEMS = [
+//     "Delivering results to clients of all sizes",
+//     "Real Estate",
+//     "Healthcare",
+//     "Accounting",
+// ];
+
+const container: Variants = {
+    hidden: {},
+    show: {
+        transition: { staggerChildren: 0.15, delayChildren: 0.15 },
+    },
+};
+
+const item: Variants = {
+    hidden: { y: 20, filter: "blur(8px)" },
+    show: {
+        y: 0,
+        filter: "blur(0px)",
+        transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
+    },
+};
 
 const HeroSection = () => {
-    const [index, setIndex] = useState(0);
+    const sectionRef = useRef<HTMLElement>(null);
+
+    // Scroll-driven parallax for the ambient background blobs - offset scales with
+    // how far the section's center sits from the viewport's center. Driven by
+    // ScrollTrigger (shared scroll listener across the page) instead of a
+    // per-component "scroll" listener + getBoundingClientRect on every tick.
     useEffect(() => {
-        const interval = setInterval(() => {
-            setIndex((prev) => (prev + 1) % logos.length);
-        }, 2000);
-        return () => clearInterval(interval);
+        const section = sectionRef.current;
+        if (!section) return;
+        const blobs = Array.from(
+            section.querySelectorAll<HTMLElement>("[data-parallax]")
+        );
+        if (blobs.length === 0) return;
+
+        let trigger: any;
+        let cancelled = false;
+
+        (async () => {
+            const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+            gsap.registerPlugin(ScrollTrigger);
+            if (cancelled) return;
+
+            const setters = blobs.map((blob) => ({
+                setY: gsap.quickTo(blob, "y", { duration: 0.5, ease: "power3.out" }),
+                speed: parseFloat(blob.dataset.parallax || "0"),
+            }));
+
+            trigger = ScrollTrigger.create({
+                trigger: section,
+                start: "top bottom",
+                end: "bottom top",
+                onUpdate: (self) => {
+                    const range = self.end - self.start;
+                    const center = range * (0.5 - self.progress);
+                    setters.forEach(({ setY, speed }) => setY(-center * speed));
+                },
+            });
+        })();
+
+        return () => {
+            cancelled = true;
+            trigger?.kill();
+        };
     }, []);
 
-    const container = {
-        hidden: { opacity: 0 },
-        show: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.1
-            }
-        },
-    };
-
-    const item: Variants = {
-        hidden: { opacity: 0, y: 20, filter: "blur(8px)" },
-        show: {
-            opacity: 1,
-            y: 0,
-            filter: "blur(0px)",
-            transition: {
-                duration: 0.6,
-                ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
-            },
-        },
-    };
-
-
-    const float = {
-        initial: "hidden",
-        animate: "show",
-    };
-
-
     return (
-        <motion.section
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative min-h-screen bg-black w-full overflow-x-hidden overflow-y-auto"
+        <section
+            ref={sectionRef}
+            className="relative flex min-h-[90vh] w-full flex-col items-center justify-center overflow-hidden bg-[#07080c] px-6 pb-[50px] pt-[90px] text-center lg:min-h-screen lg:pb-[60px] lg:pt-[120px]"
         >
-            <video
-                className="absolute inset-0 w-full h-full object-cover"
-                src="/assets/home/hero-bg.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
+            {/* ambient gradient blobs */}
+            <div
+                data-parallax="0.14"
+                className="pointer-events-none absolute -left-[8%] -top-[10%] h-[620px] w-[620px] rounded-full blur-[40px]"
+                style={{
+                    background: "radial-gradient(circle, rgba(242,193,78,0.55), transparent 65%)",
+                    animation: "heroFloatA 14s ease-in-out infinite",
+                }}
             />
-            <div className="absolute inset-0 bg-black/60" />
+            <div
+                data-parallax="0.22"
+                className="pointer-events-none absolute -bottom-[15%] -right-[10%] h-[560px] w-[560px] rounded-full blur-[50px]"
+                style={{
+                    background: "radial-gradient(circle, rgba(242,193,78,0.55), transparent 65%)",
+                    animation: "heroFloatB 17s ease-in-out infinite",
+                }}
+            />
 
-            <div className="relative z-10 flex flex-col min-h-screen w-full">
-                <Navbar />
+            {/* faint grid pattern */}
+            <div
+                className="pointer-events-none absolute inset-0"
+                style={{
+                    backgroundImage:
+                        "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)",
+                    backgroundSize: "64px 64px",
+                    maskImage:
+                        "radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 75%)",
+                    WebkitMaskImage:
+                        "radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 75%)",
+                }}
+            />
+
+            {/* bottom fade to background */}
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[200px] bg-gradient-to-b from-transparent to-[#07080c]" />
+
+            <motion.div
+                variants={container}
+                initial="hidden"
+                animate="show"
+                className="relative z-[2] max-w-[880px]"
+            >
+                <motion.div
+                    variants={item}
+                    className="mb-[30px] inline-flex items-center gap-[10px] rounded-full border border-white/[0.12] bg-white/[0.03] px-4 py-[7px]"
+                >
+                    <span
+                        className="h-[7px] w-[7px] rounded-full bg-[#5EA8FF]"
+                        style={{
+                            boxShadow: "0 0 10px #5EA8FF",
+                            animation: "heroPulseGlow 2s ease-in-out infinite",
+                        }}
+                    />
+                    <span className="font-heading text-xs uppercase tracking-[2px] bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                        AI Automation Agency
+                    </span>
+                </motion.div>
+
+                <motion.h1
+                    variants={item}
+                    className="mb-6 font-heading text-[clamp(44px,8vw,92px)] font-semibold leading-[0.98] tracking-[-0.035em] text-white/80"
+                >
+                    Build Custom AI Agents That{" "}
+                    <span className="bg-gradient-to-r from-[#8FCBFF] via-[#5EA8FF] to-[#3E7BFF] bg-clip-text text-transparent">
+                        Work
+                    </span>
+                </motion.h1>
+
+                <motion.p
+                    variants={item}
+                    className="mx-auto mb-[38px] max-w-[600px] text-[17px] leading-[1.6] text-[#9095a6] md:text-[20px]"
+                >
+                    Tired of repetitive tasks eating up your day? We&apos;re an AI automation agency building intelligent agents for your business. Share what&apos;s slowing you down and we&apos;ll map your automation roadmap, develop AI assistants that work, and hand you back your time so you can focus on growth.
+                </motion.p>
 
                 <motion.div
-                    variants={container}
-                    initial="hidden"
-                    animate="show"
-                    className="flex-1 flex flex-col justify-center items-center text-center px-4 py-12  w-full"
+                    variants={item}
+                    className="flex flex-wrap items-center justify-center gap-[14px]"
                 >
-                    <motion.h1
-                        variants={item}
-                        {...float}
-                        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[6rem] font-semibold text-white max-w-[90%] md:max-w-3xl lg:max-w-4xl mx-auto leading-tight px-2"
+                    <GlowButton
+                        href="https://calendly.com/talhafakhar/discoverycall"
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
-                        Build Custom AI Agents That Work
-                    </motion.h1>
-
-                    <motion.div
-                        variants={item}
-                        className="max-w-4xl mx-auto text-start p-4  backdrop-blur-xl bg-white/10 hover:bg-white/20 rounded-lg md:rounded-xl mt-6  transition-all duration-300"
-                    >
-                        <span className="bg-gradient-to-r from-primary via-accent to-secondary uppercase bg-clip-text text-transparent font-semibold text-sm md:text-base mb-1 block">
-                            What Is We Want Agent
-                        </span>
-                        <p className="text-white text-sm md:text-base leading-relaxed">
-                            We&#39;re an AI automation agency building custom agents for your business. No templates, just intelligent automation designed for your workflow and industry.
-                        </p>
-                    </motion.div>
-
-                    <div className="flex flex-col md:flex-row items-stretch gap-3 md:gap-4 mt-4    max-w-4xl mx-auto ">
-                        {[
-                            {
-                                title: "Industries We Serve",
-                                button: "Specialize in Real Estate, Healthcare, and Accounting",
-                            },
-                            {
-                                title: "Portfolio & Results",
-                                button: "Book a portfolio call",
-                            },
-                            {
-                                title: "Get Your AI Agent",
-                                button: "Tell us what's slowing you down",
-                            },
-                        ].map((card, idx) => (
-                            <motion.div
-                                key={idx}
-                                variants={item}
-                                whileHover={{ scale: 1.03 }}
-                                whileTap={{ scale: 0.98 }}
-                                className="group bg-white/10 hover:bg-white/20 backdrop-blur-xl px-4 py-1 rounded-xl shadow-lg
-                                flex flex-col justify-start text-left transition-all duration-300
-                                cursor-pointer w-full  min-h-[110px] "
-                            >
-                                <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent font-semibold text-base md:text-lg mb-2">
-                                    {card.title}
-                                </span>
-
-                                <div className="flex flex-grow items-center ">
-                                    <button className="flex items-center gap-2 text-white text-sm md:text-base text-left group-hover:translate-x-1 transition-transform duration-300 w-full">
-                                        <span>
-                                            {card.button}
-                                        </span>
-                                        <ArrowRight size={16} className="shrink-0" />
-                                    </button>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                    <div className="hidden lg:block absolute bottom-8 right-8 xl:right-12 p-2">
-                        <div className="relative w-32 h-48">
-                            {logos.map((logo, i) => (
-                                <div
-                                    key={i}
-                                    className={`absolute inset-0 flex flex-col items-center justify-center text-white transition-opacity duration-700 ${
-                                        i === index ? "opacity-100" : "opacity-0"
-                                    }`}
-                                >
-                                    <div className="w-32 h-16 flex items-center justify-center">
-                                        <Image
-                                            width={120}
-                                            height={60}
-                                            src={logo.src}
-                                            alt="client logo"
-                                            className="object-contain"
-                                        />
-                                    </div>
-                                    <p className="text-xs text-start border-t border-white/30 pt-2 mt-2">
-                                        DELIVERING RESULTS TO CLIENTS OF ALL SIZES
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+                        Book a Free Consultation
+                    </GlowButton>
                 </motion.div>
+            </motion.div>
+
+            {/* scrolling marquee */}
+            <div
+                className="absolute inset-x-0 bottom-[34px] z-[2] overflow-hidden"
+                style={{
+                    maskImage:
+                        "linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent)",
+                    WebkitMaskImage:
+                        "linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent)",
+                }}
+            >
+                {/* <div
+                    className="flex w-max gap-[60px] opacity-55"
+                    style={{ animation: "heroMarquee 28s linear infinite" }}
+                >
+                    {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((text, i) => (
+                        <span
+                            key={i}
+                            className="whitespace-nowrap font-heading text-xs uppercase tracking-[2px] text-[#6b6f80]"
+                        >
+                            {text}
+                        </span>
+                    ))}
+                </div> */}
             </div>
-        </motion.section>
+
+            <style jsx>{`
+                @keyframes heroFloatA {
+                    0%,
+                    100% {
+                        translate: 0 0;
+                        scale: 1;
+                    }
+                    25% {
+                        translate: 26% 18%;
+                        scale: 1.25;
+                    }
+                    50% {
+                        translate: 14% -32%;
+                        scale: 0.8;
+                    }
+                    75% {
+                        translate: -20% -8%;
+                        scale: 1.15;
+                    }
+                }
+                @keyframes heroFloatB {
+                    0%,
+                    100% {
+                        translate: 0 0;
+                        scale: 1;
+                    }
+                    25% {
+                        translate: -28% -20%;
+                        scale: 0.78;
+                    }
+                    50% {
+                        translate: -16% 26%;
+                        scale: 1.3;
+                    }
+                    75% {
+                        translate: 22% 10%;
+                        scale: 0.9;
+                    }
+                }
+                @keyframes heroFloatC {
+                    0%,
+                    100% {
+                        translate: -50% -50%;
+                        scale: 1;
+                        opacity: 0.7;
+                    }
+                    33% {
+                        translate: calc(-50% + 24%) calc(-50% - 24%);
+                        scale: 1.3;
+                        opacity: 0.95;
+                    }
+                    66% {
+                        translate: calc(-50% - 24%) calc(-50% + 18%);
+                        scale: 0.75;
+                        opacity: 0.5;
+                    }
+                }
+                @keyframes heroPulseGlow {
+                    0%,
+                    100% {
+                        opacity: 0.5;
+                    }
+                    50% {
+                        opacity: 0.9;
+                    }
+                }
+                @keyframes heroMarquee {
+                    from {
+                        transform: translateX(0);
+                    }
+                    to {
+                        transform: translateX(-50%);
+                    }
+                }
+            `}</style>
+        </section>
     );
 };
 

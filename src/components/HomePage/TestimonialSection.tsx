@@ -1,65 +1,104 @@
 "use client";
-import React from "react";
-import {Swiper, SwiperSlide} from "swiper/react";
-import {Autoplay} from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
+import React, { useRef } from "react";
+import ScrollGlow from "@/components/ui/ScrollGlow";
 
 export default function TestimonialsSection() {
-    const testimonials = [
+    const sectionRef = useRef<HTMLElement>(null);
+    const testimonialsTop = [
         {
-            title: "Regional Brokerage Real Estate",
+            title: "Regional Brokerage",
             industry: "Real Estate",
             text: "47 second average response time, 64% conversion increase, and 12 hours saved per agent weekly. The ROI was immediate.",
         },
         {
-            title: "Multi-Location Clinic Healthcare",
+            title: "Multi-Location Clinic",
             industry: "Healthcare",
             text: "No-shows dropped from 22% to 8%, saving us $12,600 monthly. The AI handles 200+ calls daily without missing one.",
         },
         {
-            title: "Accounting Practice Finance",
+            title: "Accounting Practice",
             industry: "Finance",
             text: "Month-end close went from 7 days to 2 days. Client satisfaction up 40%, and we doubled capacity without new hires.",
+        },
+        {
+            title: "Small Business Bookkeeping Firm",
+            industry: "Bookkeeping",
+            text: "Onboarding calls and reconciliation follow-ups are fully automated, cutting admin time by 15 hours a week.",
+        },
+        {
+            title: "Boutique Law Firm",
+            industry: "Legal",
+            text: "Client intake and scheduling are now fully automated, giving our paralegals back 10+ hours a week for billable work.",
+        },
+        {
+            title: "Home Services Company",
+            industry: "Field Service",
+            text: "Our custom AI agent handles dispatch confirmations and rescheduling instantly, keeping every technician on time.",
+        },
+    ];
+
+    const testimonialsBottom = [
+        {
+            title: "E-commerce Retailer",
+            industry: "Retail",
+            text: "Order status and return inquiries are resolved instantly, cutting our support ticket backlog by 70% in the first month.",
+        },
+        {
+            title: "Dental Group Practice",
+            industry: "Healthcare",
+            text: "Appointment reminders and rebooking run automatically now, freeing our front desk to focus on patients in the chair.",
+        },
+        {
+            title: "Independent Insurance Agency",
+            industry: "Insurance",
+            text: "Renewal calls happen on schedule every time, and our close rate on policy renewals climbed 30% in one quarter.",
+        },
+        {
+            title: "Property Management Group",
+            industry: "Real Estate",
+            text: "Maintenance requests are logged and routed automatically around the clock, so nothing falls through the cracks overnight.",
+        },
+        {
+            title: "Auto Repair Shop",
+            industry: "Automotive",
+            text: "Estimate follow-ups that used to slip through the cracks now happen automatically, lifting our approval rate by 25%.",
+        },
+        {
+            title: "Regional CPA Group",
+            industry: "Finance",
+            text: "Tax season intake calls are triaged and scheduled by our custom agent, letting the team focus purely on client work.",
         },
     ];
 
     return (
-        <section className="py-16">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div
-                    className="flex justify-center items-center gap-y-8 lg:gap-y-0 flex-wrap md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between lg:gap-x-8 max-w-sm sm:max-w-2xl lg:max-w-full mx-auto">
-                    <div className="w-full lg:w-2/5">
-                        <span className=" text-gray-300 font-medium mb-8 block">What Clients Say</span>
-                        <h2 className="text-4xl  text-white leading-[3rem] font-semibold ">
-                            Real Results From Beta Partners
-                        </h2>
+        <section ref={sectionRef} className="relative overflow-hidden h-auto flex flex-col justify-center py-16 lg:h-screen lg:py-20">
+            <div className="pointer-events-none absolute inset-0 overflow-hidden">
+                <ScrollGlow target={sectionRef} />
+            </div>
+            <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+                <div className="max-w-2xl mx-auto text-center">
+                    <h2 className="text-4xl leading-[3rem] font-semibold bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                        What Clients Say
+                    </h2>
+                    <p className="mt-4 text-gray-400">
+                        Real Results From Beta Partners. From massive time savings to direct revenue growth. Actual results from the innovative teams driving efficiency with our custom solutions.
+                    </p>
+                </div>
 
-                    </div>
-
-                    <div className="w-full lg:w-3/5">
-                        <Swiper
-                            modules={[Autoplay]}
-                            loop={true}
-                            autoplay={{
-                                delay: 3000,
-                            }}
-                            spaceBetween={30}
-                            slidesPerView={1}
-                            breakpoints={{
-                                768: {slidesPerView: 2},
-                                1024: {slidesPerView: 2},
-                            }}
-                            className="mySwiper mt-12"
+                <div className="w-full mt-10 flex flex-col gap-6 overflow-hidden">
+                    <div className="marquee-row overflow-hidden">
+                        <div
+                            className="marquee-track flex w-max animate-marquee-right"
+                            style={{ "--marquee-duration": "35s" } as React.CSSProperties}
                         >
-                            {testimonials.map((t, i) => (
-                                <SwiperSlide key={i}>
-                                    <div className="group border border-gray-600 rounded max-sm:max-w-sm max-sm:mx-auto p-6 transition-all duration-500 hover:bg-white/10">
+                            {[...testimonialsTop, ...testimonialsTop].map((t, i) => (
+                                <div key={i} className="shrink-0 w-[280px] sm:w-[320px] mr-6">
+                                    <div className="group h-full min-h-[160px] border border-white/10 rounded-xl max-sm:max-w-sm max-sm:mx-auto p-6 bg-gradient-to-b from-white/[0.06] to-white/[0.015] backdrop-blur-sm shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-500 hover:border-white/20 hover:from-white/10 hover:to-white/[0.03]">
                                         <div>
-                                            <h3 className="text-lg font-semibold text-white mb-2">
+                                            <h3 className="text-lg font-semibold mb-2 bg-gradient-to-r from-white to-[#f2c14e] bg-clip-text text-transparent">
                                                 {t.title}
                                             </h3>
-                                            <p className="text-xs uppercase tracking-wide text-gray-400 mb-4">
+                                            <p className="text-xs uppercase tracking-wide mb-4 font-semibold bg-gradient-to-r from-[#f2c14e] to-[#4ade80] bg-clip-text text-transparent">
                                                 {t.industry}
                                             </p>
                                             <p className="text-sm text-gray-400 leading-6">
@@ -67,12 +106,37 @@ export default function TestimonialsSection() {
                                             </p>
                                         </div>
                                     </div>
-                                </SwiperSlide>
-                                ))}
-                        </Swiper>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="marquee-row overflow-hidden">
+                        <div
+                            className="marquee-track flex w-max animate-marquee-left"
+                            style={{ "--marquee-duration": "35s" } as React.CSSProperties}
+                        >
+                            {[...testimonialsBottom, ...testimonialsBottom].map((t, i) => (
+                                <div key={i} className="shrink-0 w-[280px] sm:w-[320px] mr-6">
+                                    <div className="group h-full min-h-[160px] border border-white/10 rounded-xl max-sm:max-w-sm max-sm:mx-auto p-6 bg-gradient-to-b from-white/[0.06] to-white/[0.015] backdrop-blur-sm shadow-[0_8px_30px_rgba(0,0,0,0.35)] transition-all duration-500 hover:border-white/20 hover:from-white/10 hover:to-white/[0.03]">
+                                        <div>
+                                            <h3 className="text-lg font-semibold mb-2 bg-gradient-to-r from-white to-[#f2c14e] bg-clip-text text-transparent">
+                                                {t.title}
+                                            </h3>
+                                            <p className="text-xs uppercase tracking-wide mb-4 font-semibold bg-gradient-to-r from-[#f2c14e] to-[#4ade80] bg-clip-text text-transparent">
+                                                {t.industry}
+                                            </p>
+                                            <p className="text-sm text-gray-400 leading-6">
+                                                {t.text}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-);
+    );
 }

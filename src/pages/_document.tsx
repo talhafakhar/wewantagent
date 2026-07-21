@@ -4,6 +4,8 @@ export default function Document() {
     return (
         <Html lang="en">
             <Head>
+                <link rel="icon" href="/favicon.ico" />
+                {/* eslint-disable-next-line @next/next/next-script-for-ga */}
                 <script
                     id="gtm-script"
                     dangerouslySetInnerHTML={{

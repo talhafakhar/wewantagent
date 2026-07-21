@@ -1,8 +1,45 @@
+# *
 User-agent: *
 Allow: /
-Disallow: /about-us/
 Disallow: /api/
 Disallow: /_next/
 Disallow: /admin/
-# SITEMAPS
+
+# GPTBot
+User-agent: GPTBot
+Allow: /
+
+# ChatGPT-User
+User-agent: ChatGPT-User
+Allow: /
+
+# CCBot
+User-agent: CCBot
+Allow: /
+
+# ClaudeBot
+User-agent: ClaudeBot
+Allow: /
+
+# Google-Extended
+User-agent: Google-Extended
+Allow: /
+
+# Amazonbot
+User-agent: Amazonbot
+Allow: /
+
+# Applebot
+User-agent: Applebot
+Allow: /
+
+# PerplexityBot
+User-agent: PerplexityBot
+Allow: /
+
+# Host
+Host: https://wewantagent.com
+
+# Sitemaps
 Sitemap: https://wewantagent.com/sitemap.xml
+Sitemap: https://wewantagent.com/server-sitemap.xml

@@ -16,6 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             companySize,
             message,
         } = req.body;
+        const fullName = `${firstName} ${lastName}`.trim();
 
         const htmlContent = `
       <div style="font-family: 'Segoe UI', Roboto, Arial, sans-serif; background-color: #f5f6fa; padding: 40px 0;">
@@ -31,7 +32,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
               <tr>
                 <td style="padding: 8px 0; font-weight: 600; color: #111827;">Full Name:</td>
-                <td style="padding: 8px 0; color: #374151;">${firstName} ${lastName}</td>
+                <td style="padding: 8px 0; color: #374151;">${fullName}</td>
               </tr>
               <tr>
                 <td style="padding: 8px 0; font-weight: 600; color: #111827;">Email Address:</td>
@@ -75,7 +76,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         await resend.emails.send({
             from: "onboarding@resend.dev",
             to: "thetalhafakhar@gmail.com",
-            subject: `📩 New Contact Form Submission from ${firstName} ${lastName}`,
+            subject: `📩 New Contact Form Submission from ${fullName}`,
             html: htmlContent,
         });
 

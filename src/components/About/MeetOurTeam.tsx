@@ -1,13 +1,15 @@
 "use client";
 import { motion, easeOut } from "framer-motion";
 import { Home, HeartPulse, Calculator } from "lucide-react";
-import React from "react";
+import React, { useRef } from "react";
+import GlowButton from "@/components/ui/GlowButton";
+import ScrollGlow from "@/components/ui/ScrollGlow";
 
 const industries = [
     {
         title: "Real Estate Focused",
         description:
-            "We understand MLS systems, CRM workflows, lead nurturing cycles, and transaction coordination chaos. Your AI agent speaks real estate — not generic business automation that misses industry-specific needs.",
+            "We understand MLS systems, CRM workflows, lead nurturing cycles, and transaction coordination chaos. Your AI agent speaks real estate - not generic business automation that misses industry-specific needs.",
         icon: Home,
     },
     {
@@ -33,9 +35,11 @@ export default function AutomationExperts() {
             transition: { delay: i * 0.2, duration: 0.8, ease: easeOut },
         }),
     };
+    const sectionRef = useRef<HTMLElement>(null);
 
     return (
-        <section className="relative text-white py-24  overflow-hidden bg-black">
+        <section ref={sectionRef} className="relative text-white py-24  overflow-hidden bg-black">
+            <ScrollGlow target={sectionRef} speed={0} />
             <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8 ">
                 {/* Section Header */}
                 <motion.div
@@ -44,11 +48,9 @@ export default function AutomationExperts() {
                     viewport={{ once: true }}
                     variants={fadeUp}
                 >
-                    <p className="font-medium tracking-wide mb-2">03 —Expertise In</p>
-                    <h2 className="max-w-4xl mx-auto text-4xl md:text-5xl font-semibold leading-tight">
-            <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-              Automation Experts
-            </span>
+                    <p className="text-lg font-semibold tracking-wide mb-4 bg-gradient-to-r from-[#fff4d6] via-[#f7d488] to-[#f2c14e] bg-clip-text text-transparent drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]">03 - Expertise In</p>
+                    <h2 className="max-w-4xl mx-auto text-4xl md:text-5xl font-semibold leading-tight bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                        Automation Experts
                         <br />
                         Who Speak Your Industry Language
                     </h2>
@@ -66,7 +68,6 @@ export default function AutomationExperts() {
                                 whileInView="show"
                                 viewport={{ once: true }}
                                 className="bg-[#0d0d0d]/60 border border-white/10 hover:border-secondary/40
-                transition-all duration-300
              rounded-tr-[4rem] rounded-bl-2xl p-8 flex flex-col text-left"
                             >
                                 {/* Icon */}
@@ -75,7 +76,7 @@ export default function AutomationExperts() {
                                 </div>
 
                                 {/* Title & Text */}
-                                <h3 className="text-2xl font-semibold mb-4 text-white">
+                                <h3 className="text-2xl font-semibold mb-4 bg-gradient-to-r from-[#fff4d6] via-[#f7d488] to-[#f2c14e] bg-clip-text text-transparent drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]">
                                     {industry.title}
                                 </h3>
                                 <p className="text-gray-400 leading-relaxed">
@@ -86,30 +87,7 @@ export default function AutomationExperts() {
                     })}
                 </div>
                 <div className="mt-10  flex justify-center ">
-                    <motion.button
-                        variants={{
-                            hover: {
-                                scale: 1.05,
-                                rotate: [0, 1, -1, 0],
-                                transition: { duration: 0.3 },
-                            },
-                            tap: {
-                                scale: 0.95,
-                            },
-                        }}
-                        whileHover="hover"
-                        whileTap="tap"
-                        className="relative h-12 w-64 overflow-hidden  text-white shadow-2xl transition-all duration-200
-    before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto
-    before:h-0 before:w-0 before:rounded-sm before:bg-white before:duration-300
-    before:ease-out hover:before:h-40 hover:before:w-64
-    border-transparent bg-gradient-to-r from-primary via-accent to-secondary p-[2px]"
-                    >
-  <span className="relative z-10 flex h-full w-full items-center justify-center bg-black rounded-sm">
-    Get a Free Consultation
-  </span>
-                    </motion.button>
-
+                    <GlowButton href="https://calendly.com/talhafakhar/discoverycall" target="_blank" rel="noopener noreferrer" shape="rect">Get a Free Consultation</GlowButton>
                 </div>
             </div>
         </section>

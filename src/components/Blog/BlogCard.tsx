@@ -25,49 +25,33 @@ const BlogCard: React.FC<BlogCardProps> = ({blog, id}) => {
 
     return (
         <div
-            className="group relative bg-white/10 backdrop-blur-2xl rounded overflow-hidden border border-gray-900 transition-all duration-500 hover:-translate-y-2"
+            className="group relative bg-white/[0.04] backdrop-blur-2xl rounded-2xl overflow-hidden border border-white/10 transform-gpu transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(242,193,78,0.6),0_0_55px_rgba(242,193,78,0.35)]"
             style={{animation: `fadeInUp 0.6s ease-out ${id * 0.1}s both`}}>
             {imageUrl && (
-                <div className="relative  overflow-hidden border-b border-white h-64">
-                    <div
-                        className="absolute inset-0 bg-cover bg-center filter blur-[4px] scale-105"
-                        style={{backgroundImage: `url(${imageUrl})`}}
+                <div className="relative overflow-hidden h-56 rounded-t-2xl isolate transform-gpu [backface-visibility:hidden] [-webkit-backface-visibility:hidden]">
+                    <Image
+                        src={imageUrl}
+                        alt={imageAlt}
+                        fill
+                        className="object-cover rounded-t-2xl transition-transform duration-700 ease-out will-change-transform transform-gpu [backface-visibility:hidden] group-hover:scale-110"
                     />
-
-                    <div className="absolute inset-0 bg-white/10 z-10"/>
-
-                    <div className="relative overflow-hidden  h-64 ">
-                        <Image
-                            src={imageUrl}
-                            alt={imageAlt}
-                            fill
-                            className="object-contain transition-transform duration-700 group-hover:scale-105"
-                        />
-                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b0b] via-[#0b0b0b]/10 to-transparent"/>
                 </div>
             )}
 
-            <div className="py-6 px-4 sm:px-6 lg:px-8  ">
-                <div className="flex flex-wrap gap-2">
+            <div className="py-5 px-5 sm:px-6">
+                <div className="flex flex-wrap gap-1.5">
                     {blog.tags?.map((tag, index) => (
                         <span
                             key={index}
-                            className="relative inline-block px-[1px] py-[1px] text-xs font-semibold text-white rounded"
+                            className="inline-block text-[11px] font-medium tracking-wide text-primary/90 bg-primary/10 border border-primary/20 rounded-full px-2.5 py-1"
                         >
-    <span
-        className="absolute inset-0 rounded p-[1px] bg-gradient-to-r from-primary via-secondary to-accent"
-    ></span>
-    <span
-        className="relative block rounded bg-[#0b0b0b] px-3 py-0.5"
-    >
-      #{tag.trim()}
-    </span>
-  </span>
+                            #{tag.trim()}
+                        </span>
                     ))}
-
                 </div>
 
-                <h3 className="text-xl font-bold text-white leading-tight mt-4 uppercase mb-2">
+                <h3 className="text-lg font-bold leading-snug mt-4 mb-2 text-white transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-white group-hover:via-[#f2c14e] group-hover:to-[#4fd1a5] group-hover:bg-clip-text group-hover:text-transparent">
                     <Link
                         href={`/blogs/${blog.slug}`}
                         title={`Read more about ${blog.title}`}
@@ -76,7 +60,7 @@ const BlogCard: React.FC<BlogCardProps> = ({blog, id}) => {
                     </Link>
                 </h3>
 
-                <p className="text-gray-300 text-sm leading-relaxed line-clamp-3">
+                <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">
                     {typeof blog.excerpt === "string"
                         ? blog.excerpt
                         : blog.excerpt
@@ -87,23 +71,25 @@ const BlogCard: React.FC<BlogCardProps> = ({blog, id}) => {
                 </p>
             </div>
 
-            <div className="px-4 pb-2 flex items-center justify-between">
-                <div className="flex items-center gap-2 text-sm text-gray-300">
-                    <Calendar size={14}/>
+            <div className="px-5 sm:px-6 pb-5 flex items-center justify-between border-t border-white/10 pt-4">
+                <div className="flex items-center gap-2 text-xs text-gray-400">
+                    <Calendar size={13}/>
                     <span className="font-medium">{formatDate(blog.published)}</span>
                 </div>
 
-                <div
-                    className="group/btn flex items-center gap-2 text-sm font-semibold text-white "
+                <Link
+                    href={`/blogs/${blog.slug}`}
+                    title={`Read more about ${blog.title}`}
+                    className="group/btn flex items-center gap-2 text-sm font-semibold text-white"
                 >
                     <div
-                        className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center  transition-all duration-300 group-hover/btn:scale-110">
+                        className="w-8 h-8 bg-white/5 border border-white/10 rounded-full flex items-center justify-center transition-all duration-300 group-hover/btn:bg-[#e0af3f] group-hover/btn:border-[#e0af3f] group-hover/btn:scale-110">
                         <ArrowRight
                             size={14}
-                            className="text-white group-hover/btn:translate-x-0.5 transition-transform duration-300"
+                            className="text-white group-hover/btn:text-[#0b0b0b] group-hover/btn:translate-x-0.5 transition-transform duration-300"
                         />
                     </div>
-                </div>
+                </Link>
             </div>
 
             <style jsx>{`

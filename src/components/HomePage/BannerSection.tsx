@@ -1,14 +1,30 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
+import GlowButton from "@/components/ui/GlowButton";
+import ScrollGlow from "@/components/ui/ScrollGlow";
 interface  BannerSectionProps {
     text?: string;
     subtext?: string;
     lastText?: string;
+    description?: string;
+    note?: string;
+    buttonText?: string;
+    buttonHref?: string;
 }
-export default function BannerSection({text, subtext, lastText}: BannerSectionProps) {
+export default function BannerSection({
+                                           text,
+                                           subtext,
+                                           lastText,
+                                           description,
+                                           note,
+                                           buttonText = "Book your call",
+                                           buttonHref = "https://calendly.com/talhafakhar/discoverycall",
+                                       }: BannerSectionProps) {
+    const sectionRef = useRef<HTMLElement>(null);
     return (
-        <section className="relative text-white  ">
+        <section ref={sectionRef} className="relative overflow-hidden text-white  ">
+            <ScrollGlow target={sectionRef} />
             <div className="relative py-6 md:py-14 rounded max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center  flex flex-col items-center justify-center"
                 style={{
                     backgroundImage: "url('/assets/home/banner-bg.webp')",
@@ -36,6 +52,18 @@ export default function BannerSection({text, subtext, lastText}: BannerSectionPr
                         {text}  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-secondary font-bold">{subtext}</span> {lastText}
                     </motion.h2>
 
+                    {description && (
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2, duration: 0.8 }}
+                            viewport={{ once: true }}
+                            className="mt-6 text-gray-300"
+                        >
+                            {description}
+                        </motion.p>
+                    )}
+
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -43,18 +71,8 @@ export default function BannerSection({text, subtext, lastText}: BannerSectionPr
                         viewport={{ once: true }}
                         className="mt-8"
                     >
-                        <motion.button
-                            whileHover={{
-                                scale: 1.05,
-                                boxShadow: "0px 0px 20px rgba(255, 255, 255, 0.3)",
-                            }}
-                            whileTap={{ scale: 0.95 }}
-                            className="relative rounded bg-gradient-to-r from-primary via-accent to-secondary p-[2px] shadow-lg hover:shadow-2xl transition-all duration-300"
-                        >
-                            <span className="block rounded bg-black text-white  py-2 px-6  ">
-                                Book your call
-                            </span>
-                        </motion.button>
+                        <GlowButton href={buttonHref} target="_blank" rel="noopener noreferrer" shape="rect">{buttonText}</GlowButton>
+                        {note && <p className="mt-4 text-sm text-gray-400">{note}</p>}
                     </motion.div>
                 </motion.div>
             </div>

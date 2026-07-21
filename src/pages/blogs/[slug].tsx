@@ -5,11 +5,16 @@ import type { BlogPost } from "@/types/blog";
 import BlogDetail from "@/components/Blog/BlogDetail";
 type Props = { blog: BlogPost };
 export const getStaticPaths: GetStaticPaths = async () => {
-    const slugs = await getLatestSlugs(10);
-    return {
-        paths: slugs.map((slug) => ({ params: { slug } })),
-        fallback: "blocking",
-    };
+    try {
+        const slugs = await getLatestSlugs(10);
+        return {
+            paths: slugs.map((slug) => ({ params: { slug } })),
+            fallback: "blocking",
+        };
+    } catch (error) {
+        console.error("🚨 Error fetching latest slugs:", error);
+        return { paths: [], fallback: "blocking" };
+    }
 };
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     const slug = String(params!.slug);
@@ -41,7 +46,7 @@ export default function BlogPostPage({ blog }: Props) {
 
     const imageUrl = feature_image?.url
         ? `https://api.wewantagent.com${feature_image.url}`
-        : "https://wewantagent.com/default-blog.jpg";
+        : "https://wewantagent.com/assets/home/logo white.png";
 
     const canonicalUrl = `https://wewantagent.com/blogs/${slug}`;
 
@@ -66,7 +71,6 @@ export default function BlogPostPage({ blog }: Props) {
                     },
                 }}
                 additionalMetaTags={[
-                    { name: "robots", content: "index, follow" },
                     { name: "author", content: "We Want Agent" },
                 ]}
             />

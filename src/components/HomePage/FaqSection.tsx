@@ -1,104 +1,156 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
-const faqs = [
+import React, { useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Plus, X } from "lucide-react";
+import GlowButton from "@/components/ui/GlowButton";
+import ScrollGlow from "@/components/ui/ScrollGlow";
+interface Faq {
+    question: string;
+    answer: string;
+}
+
+interface FaqSectionProps {
+    heading?: string;
+    subheading?: string;
+    faqs?: Faq[];
+    showButton?: boolean;
+}
+
+const defaultFaqs: Faq[] = [
     {
         question: "How to create an AI agent for my business?",
         answer:
-            "We start with a discovery call to understand your pain points. Then our automation expert maps out what tasks to automate, designs the AI agent architecture, develops it custom for your workflow, tests thoroughly, and deploys it into your systems. You're involved at every step — no surprises.",
+            " It starts with a free consultation where we identify your biggest time drains. From there, we design, build, and deploy a custom AI agent that fits your exact workflow. You don't need any technical knowledge; we handle everything from discovery to deployment.",
     },
     {
         question: "How much does AI cost for a small business?",
         answer:
-            "It depends on complexity, but most AI automation agency projects start between $5,000–$15,000 for initial development. Monthly maintenance runs $500–$2,000. We provide transparent quotes upfront — no hidden fees. Think of it as hiring a full-time employee who never sleeps, never quits, and costs less annually.",
+            "Every project is tailored to your needs and scope, so pricing varies. We provide a clear, itemized quote after your free consultation, before any commitment. No hidden fees, no surprises, and packages designed to pay for themselves in saved hours.",
     },
     {
         question: "Will AI assistants work with my current software?",
         answer:
-            "Yes. We build AI automation service solutions that integrate with your existing CRM, scheduling tools, accounting software, and databases. No need to change what's working — we make it work smarter. If you use it daily, we can likely automate around it or enhance it.",
+            "Yes. We build automation that works with your existing systems, not against them. Whether you use Gmail, Slack, ClickUp, QuickBooks, Salesforce, or custom tools, your stack stays and we make it smarter.",
     },
     {
         question: "How long does it take to build custom AI agents?",
         answer:
-            "Simple artificial intelligence automation takes 2–4 weeks. Complex multi-system integrations need 6–12 weeks. Rush projects are possible for urgent needs. We give you realistic timelines during consultation — never overpromise. Most clients see their first automation running within 30 days of starting.",
+            "Simple single-workflow agents go live in about 2 weeks. Multi-workflow systems take 6 to 8 weeks. Enterprise-wide automation timelines are scoped based on your needs, and we always give you a clear timeline before starting.",
     },
 ];
-export default function FaqSection() {
-    return (
-        <section className="py-24 text-white">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="lg:grid lg:grid-cols-12 lg:gap-8">
-                    <motion.div
-                        initial={{ opacity: 0, x: -40 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        viewport={{ once: true }}
-                        className="lg:col-span-5"
-                    >
-                        <h2 className="text-3xl sm:text-6xl font-semibold tracking-tight text-white">
-                            Frequently asked questions
-                        </h2>
-                        <p className="mt-6 text-base leading-7 text-gray-300">
-                            Questions We Hear Every Day
-                        </p>
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.9, ease: "easeOut" }}
-                            viewport={{ once: true }}
-                            className="mt-10 "
-                        >
-                            <motion.button
-                                variants={{
-                                    hover: {
-                                        scale: 1.05,
-                                        rotate: [0, 1, -1, 0],
-                                        transition: { duration: 0.3 },
-                                    },
-                                    tap: { scale: 0.95 },
-                                }}
-                                whileHover="hover"
-                                whileTap="tap"
-                                className="relative h-12 w-60 overflow-hidden text-white shadow-2xl transition-all duration-200
-              before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto
-              before:h-0 before:w-0 before:rounded-sm before:bg-white before:duration-300
-              before:ease-out hover:before:h-40 hover:before:w-60
-              border-transparent bg-gradient-to-r from-primary via-accent to-secondary p-[2px]"
-                            >
-            <span className="relative z-10 flex h-full w-full items-center justify-center text-nowrap bg-black rounded-sm">
-              Book a free consultation
-            </span>
-                            </motion.button>
-                        </motion.div>
-                    </motion.div>
-                    <div className="mt-10 lg:col-span-7 lg:mt-0">
-                        <dl className="divide-y divide-white/10">
-                            {faqs.map((faq, index) => (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{
-                                        duration: 0.6,
-                                        delay: index * 0.2,
-                                        ease: "easeOut",
-                                    }}
-                                    viewport={{ once: true }}
-                                    className="py-6 first:pt-0 last:pb-0"
-                                >
-                                    <dt className="text-xl font-semibold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-                                        {faq.question}
-                                    </dt>
-                                    <dd className="mt-3 text-base leading-7 text-gray-400">
-                                        {faq.answer}
-                                    </dd>
-                                </motion.div>
-                            ))}
-                        </dl>
-                    </div>
 
+export default function FaqSection({
+                                         heading = "Frequently Asked Questions",
+                                         subheading = "Questions We Hear Every Day",
+                                         faqs = defaultFaqs,
+                                         showButton = true,
+                                     }: FaqSectionProps) {
+    const [openIndex, setOpenIndex] = useState<number | null>(null);
+    const half = Math.ceil(faqs.length / 2);
+    const columns = [faqs.slice(0, half), faqs.slice(half)];
+    const sectionRef = useRef<HTMLElement>(null);
+    return (
+        <section ref={sectionRef} className="relative overflow-hidden py-24 text-white">
+            <ScrollGlow target={sectionRef} />
+            <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    viewport={{ once: true }}
+                    className="mx-auto max-w-2xl text-center"
+                >
+                    <h2 className="text-3xl sm:text-6xl font-semibold tracking-tight bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                        {heading}
+                    </h2>
+                    <p className="mt-6 text-base leading-7 text-gray-300">
+                        {subheading}
+                    </p>
+                </motion.div>
+
+                <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2">
+                    {columns.map((col, colIndex) => (
+                        <div key={colIndex} className="flex flex-col gap-6">
+                            {col.map((faq, i) => {
+                                const index = colIndex * half + i;
+                                const isOpen = openIndex === index;
+                                return (
+                                    <motion.div
+                                        key={index}
+                                        initial={{ opacity: 0, y: 30 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        transition={{
+                                            duration: 0.6,
+                                            delay: index * 0.1,
+                                            ease: "easeOut",
+                                        }}
+                                        viewport={{ once: true }}
+                                        className={`rounded-2xl border p-6 transition-colors duration-300 ${
+                                            isOpen
+                                                ? "border-primary/60 bg-white/5"
+                                                : "border-white/10 bg-white/[0.02]"
+                                        }`}
+                                    >
+                                        <button
+                                            type="button"
+                                            onClick={() =>
+                                                setOpenIndex(isOpen ? null : index)
+                                            }
+                                            className="flex w-full items-center justify-between gap-4 text-left"
+                                        >
+                                            <span className="text-base sm:text-lg font-medium text-white">
+                                                {faq.question}
+                                            </span>
+                                            <span
+                                                className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border transition-colors duration-300 ${
+                                                    isOpen
+                                                        ? "border-primary/60 text-primary"
+                                                        : "border-white/20 text-white"
+                                                }`}
+                                            >
+                                                {isOpen ? (
+                                                    <X size={16} />
+                                                ) : (
+                                                    <Plus size={16} />
+                                                )}
+                                            </span>
+                                        </button>
+                                        <AnimatePresence initial={false}>
+                                            {isOpen && (
+                                                <motion.div
+                                                    initial={{ height: 0, opacity: 0 }}
+                                                    animate={{ height: "auto", opacity: 1 }}
+                                                    exit={{ height: 0, opacity: 0 }}
+                                                    transition={{
+                                                        duration: 0.3,
+                                                        ease: "easeOut",
+                                                    }}
+                                                    className="overflow-hidden"
+                                                >
+                                                    <p className="mt-4 text-sm sm:text-base leading-7 text-gray-400">
+                                                        {faq.answer}
+                                                    </p>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </motion.div>
+                                );
+                            })}
+                        </div>
+                    ))}
                 </div>
 
+                {showButton && (
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.9, ease: "easeOut" }}
+                        viewport={{ once: true }}
+                        className="mt-16 flex justify-center"
+                    >
+                        <GlowButton href="https://calendly.com/talhafakhar/discoverycall" target="_blank" rel="noopener noreferrer" shape="rect">Book a free consultation</GlowButton>
+                    </motion.div>
+                )}
             </div>
         </section>
     );

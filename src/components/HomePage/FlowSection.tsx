@@ -1,7 +1,9 @@
 "use client";
 import React, {useRef} from "react";
-import {motion, useScroll, useTransform} from "framer-motion";
+import {motion} from "framer-motion";
 import Image from "next/image";
+import ScrollGlow from "@/components/ui/ScrollGlow";
+import GlowButton from "@/components/ui/GlowButton";
 import {
     Building2,
     Stethoscope,
@@ -27,7 +29,7 @@ const services = [
     },
     {
         icon: <Calculator className="w-6 h-6 text-white" />,
-        title: "Accounting That Thinks",
+        title: "Bookkeeping That Thinks",
         description:
             "Invoice processing, expense categorization, reconciliation checks done before you think about them. Your artificial intelligence automation catches errors, flags anomalies, and keeps books clean automatically every time",
         number: "3",
@@ -57,13 +59,9 @@ const services = [
 
 const OrbitAnimation: React.FC = () => {
     const sectionRef = useRef<HTMLDivElement | null>(null);
-    const {scrollYProgress} = useScroll({
-        target: sectionRef,
-        offset: ["start end", "end start"],
-    });
     const imageExt: Record<string, string> = {
         AssemblyAI: "svg",
-        aws: "jpeg",
+        aws: "webp",
         claude: "svg",
         clickup: "svg",
         deepseek: "svg",
@@ -72,13 +70,13 @@ const OrbitAnimation: React.FC = () => {
         fallback: "svg",
         flask: "svg",
         gemini: "svg",
-        Gmail: "jpeg",
+        Gmail: "webp",
         googlDocs: "svg",
         "google-sheet": "svg",
         GoogleDrive: "svg",
         gpt: "svg",
-        Grafana: "jpeg",
-        LangChain: "jpeg",
+        Grafana: "webp",
+        LangChain: "webp",
         logo: "svg",
         make: "svg",
         mesha: "svg",
@@ -87,15 +85,14 @@ const OrbitAnimation: React.FC = () => {
         Outlook: "svg",
         PostgreSQL: "svg",
         Python: "svg",
-        Sentry: "jpeg",
+        Sentry: "webp",
         slack: "svg",
         trello: "svg",
-        titan: "jpeg",
-        Twilio: "jpeg",
+        titan: "webp",
+        Twilio: "webp",
         websocket: "svg",
     };
 
-    const yParallax = useTransform(scrollYProgress, [0, 1], ["-70%", "40%"]);
     const SmartImage = ({
                             name,
                             width,
@@ -105,8 +102,11 @@ const OrbitAnimation: React.FC = () => {
         width: number;
         height: number;
     }) => {
+        const [errored, setErrored] = React.useState(false);
         const ext = imageExt[name] || "svg";
-        const src = `/assets/svg/home/${name}.${ext}`;
+        const src = errored
+            ? "/assets/svg/home/fallback.svg"
+            : `/assets/svg/home/${name}.${ext}`;
 
         return (
             <Image
@@ -116,6 +116,7 @@ const OrbitAnimation: React.FC = () => {
                 height={height}
                 unoptimized
                 className="rounded-full"
+                onError={() => setErrored(true)}
             />
         );
     };
@@ -124,12 +125,7 @@ const OrbitAnimation: React.FC = () => {
 
     return (
         <section ref={sectionRef} className="relative py-20  overflow-hidden">
-            <motion.div
-                style={{y: yParallax}}
-                className="absolute inset-0 flex justify-center items-center pointer-events-none"
-            >
-                <div className="w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-purple-600/20 to-blue-500/30 blur-3xl"/>
-            </motion.div>
+            <ScrollGlow target={sectionRef} />
             <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8  ">
                 <motion.div
                     initial={{opacity: 0, y: 50}}
@@ -137,7 +133,7 @@ const OrbitAnimation: React.FC = () => {
                     transition={{duration: 1, ease: "easeOut"}}
                     viewport={{once: true}}
                 >
-                    <h2 className="text-4xl md:text-5xl font-semibold text-center pb-2 text-white mb-4  tracking-tight">
+                    <h2 className="text-4xl md:text-5xl font-semibold text-center pb-2 mb-4 tracking-tight bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
                         Empower Your Workflow with AI
                     </h2>
                     <p className="text-center text-gray-400 max-w-3xl mx-auto mb-20">
@@ -155,7 +151,7 @@ const OrbitAnimation: React.FC = () => {
                         className="text-center md:text-left"
                     >
                         <Image
-                            src="/assets/home/chatbot.png"
+                            src="/assets/home/chatbot.webp"
                             alt="AI Chatbot"
                             width={500}
                             height={500}
@@ -236,6 +232,8 @@ const OrbitAnimation: React.FC = () => {
                                 "mongodb",
                                 "titan",
                                 "websocket",
+                                "deepseek",
+                                "flask",
                             ].map((name, i) => (
                                 <div
                                     key={name}
@@ -243,8 +241,8 @@ const OrbitAnimation: React.FC = () => {
                                     style={{
                                         top: "50%",
                                         left: "50%",
-                                        transform: `rotate(${(i * 360) / 9}deg) translate(140px) rotate(-${
-                                            (i * 360) / 9
+                                        transform: `rotate(${(i * 360) / 11}deg) translate(140px) rotate(-${
+                                            (i * 360) / 11
                                         }deg) translate(-50%, -50%)`,
                                     }}
                                 >
@@ -258,15 +256,15 @@ const OrbitAnimation: React.FC = () => {
                             transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                             className="absolute w-[180px] h-[180px] rounded-full border border-white/50"
                         >
-                            {["aws", "Twilio", "AssemblyAI", "Sentry", "Grafana"].map((name, i) => (
+                            {["aws", "Twilio", "AssemblyAI", "Sentry", "Grafana", "ElevenLabs"].map((name, i) => (
                                 <div
                                     key={name}
                                     className="absolute flex items-center justify-center"
                                     style={{
                                         top: "50%",
                                         left: "50%",
-                                        transform: `rotate(${(i * 360) / 5}deg) translate(90px) rotate(-${
-                                            (i * 360) / 5
+                                        transform: `rotate(${(i * 360) / 6}deg) translate(90px) rotate(-${
+                                            (i * 360) / 6
                                         }deg) translate(-50%, -50%)`,
                                     }}
                                 >
@@ -292,7 +290,6 @@ const OrbitAnimation: React.FC = () => {
 
                 </div>
                 
-                
                 <motion.div
                     initial={{opacity: 0, y: 30}}
                     whileInView={{opacity: 1, y: 0}}
@@ -300,7 +297,7 @@ const OrbitAnimation: React.FC = () => {
                     viewport={{once: true}}
                     className="text-center relative mt-32 z-10 text-white"
                 >
-                    <h2 className="text-4xl md:text-5xl font-semibold mb-4">
+                    <h2 className="text-4xl md:text-5xl font-semibold mb-4 bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
                         Custom AI Agents Built For Your Reality
                     </h2>
                     <p className="text-gray-400">
@@ -310,27 +307,21 @@ const OrbitAnimation: React.FC = () => {
 
                 <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 text-white">
                     {services.map((feature, index) => {
-                        const isEven = index % 2 === 0;
                         return (
                             <motion.div
                                 key={index}
                                 initial={{
                                     opacity: 0,
-                                    y: 40,
-                                    scale: 0.95,
-                                    rotateX: isEven ? 5 : -5,
+                                    y: 20,
                                 }}
                                 whileInView={{
                                     opacity: 1,
                                     y: 0,
-                                    scale: 1,
-                                    rotateX: 0,
                                 }}
                                 transition={{
-                                    type: "spring",
-                                    stiffness: 80,
-                                    damping: 15,
-                                    delay: index * 0.12,
+                                    duration: 0.5,
+                                    ease: "easeOut",
+                                    delay: index * 0.1,
                                 }}
                                 viewport={{ once: true, amount: 0.3 }}
 
@@ -349,6 +340,21 @@ const OrbitAnimation: React.FC = () => {
                         );
                     })}
                 </div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                    className="mt-10 text-center"
+                >
+                    <p className="mx-auto mb-6 max-w-2xl text-base leading-relaxed text-gray-400">
+                        Serving 10+ industries including Legal, E-commerce, Hospitality, Recruitment, Marketing Agencies, Consultants, and SaaS.
+                    </p>
+                    <GlowButton href="/contact" shape="rect">
+                        Explore All Industries
+                    </GlowButton>
+                </motion.div>
             </div>
 
         </section>

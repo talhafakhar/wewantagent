@@ -1,0 +1,52 @@
+import HeroSection from "@/components/About/HeroSection";
+import React from "react";
+import OriginStory from "@/components/About/OriginStorySection";
+import SolutionsSection from "@/components/About/SolutionsSection";
+import MeetOurTeam from "@/components/About/MeetOurTeam";
+import ContactSection from "@/components/services/ContactFormSection";
+import FooterSection from "@/components/Footer/footer";
+import {NextSeo ,WebPageJsonLd} from "next-seo";
+import BannerSection from "@/components/HomePage/BannerSection";
+
+export default function AutomationExpert() {
+    return (
+        <>
+            <NextSeo
+                title="Automation Expert Team - Custom AI Solutions | We Want Agent"
+                description="Meet our automation expert team building custom AI solutions."
+                canonical="https://wewantagent.com/about"
+                openGraph={{
+                    url: "https://wewantagent.com/about",
+                    images: [
+                        {
+                            url: "https://wewantagent.com/assets/home/logo white.png",
+                            width: 1200,
+                            height: 630
+                        }
+                    ]
+                }}
+            />
+
+            <WebPageJsonLd
+                id="https://wewantagent.com/about#webpage"
+                url="https://wewantagent.com/about"
+                name="Automation Expert Team"
+            />
+
+            <div className="bg-black">
+                <HeroSection/>
+                <OriginStory/>
+                <SolutionsSection/>
+                <MeetOurTeam/>
+                <ContactSection/>
+                <BannerSection
+                    text="Let automation experts handle the repetitive work while you focus on"
+                    subtext="growing your business"
+                    lastText="today"
+                />
+                <FooterSection/>
+            </div>
+        </>
+    );
+}
+

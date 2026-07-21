@@ -1,9 +1,9 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import { motion, easeOut } from "framer-motion";
-import { LucideIcon } from "lucide-react";
+import GlowButton from "@/components/ui/GlowButton";
+import ScrollGlow from "@/components/ui/ScrollGlow";
 interface StatItem {
-    icon: LucideIcon;
     title: string;
     description: string;
 }
@@ -11,79 +11,75 @@ interface StatsSectionProps {
     heading: string;
     stats: StatItem[];
     buttonText?: string;
+    buttonHref?: string;
 }
 const WhatWeDo: React.FC<StatsSectionProps> = ({
                                                        heading,
                                                        stats,
                                                        buttonText,
+                                                       buttonHref = "/contact",
 
                                                    }) => {
     const fadeUp = {
         hidden: { opacity: 0, y: 40 },
         show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: easeOut } },
     };
+    const sectionRef = useRef<HTMLElement>(null);
     return (
-        <section className="py-24 text-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <motion.div
-                    variants={fadeUp}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true }}
-                    className="mb-10"
-                >
-                    <h2 className="text-4xl md:text-5xl font-semibold leading-tight">
-                        {heading}
-                    </h2>
-                </motion.div>
+        <section ref={sectionRef} className="relative py-14 text-white overflow-hidden">
+            <ScrollGlow target={sectionRef} speed={0} />
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="mb-2">
+                    <div className="md:flex md:items-start md:gap-10">
+                        <motion.div
+                            variants={fadeUp}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: true }}
+                            className="md:w-1/2"
+                        >
+                            <div className="mb-3">
+                                <span className="text-xs uppercase tracking-wider text-[#f2c14e]/90">Proven results</span>
+                            </div>
+                            <h2 className="text-4xl md:text-5xl font-semibold leading-tight text-left md:text-left">
+                                <span className="bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                                    {heading}
+                                </span>
+                            </h2>
+                            <p className="mt-4 text-gray-400 max-w-sm">Real results from live deployments - metrics we consistently deliver.</p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
-                    {stats.map((stat, index) => {
-                        const Icon = stat.icon;
-                        return (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, x: -100, rotate: -10 }}
-                                whileInView={{ opacity: 1, x: 0, rotate: 0 }}
-                                transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.2 }}
-                                viewport={{ once: true }}
-                                className="p-6 border border-white/10 rounded-xl bg-black/20 backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
-                            >
-                                <Icon className="text-white w-16 h-16 mb-4" />
-                                <h4 className="text-2xl font-bold mb-2 text-white">
-                                    {stat.title}
-                                </h4>
-                                <p className="text-sm text-gray-400">{stat.description}</p>
-                            </motion.div>
-                        );
-                    })}
+                            {buttonText && (
+                                <div className="mt-8">
+                                    <GlowButton href={buttonHref} shape="rect">{buttonText}</GlowButton>
+                                </div>
+                            )}
+                        </motion.div>
+
+                        <motion.div
+                            variants={fadeUp}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: true }}
+                            className="md:w-1/2 mt-8 md:mt-0"
+                        >
+                            <div className="max-w-[520px] mx-auto">
+                                <div className="grid grid-cols-2 gap-4">
+                                    {stats.slice(0,4).map((stat, index) => (
+                                        <div
+                                            key={index}
+                                            className="p-4 rounded-xl border border-white/10 bg-black/20 backdrop-blur-sm hover:-translate-y-1 transition-transform duration-200"
+                                        >
+                                            <div className="text-3xl md:text-2xl font-semibold text-[#f2c14e]/90 mb-1 leading-tight">{stat.title}</div>
+                                            <div className="text-sm text-gray-300">{stat.description}</div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
                 </div>
 
-                {buttonText && (
-                    <div className="mt-10 flex justify-center">
-                        <motion.button
-                            variants={{
-                                hover: {
-                                    scale: 1.05,
-                                    rotate: [0, 1, -1, 0],
-                                    transition: { duration: 0.3 },
-                                },
-                                tap: { scale: 0.95 },
-                            }}
-                            whileHover="hover"
-                            whileTap="tap"
-                            className="relative h-12 w-44 overflow-hidden text-white shadow-2xl transition-all duration-200
-                before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto
-                before:h-0 before:w-0 before:rounded-sm before:bg-white before:duration-300
-                before:ease-out hover:before:h-40 hover:before:w-44
-                border-transparent bg-gradient-to-r from-primary via-accent to-secondary p-[2px]"
-                        >
-              <span className="relative z-10 flex h-full w-full items-center justify-center text-nowrap bg-black rounded-sm">
-                {buttonText}
-              </span>
-                        </motion.button>
-                    </div>
-                )}
+                {/* CTA is placed under the heading in the left column */}
             </div>
         </section>
     );

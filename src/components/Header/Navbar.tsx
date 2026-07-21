@@ -1,88 +1,108 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-    Menu,
-    X,
-} from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import GlowButton from "@/components/ui/GlowButton";
+
+const NAV_LINKS = [
+    { label: "AI Transformation", href: "/services/ai-transformation" },
+    { label: "AI Consulting", href: "/services/ai-consulting" },
+    { label: "Real Estate", href: "/services/real-estate" },
+    { label: "Healthcare", href: "/services/healthcare" },
+    { label: "Bookkeeping", href: "/services/bookkeeping" },
+];
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 40);
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
 
     return (
-        <nav className="pt-4 relative z-10 transition-all duration-300">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
-                <div className="bg-white/10 border border-white rounded-full px-4 sm:px-6 shadow-lg transition-all duration-300">
-                    <div className="flex items-center justify-between py-2">
-                        <Link href="/" className="flex items-center text-white font-bold text-2xl">
-                            <Image
-                                src="/assets/home/logo white.png"
-                                alt="Logo"
-                                priority
-                                width={150}
-                                height={150}
-                            />
-                        </Link>
-                        <div className="hidden lg:flex gap-4 items-center relative">
-                            <div className="flex space-x-6 bg-white/20 px-8 py-2.5 rounded-full">
-                                <Link href="/services/realestateaiagent" className="text-white hover:text-gray-200">
-                                    Real Estate
-                                </Link>
-                                <Link href="/services/healthcareautomation" className="text-white hover:text-gray-200">
-                                    Healthcare
-                                </Link>
-                                <Link href="/services/bookkeepingai" className="text-white hover:text-gray-200">
-                                    Bookkeeping
-                                </Link>
-                                <Link href="/automationexpert" className="text-white hover:text-gray-200">
-                                    About
-                                </Link>
-                                <Link href="/contact" className="text-white hover:text-gray-200">
-                                    Contact
-                                </Link>
-                            </div>
+        <nav
+            className={`fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-5 sm:px-8 py-[18px] border-b transition-colors duration-300 ${
+                scrolled
+                    ? "bg-[#08090d]/85 border-white/[0.08] backdrop-blur-xl backdrop-saturate-150"
+                    : "bg-transparent border-transparent"
+            }`}
+        >
+            <Link href="/" className="flex items-center">
+                <Image
+                    src="/assets/home/logo white.png"
+                    alt="We Want Agent"
+                    width={140}
+                    height={37}
+                    priority
+                    className="h-8 sm:h-9 w-auto object-contain"
+                />
+            </Link>
 
-                            <Link
-                                href="#"
-                                className="px-6 py-2.5 bg-white text-gray-900 rounded-full font-semibold hover:bg-gray-100 transition-all hover:scale-105"
-                            >
-                                Let&#39;s Collaborate
-                            </Link>
-                        </div>
-
-                        <button
-                            onClick={() => setIsOpen(!isOpen)}
-                            className="lg:hidden text-white focus:outline-none"
+            <div className="hidden lg:flex items-center gap-[30px]">
+                <div className="flex gap-[26px]">
+                    {NAV_LINKS.map((link) => (
+                        <Link
+                            key={link.label}
+                            href={link.href}
+                            className="group relative font-sans text-[14.5px] font-medium"
                         >
-                            <AnimatePresence mode="wait">
-                                {isOpen ? (
-                                    <motion.div
-                                        key="close"
-                                        initial={{ rotate: -90, opacity: 0 }}
-                                        animate={{ rotate: 0, opacity: 1 }}
-                                        exit={{ rotate: 90, opacity: 0 }}
-                                        transition={{ duration: 0.2 }}
-                                    >
-                                        <X className="w-6 h-6" />
-                                    </motion.div>
-                                ) : (
-                                    <motion.div
-                                        key="menu"
-                                        initial={{ rotate: 90, opacity: 0 }}
-                                        animate={{ rotate: 0, opacity: 1 }}
-                                        exit={{ rotate: -90, opacity: 0 }}
-                                        transition={{ duration: 0.2 }}
-                                    >
-                                        <Menu className="w-6 h-6" />
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </button>
-                    </div>
+                            <span className="text-[#b6b9c6] transition-opacity duration-200 group-hover:opacity-0">
+                                {link.label}
+                            </span>
+                            <span
+                                aria-hidden
+                                className="absolute inset-0 bg-gradient-to-r from-white to-[#f2c14e] bg-clip-text text-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+                            >
+                                {link.label}
+                            </span>
+                        </Link>
+                    ))}
                 </div>
+                <GlowButton
+                    href="https://calendly.com/talhafakhar/discoverycall"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    size="sm"
+                >
+                    Let&#39;s Collaborate
+                </GlowButton>
             </div>
+
+            <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="text-white focus:outline-none lg:hidden"
+                aria-label="Toggle menu"
+            >
+                <AnimatePresence mode="wait">
+                    {isOpen ? (
+                        <motion.div
+                            key="close"
+                            initial={{ rotate: -90, opacity: 0 }}
+                            animate={{ rotate: 0, opacity: 1 }}
+                            exit={{ rotate: 90, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                        >
+                            <X className="h-6 w-6" />
+                        </motion.div>
+                    ) : (
+                        <motion.div
+                            key="menu"
+                            initial={{ rotate: 90, opacity: 0 }}
+                            animate={{ rotate: 0, opacity: 1 }}
+                            exit={{ rotate: -90, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                        >
+                            <Menu className="h-6 w-6" />
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </button>
 
             <AnimatePresence>
                 {isOpen && (
@@ -91,41 +111,36 @@ const Navbar = () => {
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="lg:hidden mt-2 mx-4"
+                        className="absolute left-0 right-0 top-full mx-4 mt-2 overflow-hidden lg:hidden"
                     >
-                        <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-6 shadow-xl">
-                            <nav className="flex flex-col space-y-2">
-                                <Link href="/services/realestateaiagent"                                     className="text-white hover:text-purple-200 transition-colors py-2 px-4 rounded-lg hover:bg-white/10"
-                                >
-                                    Real Estate
-                                </Link>
-                                <Link href="/services/healthcareautomation"                                     className="text-white hover:text-purple-200 transition-colors py-2 px-4 rounded-lg hover:bg-white/10"
-                                >
-                                    Healthcare
-                                </Link>
-                                <Link href="/services/bookkeepingai"                                     className="text-white hover:text-purple-200 transition-colors py-2 px-4 rounded-lg hover:bg-white/10"
-                                >
-                                    Bookkeeping
-                                </Link>
+                        <div className="flex flex-col gap-1 rounded-3xl border border-white/10 bg-[#0c0e14]/95 p-6 shadow-2xl backdrop-blur-xl">
+                            {NAV_LINKS.map((link) => (
                                 <Link
-                                    href="/automationexpert"
-                                    className="text-white hover:text-purple-200 transition-colors py-2 px-4 rounded-lg hover:bg-white/10"
+                                    key={link.label}
+                                    href={link.href}
+                                    onClick={() => setIsOpen(false)}
+                                    className="group relative rounded-lg px-4 py-2.5 font-sans transition-colors hover:bg-white/5"
                                 >
-                                    About
+                                    <span className="text-[#b6b9c6] transition-opacity duration-200 group-hover:opacity-0">
+                                        {link.label}
+                                    </span>
+                                    <span
+                                        aria-hidden
+                                        className="absolute inset-y-0 left-4 flex items-center bg-gradient-to-r from-[#4fd1a5] via-[#f2c14e] to-[#f2665b] bg-clip-text text-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+                                    >
+                                        {link.label}
+                                    </span>
                                 </Link>
-                                <Link
-                                    href="/contact"
-                                    className="text-white hover:text-purple-200 transition-colors py-2 px-4 rounded-lg hover:bg-white/10"
-                                >
-                                    Contact
-                                </Link>
-                                <Link
-                                    href="#"
-                                    className="mt-3 px-6 py-3 bg-white text-gray-900 rounded-full font-semibold text-center hover:bg-gray-100 transition-all"
-                                >
-                                    Let&#39;s Collaborate
-                                </Link>
-                            </nav>
+                            ))}
+                            <GlowButton
+                                href="https://calendly.com/talhafakhar/discoverycall"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={() => setIsOpen(false)}
+                                className="mt-2 w-full justify-center"
+                            >
+                                Let&#39;s Collaborate
+                            </GlowButton>
                         </div>
                     </motion.div>
                 )}

@@ -8,11 +8,14 @@ module.exports = {
     ],
     theme: {
         extend: {
-            fontFamily: {},
+            fontFamily: {
+                sans: ["var(--font-alan-sans)", "sans-serif"],
+                heading: ["var(--font-space-grotesk)", "sans-serif"],
+            },
             colors: {
-                primary:"#00D1B2",
-                secondary:"#FF416C",
-                accent:"#FFB347",
+                primary:"#5EA8FF",
+                secondary:"#3E7BFF",
+                accent:"#8FCBFF",
             },
             keyframes: {
                 spin: {
@@ -23,10 +26,20 @@ module.exports = {
                     from: { transform: "rotate(360deg)" },
                     to: { transform: "rotate(0deg)" },
                 },
+                marqueeRight: {
+                    from: { transform: "translateX(-50%)" },
+                    to: { transform: "translateX(0%)" },
+                },
+                marqueeLeft: {
+                    from: { transform: "translateX(0%)" },
+                    to: { transform: "translateX(-50%)" },
+                },
             },
             animation: {
                 "spin-slow": "spin 20s linear infinite",
                 "spin-reverse-slower": "spinReverse 30s linear infinite",
+                "marquee-right": "marqueeRight 90s linear infinite",
+                "marquee-left": "marqueeLeft 90s linear infinite",
             },
         },
     },

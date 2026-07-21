@@ -1,9 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import helpAnimation from "@/assets/lottie/contact.json";
 import Lottie from "lottie-react";
 import { easeOut, motion, AnimatePresence } from "framer-motion";
+import CustomSelect from "@/components/ui/CustomSelect";
+import ScrollGlow from "@/components/ui/ScrollGlow";
+
+const INDUSTRY_OPTIONS = [
+    { value: "real-estate", label: "Real Estate" },
+    { value: "healthcare", label: "Healthcare" },
+    { value: "accounting", label: "Accounting & Bookkeeping" },
+    { value: "other", label: "Other" },
+];
+
+const COMPANY_SIZE_OPTIONS = [
+    { value: "solo", label: "Solo" },
+    { value: "2-10", label: "2–10" },
+    { value: "11-50", label: "11–50" },
+    { value: "51-200", label: "51–200" },
+    { value: "200+", label: "200+" },
+];
 
 export default function ContactSection() {
     const fadeUp = {
@@ -29,6 +46,13 @@ export default function ContactSection() {
             ...formData,
             [e.target.name]: e.target.value,
         });
+    };
+
+    const handleSelectChange = (name: string, value: string) => {
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
     };
 
     const handleSubmit = async (e: any) => {
@@ -72,19 +96,25 @@ export default function ContactSection() {
         });
     };
 
+    const sectionRef = useRef<HTMLElement>(null);
+
     return (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <section ref={sectionRef} className="relative overflow-hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <ScrollGlow
+                target={sectionRef}
+                speed={0}
+                positionClassName="left-1/3 top-1/3 h-[560px] w-[900px] -translate-x-1/3 -translate-y-1/2"
+            />
             <motion.div
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
                 variants={fadeUp}
             >
-                <h2 className="text-4xl md:text-5xl text-white text-center font-semibold leading-tight">
-                    Get Your{" "}
-                    <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-             Custom AI Agent Roadmap
-            </span>
+                <h2 className="text-4xl md:text-5xl text-center font-semibold leading-tight">
+                    <span className="bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                        Get Your Custom AI Agent Roadmap
+                    </span>
                 </h2>
                 <p className="mt-6 text-gray-300 text-center max-w-4xl mx-auto">
                     Share your automation challenge below. We&#39;ll analyze your workflow and share a custom roadmap showing how AI agents can transform your operations
@@ -101,7 +131,7 @@ export default function ContactSection() {
                 </div>
 
                 <div className="relative w-full md:w-1/2">
-                    <div className="absolute inset-0 transform rotate-6 bg-gradient-to-r from-primary via-accent to-secondary rounded-2xl"></div>
+                    <div className="absolute inset-0 transform rotate-6 bg-gradient-to-r from-[#ddb966] via-[#ddb966] to-[#ddb966] rounded-2xl"></div>
                     <AnimatePresence mode="wait">
                         {!isSuccess ? (
                             <motion.div
@@ -186,39 +216,32 @@ export default function ContactSection() {
                                             <label className="block font-medium text-gray-700">
                                                 Industry <span className="text-red-500">*</span>
                                             </label>
-                                            <select
-                                                name="industry"
-                                                value={formData.industry}
-                                                onChange={handleChange}
-                                                className="w-full mt-1 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none bg-white"
-                                                required
-                                            >
-                                                <option value="">Select Industry</option>
-                                                <option value="real-estate">Real Estate</option>
-                                                <option value="healthcare">Healthcare</option>
-                                                <option value="accounting">Accounting & Bookkeeping</option>
-                                                <option value="other">Other</option>
-                                            </select>
+                                            <div className="mt-1">
+                                                <CustomSelect
+                                                    name="industry"
+                                                    value={formData.industry}
+                                                    onChange={handleSelectChange}
+                                                    options={INDUSTRY_OPTIONS}
+                                                    placeholder="Select Industry"
+                                                    required
+                                                />
+                                            </div>
                                         </div>
 
                                         <div>
                                             <label className="block font-medium text-gray-700">
                                                 Company Size <span className="text-red-500">*</span>
                                             </label>
-                                            <select
-                                                name="companySize"
-                                                value={formData.companySize}
-                                                onChange={handleChange}
-                                                className="w-full mt-1 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none bg-white"
-                                                required
-                                            >
-                                                <option value="">Select Size</option>
-                                                <option value="solo">Solo</option>
-                                                <option value="2-10">2–10</option>
-                                                <option value="11-50">11–50</option>
-                                                <option value="51-200">51–200</option>
-                                                <option value="200+">200+</option>
-                                            </select>
+                                            <div className="mt-1">
+                                                <CustomSelect
+                                                    name="companySize"
+                                                    value={formData.companySize}
+                                                    onChange={handleSelectChange}
+                                                    options={COMPANY_SIZE_OPTIONS}
+                                                    placeholder="Select Size"
+                                                    required
+                                                />
+                                            </div>
                                         </div>
                                     </div>
 
@@ -240,7 +263,7 @@ export default function ContactSection() {
                                     <button
                                         type="submit"
                                         disabled={loading}
-                                        className="w-full py-3 rounded-md border border-black text-black font-medium hover:bg-black hover:text-white transition-all duration-300"
+                                        className="w-full py-3 rounded-md border border-black text-black font-medium hover:bg-[#0147DE] hover:text-white transition-all duration-300"
                                     >
                                         {loading ? "Submitting..." : "Send Message"}
                                     </button>

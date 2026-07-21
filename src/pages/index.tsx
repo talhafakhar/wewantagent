@@ -1,21 +1,13 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import HeroSection from "@/components/HomePage/HeroSection";
-import BenefitSection from "@/components/HomePage/BenefitSection";
-import OrbitAnimation from "@/components/HomePage/FlowSection";
-import GlobeSection from "@/components/HomePage/GlobeSection";
-import PricingSection from "@/components/HomePage/PricingTableSection";
-import TestimonialsSection from "@/components/HomePage/TestimonialSection";
-import FaqSection from "@/components/HomePage/FaqSection";
-import FooterSection from "@/components/Footer/footer";
-import BannerSection from "@/components/HomePage/BannerSection";
+import ScrollGlow from "@/components/ui/ScrollGlow";
 import { motion } from "framer-motion";
 import BlogCard from "@/components/Blog/BlogCard";
 import { BlogResponse } from "@/types/blog";
 import { GetStaticProps } from "next";
 import { fetchBlogs } from "@/lib/strapi";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
     FAQPageJsonLd,
@@ -23,6 +15,16 @@ import {
     OrganizationJsonLd,
     WebPageJsonLd,
 } from "next-seo";
+
+const BenefitSection = dynamic(() => import("@/components/HomePage/BenefitSection"));
+const OrbitAnimation = dynamic(() => import("@/components/HomePage/FlowSection"));
+const GlobeSection = dynamic(() => import("@/components/HomePage/GlobeSection"));
+const TestimonialsSection = dynamic(() => import("@/components/HomePage/TestimonialSection"));
+// const PricingSection = dynamic(() => import("@/components/HomePage/PricingTableSection"));
+const FaqSection = dynamic(() => import("@/components/HomePage/FaqSection"));
+const FooterSection = dynamic(() => import("@/components/Footer/footer"));
+const BannerSection = dynamic(() => import("@/components/HomePage/BannerSection"));
+
 type Props = {
     initialBlogs: BlogResponse["data"];
     pagination: BlogResponse["meta"]["pagination"];
@@ -39,6 +41,7 @@ export default function Home({ initialBlogs, pagination }: Props) {
     const [page, setPage] = useState(1);
     const [pageCount, setPageCount] = useState(pagination?.pageCount || 1);
     const [loading, setLoading] = useState(false);
+    const insightsRef = useRef<HTMLElement>(null);
     const loadNext = async (nextPage: number) => {
         setLoading(true);
         const { data, pagination } = await fetchBlogs(nextPage, 3);
@@ -50,12 +53,9 @@ export default function Home({ initialBlogs, pagination }: Props) {
     return (
         <>
             <NextSeo
-                title="We Want Agent | The Custom Build AI Automation Agency"
-                description="We Want Agent is an AI automation agency building custom AI agents."
+                title="AI Automation Agency | Custom AI Agents for Business | We Want Agent"
+                description="We build custom AI agents that eliminate repetitive tasks, automate workflows, and save you hours daily. Serving 10+ industries. Book a free consultation today."
                 canonical="https://wewantagent.com/"
-                additionalMetaTags={[
-                    { name: 'robots', content: 'index, follow' }
-                ]}
                 openGraph={{
                     url: "https://wewantagent.com/",
                     images: [
@@ -111,7 +111,7 @@ export default function Home({ initialBlogs, pagination }: Props) {
                 <OrbitAnimation />
                 <GlobeSection />
                 <TestimonialsSection />
-                <PricingSection />
+                {/* <PricingSection /> */}
                 <BannerSection
                     text="Wasting hours on repetitive tasks? Let AI handle the work while you focus on growth."
                     subtext="Get your"
@@ -119,14 +119,20 @@ export default function Home({ initialBlogs, pagination }: Props) {
                 />
                 <FaqSection />
 
-                <div className="max-w-7xl mx-auto px-4 py-8 relative">
+                <section id="blog-section" ref={insightsRef} className="relative overflow-hidden py-8">
+                    <ScrollGlow
+                        target={insightsRef}
+                        speed={0}
+                        positionClassName="left-1/2 top-0 h-[560px] w-[900px] -translate-x-1/2"
+                    />
+                    <div className="max-w-7xl mx-auto px-4 relative">
                     <motion.div
                         className="text-center mb-16"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h2 className="text-3xl sm:text-5xl font-semibold mb-4 text-white leading-tight">
+                        <h2 className="text-3xl sm:text-5xl font-semibold mb-4 leading-tight bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
                             Our Latest Insights
                         </h2>
                         <p className="text-gray-300 leading-relaxed">
@@ -137,21 +143,11 @@ export default function Home({ initialBlogs, pagination }: Props) {
                     {loading ? (
                         <div className="text-center text-gray-400">Loading...</div>
                     ) : blogs && blogs.length > 0 ? (
-                        <Swiper
-                            spaceBetween={20}
-                            slidesPerView={1}
-                            breakpoints={{
-                                640: { slidesPerView: 1 },
-                                768: { slidesPerView: 2 },
-                                1024: { slidesPerView: 3 },
-                            }}
-                        >
+                        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 py-3 px-1">
                             {blogs.map((blog, index) => (
-                                <SwiperSlide key={blog.id}>
-                                    <BlogCard blog={blog} id={index} />
-                                </SwiperSlide>
+                                <BlogCard key={blog.id} blog={blog} id={index} />
                             ))}
-                        </Swiper>
+                        </div>
                     ) : (
                         <div className="text-center text-gray-500">
                             No blogs available at the moment.
@@ -176,7 +172,8 @@ export default function Home({ initialBlogs, pagination }: Props) {
                             </button>
                         </div>
                     )}
-                </div>
+                    </div>
+                </section>
 
                 <FooterSection />
             </div>

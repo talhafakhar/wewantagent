@@ -1,8 +1,9 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { LucideIcon } from "lucide-react";
+import ScrollGlow from "@/components/ui/ScrollGlow";
 
 interface CaseStudyCard {
     heading: string;
@@ -13,9 +14,11 @@ interface CaseStudyCard {
 
 interface RealEstateCaseStudyProps {
     heading: string;
+    headingLine2?: string;
     description: string;
     imageSrc: string;
     width?: number;
+    height?: number;
     cards: CaseStudyCard[];
 }
 
@@ -33,26 +36,37 @@ const cardVariants = {
 
 const RealEstateCaseStudy: React.FC<RealEstateCaseStudyProps> = ({
                                                                      heading,
+                                                                     headingLine2,
                                                                      description,
                                                                      imageSrc,
                                                                      width,
+                                                                     height,
                                                                      cards,
                                                                  }) => {
+    const sectionRef = useRef<HTMLElement>(null);
     return (
-        <section className="text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+        <section ref={sectionRef} className="relative text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 overflow-hidden">
+            <ScrollGlow target={sectionRef} speed={0} />
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                 <div className="flex flex-col justify-start sticky top-20">
-                    <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
-                        {heading}
+                    <h2 className="text-4xl md:text-5xl font-semibold leading-tight">
+                        <span className="block bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                            {heading}
+                        </span>
+                        {headingLine2 && (
+                            <span className="block bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                                {headingLine2}
+                            </span>
+                        )}
                     </h2>
                     <p className="mt-6 text-gray-400 text-lg max-w-xl">{description}</p>
 
-                    <div className="mt-14 mx-auto">
+                    <div className="mt-32 mx-auto">
                         <Image
                             src={imageSrc}
                             alt="Case Study Visual"
                             width={width ? width : 300}
-                            height={300}
+                            height={height ? height : 300}
                             priority
                             className="mx-auto"
                         />
@@ -70,7 +84,7 @@ const RealEstateCaseStudy: React.FC<RealEstateCaseStudyProps> = ({
                             variants={cardVariants}
                         >
                             <div className="mb-4">
-                                <h3 className="text-2xl font-semibold text-white">{heading}</h3>
+                                <h3 className="text-2xl font-semibold bg-gradient-to-r from-[#f2c14e] to-[white] bg-clip-text text-transparent">{heading}</h3>
                             </div>
                             <ul className="space-y-3 text-gray-300 text-base leading-relaxed list-none">
                                 {points.map((point, idx) => (

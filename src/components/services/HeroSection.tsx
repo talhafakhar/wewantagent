@@ -1,27 +1,40 @@
 "use client";
 import React from "react";
 import { easeOut, motion } from "framer-motion";
-import Navbar from "@/components/Header/Navbar";
 import Image from "next/image";
+import GlowButton from "@/components/ui/GlowButton";
 
 interface HeroSectionProps {
     title: string;
     description: string;
     buttonText: string;
+    buttonHref?: string;
+    buttonTarget?: string;
+    buttonRel?: string;
     imageSrc: string;
 width?: number;
+height?: number;
+imageClassName?: string;
+contentClassName?: string;
+note?: string;
 }
 const HeroSection: React.FC<HeroSectionProps> = ({
                                                      title,
                                                      description,
                                                      buttonText,
+                                                     buttonHref = "/contact",
+                                                     buttonTarget,
+                                                     buttonRel,
                                                      imageSrc,
-                                                     width
+                                                     width,
+                                                     height,
+                                                     imageClassName = "",
+                                                     contentClassName = "",
+                                                     note,
                                                  }) => {
     const container = {
-        hidden: { opacity: 0 },
+        hidden: {},
         show: {
-            opacity: 1,
             transition: { staggerChildren: 0.3 },
         },
     };
@@ -38,75 +51,60 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     };
 
     return (
-        <motion.section
-            initial={{ scale: 1.05, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 2, ease: "easeOut" }}
-            className="relative min-h-screen overflow-hidden bg-cover bg-center bg-black bg-no-repeat"
-            style={{ backgroundImage: "url('/assets/services/hero-bg.webp')" }}
-        >
+        <section className="relative min-h-screen overflow-hidden bg-black">
+            <Image
+                src="/assets/services/hero-bg.webp"
+                alt=""
+                fill
+                priority
+                fetchPriority="high"
+                sizes="100vw"
+                quality={45}
+                className="object-cover object-center"
+            />
             <div className="absolute inset-0 bg-black/60" />
             <div className="relative z-10 flex flex-col min-h-screen">
-                <Navbar />
                 <motion.div
                     variants={container}
                     initial="hidden"
                     animate="show"
-                    className="flex-1 flex flex-col justify-center items-start max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8"
+                    className="flex-1 flex flex-col justify-center items-start pt-28 lg:pt-0 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8"
                 >
-                    <div className="flex md:flex-row flex-col gap-5 items-center justify-center md:justify-between">
-                        <div className="w-full md:w-1/2">
-                            <motion.h1
-                                variants={item}
-                                className="text-5xl md:text-8xl font-semibold text-white max-w-4xl"
-                            >
-                                {title}
-                            </motion.h1>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center w-full">
+                        <div className={`w-full ${contentClassName}`}>
+                            <h1 className="text-5xl md:text-7xl font-semibold leading-tight max-w-4xl">
+                                <span className="bg-gradient-to-r from-white via-[#cfe6ff] to-primary bg-clip-text text-transparent">
+                                    {title}
+                                </span>
+                            </h1>
                             <motion.p variants={item} className="mt-4 text-gray-200">
                                 {description}
                             </motion.p>
-                            <div className="mt-10">
-                                <motion.button
-                                    variants={{
-                                        hover: {
-                                            scale: 1.05,
-                                            rotate: [0, 1, -1, 0],
-                                            transition: { duration: 0.3 },
-                                        },
-                                        tap: { scale: 0.95 },
-                                    }}
-                                    whileHover="hover"
-                                    whileTap="tap"
-                                    className="relative h-12 w-40 overflow-hidden text-white shadow-2xl transition-all duration-200
-                    before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto
-                    before:h-0 before:w-0 before:rounded-sm before:bg-white before:duration-300
-                    before:ease-out hover:before:h-40 hover:before:w-40
-                    border-transparent bg-gradient-to-r from-primary via-accent to-secondary p-[2px]"
-                                >
-                  <span className="relative z-10 flex h-full w-full items-center justify-center text-nowrap bg-black rounded-sm">
-                    {buttonText}
-                  </span>
-                                </motion.button>
+                            <div className="mt-10 flex flex-col items-center lg:items-start gap-3">
+                                <GlowButton href={buttonHref} target={buttonTarget} rel={buttonRel} shape="rect">{buttonText}</GlowButton>
+                                {note && <p className="text-sm text-gray-400">{note}</p>}
                             </div>
                         </div>
 
-                        <motion.div
-                            variants={item}
-                            className="w-full md:w-1/2 flex justify-center md:justify-end"
-                        >
-                            <Image
-                                src={imageSrc}
-                                alt={title}
-                                width={width ? width : 500}
-                                height={500}
-                                priority
-                                loading="eager"
-                            />
-                        </motion.div>
+                        <div className="w-full flex justify-center md:justify-end">
+                            <div className={imageClassName}>
+                                <Image
+                                    src={imageSrc}
+                                    alt={title}
+                                    width={width ? width : 400}
+                                    height={height ? height : 600}
+                                    className="h-auto max-w-full"
+                                    style={{ width: width ? width : 400 }}
+                                    priority
+                                    fetchPriority="high"
+                                    loading="eager"
+                                />
+                            </div>
+                        </div>
                     </div>
                 </motion.div>
             </div>
-        </motion.section>
+        </section>
     );
 };
 
