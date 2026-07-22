@@ -3,7 +3,11 @@ import { NextSeo } from "next-seo";
 export default function TermsOfUse() {
     return (
         <div className="min-h-screen relative overflow-hidden bg-[#07080c] text-white px-4 py-16 sm:px-6 lg:px-8">
-            <NextSeo title="Terms of Use | We Want Agent" />
+            <NextSeo
+                title="Terms of Use | We Want Agent"
+                description="Read the Terms of Use governing your access to and use of the We Want Agent website."
+                canonical="https://wewantagent.com/terms-of-use"
+            />
             <div
                 className="pointer-events-none absolute -left-[10%] top-[5%] h-[520px] w-[520px] rounded-full blur-[80px]"
                 style={{

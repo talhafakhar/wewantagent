@@ -3,7 +3,11 @@ import { NextSeo } from "next-seo";
 export default function CookiesPolicy() {
     return (
         <div className="min-h-screen relative overflow-hidden bg-[#07080c] text-white px-4 py-16 sm:px-6 lg:px-8">
-            <NextSeo title="Cookies Policy | We Want Agent" />
+            <NextSeo
+                title="Cookies Policy | We Want Agent"
+                description="Learn how We Want Agent uses cookies and similar tracking technologies to improve your browsing experience."
+                canonical="https://wewantagent.com/cookies-policy"
+            />
             <div
                 className="pointer-events-none absolute -left-[6%] top-[12%] h-[540px] w-[540px] rounded-full blur-[80px]"
                 style={{

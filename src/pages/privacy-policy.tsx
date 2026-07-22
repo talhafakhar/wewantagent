@@ -3,7 +3,11 @@ import { NextSeo } from "next-seo";
 export default function PrivacyPolicy() {
     return (
         <div className="min-h-screen relative overflow-hidden bg-[#07080c] text-white px-4 py-16 sm:px-6 lg:px-8">
-            <NextSeo title="Privacy Policy | We Want Agent" />
+            <NextSeo
+                title="Privacy Policy | We Want Agent"
+                description="Read the We Want Agent Privacy Policy to learn how we collect, use, and protect your personal information."
+                canonical="https://wewantagent.com/privacy-policy"
+            />
             <div
                 className="pointer-events-none absolute -left-[8%] -top-[8%] h-[540px] w-[540px] rounded-full blur-[80px]"
                 style={{
