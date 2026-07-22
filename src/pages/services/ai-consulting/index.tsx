@@ -249,7 +249,7 @@ export default function AiConsulting() {
     const description =
         "Not sure where AI fits in your business? Our AI consulting services deliver clear strategy, system audits, and adoption roadmaps. Book a free consultation today.";
     const url = "https://wewantagent.com/services/ai-consulting";
-    const imageUrl = "https://wewantagent.com/assets/home/logo white.png";
+    const imageUrl = "https://wewantagent.com/assets/og/service-ai-consulting.jpg";
 
     return (
         <>

@@ -42,7 +42,7 @@ export default function BlogsIndex({ blogs }: Props) {
                     description: "Insights, guides, and updates on AI automation, agents, and workflow transformation from the We Want Agent team.",
                     images: [
                         {
-                            url: "https://wewantagent.com/assets/home/logo white.png",
+                            url: "https://wewantagent.com/assets/og/blogs.jpg",
                             width: 1200,
                             height: 630,
                         },

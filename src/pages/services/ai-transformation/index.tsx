@@ -257,7 +257,7 @@ export default function AiTransformation() {
     const description =
         "Stop losing time to manual work. We Want Agent builds custom AI systems that cut costs by 60% and triple your speed. Book your free strategy call today.";
     const url = "https://wewantagent.com/services/ai-transformation";
-    const imageUrl = "https://wewantagent.com/assets/home/logo white.png";
+    const imageUrl = "https://wewantagent.com/assets/og/service-ai-transformation.jpg";
 
     return (
         <>

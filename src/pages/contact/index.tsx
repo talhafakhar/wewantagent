@@ -14,7 +14,7 @@ export default function AboutUsPage() {
                     url: "https://wewantagent.com/contact",
                     images: [
                         {
-                            url: "https://wewantagent.com/assets/home/logo white.png",
+                            url: "https://wewantagent.com/assets/og/contact.jpg",
                             width: 1200,
                             height: 630
                         }

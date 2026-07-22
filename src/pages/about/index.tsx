@@ -20,7 +20,7 @@ export default function AutomationExpert() {
                     url: "https://wewantagent.com/about",
                     images: [
                         {
-                            url: "https://wewantagent.com/assets/home/logo white.png",
+                            url: "https://wewantagent.com/assets/og/about.jpg",
                             width: 1200,
                             height: 630
                         }

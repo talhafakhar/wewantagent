@@ -189,7 +189,7 @@ export default function HealthcareAutomation() {
                     description: "Automate patient scheduling, documentation, and compliance workflows with HIPAA-compliant AI agents designed for healthcare providers. We Want Agent.",
                     images: [
                         {
-                            url: "https://wewantagent.com/assets/home/logo white.png",
+                            url: "https://wewantagent.com/assets/og/service-healthcare.jpg",
                             width: 1200,
                             height: 630,
                             alt: "Healthcare AI Agent by We Want Agent",

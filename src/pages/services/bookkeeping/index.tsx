@@ -180,7 +180,7 @@ export default function BookkeepingAi() {
                     description: "Automate bookkeeping, tax compliance, and financial reporting with secure AI agents. GAAP compliant and always accurate. Powered by We Want Agent.",
                     images: [
                         {
-                            url: "https://wewantagent.com/assets/home/logo white.png",
+                            url: "https://wewantagent.com/assets/og/service-bookkeeping.jpg",
                             width: 1200,
                             height: 630,
                             alt: "Bookkeeping AI Agent by We Want Agent",

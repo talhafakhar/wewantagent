@@ -173,7 +173,7 @@ export default function RealEstateAiAgent() {
     const description =
         "Automate property listings, lead follow-ups, and client management with AI agents built for real estate professionals. Close more deals with We Want Agent.";
     const url = "https://wewantagent.com/services/real-estate";
-    const imageUrl = "https://wewantagent.com/assets/home/logo white.png";
+    const imageUrl = "https://wewantagent.com/assets/og/service-real-estate.jpg";
 
     return (
         <>

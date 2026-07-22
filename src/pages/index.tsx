@@ -61,7 +61,7 @@ export default function Home({ initialBlogs, pagination }: Props) {
                     url: "https://wewantagent.com/",
                     images: [
                         {
-                            url: "https://wewantagent.com/assets/home/logo white.png",
+                            url: "https://wewantagent.com/assets/og/home.jpg",
                             width: 1200,
                             height: 630
                         }
