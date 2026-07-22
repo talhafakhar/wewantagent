@@ -9,7 +9,7 @@ import BusinessSolutionsSection from "@/components/services/BusinessSolutionsSec
 import ProcessTimeline from "@/components/services/FlowSection";
 import AIModulesSection from "@/components/services/ModalSection";
 import IndustrySolutionsSection from "@/components/services/IndustrySolutionSection";
-import {NextSeo, WebPageJsonLd} from "next-seo";
+import {NextSeo, WebPageJsonLd, BreadcrumbJsonLd} from "next-seo";
 import {
     Brain,
     Building2,
@@ -207,6 +207,13 @@ export default function HealthcareAutomation() {
                 url="https://wewantagent.com/services/healthcare"
                 name="Healthcare AI Agent | HIPAA Compliant Automation | We Want Agent"
                 description={description}
+            />
+            <BreadcrumbJsonLd
+                useAppDir={false}
+                itemListElements={[
+                    { position: 1, name: "Home", item: "https://wewantagent.com/" },
+                    { position: 2, name: "Healthcare", item: "https://wewantagent.com/services/healthcare" },
+                ]}
             />
 
             <div className="bg-black">

@@ -177,7 +177,7 @@ const ContactForm = () => {
                 transition={{duration: 2, ease: "easeOut"}}
                 className="relative w-full overflow-hidden bg-[#07080c] px-6 pt-[100px] pb-[60px]"
             >
-                {/* ambient gradient blobs — same animated glow as the homepage hero */}
+                {/* ambient gradient blobs - same animated glow as the homepage hero */}
                 <div
                     data-parallax="0.14"
                     className="pointer-events-none absolute -left-[8%] -top-[10%] h-[620px] w-[620px] rounded-full blur-[40px]"

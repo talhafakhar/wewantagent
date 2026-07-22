@@ -12,7 +12,7 @@ import WhoForSection from "@/components/services/WhoForSection";
 import WhyUsSection from "@/components/services/WhyUsSection";
 import ProcessTimeline from "@/components/services/FlowSection";
 import AIModulesSection from "@/components/services/ModalSection";
-import { NextSeo, WebPageJsonLd } from "next-seo";
+import { NextSeo, WebPageJsonLd, BreadcrumbJsonLd } from "next-seo";
 import {
     BrainCircuit,
     ClipboardCheck,
@@ -290,6 +290,13 @@ export default function AiTransformation() {
                 url={url}
                 name={title}
                 description={description}
+            />
+            <BreadcrumbJsonLd
+                useAppDir={false}
+                itemListElements={[
+                    { position: 1, name: "Home", item: "https://wewantagent.com/" },
+                    { position: 2, name: "AI Transformation", item: url },
+                ]}
             />
             <div className="bg-black">
                 <HeroSection

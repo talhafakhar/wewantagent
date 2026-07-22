@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import type { GetStaticProps } from "next";
-import { NextSeo, WebPageJsonLd } from "next-seo";
+import { NextSeo, WebPageJsonLd, BreadcrumbJsonLd } from "next-seo";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -54,6 +54,13 @@ export default function BlogsIndex({ blogs }: Props) {
                 url="https://wewantagent.com/blogs"
                 name="Blog | We Want Agent"
                 description="Insights, guides, and updates on AI automation, agents, and workflow transformation."
+            />
+            <BreadcrumbJsonLd
+                useAppDir={false}
+                itemListElements={[
+                    { position: 1, name: "Home", item: "https://wewantagent.com/" },
+                    { position: 2, name: "Blog", item: "https://wewantagent.com/blogs" },
+                ]}
             />
 
             <div className="min-h-screen relative overflow-hidden bg-[#07080c] text-white">
