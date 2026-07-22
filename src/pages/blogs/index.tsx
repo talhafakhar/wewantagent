@@ -109,7 +109,7 @@ export default function BlogsIndex({ blogs }: Props) {
                                 className="!py-3 !px-1"
                             >
                                 {blogs.map((blog, index) => (
-                                    <SwiperSlide key={blog.id} className="h-auto">
+                                    <SwiperSlide key={blog.id} className="!h-auto self-stretch">
                                         <BlogCard blog={blog} id={index} />
                                     </SwiperSlide>
                                 ))}

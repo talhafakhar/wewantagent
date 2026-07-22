@@ -25,7 +25,7 @@ const BlogCard: React.FC<BlogCardProps> = ({blog, id}) => {
 
     return (
         <div
-            className="group relative bg-white/[0.04] backdrop-blur-2xl rounded-2xl overflow-hidden border border-white/10 transform-gpu transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(242,193,78,0.6),0_0_55px_rgba(242,193,78,0.35)]"
+            className="group relative h-full flex flex-col bg-white/[0.04] backdrop-blur-2xl rounded-2xl overflow-hidden border border-white/10 transform-gpu transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(242,193,78,0.6),0_0_55px_rgba(242,193,78,0.35)]"
             style={{animation: `fadeInUp 0.6s ease-out ${id * 0.1}s both`}}>
             {imageUrl && (
                 <div className="relative overflow-hidden h-56 rounded-t-2xl isolate transform-gpu [backface-visibility:hidden] [-webkit-backface-visibility:hidden]">
@@ -39,7 +39,7 @@ const BlogCard: React.FC<BlogCardProps> = ({blog, id}) => {
                 </div>
             )}
 
-            <div className="py-5 px-5 sm:px-6">
+            <div className="py-5 px-5 sm:px-6 flex-1">
                 <div className="flex flex-wrap gap-1.5">
                     {blog.tags?.map((tag, index) => (
                         <span
