@@ -183,6 +183,7 @@ export default function HealthcareAutomation() {
                 description={description}
                 canonical="https://wewantagent.com/services/healthcare"
                 openGraph={{
+                    type: "website",
                     url: "https://wewantagent.com/services/healthcare",
                     title: "Healthcare AI Agent | HIPAA Compliant Automation | We Want Agent",
                     description: "Automate patient scheduling, documentation, and compliance workflows with HIPAA-compliant AI agents designed for healthcare providers. We Want Agent.",

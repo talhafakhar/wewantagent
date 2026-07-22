@@ -266,6 +266,7 @@ export default function AiTransformation() {
                 description={description}
                 canonical={url}
                 openGraph={{
+                    type: "website",
                     url,
                     title,
                     description,

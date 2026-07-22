@@ -174,6 +174,7 @@ export default function BookkeepingAi() {
                 description="Automate bookkeeping, tax compliance, and financial reporting with secure AI agents. GAAP compliant and always accurate. Powered by We Want Agent."
                 canonical="https://wewantagent.com/services/bookkeeping"
                 openGraph={{
+                    type: "website",
                     url: "https://wewantagent.com/services/bookkeeping",
                     title: "Bookkeeping AI Agent | GAAP Compliant Financial Automation | We Want Agent",
                     description: "Automate bookkeeping, tax compliance, and financial reporting with secure AI agents. GAAP compliant and always accurate. Powered by We Want Agent.",

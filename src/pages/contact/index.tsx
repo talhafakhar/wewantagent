@@ -10,6 +10,7 @@ export default function AboutUsPage() {
                 description="Get in touch with We Want Agent to discuss AI automation."
                 canonical="https://wewantagent.com/contact"
                 openGraph={{
+                    type: "website",
                     url: "https://wewantagent.com/contact",
                     images: [
                         {

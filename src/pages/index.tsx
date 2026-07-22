@@ -57,6 +57,7 @@ export default function Home({ initialBlogs, pagination }: Props) {
                 description="We build custom AI agents that eliminate repetitive tasks, automate workflows, and save you hours daily. Serving 10+ industries. Book a free consultation today."
                 canonical="https://wewantagent.com/"
                 openGraph={{
+                    type: "website",
                     url: "https://wewantagent.com/",
                     images: [
                         {

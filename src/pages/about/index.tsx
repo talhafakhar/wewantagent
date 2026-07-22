@@ -16,6 +16,7 @@ export default function AutomationExpert() {
                 description="Meet our automation expert team building custom AI solutions."
                 canonical="https://wewantagent.com/about"
                 openGraph={{
+                    type: "website",
                     url: "https://wewantagent.com/about",
                     images: [
                         {

@@ -258,6 +258,7 @@ export default function AiConsulting() {
                 description={description}
                 canonical={url}
                 openGraph={{
+                    type: "website",
                     url,
                     title,
                     description,

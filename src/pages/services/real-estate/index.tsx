@@ -182,6 +182,7 @@ export default function RealEstateAiAgent() {
                 description={description}
                 canonical={url}
                 openGraph={{
+                    type: "website",
                     url,
                     title,
                     description,
