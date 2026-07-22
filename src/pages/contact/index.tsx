@@ -20,6 +20,11 @@ export default function AboutUsPage() {
                         }
                     ]
                 }}
+                twitter={{
+                    handle: "@wewantagent",
+                    site: "@wewantagent",
+                    cardType: "summary_large_image",
+                }}
             />
 
             <WebPageJsonLd

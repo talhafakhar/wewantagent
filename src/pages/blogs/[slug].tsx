@@ -73,6 +73,11 @@ export default function BlogPostPage({ blog }: Props) {
                 additionalMetaTags={[
                     { name: "author", content: "We Want Agent" },
                 ]}
+                twitter={{
+                    handle: "@wewantagent",
+                    site: "@wewantagent",
+                    cardType: "summary_large_image",
+                }}
             />
             <ArticleJsonLd
                 useAppDir={false}

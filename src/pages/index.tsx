@@ -67,6 +67,11 @@ export default function Home({ initialBlogs, pagination }: Props) {
                         }
                     ]
                 }}
+                twitter={{
+                    handle: "@wewantagent",
+                    site: "@wewantagent",
+                    cardType: "summary_large_image",
+                }}
             />
             <OrganizationJsonLd
                 type="Organization"

@@ -26,6 +26,11 @@ export default function AutomationExpert() {
                         }
                     ]
                 }}
+                twitter={{
+                    handle: "@wewantagent",
+                    site: "@wewantagent",
+                    cardType: "summary_large_image",
+                }}
             />
 
             <WebPageJsonLd

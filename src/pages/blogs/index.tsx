@@ -48,6 +48,11 @@ export default function BlogsIndex({ blogs }: Props) {
                         },
                     ],
                 }}
+                twitter={{
+                    handle: "@wewantagent",
+                    site: "@wewantagent",
+                    cardType: "summary_large_image",
+                }}
             />
             <WebPageJsonLd
                 id="https://wewantagent.com/blogs#webpage"
