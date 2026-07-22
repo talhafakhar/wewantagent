@@ -7,6 +7,22 @@ export default function TermsOfUse() {
                 title="Terms of Use | We Want Agent"
                 description="Read the Terms of Use governing your access to and use of the We Want Agent website."
                 canonical="https://wewantagent.com/terms-of-use"
+                openGraph={{
+                    type: "website",
+                    url: "https://wewantagent.com/terms-of-use",
+                    images: [
+                        {
+                            url: "https://wewantagent.com/assets/og/home.jpg",
+                            width: 1200,
+                            height: 630,
+                        },
+                    ],
+                }}
+                twitter={{
+                    handle: "@wewantagent",
+                    site: "@wewantagent",
+                    cardType: "summary_large_image",
+                }}
             />
             <div
                 className="pointer-events-none absolute -left-[10%] top-[5%] h-[520px] w-[520px] rounded-full blur-[80px]"

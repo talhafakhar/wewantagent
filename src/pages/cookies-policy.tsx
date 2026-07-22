@@ -7,6 +7,22 @@ export default function CookiesPolicy() {
                 title="Cookies Policy | We Want Agent"
                 description="Learn how We Want Agent uses cookies and similar tracking technologies to improve your browsing experience."
                 canonical="https://wewantagent.com/cookies-policy"
+                openGraph={{
+                    type: "website",
+                    url: "https://wewantagent.com/cookies-policy",
+                    images: [
+                        {
+                            url: "https://wewantagent.com/assets/og/home.jpg",
+                            width: 1200,
+                            height: 630,
+                        },
+                    ],
+                }}
+                twitter={{
+                    handle: "@wewantagent",
+                    site: "@wewantagent",
+                    cardType: "summary_large_image",
+                }}
             />
             <div
                 className="pointer-events-none absolute -left-[6%] top-[12%] h-[540px] w-[540px] rounded-full blur-[80px]"

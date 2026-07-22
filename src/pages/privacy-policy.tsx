@@ -7,6 +7,22 @@ export default function PrivacyPolicy() {
                 title="Privacy Policy | We Want Agent"
                 description="Read the We Want Agent Privacy Policy to learn how we collect, use, and protect your personal information."
                 canonical="https://wewantagent.com/privacy-policy"
+                openGraph={{
+                    type: "website",
+                    url: "https://wewantagent.com/privacy-policy",
+                    images: [
+                        {
+                            url: "https://wewantagent.com/assets/og/home.jpg",
+                            width: 1200,
+                            height: 630,
+                        },
+                    ],
+                }}
+                twitter={{
+                    handle: "@wewantagent",
+                    site: "@wewantagent",
+                    cardType: "summary_large_image",
+                }}
             />
             <div
                 className="pointer-events-none absolute -left-[8%] -top-[8%] h-[540px] w-[540px] rounded-full blur-[80px]"
