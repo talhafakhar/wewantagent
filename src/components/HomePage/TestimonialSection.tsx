@@ -89,7 +89,7 @@ export default function TestimonialsSection() {
                     <div className="marquee-row overflow-hidden">
                         <div
                             className="marquee-track flex w-max animate-marquee-right"
-                            style={{ "--marquee-duration": "35s" } as React.CSSProperties}
+                            style={{ "--marquee-duration": "60s" } as React.CSSProperties}
                         >
                             {[...testimonialsTop, ...testimonialsTop].map((t, i) => (
                                 <div key={i} className="shrink-0 w-[280px] sm:w-[320px] mr-6">
@@ -114,7 +114,7 @@ export default function TestimonialsSection() {
                     <div className="marquee-row overflow-hidden">
                         <div
                             className="marquee-track flex w-max animate-marquee-left"
-                            style={{ "--marquee-duration": "35s" } as React.CSSProperties}
+                            style={{ "--marquee-duration": "60s" } as React.CSSProperties}
                         >
                             {[...testimonialsBottom, ...testimonialsBottom].map((t, i) => (
                                 <div key={i} className="shrink-0 w-[280px] sm:w-[320px] mr-6">
