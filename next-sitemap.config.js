@@ -9,7 +9,6 @@ module.exports = {
         '/_error',
         '/404',
         '/500',
-        '/blogs',
         '/blogs/[slug]',
         '/server-sitemap.xml',
         '/server-sitemap-index.xml'
@@ -31,18 +30,20 @@ module.exports = {
         ]
     },
     transform: async (config, path) => {
-        if (path.startsWith('/blogs')) return null;
+        if (path.startsWith('/blogs/')) return null;
 
         const priorities = {
             '/': 1.0,
             '/about': 0.8,
             '/contact': 0.8,
             '/services': 0.9,
+            '/blogs': 0.8,
         };
         const changeFreqs = {
             '/': 'daily',
             '/contact': 'monthly',
             '/about': 'monthly',
+            '/blogs': 'daily',
         };
 
         const lastmodDate = new Date();
