@@ -16,14 +16,20 @@ export default function AutomationExpert() {
                 description="Meet our automation expert team building custom AI solutions."
                 canonical="https://wewantagent.com/about"
                 openGraph={{
+                    type: "website",
                     url: "https://wewantagent.com/about",
                     images: [
                         {
-                            url: "https://wewantagent.com/assets/home/logo white.png",
+                            url: "https://wewantagent.com/assets/og/about.jpg",
                             width: 1200,
                             height: 630
                         }
                     ]
+                }}
+                twitter={{
+                    handle: "@wewantagent",
+                    site: "@wewantagent",
+                    cardType: "summary_large_image",
                 }}
             />
 

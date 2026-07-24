@@ -57,14 +57,20 @@ export default function Home({ initialBlogs, pagination }: Props) {
                 description="We build custom AI agents that eliminate repetitive tasks, automate workflows, and save you hours daily. Serving 10+ industries. Book a free consultation today."
                 canonical="https://wewantagent.com/"
                 openGraph={{
+                    type: "website",
                     url: "https://wewantagent.com/",
                     images: [
                         {
-                            url: "https://wewantagent.com/assets/home/logo white.png",
+                            url: "https://wewantagent.com/assets/og/home.jpg",
                             width: 1200,
                             height: 630
                         }
                     ]
+                }}
+                twitter={{
+                    handle: "@wewantagent",
+                    site: "@wewantagent",
+                    cardType: "summary_large_image",
                 }}
             />
             <OrganizationJsonLd

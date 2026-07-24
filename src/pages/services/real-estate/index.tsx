@@ -9,7 +9,7 @@ import BusinessSolutionsSection from "@/components/services/BusinessSolutionsSec
 import ProcessTimeline from "@/components/services/FlowSection";
 import AIModulesSection from "@/components/services/ModalSection";
 import IndustrySolutionsSection from "@/components/services/IndustrySolutionSection";
-import {NextSeo, WebPageJsonLd} from "next-seo";
+import {NextSeo, WebPageJsonLd, BreadcrumbJsonLd} from "next-seo";
 import {
     Building2,
     Calendar,
@@ -173,7 +173,7 @@ export default function RealEstateAiAgent() {
     const description =
         "Automate property listings, lead follow-ups, and client management with AI agents built for real estate professionals. Close more deals with We Want Agent.";
     const url = "https://wewantagent.com/services/real-estate";
-    const imageUrl = "https://wewantagent.com/assets/home/logo white.png";
+    const imageUrl = "https://wewantagent.com/assets/og/service-real-estate.jpg";
 
     return (
         <>
@@ -182,6 +182,7 @@ export default function RealEstateAiAgent() {
                 description={description}
                 canonical={url}
                 openGraph={{
+                    type: "website",
                     url,
                     title,
                     description,
@@ -206,6 +207,13 @@ export default function RealEstateAiAgent() {
                 url={url}
                 name={title}
                 description={description}
+            />
+            <BreadcrumbJsonLd
+                useAppDir={false}
+                itemListElements={[
+                    { position: 1, name: "Home", item: "https://wewantagent.com/" },
+                    { position: 2, name: "Real Estate", item: url },
+                ]}
             />
             <div className="bg-black">
                 <HeroSection

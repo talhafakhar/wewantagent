@@ -9,7 +9,7 @@ import BusinessSolutionsSection from "@/components/services/BusinessSolutionsSec
 import ProcessTimeline from "@/components/services/FlowSection";
 import AIModulesSection from "@/components/services/ModalSection";
 import IndustrySolutionsSection from "@/components/services/IndustrySolutionSection";
-import {NextSeo, WebPageJsonLd} from "next-seo";
+import {NextSeo, WebPageJsonLd, BreadcrumbJsonLd} from "next-seo";
 import {
     Calendar,
     Check, CheckSquare,
@@ -174,12 +174,13 @@ export default function BookkeepingAi() {
                 description="Automate bookkeeping, tax compliance, and financial reporting with secure AI agents. GAAP compliant and always accurate. Powered by We Want Agent."
                 canonical="https://wewantagent.com/services/bookkeeping"
                 openGraph={{
+                    type: "website",
                     url: "https://wewantagent.com/services/bookkeeping",
                     title: "Bookkeeping AI Agent | GAAP Compliant Financial Automation | We Want Agent",
                     description: "Automate bookkeeping, tax compliance, and financial reporting with secure AI agents. GAAP compliant and always accurate. Powered by We Want Agent.",
                     images: [
                         {
-                            url: "https://wewantagent.com/assets/home/logo white.png",
+                            url: "https://wewantagent.com/assets/og/service-bookkeeping.jpg",
                             width: 1200,
                             height: 630,
                             alt: "Bookkeeping AI Agent by We Want Agent",
@@ -199,6 +200,13 @@ export default function BookkeepingAi() {
                 url="https://wewantagent.com/services/bookkeeping"
                 name="Bookkeeping AI Agent | GAAP Compliant Financial Automation | We Want Agent"
                 description="Automate bookkeeping, tax compliance, and financial reporting with secure AI agents. GAAP compliant and always accurate. Powered by We Want Agent."
+            />
+            <BreadcrumbJsonLd
+                useAppDir={false}
+                itemListElements={[
+                    { position: 1, name: "Home", item: "https://wewantagent.com/" },
+                    { position: 2, name: "Bookkeeping", item: "https://wewantagent.com/services/bookkeeping" },
+                ]}
             />
             <div className="bg-black">
                 <HeroSection

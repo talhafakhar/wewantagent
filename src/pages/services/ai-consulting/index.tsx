@@ -10,7 +10,7 @@ import MythsSection from "@/components/services/MythsSection";
 import IndustrySolutionsSection from "@/components/services/IndustrySolutionSection";
 import ProcessTimeline from "@/components/services/FlowSection";
 import AIModulesSection from "@/components/services/ModalSection";
-import { NextSeo, WebPageJsonLd } from "next-seo";
+import { NextSeo, WebPageJsonLd, BreadcrumbJsonLd } from "next-seo";
 import {
     Briefcase,
     Calculator,
@@ -249,7 +249,7 @@ export default function AiConsulting() {
     const description =
         "Not sure where AI fits in your business? Our AI consulting services deliver clear strategy, system audits, and adoption roadmaps. Book a free consultation today.";
     const url = "https://wewantagent.com/services/ai-consulting";
-    const imageUrl = "https://wewantagent.com/assets/home/logo white.png";
+    const imageUrl = "https://wewantagent.com/assets/og/service-ai-consulting.jpg";
 
     return (
         <>
@@ -258,6 +258,7 @@ export default function AiConsulting() {
                 description={description}
                 canonical={url}
                 openGraph={{
+                    type: "website",
                     url,
                     title,
                     description,
@@ -282,6 +283,13 @@ export default function AiConsulting() {
                 url={url}
                 name={title}
                 description={description}
+            />
+            <BreadcrumbJsonLd
+                useAppDir={false}
+                itemListElements={[
+                    { position: 1, name: "Home", item: "https://wewantagent.com/" },
+                    { position: 2, name: "AI Consulting", item: url },
+                ]}
             />
             <div className="bg-black">
                 <HeroSection

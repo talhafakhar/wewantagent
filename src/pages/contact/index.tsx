@@ -10,14 +10,20 @@ export default function AboutUsPage() {
                 description="Get in touch with We Want Agent to discuss AI automation."
                 canonical="https://wewantagent.com/contact"
                 openGraph={{
+                    type: "website",
                     url: "https://wewantagent.com/contact",
                     images: [
                         {
-                            url: "https://wewantagent.com/assets/home/logo white.png",
+                            url: "https://wewantagent.com/assets/og/contact.jpg",
                             width: 1200,
                             height: 630
                         }
                     ]
+                }}
+                twitter={{
+                    handle: "@wewantagent",
+                    site: "@wewantagent",
+                    cardType: "summary_large_image",
                 }}
             />
 

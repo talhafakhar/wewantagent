@@ -99,7 +99,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                                     body: JSON.stringify({
                                         from: resendFrom,
                                         to: email.trim(),
-                                        subject: "Welcome — Thanks for subscribing to We Want Agent",
+                                        subject: "Welcome - Thanks for subscribing to We Want Agent",
                                         html: `<p>Thanks for subscribing to We Want Agent. We build custom AI agents that automate workflows and save time. <a href=\"https://wewantagent.com/contact\">Book a free consultation</a>.</p>`,
                                     }),
                                 });

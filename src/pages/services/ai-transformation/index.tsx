@@ -12,7 +12,7 @@ import WhoForSection from "@/components/services/WhoForSection";
 import WhyUsSection from "@/components/services/WhyUsSection";
 import ProcessTimeline from "@/components/services/FlowSection";
 import AIModulesSection from "@/components/services/ModalSection";
-import { NextSeo, WebPageJsonLd } from "next-seo";
+import { NextSeo, WebPageJsonLd, BreadcrumbJsonLd } from "next-seo";
 import {
     BrainCircuit,
     ClipboardCheck,
@@ -257,7 +257,7 @@ export default function AiTransformation() {
     const description =
         "Stop losing time to manual work. We Want Agent builds custom AI systems that cut costs by 60% and triple your speed. Book your free strategy call today.";
     const url = "https://wewantagent.com/services/ai-transformation";
-    const imageUrl = "https://wewantagent.com/assets/home/logo white.png";
+    const imageUrl = "https://wewantagent.com/assets/og/service-ai-transformation.jpg";
 
     return (
         <>
@@ -266,6 +266,7 @@ export default function AiTransformation() {
                 description={description}
                 canonical={url}
                 openGraph={{
+                    type: "website",
                     url,
                     title,
                     description,
@@ -290,6 +291,13 @@ export default function AiTransformation() {
                 url={url}
                 name={title}
                 description={description}
+            />
+            <BreadcrumbJsonLd
+                useAppDir={false}
+                itemListElements={[
+                    { position: 1, name: "Home", item: "https://wewantagent.com/" },
+                    { position: 2, name: "AI Transformation", item: url },
+                ]}
             />
             <div className="bg-black">
                 <HeroSection

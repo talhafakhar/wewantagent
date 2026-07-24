@@ -1,5 +1,5 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
-import { NextSeo, ArticleJsonLd } from "next-seo";
+import { NextSeo, ArticleJsonLd, BreadcrumbJsonLd } from "next-seo";
 import { getBlogBySlug, getLatestSlugs } from "@/lib/strapi";
 import type { BlogPost } from "@/types/blog";
 import BlogDetail from "@/components/Blog/BlogDetail";
@@ -73,6 +73,11 @@ export default function BlogPostPage({ blog }: Props) {
                 additionalMetaTags={[
                     { name: "author", content: "We Want Agent" },
                 ]}
+                twitter={{
+                    handle: "@wewantagent",
+                    site: "@wewantagent",
+                    cardType: "summary_large_image",
+                }}
             />
             <ArticleJsonLd
                 useAppDir={false}
@@ -85,6 +90,14 @@ export default function BlogPostPage({ blog }: Props) {
                 publisherName="We Want Agent"
                 publisherLogo="https://wewantagent.com/assets/logo.png"
                 description={description}
+            />
+            <BreadcrumbJsonLd
+                useAppDir={false}
+                itemListElements={[
+                    { position: 1, name: "Home", item: "https://wewantagent.com/" },
+                    { position: 2, name: "Blog", item: "https://wewantagent.com/blogs" },
+                    { position: 3, name: title, item: canonicalUrl },
+                ]}
             />
             <BlogDetail blog={blog} />
         </>

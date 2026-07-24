@@ -112,7 +112,7 @@ export default function FooterSection() {
                             <Link href="/contact" className="text-sm hover:text-white transition duration-150">
                                 Contact Us
                             </Link>
-                            <Link href="/#blog-section" className="text-sm hover:text-white transition duration-150">
+                            <Link href="/blogs" className="text-sm hover:text-white transition duration-150">
                                 Blog
                             </Link>
                         </div>
