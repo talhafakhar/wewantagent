@@ -17,17 +17,29 @@ export const getStaticPaths: GetStaticPaths = async () => {
     }
 };
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-    const slug = String(params!.slug);
-    const blog = await getBlogBySlug(slug);
+    try {
+        const slug = String(params?.slug);
+        const blog = await getBlogBySlug(slug);
 
-    if (!blog) {
-        return { notFound: true, revalidate: 60 };
+        if (!blog) {
+            return {
+                notFound: true,
+                revalidate: 60,
+            };
+        }
+
+        return {
+            props: { blog },
+            revalidate: 300,
+        };
+    } catch (error) {
+        console.error("Error loading blog:", error);
+
+        return {
+            notFound: true,
+            revalidate: 60,
+        };
     }
-
-    return {
-        props: { blog },
-        revalidate: 300,
-    };
 };
 
 export default function BlogPostPage({ blog }: Props) {
