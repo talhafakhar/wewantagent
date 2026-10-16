@@ -4,8 +4,9 @@ const nextConfig: NextConfig = {
     images: {
         remotePatterns: [
             {
-                protocol: 'https',
-                hostname: 'api.wewantagent.com',
+                protocol: "https",
+                hostname: "payloadcms3.on-forge.com",
+                pathname: "/api/media/**",
             },
             {
                 protocol: 'https',

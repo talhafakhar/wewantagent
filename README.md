@@ -17,9 +17,7 @@ pnpm dev
 bun dev
 
 Make sure the env.local file is in the repo before building the project
-NEXT_PUBLIC_STRAPI_URL=https:
-STRAPI_URL=https:
-STRAPI_API_TOKEN=
+NEXT_PUBLIC_PAYLOAD_URL=https://payloadcms3.on-forge.com
 NEXTAUTH_URL=
 NEXT_PUBLIC_SITE_HOSTNAME=
 SITE_HOSTNAME=https:

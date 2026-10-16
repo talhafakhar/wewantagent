@@ -10,6 +10,14 @@
 !.yarn/releases
 !.yarn/versions
 
+# IDE / Editor directories
+.idea/
+.vscode/
+.zed/
+.nova/
+*.suo
+*.sln
+
 # testing
 /coverage
 
