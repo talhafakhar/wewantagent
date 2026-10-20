@@ -7,7 +7,7 @@ import { Navigation } from "swiper/modules";
 import type { Swiper as SwiperInstance } from "swiper";
 import BlogCard from "@/components/Blog/BlogCard";
 import FooterSection from "@/components/Footer/footer";
-import { fetchBlogs } from "@/lib/strapi";
+import { fetchBlogs } from "@/lib/payloadCMS";
 import type { BlogResponse } from "@/types/blog";
 
 const MAX_BLOGS = 100;
@@ -39,7 +39,8 @@ export default function BlogsIndex({ blogs }: Props) {
                 openGraph={{
                     url: "https://wewantagent.com/blogs",
                     title: "Blog | We Want Agent",
-                    description: "Insights, guides, and updates on AI automation, agents, and workflow transformation from the We Want Agent team.",
+                    description:
+                        "Insights, guides, and updates on AI automation, agents, and workflow transformation from the We Want Agent team.",
                     images: [
                         {
                             url: "https://wewantagent.com/assets/og/blogs.jpg",
@@ -64,7 +65,11 @@ export default function BlogsIndex({ blogs }: Props) {
                 useAppDir={false}
                 itemListElements={[
                     { position: 1, name: "Home", item: "https://wewantagent.com/" },
-                    { position: 2, name: "Blog", item: "https://wewantagent.com/blogs" },
+                    {
+                        position: 2,
+                        name: "Blog",
+                        item: "https://wewantagent.com/blogs",
+                    },
                 ]}
             />
 
@@ -72,13 +77,15 @@ export default function BlogsIndex({ blogs }: Props) {
                 <div
                     className="pointer-events-none absolute -left-[8%] -top-[8%] h-[540px] w-[540px] rounded-full blur-[80px]"
                     style={{
-                        background: "radial-gradient(circle, rgba(94, 168, 255, 0.28), transparent 65%)",
+                        background:
+                            "radial-gradient(circle, rgba(94, 168, 255, 0.28), transparent 65%)",
                     }}
                 />
                 <div
                     className="pointer-events-none absolute -right-[12%] top-[10%] h-[520px] w-[520px] rounded-full blur-[90px]"
                     style={{
-                        background: "radial-gradient(circle, rgba(79, 209, 165, 0.18), transparent 65%)",
+                        background:
+                            "radial-gradient(circle, rgba(79, 209, 165, 0.18), transparent 65%)",
                     }}
                 />
 

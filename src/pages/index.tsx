@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import BlogCard from "@/components/Blog/BlogCard";
 import { BlogResponse } from "@/types/blog";
 import { GetStaticProps } from "next";
-import { fetchBlogs } from "@/lib/strapi";
+import { fetchBlogs } from "@/lib/payloadCMS";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
     FAQPageJsonLd,

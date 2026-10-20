@@ -1,28 +1,169 @@
-import React, {JSX} from "react";
+import React, { JSX } from "react";
 import Image from "next/image";
-import {motion} from "framer-motion";
-import {BlogPost, RichTextBlock} from "@/types/blog";
+import { motion } from "framer-motion";
+import type { BlogPost, LexicalNode, Media, Tag } from "@/types/blog";
 import FooterSection from "@/components/Footer/footer";
 import GlowButton from "@/components/ui/GlowButton";
-import {Calendar, RefreshCw} from "lucide-react";
+import { Calendar, RefreshCw } from "lucide-react";
 
 interface BlogDetailProps {
     blog: BlogPost | null;
 }
+const F_BOLD = 1;
+const F_ITALIC = 2;
+const F_STRIKE = 4;
+const F_UNDER = 8;
+const F_CODE = 16;
+const F_SUB = 32;
+const F_SUP = 64;
 
-const BlogDetail: React.FC<BlogDetailProps> = ({blog}) => {
+const HEADING_SIZE: Record<string, string> = {
+    h1: "text-4xl",
+    h2: "text-3xl",
+    h3: "text-2xl",
+    h4: "text-xl",
+    h5: "text-lg",
+    h6: "text-base",
+};
+
+function renderLexicalNode(node: LexicalNode, key: number): React.ReactNode {
+    if (!node) return null;
+
+    switch (node.type) {
+        case "root":
+            return (
+                <React.Fragment key={key}>
+                    {node.children?.map((c, i) => renderLexicalNode(c, i))}
+                </React.Fragment>
+            );
+
+        case "paragraph":
+            return (
+                <p key={key} className="mb-4 leading-relaxed">
+                    {node.children?.map((c, i) => renderLexicalNode(c, i))}
+                </p>
+            );
+
+        case "heading": {
+            const tag = node.tag || "h2";
+            const Tag = tag as keyof JSX.IntrinsicElements;
+            return (
+                <Tag
+                    key={key}
+                    className={`font-bold mb-4 mt-6 bg-gradient-to-r from-white to-[#f2c14e] bg-clip-text text-transparent ${
+                        HEADING_SIZE[tag] ?? "text-2xl"
+                    }`}
+                >
+                    {node.children?.map((c, i) => renderLexicalNode(c, i))}
+                </Tag>
+            );
+        }
+
+        case "list": {
+            const ordered = node.listType === "number";
+            const ListTag = ordered ? "ol" : "ul";
+            const cls = ordered
+                ? "list-decimal ml-6 mb-4 space-y-2 marker:text-[#f2c14e]"
+                : "list-disc ml-6 mb-4 space-y-2 marker:text-[#f2c14e]";
+            return (
+                <ListTag key={key} className={cls}>
+                    {node.children?.map((c, i) => renderLexicalNode(c, i))}
+                </ListTag>
+            );
+        }
+
+        case "listitem":
+            return (
+                <li key={key}>
+                    {node.children?.map((c, i) => renderLexicalNode(c, i))}
+                </li>
+            );
+
+        case "quote":
+            return (
+                <blockquote
+                    key={key}
+                    className="border-l-4 border-[#f2c14e]/50 pl-4 italic my-4 text-gray-300"
+                >
+                    {node.children?.map((c, i) => renderLexicalNode(c, i))}
+                </blockquote>
+            );
+
+        case "link":
+        case "autolink": {
+            const url = node.fields?.url || node.url || "#";
+            const newTab = node.fields?.newTab ?? /^https?:\/\//.test(url);
+            return (
+                <a
+                    key={key}
+                    href={url}
+                    className="text-[#f2c14e] hover:text-[#4fd1a5] underline underline-offset-2 transition-colors"
+                    target={newTab ? "_blank" : "_self"}
+                    rel={newTab ? "noopener noreferrer" : ""}
+                >
+                    {node.children?.map((c, i) => renderLexicalNode(c, i))}
+                </a>
+            );
+        }
+
+        case "linebreak":
+            return <br key={key} />;
+
+        case "horizontalrule":
+            return <hr key={key} className="my-8 border-white/10" />;
+
+        case "text": {
+            let content: React.ReactNode = node.text ?? "";
+            const fmt = typeof node.format === "number" ? node.format : 0;
+
+            if (fmt & F_CODE)
+                content = (
+                    <code className="bg-white/10 px-2 py-1 rounded text-sm font-mono text-[#f2c14e]">
+                        {content}
+                    </code>
+                );
+            if (fmt & F_BOLD)
+                content = (
+                    <strong className="bg-gradient-to-r from-[#f2c14e] to-white bg-clip-text text-transparent">
+                        {content}
+                    </strong>
+                );
+            if (fmt & F_ITALIC) content = <em>{content}</em>;
+            if (fmt & F_UNDER) content = <u>{content}</u>;
+            if (fmt & F_STRIKE) content = <s>{content}</s>;
+            if (fmt & F_SUB) content = <sub>{content}</sub>;
+            if (fmt & F_SUP) content = <sup>{content}</sup>;
+
+            return <React.Fragment key={key}>{content}</React.Fragment>;
+        }
+
+        default:
+            return node.children ? (
+                <React.Fragment key={key}>
+                    {node.children.map((c, i) => renderLexicalNode(c, i))}
+                </React.Fragment>
+            ) : null;
+    }
+}
+
+function renderRichText(rich?: BlogPost["content"] | string): React.ReactNode {
+    if (!rich) return null;
+    if (typeof rich === "string") return <p>{rich}</p>;
+    return renderLexicalNode(rich.root as unknown as LexicalNode, 0);
+}
+
+const BlogDetail: React.FC<BlogDetailProps> = ({ blog }) => {
     if (!blog) {
         return (
             <div className="min-h-screen bg-[#07080c]">
                 <motion.div
                     className="container mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center"
-                    initial={{opacity: 0, scale: 0.9}}
-                    animate={{opacity: 1, scale: 1}}
-                    transition={{duration: 0.5}}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}
                 >
                     <div className="max-w-md mx-auto">
-                        <div
-                            className="w-24 h-24 mx-auto mb-8 bg-white/[0.04] border border-white/10 rounded-full flex items-center justify-center">
+                        <div className="w-24 h-24 mx-auto mb-8 bg-white/[0.04] border border-white/10 rounded-full flex items-center justify-center">
                             <svg
                                 className="w-12 h-12 text-[#f2c14e]"
                                 fill="none"
@@ -37,20 +178,27 @@ const BlogDetail: React.FC<BlogDetailProps> = ({blog}) => {
                                 />
                             </svg>
                         </div>
-                        <h1 className="text-4xl font-bold mb-4 text-white">Blog Not Found</h1>
+                        <h1 className="text-4xl font-bold mb-4 text-white">
+                            Blog Not Found
+                        </h1>
                         <p className="text-gray-400 mb-8">
-                            The blog post you&apos;re looking for doesn&apos;t exist or may have been moved.
+                            The blog post you&apos;re looking for doesn&apos;t exist or may
+                            have been moved.
                         </p>
-                        <GlowButton href="/blogs">
-                            ← Back to List
-                        </GlowButton>
+                        <GlowButton href="/blogs">← Back to List</GlowButton>
                     </div>
                 </motion.div>
             </div>
         );
     }
-    const imageUrl = blog.feature_image?.url
-        ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${blog.feature_image.url}`
+
+    const img = typeof blog.heroImage === "object" && blog.heroImage
+            ? (blog.heroImage as Media)
+            : null;
+
+    const imageUrl = img?.url ? img.url.startsWith("http")
+            ? img.url
+            : `${process.env.NEXT_PUBLIC_PAYLOAD_URL}${img.url}`
         : null;
 
     const formatDate = (iso: string) =>
@@ -60,135 +208,18 @@ const BlogDetail: React.FC<BlogDetailProps> = ({blog}) => {
             day: "numeric",
         });
 
+    const tags: string[] = Array.isArray(blog.tags) ? blog.tags
+            .map((t) => (typeof t === "object" && t ? (t as Tag).name : ""))
+            .filter(Boolean)
+        : [];
+
     const fadeInUp = {
-        initial: {opacity: 0, y: 60},
-        animate: {opacity: 1, y: 0},
-        transition: {duration: 0.6, ease: "easeOut"},
+        initial: { opacity: 0, y: 60 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.6, ease: "easeOut" as const },
     };
-
-    const staggerContainer = {animate: {transition: {staggerChildren: 0.1}}};
-    const renderRichText = (blocks?: RichTextBlock[] | string) => {
-        if (!blocks) return null;
-        if (typeof blocks === "string") return <p>{blocks}</p>;
-        return (
-            <>
-                {blocks.map((block, index) => {
-                    switch (block.type) {
-                        case 'heading':
-                            const HeadingTag = `h${block.level || 2}` as keyof JSX.IntrinsicElements;
-                            return (
-                                <HeadingTag
-                                    key={index}
-                                    className={`font-bold mb-4 bg-gradient-to-r from-white to-[#f2c14e] bg-clip-text text-transparent ${
-                                        block.level === 1 ? 'text-4xl' :
-                                            block.level === 2 ? 'text-3xl' :
-                                                block.level === 3 ? 'text-2xl' :
-                                                    'text-xl'
-                                    }`}
-                                >
-                                    {block.children.map((child, i) => renderTextNode(child, i))}
-                                </HeadingTag>
-                            );
-
-                        case 'list':
-                            const ListTag = block.format === 'ordered' ? 'ol' : 'ul';
-                            const listClass = block.format === 'ordered' ? 'list-decimal' : 'list-disc';
-                            return (
-                                <ListTag key={index} className={`${listClass} ml-6 mb-4 space-y-2 marker:text-[#f2c14e]`}>
-                                    {block.children.map((item, i) => (
-                                        <li key={i}>
-                                            {item.children?.map((child, j) => renderTextNode(child, j))}
-                                        </li>
-                                    ))}
-                                </ListTag>
-                            );
-
-                        case 'quote':
-                            return (
-                                <blockquote
-                                    key={index}
-                                    className="border-l-4 border-[#f2c14e]/50 pl-4 italic my-4 text-gray-300"
-                                >
-                                    {block.children.map((child, i) => renderTextNode(child, i))}
-                                </blockquote>
-                            );
-
-                        case 'code':
-                            return (
-                                <pre key={index} className="bg-white/[0.04] border border-white/10 p-4 rounded-xl overflow-x-auto mb-4">
-                                <code>
-                                    {block.children.map((child) => child.text).join('')}
-                                </code>
-                            </pre>
-                            );
-
-                        default:
-                            return (
-                                <p key={index} className="mb-4 leading-relaxed">
-                                    {block.children.map((child, i) => renderTextNode(child, i))}
-                                </p>
-                            );
-                    }
-                })}
-            </>
-        );
-    };
-
-    const renderTextNode = (child: any, key: number) => {
-        if (!child) return null;
-        let content: React.ReactNode = child.text || '';
-        const style: React.CSSProperties = {};
-        if (child.color && !child.bold) {
-            style.color = child.color;
-        }
-        if (child.backgroundColor) {
-            style.backgroundColor = child.backgroundColor;
-        }
-
-        if (child.type === 'link') {
-            return (
-                <a
-                    key={key}
-                    href={child.url}
-                    className="text-[#f2c14e] hover:text-[#4fd1a5] underline underline-offset-2 transition-colors"
-                    target={child.url?.startsWith('http') ? '_blank' : '_self'}
-                    rel={child.url?.startsWith('http') ? 'noopener noreferrer' : ''}
-                >
-                    {child.children?.map((c: any, i: number) => renderTextNode(c, i)) || child.text}
-                </a>
-            );
-        }
-        if (child.code) {
-            content = <code className="bg-white/10 px-2 py-1 rounded text-sm font-mono text-[#f2c14e]">{content}</code>;
-        }
-
-        if (child.bold) {
-            content = (
-                <strong className="bg-gradient-to-r from-[#f2c14e] to-white bg-clip-text text-transparent">
-                    {content}
-                </strong>
-            );
-        }
-
-        if (child.italic) {
-            content = <em>{content}</em>;
-        }
-
-        if (child.underline) {
-            content = <u>{content}</u>;
-        }
-
-        if (child.strikethrough) {
-            content = <s>{content}</s>;
-        }
-        if (Object.keys(style).length > 0) {
-            return (
-                <span key={key} style={style}>
-                {content}
-            </span>
-            );
-        }
-        return <React.Fragment key={key}>{content}</React.Fragment>;
+    const staggerContainer = {
+        animate: { transition: { staggerChildren: 0.1 } },
     };
 
     return (
@@ -203,19 +234,25 @@ const BlogDetail: React.FC<BlogDetailProps> = ({blog}) => {
                             className="object-cover"
                             priority
                         />
-                        <div className="absolute inset-0 bg-[#07080c]/60"/>
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#07080c] via-[#07080c]/60 to-[#07080c]/20"/>
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#07080c]/80 via-[#07080c]/30 to-transparent"/>
+                        <div className="absolute inset-0 bg-[#07080c]/60" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#07080c] via-[#07080c]/60 to-[#07080c]/20" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#07080c]/80 via-[#07080c]/30 to-transparent" />
                     </>
                 ) : (
                     <>
                         <div
                             className="pointer-events-none absolute -left-[10%] -top-[10%] h-[560px] w-[560px] rounded-full blur-[70px]"
-                            style={{background: "radial-gradient(circle, rgba(242,193,78,0.18), transparent 65%)"}}
+                            style={{
+                                background:
+                                    "radial-gradient(circle, rgba(242,193,78,0.18), transparent 65%)",
+                            }}
                         />
                         <div
                             className="pointer-events-none absolute -right-[10%] top-[20%] h-[480px] w-[480px] rounded-full blur-[70px]"
-                            style={{background: "radial-gradient(circle, rgba(79,209,165,0.14), transparent 65%)"}}
+                            style={{
+                                background:
+                                    "radial-gradient(circle, rgba(79,209,165,0.14), transparent 65%)",
+                            }}
                         />
                     </>
                 )}
@@ -226,9 +263,12 @@ const BlogDetail: React.FC<BlogDetailProps> = ({blog}) => {
                     initial="initial"
                     animate="animate"
                 >
-                    {blog.tags && (
-                        <motion.div className="flex flex-wrap gap-1.5 mb-6" variants={fadeInUp}>
-                            {blog.tags?.map((tag, index) => (
+                    {tags.length > 0 && (
+                        <motion.div
+                            className="flex flex-wrap gap-1.5 mb-6"
+                            variants={fadeInUp}
+                        >
+                            {tags.map((tag, index) => (
                                 <span
                                     key={index}
                                     className="inline-block text-[11px] font-medium tracking-wide text-primary/90 bg-primary/10 border border-primary/20 rounded-full px-2.5 py-1"
@@ -253,15 +293,15 @@ const BlogDetail: React.FC<BlogDetailProps> = ({blog}) => {
                         variants={fadeInUp}
                     >
                         <div className="flex items-center gap-2">
-                            <Calendar size={14} className="text-[#f2c14e]"/>
+                            <Calendar size={14} className="text-[#f2c14e]" />
                             <span className="text-sm font-medium">
-                                Published {formatDate(blog.published)}
+                                Published {formatDate(blog.publishedAt)}
                             </span>
                         </div>
 
-                        {blog.updatedAt && blog.updatedAt !== blog.published && (
+                        {blog.updatedAt && blog.updatedAt !== blog.publishedAt && (
                             <div className="flex items-center gap-2">
-                                <RefreshCw size={14} className="text-[#4fd1a5]"/>
+                                <RefreshCw size={14} className="text-[#4fd1a5]" />
                                 <span className="text-sm font-medium">
                                     Updated {formatDate(blog.updatedAt)}
                                 </span>
@@ -274,7 +314,7 @@ const BlogDetail: React.FC<BlogDetailProps> = ({blog}) => {
                             className="text-lg md:text-xl text-gray-300 leading-relaxed font-light max-w-3xl"
                             variants={fadeInUp}
                         >
-                            {renderRichText(blog.excerpt)}
+                            {blog.excerpt}
                         </motion.div>
                     )}
                 </motion.header>
@@ -283,7 +323,10 @@ const BlogDetail: React.FC<BlogDetailProps> = ({blog}) => {
             <div className="relative overflow-hidden">
                 <div
                     className="pointer-events-none absolute -right-[10%] top-[10%] h-[480px] w-[480px] rounded-full blur-[70px]"
-                    style={{background: "radial-gradient(circle, rgba(79,209,165,0.14), transparent 65%)"}}
+                    style={{
+                        background:
+                            "radial-gradient(circle, rgba(79,209,165,0.14), transparent 65%)",
+                    }}
                 />
                 <motion.main
                     className="relative z-10"
@@ -298,15 +341,16 @@ const BlogDetail: React.FC<BlogDetailProps> = ({blog}) => {
                             </div>
                         </motion.article>
 
-                        <motion.footer className="py-8 border-t border-white/10" variants={fadeInUp}>
-                            <GlowButton href="/">
-                                ← Back to Home
-                            </GlowButton>
+                        <motion.footer
+                            className="py-8 border-t border-white/10"
+                            variants={fadeInUp}
+                        >
+                            <GlowButton href="/">← Back to Home</GlowButton>
                         </motion.footer>
                     </div>
                 </motion.main>
             </div>
-            <FooterSection/>
+            <FooterSection />
         </div>
     );
 };

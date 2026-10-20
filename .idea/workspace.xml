@@ -4,14 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6fd9078-b96d-4568-b877-60bf54a26353" name="Changes" comment="update sitemap.xml">
+    <list default="true" id="c6fd9078-b96d-4568-b877-60bf54a26353" name="Changes" comment="remove strapi blog">
+      <change afterPath="$PROJECT_DIR$/src/lib/payloadCMS.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Blog/BlogCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Blog/BlogCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Blog/BlogDetail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Blog/BlogDetail.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/strapi.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/blogs/[slug].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blogs/[slug].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/blogs/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/blogs/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/server-sitemap.xml.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/server-sitemap.xml.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/blog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/blog.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_C:/Users/user/Desktop/wewantagent" value="3KjZ33UqTtQEKyiPgR9m2ohrd4K" />
+    </persistenceIdMap>
   </component>
   <component name="Git.Settings">
     <option name="PUSH_TAGS">
@@ -19,6 +34,11 @@
         <option name="argument" value="--tags" />
         <option name="title" value="All" />
       </GitPushTagMode>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -28,10 +48,35 @@
     &quot;assignee&quot;: &quot;billalkhanzada&quot;
   }
 }</component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="without-blog" />
+                    <option name="lastUsedInstant" value="1792072682" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1792072681" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/talhafakhar/wewantagent.git&quot;,
-    &quot;accountId&quot;: &quot;b6f6c9ad-11de-4aeb-9de9-463590c22c33&quot;
+    &quot;accountId&quot;: &quot;7cfdb2dc-7044-4099-b16d-ff4068828ef6&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -41,29 +86,50 @@
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectSessionTemplates">
+    <option name="panelTemplate">
+      <template>
+        <option name="modeId" value="Agent" />
+        <option name="model">
+          <model>
+            <option name="modelType" value="builtin_id" />
+            <option name="modelValue" value="auto" />
+          </model>
+        </option>
+        <option name="targetType" value="BACKGROUND" />
+        <option name="worktreeMode" value="WORKSPACE" />
+      </template>
+    </option>
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
-    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Developer/PhpstormProjects/wewantagent&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Developer\\PhpstormProjects\\wewantagent\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "copilot.chat.legacySessionMetadata.migrated": "true",
+    "git-widget-placeholder": "without-blog",
+    "javascript.preferred.runtime.type.id": "node",
+    "js.debugger.nextJs.config.created.client": "true",
+    "js.debugger.nextJs.config.created.server": "true",
+    "last_opened_file_path": "C:/Users/Developer/PhpstormProjects/wewantagent",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Users\\user\\Desktop\\wewantagent\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -102,7 +168,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-e03c56caf84a-JavaScript-WS-252.23892.411" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-WS-262.10968.77" />
       </set>
     </attachedChunks>
   </component>
@@ -133,6 +199,8 @@
       <workItem from="1765285701094" duration="547000" />
       <workItem from="1765441797721" duration="379000" />
       <workItem from="1765446241179" duration="716000" />
+      <workItem from="1792072366411" duration="1185000" />
+      <workItem from="1792131282056" duration="2453000" />
     </task>
     <task id="LOCAL-00001" summary="blog">
       <option name="closed" value="true" />
@@ -334,7 +402,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765442115073</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="remove strapi blog">
+      <option name="closed" value="true" />
+      <created>1792073493014</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1792073493014</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -369,7 +445,8 @@
     <MESSAGE value="update sitempa and robot.txt" />
     <MESSAGE value="update strapi.ts" />
     <MESSAGE value="update sitemap.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="update sitemap.xml" />
+    <MESSAGE value="remove strapi blog" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove strapi blog" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
 </project>
